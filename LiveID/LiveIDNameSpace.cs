@@ -30,7 +30,7 @@
         }
         public LiveID_RP(): this(
                       "000000004C108D95",
-                      "http://a.local.host:54432/Website/login.aspx",
+                      "http://a.local.host:14022/login.aspx",
                       "zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1",
                       "https://login.live.com/oauth20_token.srf"
                       )

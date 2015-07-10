@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Net;
@@ -7,13 +8,19 @@ using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web;
+using System.Web.Configuration;
 
 namespace CST
 {
-    public class DLLServerConnector
+
+    public class DLLServerUploader
     {
-        public static string methodsFolder = @"C:\CST\methods\";
-        public static string dllsFolder = @"C:\CST\dlls\";
+        public static string CSTFolder = @"C:\CST";
+        public static string methodsFolderName = "methods";
+        public static string dllFolderName = "dlls";
+        public static string methodsFolder = CSTFolder + @"\" + methodsFolderName + @"\";
+        public static string dllsFolder = CSTFolder + @"\" + dllFolderName + @"\";
         public static string server_url = "http://protoagnostic.cloudapp.net:8600/";
         public static string depdown_page = "CST_Support_DepDown.aspx";
         public static string dlldown_page = "CST_Support_DllDown.aspx";
@@ -38,54 +45,35 @@ namespace CST
             }
         }
 
-        private static void downloadFile(string path, string url)
+        public DLLServerUploader()
         {
-            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
-            httpWebRequest.ReadWriteTimeout = 500;
-            httpWebRequest.ContentType = "application/octet-stream";
-            httpWebRequest.Accept = "*/*";
-            httpWebRequest.Method = "GET";
-
-            using (WebResponse response = httpWebRequest.GetResponse())
+            if (HttpContext.Current != null)
             {
-                var content = response.Headers.GetValues("Content-Disposition");
+                Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
 
-                if (content != null)
+                if (webConfig.AppSettings.Settings.Count > 0)
                 {
-                    var header_list = content.ToList();
-
-                    string filename = "";
-
-                    if (header_list.Count > 0)
-                        filename = new ContentDisposition(header_list[0]).FileName;
-                    else
-                        filename = "temp.txt";
-
-                    using (Stream stream = response.GetResponseStream())
+                    KeyValueConfigurationElement customSetting =
+                        webConfig.AppSettings.Settings["CSTFolderPath"];
+                    if (customSetting != null)
                     {
-                        using (MemoryStream ms = new MemoryStream())
-                        {
-                            stream.CopyTo(ms);
+                        CSTFolder = customSetting.Value;
+                    }
 
-                            File.WriteAllBytes(path + filename, ms.ToArray());
-                        }
+                    KeyValueConfigurationElement dllSetting =
+                        webConfig.AppSettings.Settings["DLLServerAddress"];
+                    if (customSetting != null)
+                    {
+                        server_url = dllSetting.Value;
                     }
                 }
+
+                methodsFolder = CSTFolder + @"\" + methodsFolderName;
+                dllsFolder = CSTFolder + @"\" + dllFolderName;
             }
         }
 
-        public static void downloadDLLandDep(string sha)
-        {
-            downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha);
-            downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha);
-        }
-
-        public static void downloadMethodRecord(string sha)
-        {
-            downloadFile(methodsFolder, server_url + methoddown_page + "?" + sha_parameter_name + "=" + sha);
-        }
-
-        public static void uploadMethodRecord(string filePath, string sha)
+        public void uploadMethodRecord(string filePath, string sha)
         {
             FileStream fs = new FileStream(filePath, FileMode.Open, FileAccess.Read);
             byte[] data = new byte[fs.Length];
@@ -95,14 +83,14 @@ namespace CST
             string fileName = Path.GetFileName(filePath);
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();
-            postParameters.Add("file", new DLLServerConnector.FileParameter(data, fileName, "application/octet-stream"));
+            postParameters.Add("file", new FileParameter(data, fileName, "application/octet-stream"));
 
             string url = server_url + methodup_page + "?" + sha_parameter_name + "=" + sha;
 
             uploadFile(postParameters, url);
         }
 
-        public static void uploadDllDep(string dllFilePath, string depFilePath, string sha)
+        public void uploadDllDep(string dllFilePath, string depFilePath, string sha)
         {
             FileStream fs = new FileStream(dllFilePath, FileMode.Open, FileAccess.Read);
             byte[] dllData = new byte[fs.Length];
@@ -119,8 +107,8 @@ namespace CST
 
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();
-            postParameters.Add("file", new DLLServerConnector.FileParameter(dllData, dllFileName, "application/octet-stream"));
-            postParameters.Add("file2", new DLLServerConnector.FileParameter(depData, depFileName, "application/octet-stream"));
+            postParameters.Add("file", new FileParameter(dllData, dllFileName, "application/octet-stream"));
+            postParameters.Add("file2", new FileParameter(depData, depFileName, "application/octet-stream"));
 
             string url = server_url + dllanddepUp_page + "?" + sha_parameter_name + "=" + sha;
 
@@ -128,15 +116,15 @@ namespace CST
 
         }
 
-        private static void uploadFile(Dictionary<string, object> postParameters, string url)
+        private void uploadFile(Dictionary<string, object> postParameters, string url)
         {
-            HttpWebResponse webResponse = DLLServerConnector.MultipartFormDataPost(url, "Uploader", postParameters);
+            HttpWebResponse webResponse = MultipartFormDataPost(url, "Uploader", postParameters);
 
             webResponse.Close();
         }
 
         private static readonly Encoding encoding = Encoding.UTF8;
-        public static HttpWebResponse MultipartFormDataPost(string postUrl, string userAgent, Dictionary<string, object> postParameters)
+        public HttpWebResponse MultipartFormDataPost(string postUrl, string userAgent, Dictionary<string, object> postParameters)
         {
             string formDataBoundary = String.Format("----------{0:N}", Guid.NewGuid());
             string contentType = "multipart/form-data; boundary=" + formDataBoundary;
@@ -146,39 +134,39 @@ namespace CST
             return PostForm(postUrl, userAgent, contentType, formData);
         }
 
-        private static HttpWebResponse PostForm(string postUrl, string userAgent, string contentType, byte[] formData)
+        private HttpWebResponse PostForm(string postUrl, string userAgent, string contentType, byte[] formData)
         {
             HttpWebRequest request = WebRequest.Create(postUrl) as HttpWebRequest;
 
-            if (request == null)
+            if (request != null)
             {
-                throw new NullReferenceException("request is not a http request");
+
+                // Set up the request properties.
+                request.Method = "POST";
+                request.ContentType = contentType;
+                request.UserAgent = userAgent;
+                request.CookieContainer = new CookieContainer();
+                request.ContentLength = formData.Length;
+
+                // You could add authentication here as well if needed:
+                // request.PreAuthenticate = true;
+                // request.AuthenticationLevel = System.Net.Security.AuthenticationLevel.MutualAuthRequested;
+                // request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(System.Text.Encoding.Default.GetBytes("username" + ":" + "password")));
+
+                // Send the form data to the request.
+                using (Stream requestStream = request.GetRequestStream())
+                {
+                    requestStream.Write(formData, 0, formData.Length);
+                    requestStream.Close();
+                }
+
+
+                return request.GetResponse() as HttpWebResponse;
             }
-
-            // Set up the request properties.
-            request.Method = "POST";
-            request.ContentType = contentType;
-            request.UserAgent = userAgent;
-            request.CookieContainer = new CookieContainer();
-            request.ContentLength = formData.Length;
-
-            // You could add authentication here as well if needed:
-            // request.PreAuthenticate = true;
-            // request.AuthenticationLevel = System.Net.Security.AuthenticationLevel.MutualAuthRequested;
-            // request.Headers.Add("Authorization", "Basic " + Convert.ToBase64String(System.Text.Encoding.Default.GetBytes("username" + ":" + "password")));
-
-            // Send the form data to the request.
-            using (Stream requestStream = request.GetRequestStream())
-            {
-                requestStream.Write(formData, 0, formData.Length);
-                requestStream.Close();
-            }
-
-
-            return request.GetResponse() as HttpWebResponse;
+            return null;
         }
 
-        private static byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
+        private byte[] GetMultipartFormData(Dictionary<string, object> postParameters, string boundary)
         {
             Stream formDataStream = new System.IO.MemoryStream();
             bool needsCLRF = false;
@@ -230,32 +218,104 @@ namespace CST
 
             return formData;
         }
+    }
 
+    public class DLLServerDownloader
+    {
+        public static string CSTFolder = @"C:\CST";
+        public static string methodsFolderName = "methods";
+        public static string dllFolderName = "dlls";
+        public static string methodsFolder = CSTFolder + @"\" + methodsFolderName + @"\";
+        public static string dllsFolder = CSTFolder + @"\" + dllFolderName + @"\";
+        public static string server_url = "http://protoagnostic.cloudapp.net:8600/";
+        public static string depdown_page = "CST_Support_DepDown.aspx";
+        public static string dlldown_page = "CST_Support_DllDown.aspx";
+        public static string methoddown_page = "CST_Support_MethodDown.aspx";
+        public static string dllanddepUp_page = "CST_Support_up.aspx";
+        public static string methodup_page = "CST_Support_MethodUp.aspx";
+        public static string sha_parameter_name = "USER_SHA";
+        public static string dllname_parameter_name = "DLL_NAME";
 
-        static void Main(string[] args)
+        public DLLServerDownloader()
         {
-            /*
-            string url = "http://protoagnostic.cloudapp.net:8600/CST_Support_MethodDown.aspx?USER_SHA=0709A2EE50792526A686B573936EDFAB2EEFF3B3";
+            if (HttpContext.Current != null)
+            {
+                Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
 
-            DLLServerConnector.downloadMethodRecord(url);
-            Console.Write("line");
-            Console.ReadKey();
-             */
+                if (webConfig.AppSettings.Settings.Count > 0)
+                {
+                    KeyValueConfigurationElement customSetting =
+                        webConfig.AppSettings.Settings["CSTFolderPath"];
+                    if (customSetting != null)
+                    {
+                        CSTFolder = customSetting.Value;
+                    }
 
-            FileStream fs = new FileStream("C:\\CST\\methods\\E345607A2F2F658E5892B7437669DFC67CD706A4.txt", FileMode.Open, FileAccess.Read);
-            byte[] data = new byte[fs.Length];
-            fs.Read(data, 0, data.Length);
-            fs.Close();
+                    KeyValueConfigurationElement dllSetting =
+                        webConfig.AppSettings.Settings["DLLServerAddress"];
+                    if (customSetting != null)
+                    {
+                        server_url = dllSetting.Value;
+                    }
+                }
 
-            // Generate post objects
-            Dictionary<string, object> postParameters = new Dictionary<string, object>();
-            postParameters.Add("file", new DLLServerConnector.FileParameter(data, "E345607A2F2F658E5892B7437669DFC67CD706A4.txt", "application/octet-stream"));
-
-            // Create request and receive response
-            string postURL = "http://protoagnostic.cloudapp.net:8600/CST_Support_MethodUp.aspx?+USER_SHA=E345607A2F2F658E5892B7437669DFC67CD706A4";
-            string userAgent = "Someone";
-            HttpWebResponse webResponse = DLLServerConnector.MultipartFormDataPost(postURL, userAgent, postParameters);
-
+                methodsFolder = CSTFolder + @"\" + methodsFolderName;
+                dllsFolder = CSTFolder + @"\" + dllFolderName;
+            }
         }
+
+        private static void downloadFile(string path, string url)
+        {
+            var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
+            httpWebRequest.ReadWriteTimeout = 500;
+            httpWebRequest.ContentType = "application/octet-stream";
+            httpWebRequest.Accept = "*/*";
+            httpWebRequest.Method = "GET";
+
+            using (WebResponse response = httpWebRequest.GetResponse())
+            {
+                var content = response.Headers.GetValues("Content-Disposition");
+
+                if (content != null)
+                {
+                    var header_list = content.ToList();
+
+                    string filename = "";
+
+                    if (header_list.Count > 0)
+                        filename = new ContentDisposition(header_list[0]).FileName;
+                    else
+                        filename = "temp.txt";
+
+                    using (Stream stream = response.GetResponseStream())
+                    {
+                        using (MemoryStream ms = new MemoryStream())
+                        {
+                            stream.CopyTo(ms);
+
+                            try
+                            {
+                                File.WriteAllBytes(path + filename, ms.ToArray());
+                            }
+                            catch (IOException)
+                            {
+                            }
+                        }
+                    }
+                }
+            }
+        }
+
+        public static void downloadDLLandDep(string sha)
+        {
+            downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha);
+            downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha);
+        }
+
+        public static void downloadMethodRecord(string sha)
+        {
+            downloadFile(methodsFolder, server_url + methoddown_page + "?" + sha_parameter_name + "=" + sha);
+        }
+
     }
 }

@@ -95,10 +95,5 @@ namespace CST
             return hash;
         }
     }*/
-    public interface Nondet_Base
-    {
-        int Int();
-        string String();
-        bool Bool();
-    }
+
 }

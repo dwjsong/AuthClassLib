@@ -1,10 +1,13 @@
 ﻿using System;
+using System.Collections.Concurrent;
 using System.Collections.Generic;
+using System.Configuration;
 using System.IO;
 using System.Linq;
 using System.Security.Cryptography;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Configuration;
 
 namespace CST
 {
@@ -148,11 +151,35 @@ namespace CST
 
     public class MethodHasher
     {
-        public static string methodsFolder =  @"C:\CST\methods\";
+        public static string CSTFolder = @"C:\CST";
+        private static string methodsFolderName = "methods";
+        private static string dllFolderName = "dlls";
+        public static string methodsFolder = CSTFolder + @"\" + methodsFolderName + @"\";
+        public static string dllsFolder = CSTFolder + @"\" + dllFolderName;
+
+        static MethodHasher()
+        {
+            Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(System.Web.HttpContext.Current.Request.ApplicationPath);
+
+            if (webConfig.AppSettings.Settings.Count > 0)
+            {
+                KeyValueConfigurationElement customSetting =
+                    webConfig.AppSettings.Settings["CSTFolderPath"];
+                if (customSetting != null) {
+                    CSTFolder = customSetting.Value;
+                }
+                else
+                {
+                    CSTFolder = @"C:\CST";
+                }
+            }
+
+            methodsFolder = CSTFolder + @"\" + methodsFolderName;
+            dllsFolder = CSTFolder + @"\" + dllFolderName;
+        }
 
         public static void saveMethod(MethodRecord mr) //string depPath, string dllPath)
         {
-
             if (!Directory.Exists(methodsFolder))
             {
                 Directory.CreateDirectory(methodsFolder);
@@ -160,7 +187,7 @@ namespace CST
 
             try
             {
-                System.IO.StreamWriter file = new System.IO.StreamWriter(methodsFolder + "\\" + mr.getSHA() + ".txt");
+                System.IO.StreamWriter file = new System.IO.StreamWriter(methodsFolder + @"\" + mr.getSHA() + ".txt");
 
                 file.Write(mr.ToString());
                 file.Close();
@@ -171,8 +198,8 @@ namespace CST
         }
 
         public static MethodRecord getMRFromFile(string mr_sha)
-        {
-            DLLServerConnector.downloadMethodRecord(mr_sha);
+        {            
+            DLLServerDownloader.downloadMethodRecord(mr_sha);
 
             string[] lines = System.IO.File.ReadAllLines(methodsFolder + "\\" + mr_sha + ".txt");
             string shaR = lines[0];
@@ -204,5 +231,38 @@ namespace CST
 
             return mr;
         }
+
+        public static List<MethodRecord> getDehashedRecords(ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA, _CST_Struct msg)
+        {
+            List<MethodRecord> mrList = new List<MethodRecord>();
+            string[] sha_methods = msg.SymT.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string method in sha_methods)
+            {
+                MethodRecord mr = null;
+                if (!methodSHADictKEYSHA.ContainsKey(method))
+                {
+                    if (!File.Exists(methodsFolder + @"\" + method + ".txt"))
+                    {
+                        DLLServerDownloader.downloadMethodRecord(method);
+                    }
+                    mr = MethodHasher.getMRFromFile(method);
+                }
+                else
+                {
+                    mr = methodSHADictKEYSHA[method];
+                }
+                if (!Directory.Exists(dllsFolder + @"\" + mr.SHA_of_DLL))
+                {
+
+                    DLLServerDownloader.downloadDLLandDep(mr.SHA_of_DLL);
+                }
+
+                mrList.Add(mr);
+            }
+
+            return mrList;
+        }
+
     }
 }

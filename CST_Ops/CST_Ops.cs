@@ -8,7 +8,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
-using System.Collections.Immutable;
 using System.Collections.Concurrent;
 
 namespace CST
@@ -17,6 +16,7 @@ namespace CST
     {
         private static ConcurrentDictionary<string, MethodRecord> methodSHADict = new ConcurrentDictionary<string, MethodRecord>();
         private static ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA = new ConcurrentDictionary<string, MethodRecord>();
+        private static DLLServerUploader uploader = new DLLServerUploader();
  
         static public void recordme(_CST_Struct msg)
         {
@@ -66,7 +66,7 @@ namespace CST
 
                 MethodHasher.saveMethod(mr);
 
-                DLLServerConnector.uploadMethodRecord(MethodHasher.methodsFolder + "\\" + mr.getSHA() + ".txt", sha);
+                uploader.uploadMethodRecord(MethodHasher.methodsFolder + "\\" + mr.getSHA() + ".txt", sha);
 
                 methodSHADict.AddOrUpdate(methodkey, mr, (k, v) => v);
                 methodSHADictKEYSHA.AddOrUpdate(mr.getSHA(), mr, (k, v) => v);
@@ -88,102 +88,18 @@ namespace CST
             return certify(msg);
         }
 
-        public static List<MethodRecord> getDehashedRecords(_CST_Struct msg)
-        {
-            List<MethodRecord> mrList = new List<MethodRecord>();
-            string[] sha_methods = msg.SymT.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
-
-            foreach (string method in sha_methods)
-            {
-                MethodRecord mr = null;
-                if (!methodSHADictKEYSHA.ContainsKey(method))
-                {
-                    if (!File.Exists(DLLServerConnector.methodsFolder + method + ".txt"))
-                    {
-                        DLLServerConnector.downloadMethodRecord(method);
-                    }
-                    mr = MethodHasher.getMRFromFile(method);
-                }
-                else
-                {
-                    mr = methodSHADictKEYSHA[method];
-                }
-                if (!Directory.Exists(DLLServerConnector.dllsFolder + mr.SHA_of_DLL))
-                {
-
-                    DLLServerConnector.downloadDLLandDep(mr.SHA_of_DLL);
-                }
-
-                mrList.Add(mr);
-            }
-
-            return mrList;
-        }
 
         public static bool certify(_CST_Struct msg)
         {
-            List<MethodRecord> methodList = getDehashedRecords(msg);
+            List<MethodRecord> methodList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
 
             VProgramGenerator.generateVProgram(methodList);
 
             VProgramGenerator.EditCSproj(methodList);
+            VProgramGenerator.MakeRunBat();
 
             return VProgramGenerator.verify();
         }
-
-        /*
-        public static bool SignatureValid(HttpRequest request)
-        {
-            return true;
-        }
-
-        public static bool parse(Message msg, HttpRequest request)
-        {
-            msg.SymT = request.QueryString["SymT"];
-            msg.SignedBy = request.QueryString["SignedBy"];
-            if (request.QueryString["value"] != null)
-                msg.value = Int32.Parse(request.QueryString["Value"]);
-            msg.largestParty = request.QueryString["LargestParty"];
-
-            if ((msg.SignedBy == null || msg.SignedBy.Length == 0) && !SignatureValid(request))
-            {
-                generateErrorResponse();
-                return false;
-            }
-            return true;
-        }
-
-        public static void respond(Message msg, HttpResponse response)
-        {
-            Dictionary<string, string> dict = new Dictionary<string, string>();
-
-            dict.Add("SymT", msg.SymT);
-            dict.Add("SignedBy", msg.SignedBy);
-            dict.Add("LargestParty", msg.largestParty);
-            dict.Add("Value", msg.value.ToString());
-            dict.Add("Certified", msg.certified.ToString());
-
-            XmlDocument doc = HTTPComm.GenerateXML(dict);
-
-            response.StatusCode = 200;
-            response.ContentType = "text/xml"; //must be 'text/xml'
-            response.ContentEncoding = System.Text.Encoding.UTF8; //we'd like UTF-8
-            doc.Save(response.Output);
-        }
-        */
-
-        public static void generateErrorResponse()
-        {
-        }
-
-
-
-
-
-
-
-
-
 
         static string dehash_server_host = "http://protoagnostic.cloudapp.net:8500/";
         static string upload_path = "Hash/CodeToHash";

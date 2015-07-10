@@ -18,6 +18,8 @@ namespace ProjectBuilder
         public static string projNameTag = "AssemblyName";
         public static string sha_default = "0000000000000000000000000000000000000000";
         private static XNamespace msbuild = "http://schemas.microsoft.com/developer/msbuild/2003";
+        private static DLLServerUploader uploader = new DLLServerUploader();
+        private static DLLHasher hasher = new DLLHasher();
 
         public static void Build(string build_file)
         {
@@ -77,22 +79,24 @@ namespace ProjectBuilder
         public static string CreateDepForProj(string build_file, string output_path, string prj_name)
         {
             string[] fileEntries = Directory.GetFiles(output_path, "*.dll");
-            string project_d = "";
+            string project_dll = "";
             List<string> depDLLList = GetReferenceFromCSPROJ(build_file);
             IEnumerable<string> depPrjList = GetDependentPrjList(build_file);
+            string project_path = Path.GetDirectoryName(build_file);
 
             foreach (string fileEnt in fileEntries)
             {
-                string name = Path.GetFileName(fileEnt);
+                string dll_name = Path.GetFileName(fileEnt);
 
-                if (name.StartsWith(prj_name))
+                if (dll_name.StartsWith(prj_name))
                 {
-                    project_d = fileEnt;
+                    project_dll = fileEnt;
                     break;
                 }
             }
 
-            if (project_d.Length > 0) {
+            if (project_dll.Length > 0)
+            {
                 foreach (string s in depPrjList)
                 {
                     string depAssm = GetAssemblyName(Path.GetDirectoryName(build_file) + @"\" + s);
@@ -100,22 +104,23 @@ namespace ProjectBuilder
                     foreach (string fileEnt in fileEntries)
                     {
                         string shaFromDLL = GetSHAFromDLL(fileEnt);
-                        string generatedSHA = DLLHasher.GenerateHashInHexStr(output_path, depAssm);
+                        string generatedSHA = hasher.GenerateHashInHexStr(output_path, depAssm);
 
                         if (shaFromDLL.Equals(generatedSHA))
                         {
-                            depDLLList.Add(@"C:\CST\dlls\" + shaFromDLL + @"\" + Path.GetFileName(fileEnt));
+                            string dl = Path.GetFileNameWithoutExtension(fileEnt);
+                            depDLLList.Add(@"C:\CST\dlls\" + dl + "." + shaFromDLL + @"\" + Path.GetFileName(fileEnt));
                         }
                     }
                 }
-                CreateDep(project_d, depDLLList);
-                string proj_n = Path.GetFileName(project_d);
-                string sha = DLLHasher.GenerateHashInHexStr(output_path, proj_n.Substring(0, proj_n.Length - 4));
+                CreateDep(project_dll, depDLLList);
+                string proj_n = Path.GetFileName(project_dll);
+                string sha = hasher.GenerateHashInHexStr(output_path, proj_n.Substring(0, proj_n.Length - 4));
 
-                EditDLLASM(sha, project_d);
-                DLLHasher.CopyDLL(sha, output_path, proj_n.Substring(0, proj_n.Length - 4));
+                EditDLLASM(sha, project_dll);
+                hasher.CopyDLL(sha, project_path, output_path, proj_n.Substring(0, proj_n.Length - 4));
 
-                DLLServerConnector.uploadDllDep(project_d, project_d.Substring(0, project_d.Length - 4) + ".dep", sha);
+                uploader.uploadDllDep(project_dll, project_dll.Substring(0, project_dll.Length - 4) + ".dep", sha);
 
                 return sha;
             }
@@ -154,7 +159,8 @@ namespace ProjectBuilder
            if (reference != null)
            {
                XElement path = reference.Element(msbuild + "HintPath");
-               path.SetValue("C:\\CST\\dlls\\" + sha + "\\" + parent_project + ".dll");
+
+               path.SetValue(hasher.dllsFolder + sha + "\\" + parent_project + ".dll");
            }
            projDefinition.Save(build_file);
         }
@@ -185,18 +191,30 @@ namespace ProjectBuilder
         {
             public void SomeMethod(AppDomainArgs ada)
             {
-                Assembly assembly = Assembly.ReflectionOnlyLoadFrom(ada.dll_path);
-
-                IList<CustomAttributeData> descriptionAttrList = assembly.GetCustomAttributesData();
-
-                foreach (CustomAttributeData attribute in descriptionAttrList)
+                try
                 {
-                    if (attribute.AttributeType.Equals(typeof(AssemblyDescriptionAttribute)))
+                    Assembly assembly = Assembly.ReflectionOnlyLoadFrom(ada.dll_path);
+
+
+                    IList<CustomAttributeData> descriptionAttrList = assembly.GetCustomAttributesData();
+
+                    foreach (CustomAttributeData attribute in descriptionAttrList)
                     {
-                        string typeVal = attribute.ToString();
-                        ada.sha = typeVal.Substring(typeof(AssemblyDescriptionAttribute).ToString().Length + 3, 40);
-                        break;
+                        if (attribute.AttributeType.Equals(typeof(AssemblyDescriptionAttribute)))
+                        {
+                            string typeVal = attribute.ToString();
+                            //                        Console.WriteLine("TypeVal: " + typeVal + " " + typeof(AssemblyDescriptionAttribute).ToString());
+
+                            if (typeVal.Length - typeof(AssemblyDescriptionAttribute).ToString().Length - 43 < 0) break;
+
+                            ada.sha = typeVal.Substring(typeof(AssemblyDescriptionAttribute).ToString().Length + 3, 40);
+                            break;
+                        }
                     }
+                }
+                catch (System.IO.FileLoadException)
+                {
+
                 }
             }
         }
@@ -209,7 +227,7 @@ namespace ProjectBuilder
 
         public static string GetSHAFromDLL(string dll_file_path)
         {
-            string SHA = "0000000000000000000000000000000000000000";
+//            Console.WriteLine(dll_file_path);
 
             AppDomain tempDomain = AppDomain.CreateDomain("TemporaryAppDomain");
             MyBoundaryObject boundary = (MyBoundaryObject)
@@ -219,7 +237,7 @@ namespace ProjectBuilder
 
             AppDomainArgs ada = new AppDomainArgs();
             ada.dll_path = dll_file_path;
-            ada.sha = SHA;
+            ada.sha = sha_default;
             boundary.SomeMethod(ada);
 
             AppDomain.Unload(tempDomain);
@@ -233,7 +251,6 @@ namespace ProjectBuilder
             if (File.Exists(dll_file))
             {
                 string currentSHA = GetSHAFromDLL(dll_file);
-
 
                 byte[] file = File.ReadAllBytes(dll_file);
                 byte[] curSHA = Encoding.Default.GetBytes(currentSHA);
@@ -256,17 +273,18 @@ namespace ProjectBuilder
             }
         }
 
-        public static string GetBuildPath(string csproj)
+        public static string GetBuildPath(string csproj, string compileMode)
         {
             string path = @"bin\Debug\";
 
             XDocument projDefinition = XDocument.Load(csproj);
+            /*
             string compileMode = projDefinition
                 .Element(msbuild + "Project")
                 .Elements(msbuild + "PropertyGroup")
                 .Elements(msbuild + "Configuration")
                 .Select(st => st.Value)
-                .SingleOrDefault();
+                .SingleOrDefault();*/
 
             IEnumerable<XElement> modeList = projDefinition
                 .Element(msbuild + "Project")
@@ -293,17 +311,17 @@ namespace ProjectBuilder
             return referenceList;
         }
 
-        public static void GatherDependentsDep(string csproj)
+        public static void GatherDependentsDep(string csproj, string mode)
         {
             IEnumerable<string> DependentPrjList = GetDependentPrjList(csproj);
 
-            string buildPath = Path.GetDirectoryName(csproj) + @"\" + GetBuildPath(csproj);
+            string buildPath = Path.GetDirectoryName(csproj) + @"\" + GetBuildPath(csproj, mode);
 
             foreach (string dependentPrj in DependentPrjList)
             {
                 string depCsproj = Path.GetDirectoryName(csproj) + @"\" + dependentPrj;
 
-                string depBuildPath = Path.GetDirectoryName(Path.GetDirectoryName(csproj) + @"\" + dependentPrj) + @"\" + GetBuildPath(depCsproj);
+                string depBuildPath = Path.GetDirectoryName(Path.GetDirectoryName(csproj) + @"\" + dependentPrj) + @"\" + GetBuildPath(depCsproj, mode);
 
                 string[] files = Directory.GetFiles(depBuildPath, "*.dep");
 
@@ -313,9 +331,10 @@ namespace ProjectBuilder
             }
         }
 
-        public static string GenerateDep(string build_file, string outputPath, string prj_name)
+        public static string GenerateDep(string build_file, string outputPath, string prj_name, string mode)
         {
-            GatherDependentsDep(build_file);
+            hasher.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
+            GatherDependentsDep(build_file, mode);
             string sha = CreateDepForProj(build_file, outputPath, prj_name);
 
             return sha;
@@ -342,7 +361,7 @@ namespace ProjectBuilder
                     case "-dep":
                     case "-d":
 
-                        Builder.GenerateDep(args[1], args[2], args[3]);
+                        Builder.GenerateDep(args[1], args[2], args[3], args[4]);
                         
                         break;
                     case "-c":
@@ -357,10 +376,10 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\Server_C\Server_C.csproj";
-                string b = @"C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\Server_C\bin";
-                string c = "Server_C";
-                Builder.GenerateDep(a, b, c);
+                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\Server_A\Server_A.csproj";
+                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\Server_A\bin";
+                string c = "Server_A";
+                Builder.GenerateDep(a, b, c, "Debug");
                 Console.ReadKey();
 
             }

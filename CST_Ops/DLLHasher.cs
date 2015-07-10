@@ -6,15 +6,70 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Security.Cryptography;
 using System.Reflection;
+using System.Xml.Linq;
+using System.Configuration;
+using System.Web.Configuration;
+using System.Web;
 
 namespace CST
 {
     public class DLLHasher
     {
-        public static string cstPath = @"C:\CST\";
-        public static string dllsFolder = cstPath + @"dlls\";
+        public string CSTFolder = @"C:\CST";
+        public string dllFolderName = @"dlls\";
+        public string dllsFolder = @"C:\CST\dlls\";
 
-        public static byte[] GenerateHash(string path, string name) //string depPath, string dllPath)
+        public DLLHasher()
+        {
+            if (HttpContext.Current == null) return;
+
+            Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+
+            if (webConfig.AppSettings.Settings.Count > 0)
+            {
+                KeyValueConfigurationElement customSetting =
+                    webConfig.AppSettings.Settings["CSTFolderPath"];
+                if (customSetting != null) {
+                    CSTFolder = customSetting.Value;
+                }
+                else
+                {
+                    CSTFolder = @"C:\CST";
+                }
+            }
+
+            dllsFolder = CSTFolder + @"\" + dllFolderName;
+        }
+
+        public void ReadWebConfig(string webConfig)
+        {
+            if (!File.Exists(webConfig)) return;
+
+            XDocument projDefinition = XDocument.Load(webConfig);
+            XElement configuration = projDefinition
+                .Element("configuration");
+
+            if (configuration == null) return;
+            IEnumerable<XElement> settingList = configuration
+                .Element("appSettings")
+                .Elements("add");
+
+            foreach (XElement element in settingList)
+            {
+                string key = element.Attribute("key").Value;
+                string value = element.Attribute("value").Value;
+
+                if (key == "CSTFolderPath")
+                {
+                    CSTFolder = value;
+                }
+//                
+            }
+
+//            return referenceList;
+        }
+
+        public byte[] GenerateHash(string path, string name) //string depPath, string dllPath)
         {
             string depPath = path + @"\" + name + ".dep";
             string dllPath = path + @"\" + name + ".dll";
@@ -55,7 +110,7 @@ namespace CST
             }
         }
 
-        private static void RemoveHashInDLLByte(byte[] dllBytes, string sha)
+        private void RemoveHashInDLLByte(byte[] dllBytes, string sha)
         {
             byte[] curSHA = Encoding.Default.GetBytes(sha);
 
@@ -74,7 +129,7 @@ namespace CST
             }
         }
 
-        public static byte[] GenerateHash(byte[] fileInByte, byte[] fileIndllBytes) //string depPath, string dllPath)
+        public byte[] GenerateHash(byte[] fileInByte, byte[] fileIndllBytes) //string depPath, string dllPath)
         {
             byte[] fileOutByte = new byte[fileInByte.Length + fileIndllBytes.Length];
 
@@ -90,12 +145,12 @@ namespace CST
             return result;
         }
 
-        private static object SHA1CryptoServiceProvider()
+        private object SHA1CryptoServiceProvider()
         {
             throw new NotImplementedException();
         }
 
-        public static string GenerateHashInHexStr(string path, string name)
+        public string GenerateHashInHexStr(string path, string name)
         {
             return BitConverter.ToString(GenerateHash(path, name)).Replace("-", string.Empty);
         }
@@ -141,7 +196,7 @@ namespace CST
 
         }
 
-        public static string GetSHAFromRawDLLAttrByte(byte[] dll)
+        public string GetSHAFromRawDLLAttrByte(byte[] dll)
         {
             string SHA = "0000000000000000000000000000000000000000";
 
@@ -167,7 +222,7 @@ namespace CST
 
         }
 
-        public static string GetSHAFromDLLAttribute(string dll_file_path)
+        public string GetSHAFromDLLAttribute(string dll_file_path)
         {
             string SHA = "0000000000000000000000000000000000000000";
 
@@ -187,7 +242,8 @@ namespace CST
             return ada.sha;
         }
 
-        public static void CopyDLL(string generated_SHA, string path, string name) //string depPath, string dllPath)
+
+        public void CopyDLL(string generated_SHA, string build_path, string output_path, string name) //string depPath, string dllPath)
         {
             if (!Directory.Exists(dllsFolder + @"\" + name + "." + generated_SHA))
             {
@@ -196,8 +252,8 @@ namespace CST
 
             try
             {
-                string depPath = path + @"\" + name + ".dep";
-                string dllPath = path + @"\" + name + ".dll";
+                string depPath = output_path + @"\" + name + ".dep";
+                string dllPath = output_path + @"\" + name + ".dll";
                 string depFile = Path.GetFileName(depPath);
                 string dllFile = Path.GetFileName(dllPath);
 
@@ -218,7 +274,7 @@ namespace CST
             }
         }
 
-        public static bool verifySHA1(string path, string name, string sha1)
+        public bool verifySHA1(string path, string name, string sha1)
         {
             string generatedSHA1 = GenerateHashInHexStr(path, name);
 
@@ -227,12 +283,12 @@ namespace CST
             return false;
         }
 
-        public static string GenerateHashInHexStr(byte[] depFileData, byte[] dllFileData)
+        public string GenerateHashInHexStr(byte[] depFileData, byte[] dllFileData)
         {
             return BitConverter.ToString(GenerateHash(depFileData, dllFileData)).Replace("-", string.Empty);
         }
 
-        public static void saveToCSTFolder(string depFileName, byte[] depFileData, string dllFileName, byte[] dllFileData, string sha)
+        public void saveToCSTFolder(string depFileName, byte[] depFileData, string dllFileName, byte[] dllFileData, string sha)
         {
             string name = Path.GetFileNameWithoutExtension(depFileName);
 
@@ -262,9 +318,10 @@ namespace CST
         {
             if (args.Length == 1)
             {
+                DLLHasher hasher = new DLLHasher();
                 string path = Path.GetFullPath(args[0]);
                 string name = Path.GetFileName(args[0]);
-                string generated_sha = DLLHasher.GenerateHashInHexStr(path, name);
+                string generated_sha = hasher.GenerateHashInHexStr(path, name);
                 Console.WriteLine(generated_sha);
 
             }
