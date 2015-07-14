@@ -211,6 +211,7 @@ namespace CST
 
                 if (id != -1)
                 {
+                    id--;
                     while (buildFileText[id] == ' ' || buildFileText[id] == '\t') id--;
                     sb.Append(buildFileText.Substring(0, id + 1));
 
@@ -221,7 +222,7 @@ namespace CST
                         sb.Append("      <HintPath>" + dl + "</HintPath>\n");
                         sb.Append("    </Reference>\n");
                     }
-                    sb.Append(buildFileText.Substring(id, buildFileText.Length-id));
+                    sb.Append(buildFileText.Substring(id + 1, buildFileText.Length-id - 1));
                 }
             }
             else {
@@ -275,11 +276,21 @@ namespace CST
             startInfo.FileName = @"C:\Windows\System32\cmd.exe";
             startInfo.Arguments = "/c " + build_cmd;
             process.StartInfo = startInfo;
-            startInfo.RedirectStandardOutput = true;
-            startInfo.UseShellExecute = false;
+//            startInfo.RedirectStandardOutput = true;
+//            startInfo.UseShellExecute = false;
             process.Start();
 
+//            string output = process.StandardOutput.ReadToEnd();
+            
+//            var standardOutput = new StringBuilder();
+            /*
+            while (!process.HasExited)
+            {
+                standardOutput.Append(process.StandardOutput.ReadToEnd());
+            }*/
+
             process.WaitForExit();
+//            standardOutput.Append(process.StandardOutput.ReadToEnd());
 
             if (File.Exists(vProPath + "corral_out_trace.txt"))
             {
