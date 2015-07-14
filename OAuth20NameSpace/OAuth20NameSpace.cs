@@ -8,7 +8,7 @@
     /*               Messages between parties                  */
     /***********************************************************/
 
-    public class AuthorizationRequest : _SignInIdP_Req
+    public class AuthorizationRequest : SignInIdP_Req
     {
         public string response_type;
         public string client_id;
@@ -22,20 +22,20 @@
         public string state = null;
     }
 
-    public class AuthorizationResponse : _SignInIdP_Resp_SignInRP_Req
+    public class AuthorizationResponse : SignInIdP_Resp_SignInRP_Req
     {
         public string code;
         public string state = null;
     }
 
-    class AuthorizationErrorResponse : _SignInIdP_Resp_SignInRP_Req
+    class AuthorizationErrorResponse : SignInIdP_Resp_SignInRP_Req
     {
         protected string error;
         protected string error_description = null, error_uri = null;
         protected string state = null;
     }
 
-    public class AccessTokenRequest : _CST_Struct
+    public class AccessTokenRequest : CST_Struct
     {
         public string grant_type;
         public string code;
@@ -44,7 +44,7 @@
         public string refresh_token = null;
     }
 
-    public class AccessTokenResponse : _CST_Struct
+    public class AccessTokenResponse : CST_Struct
     {
         public string access_token;
         public string token_type;
@@ -58,7 +58,7 @@
     /*               Data structures on parties                */
     /***********************************************************/
 
-    public class AuthorizationCodeEntry : _ID_Claim
+    public class AuthorizationCodeEntry : ID_Claim
     {
         public string code;
         public override string UserID
@@ -74,7 +74,7 @@
         public string state;
     }
 
-    public class AccessTokenEntry : _ID_Claim
+    public class AccessTokenEntry : ID_Claim
     {
         public string access_token;
         public override string UserID
@@ -91,12 +91,12 @@
         public string state;
     }
 
-    public interface AuthorizationCodeRecs : _IdPAuthRecords_Base
+    public interface AuthorizationCodeRecs : IdPAuthRecords_Base
     {
         string findISSByClientIDAndCode(string client_id, string authorization_code);
     }
 
-    public interface AccessTokenRecs : _IdPAuthRecords_Base
+    public interface AccessTokenRecs : IdPAuthRecords_Base
     {
         string findISSByClientIDAndAccessToken(string client_id, string access_token);
         string findISSByClientIDAndRefreshToken(string client_id, string refresh_token);
@@ -106,7 +106,7 @@
     /***********************************************************/
     /*                          Parties                        */
     /***********************************************************/
-    public abstract class Client: _RP
+    public abstract class Client: RP
     {
         public string client_id
         {
@@ -143,7 +143,7 @@
     {
     }
 
-    public abstract class AuthorizationServer: _IdP
+    public abstract class AuthorizationServer: IdP
     {
         public AuthorizationCodeRecs AuthorizationCodeRecs;
         protected AccessTokenRecs AccessTokenRecs
@@ -156,7 +156,7 @@
             AuthorizationCodeRecs = AuthorizationCodeRecs1;
             AccessTokenRecs = AccessTokenRecs1;
         }
-        protected override _ID_Claim Process_SignInIdP_req(_SignInIdP_Req req1)
+        protected override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
         {
             AuthorizationRequest req = (AuthorizationRequest)req1;
             switch (req.response_type)

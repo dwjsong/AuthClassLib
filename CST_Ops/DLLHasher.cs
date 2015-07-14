@@ -62,6 +62,7 @@ namespace CST
                 if (key == "CSTFolderPath")
                 {
                     CSTFolder = value;
+                    dllsFolder = CSTFolder + @"\" + dllFolderName;
                 }
 //                
             }

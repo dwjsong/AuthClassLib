@@ -4,16 +4,16 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{990DBF35-8090-4F83-B05C-6FDB27553929}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D79A10F0-9138-49A0-872C-7C4763DAF219}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>CST_Ops</RootNamespace>
-    <AssemblyName>CST_Ops</AssemblyName>
+    <RootNamespace>VProgram</RootNamespace>
+    <AssemblyName>VProgram</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
-    <SolutionDir Condition="$(SolutionDir) == '' Or $(SolutionDir) == '*Undefined*'">..\</SolutionDir>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
@@ -21,9 +21,9 @@
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
-    <UseVSHostingProcess>false</UseVSHostingProcess>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
     <OutputPath>bin\Release\</OutputPath>
@@ -33,10 +33,7 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
-    <Reference Include="System.Configuration" />
     <Reference Include="System.Core" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
@@ -44,31 +41,38 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="CST_Ops.cs" />
-    <Compile Include="DLLHasher.cs" />
-    <Compile Include="DLLServerConnector.cs" />
-    <Compile Include="MethodHasher.cs" />
+    <Compile Include="Assertion.cs" />
+    <Compile Include="OtherParties\LiveID_IdP.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="VProgramGenerator.cs" />
+    <Compile Include="SynthesizedPortion.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Communication\Communication.csproj">
-      <Project>{51feeb06-18d9-4c31-9cba-7c50a6ec393b}</Project>
-      <Name>Communication</Name>
-    </ProjectReference>
-    <ProjectReference Include="..\CST_Common\CST_Common.csproj">
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\CST_Common\CST_Common.csproj">
       <Project>{e871eff5-08c9-464a-9a85-248f2c6a9e94}</Project>
       <Name>CST_Common</Name>
     </ProjectReference>
+    <ProjectReference Include="..\..\..\GenericAuthNameSpace\GenericAuthNameSpace.csproj">
+      <Project>{d9cf94c5-ddec-4e97-8d89-3fa01fcbbab4}</Project>
+      <Name>GenericAuthNameSpace</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\LiveID\LiveID.csproj">
+      <Project>{31ace149-fc0d-45f7-8cb1-580bffa7da2c}</Project>
+      <Name>LiveID</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OAuth20NameSpace\OAuth20NameSpace.csproj">
+      <Project>{1476f311-9a1d-4acc-81a2-b33aab5200c9}</Project>
+      <Name>OAuth20NameSpace</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\..\..\OpenIDConnectNameSpace\OpenIDConnectNameSpace.csproj">
+      <Project>{1b74b308-e62e-419b-be2c-610bae70524a}</Project>
+      <Name>OpenIDConnectNameSpace</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>"$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>"$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -d "$(ProjectPath)" "$(ProjectDir)$(OutDir)\" "$(TargetName)" "$(ConfigurationName)"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

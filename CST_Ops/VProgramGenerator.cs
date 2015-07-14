@@ -18,18 +18,20 @@ namespace CST
         public static string poirotPath = @"C:\PoirotEnlistment";
         static string refStartText = "<Reference Include";
         static string refEndText = "</Reference>";
+        static string globalobjectText = "GlobalObjectsForCST";
 
-        public static string vSynFile = "SynthesizedSequence.cs";
+        public static string vSynFile = "SynthesizedPortion.cs";
 
         static string nondetStr = "Nondet";
+        static string porirotMainStr = "PoirotMain";
         public static int variableC = 0;
         static string tabBuffer = "          ";
         static public string nondet = "Nondet";
 
 
-        static public string syn_start = "partial class PoirotMain\n" +
+        static public string syn_start = "public class SynthesizedPortion\n" +
                                          "{\n" +
-                                          "    static void call_SynthesizedSequence()\n" +
+                                          "    public static void SynthesizedSequence()\n" +
                                           "    {\n";
 
         static public string syn_end = "    }\n}";
@@ -50,12 +52,21 @@ namespace CST
                 if (vProSetting != null)
                 {
                     vProPath = vProSetting.Value;
-                    string csproj = Directory.GetFiles(vProPath, "*.csproj")[0];
-
-                    if (csproj != null)
+                    try
                     {
-                        projectFile = csproj;
+                        string[] csproj = Directory.GetFiles(vProPath, "*.csproj");
+
+                        if (csproj != null)
+                        {
+                            projectFile = csproj[0];
+                        }
+
                     }
+                    catch(Exception e)
+                    {
+                        Console.WriteLine(e.ToString());
+                    }
+                    
                 }
                 KeyValueConfigurationElement poirotSetting =
                     webConfig.AppSettings.Settings["POIROT_ROOT"];
@@ -80,14 +91,17 @@ namespace CST
 
         }
 
-        public static string GenDef(string typeNS, string type)
+        public static string GenDef(string type)
         {
-            return typeNS + "." + type + " " + type[0] + variableC.ToString() + " = " + nondetStr + "." + type + "();"; 
+            string[] typesplit = type.Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+
+            string typeWithoutNS = typesplit[typesplit.Length - 1];
+            return type + " " + type[0] + variableC.ToString() + " = " + porirotMainStr + "." + nondetStr + "." + typeWithoutNS + "();"; 
         }
 
-        public static string DefType(string typeNS, string type)
+        public static string DefType(string type)
         {
-            return typeNS + "." + type + " " + type[0] + variableC.ToString();
+            return type + " " + type[0] + variableC.ToString();
         }
 
         public static string generateVP(List<MethodRecord> records)
@@ -101,7 +115,7 @@ namespace CST
 
                 variableC++;
 
-                sb.Append(tabBuffer + GenDef(records[records.Count - 1].argTypeNS, records[records.Count - 1].argType) + "\n");
+                sb.Append(tabBuffer + GenDef(records[records.Count - 1].argType) + "\n");
 
                 for (int i = records.Count - 1; i >= 0; i--)
                 {
@@ -112,9 +126,9 @@ namespace CST
                     string ClassN = tClassN[tClassN.Length - 1];
 
                     if (mr.returnType != "Void")
-                        sb.Append(tabBuffer + DefType(mr.returnTypeNS, mr.returnType) + " = " + ClassN + "." + mr.methodName + "(" + mr.argType[0] + (variableC - 1).ToString() + ");\n");
+                        sb.Append(tabBuffer + DefType(mr.returnType) + " = ((" + mr.className + ")" + globalobjectText + "." + mr.rootClassName + ")." + mr.methodName + "(" + mr.argType[0] + (variableC - 1).ToString() + ");\n");
                     else
-                        sb.Append(tabBuffer + ClassN + "." + mr.methodName + "(" + mr.argType[0] + (variableC - 1).ToString() + ");\n");
+                        sb.Append(tabBuffer + "((" + globalobjectText + "." + mr.rootClassName + ")." + "." + mr.methodName + "(" + mr.argType[0] + (variableC - 1).ToString() + ");\n");
                 }
             }
 
@@ -127,7 +141,7 @@ namespace CST
         {
             string program = generateVP(methodList);
 
-            System.IO.StreamWriter file = new System.IO.StreamWriter(vProPath + vSynFile);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(vProPath + @"\" + vSynFile);
 
             file.Write(program);
 
@@ -253,14 +267,18 @@ namespace CST
         }        
         public static bool verify()
         {
-            string build_cmd = "cd " + vProPath + " & " + vProPath + "run.bat";
+            string build_cmd = "cd " + vProPath + " & " /*+ vProPath*/ + "run.bat";
+            //string build_cmd = "cd " + vProPath +" & dir";
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
-            startInfo.FileName = "cmd.exe";
+            startInfo.FileName = @"C:\Windows\System32\cmd.exe";
             startInfo.Arguments = "/c " + build_cmd;
             process.StartInfo = startInfo;
+            startInfo.RedirectStandardOutput = true;
+            startInfo.UseShellExecute = false;
             process.Start();
+
             process.WaitForExit();
 
             if (File.Exists(vProPath + "corral_out_trace.txt"))

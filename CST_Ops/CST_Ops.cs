@@ -16,41 +16,52 @@ namespace CST
     {
         private static ConcurrentDictionary<string, MethodRecord> methodSHADict = new ConcurrentDictionary<string, MethodRecord>();
         private static ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA = new ConcurrentDictionary<string, MethodRecord>();
+        private static ConcurrentDictionary<string, bool> SymTResultCache = new ConcurrentDictionary<string, bool>();
         private static DLLServerUploader uploader = new DLLServerUploader();
- 
-        static public void recordme(_CST_Struct msg)
+
+        
+        public static void recordme(CST_Struct msg)
         {
             StackTrace st = new StackTrace();
             StackFrame sf = st.GetFrame(1);
-            MethodBase mi = sf.GetMethod();
+            MethodInfo mi = (MethodInfo)sf.GetMethod();
 
-            string classNS = mi.ReflectedType.Namespace;
-            string className = mi.ReflectedType.Name;
+            recordme(msg, mi);
+        }
+
+        public static void recordme(CST_Struct msg, MethodInfo mi)
+        {
+            var t = mi.ReflectedType;
+
+            string rootClass = GetRootClassName(t);
+
+            string className = mi.ReflectedType.FullName;
+            className = className.Replace("\\", string.Empty).Replace('+', '.');
+
             string methodName = mi.Name;
 
             ParameterInfo[] pi = mi.GetParameters();
             string[] args = new string[pi.Length];
             string argType = "";
-            string argTypeNS = "";
 
             if (pi.Length > 0)
             {
-                argType = pi[0].ParameterType.Name;
-                argTypeNS = pi[0].ParameterType.Namespace;
+                argType = pi[0].ParameterType.FullName;
+                argType = argType.Replace("\\", string.Empty).Replace('+', '.');
+
             }
 
-            MethodInfo mb = (MethodInfo)mi;
+            string returnType = mi.ReturnType.FullName;
 
-            string returnTypeNS = mb.ReturnType.Namespace;
-            string returnType = mb.ReturnType.Name;
+            returnType = returnType.Replace("\\", string.Empty).Replace('+', '.');
 
-            string methodkey = returnTypeNS + "." + returnType + " " + classNS + "." + className + "." + methodName + "(" + argTypeNS + "." + argType + ")";
+            string methodkey = returnType + " " + className + " " + rootClass + "." + methodName + "(" + argType + ")";
             string sha = "0000000000000000000000000000000000000000";
 
             if (!methodSHADict.ContainsKey(methodkey))
             {
                 string dllName = mi.Module.FullyQualifiedName;
-                
+
                 string path = Path.GetDirectoryName(dllName);
                 string name = Path.GetFileNameWithoutExtension(dllName);
 
@@ -62,7 +73,7 @@ namespace CST
                 if (descriptionAttribute != null)
                     sha = descriptionAttribute.Description;
 
-                MethodRecord mr = new MethodRecord(classNS, className, methodName, argTypeNS, argType, returnTypeNS, returnType, name + "." + sha);
+                MethodRecord mr = new MethodRecord(className, rootClass, methodName, argType, returnType, name + "." + sha);
 
                 MethodHasher.saveMethod(mr);
 
@@ -81,24 +92,40 @@ namespace CST
             msg.SymT = sha + "(" + msg.SymT + ")";
         }
 
-
-        public bool conclude(_CST_Struct msg)
+        public static string GetRootClassName(Type type)
         {
-            /*make v program and verify*/
-            return certify(msg);
+            while (type.BaseType != typeof(Object))
+            {
+                type = type.BaseType;
+            }
+
+            return type.Name;
         }
 
 
-        public static bool certify(_CST_Struct msg)
+        public bool Conclude(CST_Struct msg)
         {
-            List<MethodRecord> methodList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
+            /*make v program and verify*/
+            return Certify(msg);
+        }
 
-            VProgramGenerator.generateVProgram(methodList);
+        public static bool Certify(CST_Struct msg)        
+        {
+            if (!SymTResultCache.ContainsKey(msg.SymT))
+            {
+                List<MethodRecord> methodList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
 
-            VProgramGenerator.EditCSproj(methodList);
-            VProgramGenerator.MakeRunBat();
+                VProgramGenerator.generateVProgram(methodList);
 
-            return VProgramGenerator.verify();
+                VProgramGenerator.EditCSproj(methodList);
+                VProgramGenerator.MakeRunBat();
+
+                bool resultOfVerification = VProgramGenerator.verify();
+
+                SymTResultCache[msg.SymT] = resultOfVerification;
+            }
+
+            return SymTResultCache[msg.SymT];
         }
 
         static string dehash_server_host = "http://protoagnostic.cloudapp.net:8500/";

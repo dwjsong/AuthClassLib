@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
+using System.Xml.Linq;
 
 namespace CST
 {
@@ -70,6 +71,37 @@ namespace CST
 
                 methodsFolder = CSTFolder + @"\" + methodsFolderName;
                 dllsFolder = CSTFolder + @"\" + dllFolderName;
+            }
+        }
+
+        public void ReadWebConfig(string configFile)
+        {
+            if (!File.Exists(configFile)) return;
+
+            XDocument projDefinition = XDocument.Load(configFile);
+            XElement configuration = projDefinition
+                .Element("configuration");
+
+            if (configuration == null) return;
+            IEnumerable<XElement> settingList = configuration
+                .Element("appSettings")
+                .Elements("add");
+
+            foreach (XElement element in settingList)
+            {
+                string key = element.Attribute("key").Value;
+                string value = element.Attribute("value").Value;
+
+                if (key == "CSTFolderPath")
+                {
+                    CSTFolder = value;
+                    dllsFolder = CSTFolder + @"\" + dllFolderName;
+                }
+                else if (key == "DLLServerAddress")
+                {
+                    server_url = value;
+                }
+                
             }
         }
 

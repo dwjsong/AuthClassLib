@@ -224,7 +224,6 @@ namespace ProjectBuilder
             public string sha { get; set; }
         }
 
-
         public static string GetSHAFromDLL(string dll_file_path)
         {
 //            Console.WriteLine(dll_file_path);
@@ -278,13 +277,6 @@ namespace ProjectBuilder
             string path = @"bin\Debug\";
 
             XDocument projDefinition = XDocument.Load(csproj);
-            /*
-            string compileMode = projDefinition
-                .Element(msbuild + "Project")
-                .Elements(msbuild + "PropertyGroup")
-                .Elements(msbuild + "Configuration")
-                .Select(st => st.Value)
-                .SingleOrDefault();*/
 
             IEnumerable<XElement> modeList = projDefinition
                 .Element(msbuild + "Project")
@@ -334,6 +326,7 @@ namespace ProjectBuilder
         public static string GenerateDep(string build_file, string outputPath, string prj_name, string mode)
         {
             hasher.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
+            uploader.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
             GatherDependentsDep(build_file, mode);
             string sha = CreateDepForProj(build_file, outputPath, prj_name);
 
@@ -376,9 +369,9 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\Server_A\Server_A.csproj";
-                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\Server_A\bin";
-                string c = "Server_A";
+                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\CST_Message\CST_Message.csproj";
+                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\CST_Message\bin\Debug";
+                string c = "CST_Message";
                 Builder.GenerateDep(a, b, c, "Debug");
                 Console.ReadKey();
 

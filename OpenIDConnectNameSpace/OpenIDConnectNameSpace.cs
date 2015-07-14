@@ -15,7 +15,7 @@
     /*               Messages between parties                  */
     /***********************************************************/
 
-    class AuthenticationRequest : AuthorizationRequest
+    public class AuthenticationRequest : AuthorizationRequest
     {
         public string response_mode = null;
         public string nonce = null;
@@ -89,7 +89,7 @@
     
     public class IDTokenAndAccessTokenEntry : AccessTokenEntry
     {
-        internal JsonWebToken id_token;
+        public JsonWebToken id_token;
         public override string Redir_dest
         {
             get { return redirect_uri; }
@@ -100,7 +100,7 @@
         }
     }
 
-    interface IDTokenAndAccessTokenRecs : AccessTokenRecs
+    public interface IDTokenAndAccessTokenRecs : AccessTokenRecs
     {
     }
 
@@ -131,23 +131,27 @@
             if (tokenResp == null) 
                 return null;
 
+            /*
             tokenResp.SymT = CST.CST_Ops.ConstructSymT(
                                 CST.CST_Ops.ConstructServerServerCall(tokenResp.SymT, "#nop"),
                                 false);
+             */
             return conclude(tokenResp);
         }
         public TokenRequest constructTokenRequest(AuthenticationResponse codeResp)
         {
-        
             TokenRequest tokenReq = new TokenRequest();
             tokenReq.code = codeResp.code;
             tokenReq.grant_type = "authorization_code";
             tokenReq.redirect_uri = return_uri; 
             tokenReq.client_id =client_id;
+            tokenReq.SymT = codeResp.SymT;
+            CST_Ops.recordme(tokenReq);
 
+            /*
             tokenReq.SymT = CST.CST_Ops.ConstructSymT(
                         CST.CST_Ops.ConstructSimpleCall("#constructTokenRequest", "", false),
-                        false);
+                        false);*/
 
             return tokenReq;
         } 
@@ -172,11 +176,18 @@
                     TokenResponse TokenResponse = new TokenResponse();
                     if (TokenResponse.parseJasonDataStructure(JsonDataStrcuture, client_secret))
                     {
+                        TokenResponse.SymT = req.SymT;
+
+                        CST_Ops.recordme(TokenResponse, typeof(OpenIDProvider).GetMethod("TokenEndpoint"));
+
+                        
+                        /*
                         //hack -- because the real live ID server doesn't attach SymT yet.   
                         //in the future, we should convince the Live ID team to do CST for real.
                         TokenResponse.SymT = "login.live.com:" +
                                CST.CST_Ops.ConstructSimpleCall("#TokenEndpoint", req.SymT, false);
                         //end of hack
+                         */
                         return TokenResponse;
                     }
                     else
@@ -189,9 +200,13 @@
         {
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
             conclusion.SessionUID = tokenResp.id_token.Claims.UserId;
+            conclusion.SymT = tokenResp.SymT;
+            /*
             conclusion.SymT = CST.CST_Ops.ConstructSymT(
                         CST.CST_Ops.ConstructSimpleCall("#drawConclusion", tokenResp.SymT, true),
                         false);
+             */
+            CST_Ops.recordme(conclusion);
             if (AuthenticationDone(conclusion))
                 return conclusion;
             else
@@ -200,7 +215,7 @@
     }
 
 
-    abstract internal class OpenIDProvider : AuthorizationServer
+    abstract public class OpenIDProvider : AuthorizationServer
     {
         protected IDTokenAndAccessTokenRecs IDTokenAndAccessTokenRecs
         {
@@ -218,7 +233,7 @@
             else
                 return (AuthenticationResponse)SignInIdP(req);
         }
-        protected override _SignInIdP_Resp_SignInRP_Req Redir(string dest, _ID_Claim claim)
+        protected override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim claim)
         {
             var AuthCode = claim as AuthorizationCodeEntry;
             if (AuthCode == null)
@@ -258,7 +273,7 @@
             return null;
         }
     }
-    interface NondetOpenIDConnect : Nondet_Base
+    public interface NondetOpenIDConnect : Nondet_Base
     {
         JsonWebToken JsonWebToken();
         IDTokenAndAccessTokenEntry IDTokenAndAccessTokenEntry();

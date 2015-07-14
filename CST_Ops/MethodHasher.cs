@@ -13,11 +13,6 @@ namespace CST
 {
     public class MethodRecord : IEquatable<MethodRecord>
     {
-        public string namespaceN
-        {
-            get;
-            set;
-        }
         public string className
         {
             get;
@@ -28,17 +23,7 @@ namespace CST
             get;
             set;
         }
-        public string argTypeNS
-        {
-            get;
-            set;
-        }
         public string argType
-        {
-            get;
-            set;
-        }
-        public string returnTypeNS
         {
             get;
             set;
@@ -54,20 +39,24 @@ namespace CST
             get;
             set;
         }
+
+        public string rootClassName
+        {
+            get;
+            set;
+        }
         
         private string SHA_of_record;
         private SHA1 sha = new SHA1CryptoServiceProvider();
 
-        public MethodRecord(string nameSpaceN, string className, string methodName, string argTypeNS, string argType, string returnTypeNS, string returnType, string SHA_of_DLL)
+        public MethodRecord(string className, string rootClassName, string methodName, string argType, string returnType, string SHA_of_DLL)
         {
-            this.namespaceN = nameSpaceN;
             this.className = className;
             this.methodName = methodName;
             this.argType = argType;
             this.returnType = returnType;
             this.SHA_of_DLL = SHA_of_DLL;
-            this.returnTypeNS = returnTypeNS;
-            this.argTypeNS = argTypeNS;
+            this.rootClassName = rootClassName;
         }
 
         public override int GetHashCode()
@@ -85,9 +74,9 @@ namespace CST
             StringBuilder sb = new StringBuilder();
 
             sb.Append(SHA_of_DLL + "\n");
-            sb.Append(returnTypeNS + "." + returnType + " " + namespaceN + "." + className + " " + methodName + "(");
+            sb.Append(returnType + " " + className + " " + rootClassName + " " + methodName + "(");
 
-            sb.Append(argTypeNS + "." + argType + "");
+            sb.Append(argType + "");
 
             sb.Append(")\n");
 
@@ -110,9 +99,9 @@ namespace CST
 
             sb.Append(SHA_of_record + "\n");
             sb.Append(SHA_of_DLL + "\n");
-            sb.Append(returnTypeNS + "." + returnType + " " + namespaceN + "." + className + " " + methodName + "(");
+            sb.Append(returnType + " " + className + " " + rootClassName + " " + methodName + "(");
 
-            sb.Append(argTypeNS + "." + argType + "");
+            sb.Append(argType + "");
 
             sb.Append(")\n");
 
@@ -208,6 +197,7 @@ namespace CST
             string m = lines[2]; 
 
             string[] method = m.Split(new char[] { ' ', ')', '('});
+            /*
 
             string[] tS = method[0].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
   
@@ -218,21 +208,29 @@ namespace CST
 
             string classN = tS2[tS2.Length - 1];
             string classNS = method[1].Substring(0, method[1].Length - classN.Length - 1);
-            
-            string methodN = method[2];
+
+            string[] tS4 = method[2].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
+            string methodN = tS4[tS4.Length - 1];
+            string rootClassN = method[2].Substring(0, method[2].Length - methodN.Length - 1);
 
             string[] tS3 = method[3].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
 
             string param = tS3[tS3.Length - 1];
-            string paramNS = method[3].Substring(0, method[3].Length - param.Length - 1);
+            string paramNS = method[3].Substring(0, method[3].Length - param.Length - 1);*/
+
+            string returnN = method[0];
+            string classN = method[1];
+            string rootClassN = method[2];
+            string methodN = method[3];
+            string param = method[4];
 
 
-            MethodRecord mr = new MethodRecord(classNS, classN, methodN, paramNS, param, returnTypeNS, returnN, shaD);
+            MethodRecord mr = new MethodRecord(classN, methodN, rootClassN, param, returnN, shaD);
 
             return mr;
         }
 
-        public static List<MethodRecord> getDehashedRecords(ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA, _CST_Struct msg)
+        public static List<MethodRecord> getDehashedRecords(ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA, CST_Struct msg)
         {
             List<MethodRecord> mrList = new List<MethodRecord>();
             string[] sha_methods = msg.SymT.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);

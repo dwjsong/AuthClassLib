@@ -10,7 +10,7 @@ using System.IO;
 
 namespace CST
 {
-    public class _CST_Struct
+    public class CST_Struct
     {
         public string SymT = "";
         public string SignedBy = "";
@@ -96,4 +96,10 @@ namespace CST
         }
     }*/
 
+    public interface Nondet_Base
+    {
+        int Int();
+        string String();
+        bool Bool();
+    }
 }

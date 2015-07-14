@@ -36,8 +36,9 @@
                       )
         {            
         }
-        public override _SignInRP_Resp SignInRP(_SignInIdP_Resp_SignInRP_Req req)
+        public override SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req)
         {
+
             AuthenticationResponse codeResp = (AuthenticationResponse)req;
             AuthenticationUsingAuthorizationCodeFlow(codeResp);
             return null;
