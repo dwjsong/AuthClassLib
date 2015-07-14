@@ -1,0 +1,55 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\LiveIDLogin\LiveIDExample\Website</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="bin/Communication.dll">
+      <publishTime>07/08/2015 16:07:22</publishTime>
+    </File>
+    <File Include="bin/CST.dll">
+      <publishTime>07/08/2015 16:09:48</publishTime>
+    </File>
+    <File Include="bin/CST_Ops.dll">
+      <publishTime>07/08/2015 16:11:10</publishTime>
+    </File>
+    <File Include="bin/GenericAuthNameSpace.dll">
+      <publishTime>07/08/2015 16:11:10</publishTime>
+    </File>
+    <File Include="bin/LiveID.dll">
+      <publishTime>07/08/2015 16:32:54</publishTime>
+    </File>
+    <File Include="bin/LiveIDExample.dll">
+      <publishTime>07/08/2015 16:32:55</publishTime>
+    </File>
+    <File Include="bin/OAuth20NameSpace.dll">
+      <publishTime>07/08/2015 16:11:11</publishTime>
+    </File>
+    <File Include="bin/OpenIDConnectNameSpace.dll">
+      <publishTime>07/08/2015 16:11:12</publishTime>
+    </File>
+    <File Include="default.html">
+      <publishTime>07/08/2015 16:28:16</publishTime>
+    </File>
+    <File Include="DisplayUserID.aspx">
+      <publishTime>07/08/2015 14:54:15</publishTime>
+    </File>
+    <File Include="login.aspx">
+      <publishTime>07/08/2015 14:54:15</publishTime>
+    </File>
+    <File Include="readme.txt">
+      <publishTime>07/08/2015 14:51:53</publishTime>
+    </File>
+    <File Include="test.aspx">
+      <publishTime>07/08/2015 14:54:15</publishTime>
+    </File>
+    <File Include="Web.config">
+      <publishTime>07/08/2015 16:27:54</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

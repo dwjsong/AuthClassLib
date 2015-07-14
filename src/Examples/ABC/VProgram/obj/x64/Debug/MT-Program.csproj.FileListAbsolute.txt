@@ -1,0 +1,6 @@
+C:\CCP\teamprojects\liveid1\OAuthSample\MT-Program\bin\Debug\MT-Program.exe.config
+C:\CCP\teamprojects\liveid1\OAuthSample\MT-Program\bin\Debug\MT-Program.exe
+C:\CCP\teamprojects\liveid1\OAuthSample\MT-Program\bin\Debug\MT-Program.pdb
+C:\CCP\teamprojects\liveid1\OAuthSample\MT-Program\obj\x64\Debug\MT-Program.csprojResolveAssemblyReference.cache
+C:\CCP\teamprojects\liveid1\OAuthSample\MT-Program\obj\x64\Debug\MT-Program.exe
+C:\CCP\teamprojects\liveid1\OAuthSample\MT-Program\obj\x64\Debug\MT-Program.pdb

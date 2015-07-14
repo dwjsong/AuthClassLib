@@ -1,0 +1,32 @@
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_A.dep
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\vProgram.exe.config
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\vProgram.exe
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\vProgram.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\ABC_Common.dll
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\CST_Common.dll
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_A.dll
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_B.dll
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_C.dll
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\CST_Ops.dll
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\ABC_Common.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\CST_Common.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_A.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_B.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\Server_C.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\bin\Debug\CST_Ops.pdb
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\obj\Debug\vProgram.csprojResolveAssemblyReference.cache
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\obj\Debug\vProgram.exe
+C:\Users\t-das\Documents\Visual Studio 2012\Projects\CST_Example\vProgram\obj\Debug\vProgram.pdb
+C:\CST\vProgram\bin\Debug\vProgram.exe.config
+C:\CST\vProgram\bin\Debug\vProgram.exe
+C:\CST\vProgram\bin\Debug\vProgram.pdb
+C:\CST\vProgram\bin\Debug\Server_A.dll
+C:\CST\vProgram\bin\Debug\Server_B.dll
+C:\CST\vProgram\bin\Debug\Server_C.dll
+C:\CST\vProgram\obj\Debug\vProgram.csprojResolveAssemblyReference.cache
+C:\CST\vProgram\obj\Debug\vProgram.exe
+C:\CST\vProgram\obj\Debug\vProgram.pdb
+c:\CST\vProgram\bin\Debug\Communication.dll
+c:\CST\vProgram\bin\Debug\CST.dll
+c:\CST\vProgram\bin\Debug\CST_Message.dll
+c:\CST\vProgram\bin\Debug\CST_Ops.dll

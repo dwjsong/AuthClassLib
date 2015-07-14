@@ -1,0 +1,11 @@
+<References>
+	<Reference>
+		..\..\..\..\lib\CST.dll
+	</Reference>
+	<Reference>
+		..\..\..\..\lib\CST_Ops.dll
+	</Reference>
+	<Reference>
+		C:\CST\dlls\CST_Message.CC0E010C82B105E692B8CDD277D4CE5B3708942F\CST_Message.dll
+	</Reference>
+</References>

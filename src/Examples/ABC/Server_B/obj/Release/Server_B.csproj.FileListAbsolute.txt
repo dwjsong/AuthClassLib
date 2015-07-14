@@ -1,0 +1,14 @@
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\Server_B.dll.config
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\Server_B.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\Server_B.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\CST.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\CST_Message.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\CST_Ops.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\Communication.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\CST.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\CST_Message.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\CST_Ops.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\bin\Communication.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\obj\Release\Server_B.csprojResolveAssemblyReference.cache
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\obj\Release\Server_B.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\ABC\Server_B\obj\Release\Server_B.pdb

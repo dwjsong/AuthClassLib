@@ -1,0 +1,7 @@
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\obj\Debug\CST.csprojResolveAssemblyReference.cache
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\bin\Debug\CST.dll
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\bin\Debug\CST.pdb
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\bin\Debug\Communication.dll
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\bin\Debug\Communication.pdb
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\obj\Debug\CST.dll
+c:\users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST\obj\Debug\CST.pdb

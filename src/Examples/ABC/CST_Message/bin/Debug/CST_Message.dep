@@ -1,0 +1,11 @@
+<References>
+	<Reference>
+		..\..\..\..\lib\Communication.dll
+	</Reference>
+	<Reference>
+		..\..\..\..\lib\CST.dll
+	</Reference>
+	<Reference>
+		..\..\..\..\lib\CST_Ops.dll
+	</Reference>
+</References>

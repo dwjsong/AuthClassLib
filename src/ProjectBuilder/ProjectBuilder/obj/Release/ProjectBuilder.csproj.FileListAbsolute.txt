@@ -1,0 +1,10 @@
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe.config
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe.config
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.pdb
