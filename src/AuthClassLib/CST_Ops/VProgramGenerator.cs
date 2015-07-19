@@ -243,7 +243,7 @@ namespace CST
                             int id = text.Length - 1;
                             while (text[id] == ' ' || text[id] == '\t') id--;
                             sb.Append(text.Substring(0, id + 1));
-                        }
+                       } 
 
                         if (pos == 0)
                         {

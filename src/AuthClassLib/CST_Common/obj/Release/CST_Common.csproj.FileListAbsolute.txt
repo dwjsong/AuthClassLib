@@ -12,3 +12,5 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassL
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\obj\Release\CST_Common.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\obj\Release\CST.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\obj\Release\CST.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\CST.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\CST.pdb

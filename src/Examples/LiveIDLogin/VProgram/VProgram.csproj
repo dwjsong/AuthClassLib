@@ -33,22 +33,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Communication">
-      <HintPath>C:\CST\dlls\Communication.9441EB8CB923514F29CD2FCB5C1497B07DCD0B54\Communication.dll</HintPath>
+      <HintPath>C:\CST\dlls\Communication.E35E05FEFF4060BCEF4CF2F2EFF774581E80601F\Communication.dll</HintPath>
     </Reference>
     <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.651685B6D6463132D256090EF1A8D6BDAEC523B7\CST.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST.474246918EA9A7BBC5BAD47F3D883E989ADA1BFE\CST.dll</HintPath>
     </Reference>
     <Reference Include="CST_Ops">
-      <HintPath>C:\CST\dlls\CST_Ops.EBAB30778A7BD73D906D43DCC7A35CC04FD66543\CST_Ops.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST_Ops.1D541CE0563074F4C96CA31459CE99C56F624FEB\CST_Ops.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.C833AFADDC98E114965B19695EA2EADD42A6580A\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.5EFF44FB3A0FD9C4624956543F37C479616E19E8\GenericAuthNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OAuth20NameSpace">
-      <HintPath>C:\CST\dlls\OAuth20NameSpace.F43459694164B9C8F4CFAED2D1F792C38887CE0E\OAuth20NameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OAuth20NameSpace.A961A5E29ECD1B245A61A4C92AB8A0A230464B88\OAuth20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDConnectNameSpace">
-      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.AAA3D1A0BB4C3DF2C06FEA7A59AFBFEBD8365A51\OpenIDConnectNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.634FE2AB384FDC1DE2B7C4BFA6252DC4E1535DC5\OpenIDConnectNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />

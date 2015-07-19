@@ -8,5 +8,11 @@
     <script src="//js.live.net/v5.0/wl.js" type="text/javascript" language="javascript"></script>
 </head>
 <body>
+  	<form action="" method="post">
+	    <label for="openid_identifier">OpenID: </label>
+	    <input id="openid_identifier" name="openid_identifier" size="40" />
+	    <input type="submit" value="Login" />
+	</form>
+
 </body>
 </html>
