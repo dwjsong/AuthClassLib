@@ -23,7 +23,7 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Server_C", "ABC\Server_C\Se
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "OpenIDLogin", "OpenIDLogin", "{ABB108A7-2830-480A-9EE1-39B956662D8A}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIDExample", "OpenIDLogin\OpenIDExample\OpenIDExample\OpenIDExample.csproj", "{7CCD8C54-D995-4982-9EF9-CCBA1D13DE46}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIDExample", "OpenIDLogin\OpenIDExample\OpenIDExample.csproj", "{7CCD8C54-D995-4982-9EF9-CCBA1D13DE46}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
