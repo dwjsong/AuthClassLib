@@ -48,6 +48,24 @@ namespace OpenID20NameSpace
         public string endpointURL;
     }
 
+    //data structures
+    public class IDAssertionEntry : ID_Claim
+    {
+        public string openid_return_to;
+        public string openid_identity;
+        public string openid_claimed_id;
+        public string openid_assoc_handle;
+        public string openid_op_endpoint;
+        public override string Redir_dest
+        {
+            get { return openid_return_to; }
+        }
+        public override string UserID
+        {
+            get { return openid_claimed_id; }
+        }
+    }
+    //=====================================================
     public abstract class RelyingParty : RP
     {
         public string return_uri
@@ -113,9 +131,19 @@ namespace OpenID20NameSpace
         }
         
     }
+    public interface IDAssertionRecs : IdPAuthRecords_Base
+    {
+       // string findISSByClientIDAndCode(string client_id, string authorization_code);
+    }
 
     public abstract class OpenIDProvider : IdP
     {
+        protected IDAssertionRecs IDAssertionRecs
+        {
+            get { return (IDAssertionRecs)IdpAuthRecs; }
+            set { IdpAuthRecs = value; }
+        }
+
         protected override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
         {
             AuthenticationRequest req = (AuthenticationRequest)req1;
@@ -134,6 +162,10 @@ namespace OpenID20NameSpace
             switch (req.mode)
             {
                 case "checkid_setup" :
+                    IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
+                    resp.claimed_id = entry.openid_claimed_id;
+                    resp.return_to = entry.openid_return_to;
+                    //...
 
                     break;
             }
