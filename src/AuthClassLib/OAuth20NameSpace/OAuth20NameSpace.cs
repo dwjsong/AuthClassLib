@@ -16,6 +16,7 @@
         public override string Realm
         {
             get { return client_id; }
+            set { client_id = value; }
         }
         public string redirect_uri = null;
         public HashSet<string> scope;

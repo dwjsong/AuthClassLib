@@ -13,6 +13,7 @@
         public abstract string Realm
         {
             get;
+            set;
         }
     }
 
@@ -79,7 +80,6 @@
         }
         public virtual bool AuthenticationDone(AuthenticationConclusion conclusion)
         {
-//            CST_Ops.recordme(conclusion);
             bool CST_verified = CST_Ops.Certify(conclusion);
             CurrentSession["UserID"] = CST_verified?conclusion.SessionUID:"";
             return CST_verified;

@@ -200,6 +200,8 @@ namespace CST
                 }
             }
 
+            if (!File.Exists(projectFile)) return;
+
             string buildFileText = File.ReadAllText(projectFile);
             int pos = 0, startPos;
             StringBuilder sb = new StringBuilder();
