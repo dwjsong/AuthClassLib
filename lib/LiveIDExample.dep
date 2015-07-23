@@ -15,6 +15,6 @@
 		..\..\..\..\lib\OpenIDConnectNameSpace.dll
 	</Reference>
 	<Reference>
-		C:\CST\dlls\LiveID_IdP.7E6984F955B3B1C73D0EF35A0B1C8FF8395150A2\LiveID_IdP.dll
+		C:\CST\dlls\LiveID_IdP.B7F32955CEE16F76AD2EF6F47EDC0D382F270C66\LiveID_IdP.dll
 	</Reference>
 </References>

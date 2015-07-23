@@ -59,3 +59,9 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\L
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\CST_Ops.pdb
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveID_IdP.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveID_IdP.pdb
+C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\GitRoot\AuthClassLib\lib\LiveIDExample.dll.config
+C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\GitRoot\AuthClassLib\lib\LiveIDExample.dll
+C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\GitRoot\AuthClassLib\lib\LiveIDExample.pdb
+C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\GitRoot\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.csprojResolveAssemblyReference.cache
+C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\GitRoot\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.dll
+C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\GitRoot\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.pdb
