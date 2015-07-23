@@ -1,0 +1,14 @@
+<References>
+	<Reference>
+		..\..\..\..\lib\CST.dll
+	</Reference>
+	<Reference>
+		..\..\..\..\lib\GenericAuthNameSpace.dll
+	</Reference>
+	<Reference>
+		..\..\..\..\lib\OAuth20NameSpace.dll
+	</Reference>
+	<Reference>
+		..\..\..\..\lib\OpenIDConnectNameSpace.dll
+	</Reference>
+</References>

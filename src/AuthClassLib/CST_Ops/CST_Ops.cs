@@ -57,7 +57,7 @@ namespace CST
 
             string methodkey = returnType + " " + className + " " + rootClass + "." + methodName + "(" + argType + ")";
             string sha = "0000000000000000000000000000000000000000";
-
+            
             if (!methodSHADict.ContainsKey(methodkey))
             {
                 string dllName = mi.Module.FullyQualifiedName;
@@ -101,7 +101,6 @@ namespace CST
 
             return type.Name;
         }
-
 
         public bool Conclude(CST_Struct msg)
         {

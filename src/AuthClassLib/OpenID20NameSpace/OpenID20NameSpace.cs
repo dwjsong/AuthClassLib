@@ -34,7 +34,7 @@ namespace OpenID20NameSpace
         public string endpointURL;
     }
 
-    public class AuthenticationResponse : SignInRP_Resp
+    public class AuthenticationResponse : SignInIdP_Resp_SignInRP_Req
     {
         public string ns = "http://specs.openid.net/auth/2.0";
         public string mode;
@@ -112,7 +112,6 @@ namespace OpenID20NameSpace
             return "";
         }
 
-
         public AuthenticationRequest RequestAuthentication(AuthenticationRequest resp)
         {
             var req = new AuthenticationRequest();
@@ -128,8 +127,7 @@ namespace OpenID20NameSpace
             CST_Ops.recordme(req);
 
             return req;
-        }
-        
+        }        
     }
     public interface IDAssertionRecs : IdPAuthRecords_Base
     {
@@ -144,6 +142,7 @@ namespace OpenID20NameSpace
             set { IdpAuthRecs = value; }
         }
 
+        
         protected override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
         {
             AuthenticationRequest req = (AuthenticationRequest)req1;
@@ -155,9 +154,17 @@ namespace OpenID20NameSpace
             return null;
         }
 
+        protected AuthenticationResponse AuthorizationEndpoint(AuthenticationRequest req)
+        {
+            return (AuthenticationResponse)SignInIdP(req);
+        }
+
         public AuthenticationResponse ProcessAuthenticationRequest(AuthenticationRequest req)
         {
             AuthenticationResponse resp = new AuthenticationResponse();
+            resp.SymT = req.SymT;
+
+            CST_Ops.recordme(resp);
 
             switch (req.mode)
             {
@@ -165,9 +172,8 @@ namespace OpenID20NameSpace
                     IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
                     resp.claimed_id = entry.openid_claimed_id;
                     resp.return_to = entry.openid_return_to;
-                    //...
 
-                    break;
+                    return resp;
             }
 
             return resp;

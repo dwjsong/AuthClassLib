@@ -7,6 +7,7 @@ using System.Net;
 using System.Net.Http;
 using System.Net.Mime;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
@@ -298,6 +299,11 @@ namespace CST
 
         private static void downloadFile(string path, string url)
         {
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+
             var httpWebRequest = (HttpWebRequest)WebRequest.Create(url);
             httpWebRequest.ReadWriteTimeout = 500;
             httpWebRequest.ContentType = "application/octet-stream";
@@ -342,6 +348,27 @@ namespace CST
         {
             downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha);
             downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha);
+
+            string path = dllsFolder + sha;
+
+            if (Directory.Exists(path)) {
+                string[] depfiles = Directory.GetFiles(path, "*.dep");
+
+                if (depfiles.Length > 0)
+                {
+                    string dependentDLLs = File.ReadAllText(depfiles[0]);
+
+                    string pattern = @"\\[A-Za-z0-9.]+\\[A-Za-z0-9.]*dll\n";
+                    Regex rgx = new Regex(pattern);
+                    foreach (Match match in rgx.Matches(dependentDLLs))
+                    {
+                        string matched_sha = match.Value.Substring(1).Split('\\')[0];
+
+                        if (!Directory.Exists(dllsFolder + matched_sha))
+                            downloadDLLandDep(matched_sha);
+                    }
+                }
+            }
         }
 
         public static void downloadMethodRecord(string sha)

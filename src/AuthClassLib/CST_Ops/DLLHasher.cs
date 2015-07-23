@@ -315,17 +315,5 @@ namespace CST
 
         }
 
-        static void Main(string[] args)
-        {
-            if (args.Length == 1)
-            {
-                DLLHasher hasher = new DLLHasher();
-                string path = Path.GetFullPath(args[0]);
-                string name = Path.GetFileName(args[0]);
-                string generated_sha = hasher.GenerateHashInHexStr(path, name);
-                Console.WriteLine(generated_sha);
-
-            }
-        }
     }
 }

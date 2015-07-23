@@ -18,3 +18,9 @@ C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\LiveI
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\LiveIDLogin\LiveIDExample\obj\Release\LiveIDExample.csprojResolveAssemblyReference.cache
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\LiveIDLogin\LiveIDExample\obj\Release\LiveIDExample.dll
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\Examples\LiveIDLogin\LiveIDExample\obj\Release\LiveIDExample.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\lib\LiveIDExample.dll.config
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\lib\LiveIDExample.dll
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\lib\LiveIDExample.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Release\LiveIDExample.csprojResolveAssemblyReference.cache
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Release\LiveIDExample.dll
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Release\LiveIDExample.pdb

@@ -20,9 +20,9 @@ namespace ABC
         }
 
         public int data;
-        public CST_Message conclusion = new CST_Message();
+        public Message conclusion = new Message();
 
-        public CST_Message invoke(CST_Message msg)
+        public Message invoke(Message msg)
         {
             CST_Ops.recordme(msg);
 
@@ -52,7 +52,7 @@ namespace ABC
             return msg;
         }
 
-        public bool conclude(CST_Message msg)
+        public bool conclude(Message msg)
         {
                         //return CST_Ops.certify(conclusion.SymT));
             // synthesize vProgram

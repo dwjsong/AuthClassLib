@@ -9,6 +9,7 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Configuration;
 using System.Xml;
+using System.Xml.Linq;
 
 namespace CST
 {
@@ -16,10 +17,8 @@ namespace CST
     {
         public static string vProPath = @"C:\CST\vProgram\";
         public static string poirotPath = @"C:\PoirotEnlistment";
-        static string refStartText = "<Reference Include";
-        static string refEndText = "</Reference>";
         static string globalobjectText = "GlobalObjectsForCST";
-        static string relativePath = @"<HintPath>..\";
+        private static XNamespace msbuild = "http://schemas.microsoft.com/developer/msbuild/2003";
 
         public static string vSynFile = "SynthesizedPortion.cs";
 
@@ -149,9 +148,9 @@ namespace CST
             file.Close();
         }
 
-        public static List<string> getDep(string fileName)
+        public static HashSet<string> getDep(string fileName)
         {
-            List<string> dllList = new List<string>();
+            HashSet<string> dllList = new HashSet<string>();
 
             XmlTextReader reader = new XmlTextReader(fileName);
 
@@ -161,7 +160,15 @@ namespace CST
                     reader.Name == "Reference")
                 {
                     reader.Read();
-                    dllList.Add(reader.Value.Trim());
+                    string dllPath = reader.Value.Trim();
+
+                    if (!dllList.Contains(dllPath))
+                    {
+                        dllList.Add(dllPath);
+                        string depPath = dllPath.Substring(0, dllPath.Length-4) + ".dep";
+
+                        dllList.UnionWith(getDep(depPath));
+                    }
                 }
             }
 
@@ -175,7 +182,8 @@ namespace CST
 
         public static void EditCSproj(List<MethodRecord> methodList)
         {
-            HashSet<string> dllSet = new HashSet<string>();
+            Dictionary<string, string> dllPathDict = new Dictionary<string, string>();
+            HashSet<string> dllNameSet = new HashSet<string>();
 
             foreach (MethodRecord mr in methodList)
             {
@@ -189,12 +197,17 @@ namespace CST
                     {
                         if (fileName.EndsWith(".dll") || fileName.EndsWith(".exe"))
                         {
-                            dllSet.Add(fileName);
+                            string name = Path.GetFileNameWithoutExtension(fileName);
+                            dllNameSet.Add(name);
+                            dllPathDict[name] = fileName;
                         }
                         else
                         {
-                            foreach (string st in getDep(fileName))
-                                dllSet.Add(st);
+                            foreach (string dep_filename in getDep(fileName)) {
+                                string name = Path.GetFileNameWithoutExtension(dep_filename);
+                                dllNameSet.Add(name);
+                                dllPathDict[name] = dep_filename;
+                            }
                         }
                     }
                 }
@@ -202,103 +215,56 @@ namespace CST
 
             if (!File.Exists(projectFile)) return;
 
-            string buildFileText = File.ReadAllText(projectFile);
-            int pos = 0, startPos;
-            StringBuilder sb = new StringBuilder();
-            int nowPos = buildFileText.IndexOf(refEndText, pos);
+            XDocument projDefinition = XDocument.Load(projectFile);
+            IEnumerable<XElement> referenceList = projDefinition
+                .Element(msbuild + "Project")
+                .Elements(msbuild + "ItemGroup")
+                .Elements(msbuild + "Reference");
 
-            startPos = nowPos;
-            if (nowPos == -1)
+            XElement oneRef = null;
+
+            foreach (XElement refEl in referenceList) 
             {
-                int id = buildFileText.IndexOf(refStartText);
-
-                if (id != -1)
+                XElement hintRef = refEl.Element(msbuild + "HintPath");
+                if (hintRef != null) 
                 {
-                    id--;
-                    while (buildFileText[id] == ' ' || buildFileText[id] == '\t') id--;
-                    sb.Append(buildFileText.Substring(0, id + 1));
-
-                    foreach (string dl in dllSet)
+                    string libName = refEl.Attribute("Include").Value;
+                    if (dllNameSet.Contains(libName))
                     {
-                        string n = Path.GetFileName(dl);
-                        sb.Append("    <Reference Include=\"" + n.Substring(0, n.Length - 4) + "\">\n");
-                        sb.Append("      <HintPath>" + dl + "</HintPath>\n");
-                        sb.Append("    </Reference>\n");
+                        hintRef.SetValue(dllPathDict[libName]);
+                        dllNameSet.Remove(libName);
+                        dllPathDict.Remove(libName);
                     }
-                    sb.Append(buildFileText.Substring(id + 1, buildFileText.Length-id - 1));
+                }
+                oneRef = refEl;
+            }
+            if (oneRef != null)
+            {
+                foreach (string libName in dllNameSet) 
+                {
+                    XElement newRefNode = new XElement(msbuild + "Reference",
+                           new XAttribute("Include", libName),
+                           new XElement(msbuild + "HintPath", dllPathDict[libName]));
+
+                    oneRef.Parent.Add(newRefNode);
                 }
             }
-            else {
-                while (nowPos != -1)
-                {
-                    int st = buildFileText.LastIndexOf(refStartText, nowPos);
+            projDefinition.Save(projectFile);
+            
 
-                    if (buildFileText.Substring(st, nowPos - st).IndexOf(CSTFolder) != -1 ||
-                        buildFileText.Substring(st, nowPos - st).IndexOf(relativePath) != -1)
-                    {
-                        string text = buildFileText.Substring(pos, st - pos);
-
-                        if (pos > 0)
-                            sb.Append(text.Trim());
-                        else
-                        {
-                            int id = text.Length - 1;
-                            while (text[id] == ' ' || text[id] == '\t') id--;
-                            sb.Append(text.Substring(0, id + 1));
-                       } 
-
-                        if (pos == 0)
-                        {
-                            string last = dllSet.Last();
-                            foreach (string dl in dllSet)
-                            {
-                                string n = Path.GetFileName(dl);
-                                sb.Append("    <Reference Include=\"" + n.Substring(0, n.Length - 4) + "\">\n");
-                                sb.Append("      <HintPath>" + dl + "</HintPath>\n");
-                                sb.Append("    </Reference>");
-
-                                if (dl != last) sb.Append("\n");
-                            }
-                        }
-
-                        pos = nowPos + refEndText.Length;
-                    }
-                    else
-                    {
-                        pos = pos + refEndText.Length;
-                    }
-                    nowPos = buildFileText.IndexOf(refEndText, pos);
-                }
-                sb.Append(buildFileText.Substring(pos, buildFileText.Length - pos));
-            }
-
-            File.WriteAllText(projectFile, sb.ToString().Trim());
         }        
         public static bool verify()
         {
             string build_cmd = "cd " + vProPath + " & " /*+ vProPath*/ + "run.bat";
-            //string build_cmd = "cd " + vProPath +" & dir";
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.FileName = @"C:\Windows\System32\cmd.exe";
             startInfo.Arguments = "/c " + build_cmd;
             process.StartInfo = startInfo;
-//            startInfo.RedirectStandardOutput = true;
-//            startInfo.UseShellExecute = false;
             process.Start();
 
-//            string output = process.StandardOutput.ReadToEnd();
-            
-//            var standardOutput = new StringBuilder();
-            /*
-            while (!process.HasExited)
-            {
-                standardOutput.Append(process.StandardOutput.ReadToEnd());
-            }*/
-
             process.WaitForExit();
-//            standardOutput.Append(process.StandardOutput.ReadToEnd());
 
             if (File.Exists(vProPath + "corral_out_trace.txt"))
             {

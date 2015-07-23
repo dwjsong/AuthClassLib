@@ -18,7 +18,7 @@ namespace ABC
             data = i1;
         }
         public int data;
-        public CST_Message invoke(CST_Message msg)
+        public Message invoke(Message msg)
         {
             CST_Ops.recordme(msg);
 
