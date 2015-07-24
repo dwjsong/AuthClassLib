@@ -148,11 +148,10 @@ namespace CST
             file.Close();
         }
 
-        public static HashSet<string> getDep(string fileName)
+        public static HashSet<string> getDep(HashSet<string> dllSet, string fileName)
         {
-            HashSet<string> dllList = new HashSet<string>();
-
             XmlTextReader reader = new XmlTextReader(fileName);
+            HashSet<string> set_for_this_Dep = new HashSet<string>();
 
             while (reader.Read())
             {
@@ -162,17 +161,23 @@ namespace CST
                     reader.Read();
                     string dllPath = reader.Value.Trim();
 
-                    if (!dllList.Contains(dllPath))
+                    if (!dllSet.Contains(dllPath))
                     {
-                        dllList.Add(dllPath);
+                        dllSet.Add(dllPath);
                         string depPath = dllPath.Substring(0, dllPath.Length-4) + ".dep";
 
-                        dllList.UnionWith(getDep(depPath));
+                        set_for_this_Dep.Add(depPath);
+                        //dllSet.UnionWith(getDep(dllSet, depPath));
                     }
                 }
             }
 
-            return dllList;
+            foreach (string dll in set_for_this_Dep)
+            {
+                getDep(dllSet, dll);
+            }
+
+            return dllSet;
         }
 
         public static void MakeRunBat()
@@ -188,7 +193,7 @@ namespace CST
             foreach (MethodRecord mr in methodList)
             {
                 string dllFolder = dllsFolder + mr.SHA_of_DLL;
-
+                
                 if (Directory.Exists(dllFolder))
                 {
                     string[] fileES = Directory.GetFiles(dllFolder);
@@ -203,7 +208,7 @@ namespace CST
                         }
                         else
                         {
-                            foreach (string dep_filename in getDep(fileName)) {
+                            foreach (string dep_filename in getDep(new HashSet<String>(), fileName)) {
                                 string name = Path.GetFileNameWithoutExtension(dep_filename);
                                 dllNameSet.Add(name);
                                 dllPathDict[name] = dep_filename;

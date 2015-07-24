@@ -59,3 +59,4 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\L
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\CST_Ops.pdb
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveID_IdP.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveID_IdP.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\ProjectBuilder.exe

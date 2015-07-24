@@ -64,13 +64,11 @@ namespace CST
                     CSTFolder = value;
                     dllsFolder = CSTFolder + @"\" + dllFolderName;
                 }
-//                
             }
 
-//            return referenceList;
         }
 
-        public byte[] GenerateHash(string path, string name) //string depPath, string dllPath)
+        public byte[] GenerateHash(string path, string name)
         {
             string depPath = path + @"\" + name + ".dep";
             string dllPath = path + @"\" + name + ".dll";
@@ -130,7 +128,7 @@ namespace CST
             }
         }
 
-        public byte[] GenerateHash(byte[] fileInByte, byte[] fileIndllBytes) //string depPath, string dllPath)
+        public byte[] GenerateHash(byte[] fileInByte, byte[] fileIndllBytes)
         {
             byte[] fileOutByte = new byte[fileInByte.Length + fileIndllBytes.Length];
 
@@ -164,7 +162,6 @@ namespace CST
 
                 GetSHA(ada, assembly);
             }
-
             public void GetSHA(AppDomainArgs ada, Assembly assembly)
             {
                 IList<CustomAttributeData> descriptionAttrList = assembly.GetCustomAttributesData();

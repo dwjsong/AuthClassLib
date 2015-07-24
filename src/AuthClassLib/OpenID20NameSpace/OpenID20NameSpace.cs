@@ -124,7 +124,7 @@ namespace OpenID20NameSpace
             req.mode = "checkid_setup";
             req.return_to = this.Domain;
 
-            CST_Ops.recordme(req);
+            CST_Ops.recordme(this, req);
 
             return req;
         }        
@@ -164,7 +164,7 @@ namespace OpenID20NameSpace
             AuthenticationResponse resp = new AuthenticationResponse();
             resp.SymT = req.SymT;
 
-            CST_Ops.recordme(resp);
+            CST_Ops.recordme(this, resp);
 
             switch (req.mode)
             {

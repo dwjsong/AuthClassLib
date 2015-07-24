@@ -9,8 +9,8 @@ C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\GenericAuthNam
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\GenericAuthNameSpace\bin\Debug\Communication.dll
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\GenericAuthNameSpace\bin\Debug\CST_Ops.pdb
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\GenericAuthNameSpace\bin\Debug\Communication.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\lib\GenericAuthNameSpace.dll
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\lib\GenericAuthNameSpace.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.csprojResolveAssemblyReference.cache
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.dll
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\GenericAuthNameSpace.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\GenericAuthNameSpace.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.csprojResolveAssemblyReference.cache
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.pdb

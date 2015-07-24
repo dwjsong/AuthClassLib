@@ -26,5 +26,3 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\L
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\LiveIDExample.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\LiveID_IdP.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\OAuth20NameSpace.dll
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\LiveIDExample.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\LiveID_IdP.pdb

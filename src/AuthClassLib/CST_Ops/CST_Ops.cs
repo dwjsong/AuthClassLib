@@ -20,22 +20,26 @@ namespace CST
         private static DLLServerUploader uploader = new DLLServerUploader();
 
         
-        public static void recordme(CST_Struct msg)
+        public static void recordme(Object o, CST_Struct msg)
         {
             StackTrace st = new StackTrace();
             StackFrame sf = st.GetFrame(1);
+            Type t = st.GetType();
+            Console.WriteLine(t);
             MethodInfo mi = (MethodInfo)sf.GetMethod();
 
-            recordme(msg, mi);
+            recordme(o, msg, mi);
         }
 
-        public static void recordme(CST_Struct msg, MethodInfo mi)
+        public static void recordme(Object o, CST_Struct msg, MethodInfo mi)
         {
+            Type objT = o.GetType();
             var t = mi.ReflectedType;
 
             string rootClass = GetRootClassName(t);
 
-            string className = mi.ReflectedType.FullName;
+            //string className = mi.ReflectedType.FullName;
+            string className = objT.FullName;
             className = className.Replace("\\", string.Empty).Replace('+', '.');
 
             string methodName = mi.Name;
@@ -60,12 +64,13 @@ namespace CST
             
             if (!methodSHADict.ContainsKey(methodkey))
             {
-                string dllName = mi.Module.FullyQualifiedName;
+                //string dllName = mi.Module.FullyQualifiedName;
+                string dllName = objT.Module.FullyQualifiedName;
 
                 string path = Path.GetDirectoryName(dllName);
                 string name = Path.GetFileNameWithoutExtension(dllName);
 
-                var descriptionAttribute = mi.Module.Assembly
+                var descriptionAttribute = objT.Module.Assembly
                                                     .GetCustomAttributes(typeof(AssemblyDescriptionAttribute), false)
                                                     .OfType<AssemblyDescriptionAttribute>()
                                                     .FirstOrDefault();

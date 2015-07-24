@@ -14,12 +14,46 @@ namespace ProjectBuilder
 {
     class Builder
     {
+        public static string CSTFolder = @"C:\CST\";
+        public static string dllFolderName = @"dlls";
+        public static string dllsFolder = @"C:\CST\dlls\";
         public static string builder_path = @"C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe";
         public static string projNameTag = "AssemblyName";
         public static string sha_default = "0000000000000000000000000000000000000000";
         private static XNamespace msbuild = "http://schemas.microsoft.com/developer/msbuild/2003";
         private static DLLServerUploader uploader = new DLLServerUploader();
         private static DLLHasher hasher = new DLLHasher();
+
+        public static void ReadWebConfig(string webConfig)
+        {
+            if (!File.Exists(webConfig)) return;
+
+            XDocument projDefinition = XDocument.Load(webConfig);
+            XElement configuration = projDefinition
+                .Element("configuration");
+
+            if (configuration == null) return;
+            IEnumerable<XElement> settingList = configuration
+                .Element("appSettings")
+                .Elements("add");
+
+            foreach (XElement element in settingList)
+            {
+                string key = element.Attribute("key").Value;
+                string value = element.Attribute("value").Value;
+
+                if (key == "CSTFolderPath")
+                {
+                    CSTFolder = value;
+                    if (CSTFolder.EndsWith("\\"))
+                        dllsFolder = CSTFolder + dllFolderName + @"\";
+                    else
+                        dllsFolder = CSTFolder + @"\" + dllFolderName + @"\";
+                }
+            }
+
+        }
+
 
         public static void Build(string build_file)
         {
@@ -37,10 +71,17 @@ namespace ProjectBuilder
 
         public static void CreateDep(string name, List<string> dependsList)
         {
+            string output = CreateDepString(dependsList);
+            string depFileName = name.Substring(0,name.Length-4) + ".dep";
+            File.WriteAllText(depFileName, output);
+        }
+
+        public static string CreateDepString(List<string> dependsList)
+        {
             StringBuilder sb = new StringBuilder();
 
             sb.Append("<References>\n");
-            foreach (string dependency in dependsList) 
+            foreach (string dependency in dependsList)
             {
                 sb.Append("\t<Reference>\n");
                 sb.Append("\t\t" + dependency + "\n");
@@ -49,10 +90,7 @@ namespace ProjectBuilder
 
             sb.Append("</References>\n");
 
-            string output = sb.ToString();
-            string depFileName = name.Substring(0,name.Length-4) + ".dep";
-            File.WriteAllText(depFileName, output);
-
+            return sb.ToString();
         }
 
         public static List<string> GetReferenceFromCSPROJ(string build_file)
@@ -69,7 +107,25 @@ namespace ProjectBuilder
             {
                 if (reference.Element(msbuild + "HintPath") != null)
                 {
-                    refList.Add(reference.Element(msbuild + "HintPath").Value);
+                    string dll_name = reference.Element(msbuild + "HintPath").Value;
+                    string dll_path = Path.GetDirectoryName(build_file) + @"\" + dll_name;
+
+                    string shaFromDLL = GetSHAFromDLL(dll_path);
+
+                    if (shaFromDLL != null && shaFromDLL != "0000000000000000000000000000000000000000")
+                    {
+                        string[] folder = dll_name.Split('\\');
+
+                        string dll = folder[folder.Length - 1];
+
+                        string dll_path_in_CST = dllsFolder + dll.Substring(0, dll.Length - 3) + shaFromDLL + @"\" + dll;
+
+                        if (!Directory.Exists(dll_path_in_CST))
+                        {
+                            DLLServerDownloader.downloadDLLandDep(dll.Substring(0, dll.Length - 3) + shaFromDLL);
+                        }
+                        refList.Add(dll_path_in_CST);
+                    }
                 }
             }
 
@@ -100,16 +156,16 @@ namespace ProjectBuilder
                 foreach (string s in depPrjList)
                 {
                     string depAssm = GetAssemblyName(Path.GetDirectoryName(build_file) + @"\" + s);
+                    string generatedSHA = hasher.GenerateHashInHexStr(output_path, depAssm);
 
                     foreach (string fileEnt in fileEntries)
                     {
                         string shaFromDLL = GetSHAFromDLL(fileEnt);
-                        string generatedSHA = hasher.GenerateHashInHexStr(output_path, depAssm);
 
                         if (shaFromDLL.Equals(generatedSHA))
                         {
                             string dl = Path.GetFileNameWithoutExtension(fileEnt);
-                            depDLLList.Add(@"C:\CST\dlls\" + dl + "." + shaFromDLL + @"\" + Path.GetFileName(fileEnt));
+                            depDLLList.Add(dllsFolder + dl + "." + shaFromDLL + @"\" + Path.GetFileName(fileEnt));
                         }
                     }
                 }
@@ -195,7 +251,6 @@ namespace ProjectBuilder
                 {
                     Assembly assembly = Assembly.ReflectionOnlyLoadFrom(ada.dll_path);
 
-
                     IList<CustomAttributeData> descriptionAttrList = assembly.GetCustomAttributesData();
 
                     foreach (CustomAttributeData attribute in descriptionAttrList)
@@ -203,7 +258,6 @@ namespace ProjectBuilder
                         if (attribute.AttributeType.Equals(typeof(AssemblyDescriptionAttribute)))
                         {
                             string typeVal = attribute.ToString();
-                            //                        Console.WriteLine("TypeVal: " + typeVal + " " + typeof(AssemblyDescriptionAttribute).ToString());
 
                             if (typeVal.Length - typeof(AssemblyDescriptionAttribute).ToString().Length - 43 < 0) break;
 
@@ -226,8 +280,6 @@ namespace ProjectBuilder
 
         public static string GetSHAFromDLL(string dll_file_path)
         {
-//            Console.WriteLine(dll_file_path);
-
             AppDomain tempDomain = AppDomain.CreateDomain("TemporaryAppDomain");
             MyBoundaryObject boundary = (MyBoundaryObject)
               tempDomain.CreateInstanceAndUnwrap(
@@ -319,7 +371,15 @@ namespace ProjectBuilder
 
                 foreach (string file in files) {
                     if (!File.Exists(buildPath + Path.GetFileName(file)))
-                        File.Copy(file, buildPath + Path.GetFileName(file), true);
+                    {
+                        try
+                        {
+                            File.Copy(file, buildPath + Path.GetFileName(file), true);
+                        }
+                        catch (IOException)
+                        {
+                        }
+                    }
                 }
             }
         }
@@ -328,6 +388,8 @@ namespace ProjectBuilder
         {
             hasher.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
             uploader.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
+            ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
+
             GatherDependentsDep(build_file, mode);
             string sha = CreateDepForProj(build_file, outputPath, prj_name);
 
@@ -370,9 +432,9 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\CST_Message\CST_Message.csproj";
-                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\Examples\ABC\CST_Message\bin\Debug";
-                string c = "CST_Message";
+                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\LiveIDExample.csproj";
+                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\";
+                string c = "LiveIDExample";
                 Builder.GenerateDep(a, b, c, "Debug");
                 Console.ReadKey();
 

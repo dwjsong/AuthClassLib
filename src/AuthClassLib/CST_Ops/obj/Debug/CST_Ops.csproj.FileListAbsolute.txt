@@ -7,8 +7,8 @@ C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST_Ops\bin\De
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.csprojResolveAssemblyReference.cache
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.dll
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\lib\CST_Ops.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.csprojResolveAssemblyReference.cache
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.pdb
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\CST_Ops.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\CST_Ops.pdb
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.csprojResolveAssemblyReference.cache
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.dll
+C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.pdb

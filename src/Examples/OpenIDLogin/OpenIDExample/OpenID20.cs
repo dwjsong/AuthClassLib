@@ -49,7 +49,7 @@ namespace OpenIDExample
 //            conclusion.SessionUID = req.UserId;
             conclusion.SymT = req.SymT;
 
-            CST_Ops.recordme(conclusion);
+            CST_Ops.recordme(this, conclusion);
             if (AuthenticationDone(conclusion))
                 return conclusion;
             else

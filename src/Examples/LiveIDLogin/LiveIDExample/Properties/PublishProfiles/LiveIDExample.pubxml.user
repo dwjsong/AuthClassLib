@@ -10,28 +10,31 @@ by editing this MSBuild file. In order to learn more about this please visit htt
   </PropertyGroup>
   <ItemGroup>
     <File Include="bin/Communication.dll">
-      <publishTime>07/22/2015 13:47:20</publishTime>
+      <publishTime>07/23/2015 13:00:04</publishTime>
     </File>
     <File Include="bin/CST.dll">
-      <publishTime>07/22/2015 13:47:20</publishTime>
+      <publishTime>07/23/2015 13:00:04</publishTime>
     </File>
     <File Include="bin/CST_Ops.dll">
-      <publishTime>07/22/2015 13:47:21</publishTime>
+      <publishTime>07/23/2015 13:00:05</publishTime>
     </File>
     <File Include="bin/GenericAuthNameSpace.dll">
-      <publishTime>07/22/2015 13:47:21</publishTime>
+      <publishTime>07/22/2015 17:19:19</publishTime>
     </File>
     <File Include="bin/LiveID.dll">
       <publishTime>07/08/2015 16:32:54</publishTime>
     </File>
     <File Include="bin/LiveIDExample.dll">
-      <publishTime>07/22/2015 14:08:26</publishTime>
+      <publishTime>07/23/2015 13:00:50</publishTime>
+    </File>
+    <File Include="bin/LiveID_IdP.dll">
+      <publishTime>07/23/2015 13:00:49</publishTime>
     </File>
     <File Include="bin/OAuth20NameSpace.dll">
-      <publishTime>07/22/2015 13:47:22</publishTime>
+      <publishTime>07/22/2015 17:19:20</publishTime>
     </File>
     <File Include="bin/OpenIDConnectNameSpace.dll">
-      <publishTime>07/22/2015 13:47:23</publishTime>
+      <publishTime>07/22/2015 17:19:21</publishTime>
     </File>
     <File Include="default.html">
       <publishTime>07/14/2015 13:59:09</publishTime>

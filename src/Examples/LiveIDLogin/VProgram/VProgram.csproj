@@ -33,28 +33,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Communication">
-      <HintPath>C:\CST\dlls\Communication.F463C53ACC1B3EDB186061C1530B17C2ECE492EF\Communication.dll</HintPath>
+      <HintPath>C:\CST\dlls\Communication.FAC146412A5ED8C1263B949CD7A66A2AE13C9931\Communication.dll</HintPath>
     </Reference>
     <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.53098DFD8B7873AF35C7D95CDBF33390824CD09F\CST.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST.B7094684CA11AF00762C1E50F58570EE4E86ED9C\CST.dll</HintPath>
     </Reference>
     <Reference Include="CST_Ops">
-      <HintPath>C:\CST\dlls\CST_Ops.7925C6EE8F73DA22618100566C348B5ADF0F2A39\CST_Ops.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST_Ops.5974518DCB5A233C43462AB8D81C4051DFB45BE7\CST_Ops.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.97B17B171F6A27FE92C11B7FD7E3021E84E74B12\GenericAuthNameSpace.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveIDExample">
-      <HintPath>..\..\..\..\lib\LiveIDExample.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveID_IdP">
-      <HintPath>..\..\..\..\lib\LiveID_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.78BC99E5F6A3CE06E0BDB88A7ECA3DF7DC9BD16E\GenericAuthNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OAuth20NameSpace">
-      <HintPath>C:\CST\dlls\OAuth20NameSpace.F630181053C2A964B3E702D253DB0381B8472BDD\OAuth20NameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OAuth20NameSpace.16471236A317BEA3E8D5F98450F0394E64E88CBC\OAuth20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDConnectNameSpace">
-      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.8A1D3AB57825149DD724CC1A33D3D8895C62EECE\OpenIDConnectNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.0EECA0B93725762C5BF99BCF90DAD957671E9FAE\OpenIDConnectNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -64,6 +58,12 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="LiveIDExample">
+      <HintPath>C:\CST\dlls\LiveIDExample.B079FA9E5B7585E9A9C39CBE7DEF78A28C285C36\LiveIDExample.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveID_IdP">
+      <HintPath>C:\CST\dlls\LiveID_IdP.740CBFBF67268712A9EECF6DC8D3512D5B1E6716\LiveID_IdP.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
     <Compile Include="Assertion.cs" />
