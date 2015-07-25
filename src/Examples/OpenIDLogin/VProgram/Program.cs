@@ -1,7 +1,6 @@
 using System.Diagnostics.Contracts;
 using GenericAuthNameSpace;
 using LiveIDNameSpace;
-using OpenIDExample;
 using CST;
 using OpenID20NameSpace;
 class GlobalObjectsForCST : GlobalObjects_base
@@ -9,7 +8,7 @@ class GlobalObjectsForCST : GlobalObjects_base
     static public void init()
     {
         SignInIdP_Req = PoirotMain.Nondet.AuthenticationRequest();
-        IdP = new YahooIdP();
+        IdP = new Yahoo_IdP(); ((Yahoo_IdP)IdP).init();
         RP = new Yahoo_RP_For_vProgram();
     }
 }

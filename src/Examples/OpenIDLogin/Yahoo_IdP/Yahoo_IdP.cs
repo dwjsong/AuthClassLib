@@ -4,29 +4,35 @@ using System.Linq;
 using System.Web;
 using OpenID20NameSpace;
 using GenericAuthNameSpace;
+using System.Diagnostics.Contracts;
 
-namespace OpenIDExample
+namespace OpenID20NameSpace
 {
     public class Yahoo_IdP : OpenIDProvider
     {
-
-    }
-
-    public class IDTokenAndAccessTokenDictionary_def : IDAssertionRecs
-    {
-        Dictionary<string, Dictionary<string, IDTokenAndAccessTokenEntry>> Dictionary = new Dictionary<string, Dictionary<string, IDTokenAndAccessTokenEntry>>();
-        public ID_Claim getEntry(string IdPSessionSecret, string client_id)
+        public void init()
         {
-            return Dictionary[IdPSessionSecret][client_id];
+            base.init(IDAssertionRecsDictionary);
         }
-        public bool setEntry(string IdPSessionSecret, string client_id, ID_Claim Entry)
+
+        IDAssertionRecsDictionary_def IDAssertionRecsDictionary = new IDAssertionRecsDictionary_def();
+
+        public class IDAssertionRecsDictionary_def : IDAssertionRecs
         {
-            IDTokenAndAccessTokenEntry IDTokenAndAccessTokenEntry = (IDTokenAndAccessTokenEntry)Entry;
-            if (IDTokenAndAccessTokenEntry == null)
-                return false;
-            Dictionary[IdPSessionSecret] = new Dictionary<string, IDTokenAndAccessTokenEntry>();
-            Dictionary[IdPSessionSecret][client_id] = IDTokenAndAccessTokenEntry;
-            return true;
+            Dictionary<string, Dictionary<string, IDAssertionEntry>> Dictionary = new Dictionary<string, Dictionary<string, IDAssertionEntry>>();
+            public ID_Claim getEntry(string IdPSessionSecret, string client_id)
+            {
+                return Dictionary[IdPSessionSecret][client_id];
+            }
+            public bool setEntry(string IdPSessionSecret, string client_id, ID_Claim Entry)
+            {
+                IDAssertionEntry IDTokenAndAccessTokenEntry = (IDAssertionEntry)Entry;
+                if (IDTokenAndAccessTokenEntry == null)
+                    return false;
+                Dictionary[IdPSessionSecret] = new Dictionary<string, IDAssertionEntry>();
+                Dictionary[IdPSessionSecret][client_id] = IDTokenAndAccessTokenEntry;
+                return true;
+            }
         }
     }
 }

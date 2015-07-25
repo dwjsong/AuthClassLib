@@ -4,61 +4,81 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{B0F45F09-1334-4F74-9DA8-1A2089BF9D3F}</ProjectGuid>
-    <OutputType>Library</OutputType>
+    <ProjectGuid>{D79A10F0-9138-49A0-872C-7C4763DAF219}</ProjectGuid>
+    <OutputType>Exe</OutputType>
     <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Yahoo_IdP</RootNamespace>
-    <AssemblyName>Yahoo_IdP</AssemblyName>
+    <RootNamespace>VProgram</RootNamespace>
+    <AssemblyName>VProgram</AssemblyName>
     <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
     <FileAlignment>512</FileAlignment>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugSymbols>true</DebugSymbols>
     <DebugType>full</DebugType>
     <Optimize>false</Optimize>
-    <OutputPath>..\..\..\..\lib\</OutputPath>
+    <OutputPath>bin\Debug\</OutputPath>
     <DefineConstants>DEBUG;TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
     <DebugType>pdbonly</DebugType>
     <Optimize>true</Optimize>
-    <OutputPath>..\..\..\..\lib\</OutputPath>
+    <OutputPath>bin\Release\</OutputPath>
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CST, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\CST.dll</HintPath>
+    <Reference Include="Communication">
+      <HintPath>C:\CST\dlls\Communication.E172BBBC6FFA888B1A3CD8C2FDE584E532E7D7BD\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="CST">
+      <HintPath>C:\CST\dlls\CST.A29540A07B7D52A6497B42D8019264BBA52C0033\CST.dll</HintPath>
+    </Reference>
+    <Reference Include="CST_Ops">
+      <HintPath>C:\CST\dlls\CST_Ops.008EBB515AFF1E48E52820C18C03FF09B8B659B8\CST_Ops.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>..\..\..\..\lib\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.B8CE2EDCFB2A6F92A1E4762A002000DF5B8BD7B3\GenericAuthNameSpace.dll</HintPath>
     </Reference>
-    <Reference Include="OpenID20NameSpace">
-      <HintPath>..\..\..\..\lib\OpenID20NameSpace.dll</HintPath>
+    <Reference Include="OAuth20NameSpace">
+      <HintPath>C:\CST\dlls\OAuth20NameSpace.851095436EC292DF5C8C9A4825C329258A60A335\OAuth20NameSpace.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenIDConnectNameSpace">
+      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.3DC27462AB5C53D7D01066F20C6ACA8D30688F88\OpenIDConnectNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="LiveID_IdP">
+      <HintPath>C:\CST\dlls\LiveID_IdP.08FA81FD2F8784DB96000CAB272D966A6EC91658\LiveID_IdP.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveIDExample">
+      <HintPath>C:\CST\dlls\LiveIDExample.1AD93AD040993F41278D9F914D8A9F5D940602EC\LiveIDExample.dll</HintPath>
+    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="..\LiveIDExample\LiveIDNameSpace.cs">
+      <Link>LiveIDNameSpace.cs</Link>
+    </Compile>
+    <Compile Include="Assertion.cs" />
+    <Compile Include="OtherParties\LiveID_IdP.cs" />
+    <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Yahoo_IdP.cs" />
+    <Compile Include="SynthesizedPortion.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <PropertyGroup>
-    <PreBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -a "$(ProjectDir)"</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -d "$(ProjectPath)" "$(ProjectDir)$(OutDir)\" "$(TargetName)" "$(ConfigurationName)"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

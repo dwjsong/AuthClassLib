@@ -38,8 +38,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CST">
-      <HintPath>..\..\..\..\..\lib\CST.dll</HintPath>
+    <Reference Include="CST, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\CST.dll</HintPath>
     </Reference>
     <Reference Include="CST_Ops, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
@@ -93,9 +94,14 @@
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="OpenID20.cs" />
+    <Compile Include="Yahoo_RP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="OtherParty\Yahoo_IdP.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\Yahoo_IdP\Yahoo_IdP.csproj">
+      <Project>{b0f45f09-1334-4f74-9da8-1a2089bf9d3f}</Project>
+      <Name>Yahoo_IdP</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

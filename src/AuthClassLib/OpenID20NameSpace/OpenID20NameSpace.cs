@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using GenericAuthNameSpace;
 using System.Net;
 using CST;
+using System.Web;
 
 namespace OpenID20NameSpace
 {
@@ -76,43 +77,7 @@ namespace OpenID20NameSpace
         public string assoc_handle;
         public string endpointUrl;
 
-        public string Normalize(string user_supplied_id)
-        {
-            string identifier = user_supplied_id;
-            char[] xriStart = new char[] {'=', '@', '+', '$', '!', '('};
-
-            if (identifier.StartsWith("xri://"))
-            {
-                identifier = identifier.Substring("xri://".Length);
-            }
-            if (xriStart.Any(x => x == identifier[0]))
-            {
-                return identifier;
-            }
-            else
-            {
-                if (!identifier.StartsWith("http://") && !identifier.StartsWith("https://"))
-                {
-                    identifier = String.Format("http://{0}", identifier);
-                }
-
-                return identifier;
-            }
-        }
-
-        public string Discover(string identifier)
-        {
-            HttpWebRequest IDrequest = (HttpWebRequest)WebRequest.Create(identifier);
-            HttpWebResponse IDresponse = (HttpWebResponse)IDrequest.GetResponse();
-
-            string location = IDresponse.Headers.Get("X-XRDS-Location");
-
-
-
-            return "";
-        }
-
-        public AuthenticationRequest RequestAuthentication(AuthenticationRequest resp)
+        public AuthenticationRequest RequestAuthentication(AuthenticationResponse resp)
         {
             var req = new AuthenticationRequest();
 
@@ -124,39 +89,76 @@ namespace OpenID20NameSpace
             req.mode = "checkid_setup";
             req.return_to = this.Domain;
 
-            CST_Ops.recordme(this, req);
-
             return req;
-        }        
+        }
+
+        public AuthenticationConclusion conclude(AuthenticationResponse resp)
+        {
+            AuthenticationConclusion conclusion = new AuthenticationConclusion();
+            conclusion.SessionUID = resp.claimed_id;
+            conclusion.SymT = resp.SymT;
+            CST_Ops.recordme(this, conclusion);
+
+            if (AuthenticationDone(conclusion))
+                return conclusion;
+            else
+                return null;
+        }
+
+        public virtual AuthenticationResponse callProcessAuthenticationRequest(AuthenticationRequest authReq)
+        {
+            return new AuthenticationResponse();
+        }
+
+        public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
+        {
+            AuthenticationResponse r = new AuthenticationResponse();
+            HttpContext context = HttpContext.Current;
+            r.claimed_id = rawRequest.QueryString["openid.claimed_id"];
+            r.SymT = rawRequest.QueryString["SymT"];
+            if (string.IsNullOrEmpty(r.claimed_id))
+                return null;
+            else
+                return r;
+        }
+
     }
     public interface IDAssertionRecs : IdPAuthRecords_Base
     {
-       // string findISSByClientIDAndCode(string client_id, string authorization_code);
     }
 
     public abstract class OpenIDProvider : IdP
     {
+        public void init(IDAssertionRecs recs)
+        {
+            IDAssertionRecs = recs;
+        }
+
         protected IDAssertionRecs IDAssertionRecs
         {
             get { return (IDAssertionRecs)IdpAuthRecs; }
             set { IdpAuthRecs = value; }
         }
 
-        
         protected override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
         {
             AuthenticationRequest req = (AuthenticationRequest)req1;
+            AuthenticationResponse resp = new AuthenticationResponse();
+
+            switch (req.mode)
+            {
+                case "checkid_setup":
+//                    resp = ProcessAuthenticationRequest(req);
+
+//                    return resp;
+                    break;
+            }
 
             return null;
         }
         protected override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim)
         {
             return null;
-        }
-
-        protected AuthenticationResponse AuthorizationEndpoint(AuthenticationRequest req)
-        {
-            return (AuthenticationResponse)SignInIdP(req);
         }
 
         public AuthenticationResponse ProcessAuthenticationRequest(AuthenticationRequest req)
@@ -166,29 +168,21 @@ namespace OpenID20NameSpace
 
             CST_Ops.recordme(this, resp);
 
-            switch (req.mode)
-            {
-                case "checkid_setup" :
-                    IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
-                    resp.claimed_id = entry.openid_claimed_id;
-                    resp.return_to = entry.openid_return_to;
-
-                    return resp;
-            }
+            IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
+                    
+            resp.claimed_id = entry.UserID;
+            resp.return_to = entry.Redir_dest;
 
             return resp;
         }
-
-    }
-
-    public abstract class AuthorizationRequest : SignInIdP_Req
-    {
-
     }
 
     public interface NondetOpenID20 : Nondet_Base
     {
         AuthenticationRequest AuthenticationRequest();
         AuthenticationResponse AuthenticationResponse();
+        IDAssertionEntry IDAssertionEntry();
+
+        Dictionary<string, Dictionary<string, IDAssertionEntry>> IDAssertionRecsDictionary();
     }
 }

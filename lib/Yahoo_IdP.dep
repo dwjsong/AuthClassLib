@@ -6,9 +6,6 @@
 		C:\CST\dlls\GenericAuthNameSpace.FDB01511C9FBFACE3C88B2AA871414A922E15FDF\GenericAuthNameSpace.dll
 	</Reference>
 	<Reference>
-		C:\CST\dlls\OAuth20NameSpace.851095436EC292DF5C8C9A4825C329258A60A335\OAuth20NameSpace.dll
-	</Reference>
-	<Reference>
-		C:\CST\dlls\OpenIDConnectNameSpace.3DC27462AB5C53D7D01066F20C6ACA8D30688F88\OpenIDConnectNameSpace.dll
+		C:\CST\dlls\OpenID20NameSpace.7705CF2BF949AD380D7173B4E707BE1EA34F0DE2\OpenID20NameSpace.dll
 	</Reference>
 </References>

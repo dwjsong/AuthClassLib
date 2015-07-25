@@ -21,18 +21,16 @@ namespace OpenIDExample
 
             if (!String.IsNullOrEmpty(mode))
             {
+                RP.AuthenticationConclusion d = new RP.AuthenticationConclusion();
+
+                AuthenticationResponse resp = RP.parseAuthenticationResponse(Request);
+                d = RP.conclude(resp);
+
                 notLoggedIn.Visible = false;
                 LoggedIn.Visible = true;
 
                 logged_id.InnerHtml = String.Format("Your ID is {0} and SymT is {1}", Request.Params["openid.identity"], Request.Params["SymT"]);
 
-                RP.AuthenticationConclusion d = new RP.AuthenticationConclusion();
-                d.SymT = Request.Params["SymT"];
-
-                AuthenticationResponse req = new AuthenticationResponse();
-                req.SymT = Request.Params["SymT"];
-
-                RP.conclude(req);
 
 
             }
@@ -80,7 +78,7 @@ namespace OpenIDExample
 
         protected void LoginBtn_Click(Object sender, EventArgs e)
         {
-            AuthenticationRequest req = new AuthenticationRequest();
+            AuthenticationResponse req = new AuthenticationResponse();
 
             var resp = RP.RequestAuthentication(req);
 
@@ -93,7 +91,7 @@ namespace OpenIDExample
             new_resq.realm = resp.realm;
             new_resq.ns = resp.ns;
             new_resq.mode = resp.mode;
-            CST_Ops.recordme(new_resq, typeof(OpenIDProvider).GetMethod("ProcessAuthenticationRequest"));
+            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), new_resq, typeof(Yahoo_IdP).GetMethod("ProcessAuthenticationRequest"));
 
             string final_url = RP.GenerateURL(new_resq);
 

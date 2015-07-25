@@ -7,10 +7,15 @@ using GenericAuthNameSpace;
 using System.Text;
 using CST;
 
-namespace OpenIDExample
+namespace OpenID20NameSpace
 {
     public class Yahoo_RP : RelyingParty
     {
+        public Yahoo_RP()
+        {
+
+        }
+
         public Yahoo_RP(string return_uri, string endpointUrl)
         {
             this.return_uri = return_uri;
@@ -43,19 +48,16 @@ namespace OpenIDExample
             return sb.ToString();
         }
 
-        public AuthenticationConclusion conclude(AuthenticationResponse req)
+        public override AuthenticationResponse callProcessAuthenticationRequest(AuthenticationRequest req)
         {
-            AuthenticationConclusion conclusion = new AuthenticationConclusion();
-//            conclusion.SessionUID = req.UserId;
-            conclusion.SymT = req.SymT;
+            AuthenticationResponse tr = base.callProcessAuthenticationRequest(req);
 
-            CST_Ops.recordme(this, conclusion);
-            if (AuthenticationDone(conclusion))
-                return conclusion;
-            else
-                return null;
+            tr.SymT = req.SymT;
+            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), tr, typeof(OpenIDProvider).GetMethod("ProcessAuthenticationRequestS"));
 
+            return tr;
         }
+
 
     }
 }
