@@ -56,17 +56,19 @@
     {
         public IdPAuthRecords_Base IdpAuthRecs;
 
-        protected SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req)
+        public virtual SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req)
         {
+            Contract.Assume(req == GlobalObjects_base.SignInIdP_Req);
+
             if (req == null) return null;
             ID_Claim _ID_Claim = Process_SignInIdP_req(req);
             if (IdpAuthRecs.setEntry(req.IdPSessionSecret, req.Realm, _ID_Claim) == false)
                 return null;
             return Redir(_ID_Claim.Redir_dest, _ID_Claim);
         }
- 
-        protected abstract ID_Claim Process_SignInIdP_req(SignInIdP_Req req);
-        protected abstract SignInIdP_Resp_SignInRP_Req Redir(string dest,ID_Claim _ID_Claim);
+
+        public abstract ID_Claim Process_SignInIdP_req(SignInIdP_Req req);
+        public abstract SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim);
     }
 
     public abstract class RP

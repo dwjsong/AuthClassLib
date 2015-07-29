@@ -7,6 +7,7 @@ using GenericAuthNameSpace;
 using System.Net;
 using CST;
 using System.Web;
+using System.Diagnostics.Contracts;
 
 namespace OpenID20NameSpace
 {
@@ -22,14 +23,8 @@ namespace OpenID20NameSpace
 
         public override string Realm
         {
-            get
-            {
-                return realm;
-            }
-            set
-            {
-                realm = value;
-            }
+            get { return realm;  }
+            set { realm = value; }
         }
 
         public string endpointURL;
@@ -65,6 +60,15 @@ namespace OpenID20NameSpace
         {
             get { return openid_claimed_id; }
         }
+
+        static public IDAssertionEntry AssumeType(IDAssertionEntry in_obj)
+        {
+            IDAssertionEntry out_obj = new IDAssertionEntry();
+            out_obj.openid_return_to = in_obj.openid_return_to;
+            out_obj.openid_claimed_id = in_obj.openid_claimed_id;
+
+            return out_obj;
+        }
     }
     //=====================================================
     public abstract class RelyingParty : RP
@@ -82,7 +86,6 @@ namespace OpenID20NameSpace
             var req = new AuthenticationRequest();
 
             req.realm = this.Domain;
-            req.SymT = resp.SymT;
             req.identity = "http://specs.openid.net/auth/2.0/identifier_select";
             req.ns = "http://specs.openid.net/auth/2.0";
             req.claimed_id = "http://specs.openid.net/auth/2.0/identifier_select";
@@ -96,18 +99,12 @@ namespace OpenID20NameSpace
         {
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
             conclusion.SessionUID = resp.claimed_id;
-            conclusion.SymT = resp.SymT;
-            CST_Ops.recordme(this, conclusion);
+            CST_Ops.recordme(this, resp, conclusion);
 
             if (AuthenticationDone(conclusion))
                 return conclusion;
             else
                 return null;
-        }
-
-        public virtual AuthenticationResponse callProcessAuthenticationRequest(AuthenticationRequest authReq)
-        {
-            return new AuthenticationResponse();
         }
 
         public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
@@ -116,13 +113,31 @@ namespace OpenID20NameSpace
             HttpContext context = HttpContext.Current;
             r.claimed_id = rawRequest.QueryString["openid.claimed_id"];
             r.SymT = rawRequest.QueryString["SymT"];
+            string return_url = rawRequest.QueryString["openid.return_to"];
+
+            /* Siunce we have added SymT in the return_uri, we need to strip them */
+            if (return_url.StartsWith(this.Domain)) {
+                string[] urls = return_url.Split('?');
+                r.return_to = urls[0];
+            }
             if (string.IsNullOrEmpty(r.claimed_id))
                 return null;
             else
                 return r;
         }
 
+        public override SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req1)
+        {
+            AuthenticationResponse req = (AuthenticationResponse)req1;
+
+            if (req.return_to == this.Domain) {
+
+                conclude(req);
+            }
+            return null;
+        }
     }
+
     public interface IDAssertionRecs : IdPAuthRecords_Base
     {
     }
@@ -140,49 +155,57 @@ namespace OpenID20NameSpace
             set { IdpAuthRecs = value; }
         }
 
-        protected override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
+        public override SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req1)
         {
             AuthenticationRequest req = (AuthenticationRequest)req1;
-            AuthenticationResponse resp = new AuthenticationResponse();
+            Contract.Assume(req == GlobalObjects_base.SignInIdP_Req);
+
+//            if (req.realm != GlobalObjects_base.RP.Domain) return null;
+            if (req == null) return null;
+            ID_Claim _ID_Claim = Process_SignInIdP_req(req);
+            if (_ID_Claim == null) return null;
+
+            return Redir(_ID_Claim.Redir_dest, _ID_Claim);
+        }
+
+        public override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
+        {
+            AuthenticationRequest req = (AuthenticationRequest)req1;
 
             switch (req.mode)
             {
                 case "checkid_setup":
-//                    resp = ProcessAuthenticationRequest(req);
+                    IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);        
 
-//                    return resp;
-                    break;
+                    return entry;
             }
 
             return null;
         }
-        protected override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim)
+
+        public override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim)
         {
-            return null;
-        }
+            if (_ID_Claim == null) return null;
+            AuthenticationResponse req = new AuthenticationResponse();
 
-        public AuthenticationResponse ProcessAuthenticationRequest(AuthenticationRequest req)
-        {
-            AuthenticationResponse resp = new AuthenticationResponse();
-            resp.SymT = req.SymT;
+            req.claimed_id = _ID_Claim.UserID;
+            req.return_to = _ID_Claim.Redir_dest;
 
-            CST_Ops.recordme(this, resp);
+            /*
+             * Redir should happen here.
+             */
 
-            IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
-                    
-            resp.claimed_id = entry.UserID;
-            resp.return_to = entry.Redir_dest;
-
-            return resp;
+            return req;
         }
     }
 
     public interface NondetOpenID20 : Nondet_Base
     {
+        SignInIdP_Req SignInIdP_Req();
+        SignInIdP_Resp_SignInRP_Req SignInIdP_Resp_SignInRP_Req();
         AuthenticationRequest AuthenticationRequest();
         AuthenticationResponse AuthenticationResponse();
         IDAssertionEntry IDAssertionEntry();
-
         Dictionary<string, Dictionary<string, IDAssertionEntry>> IDAssertionRecsDictionary();
     }
 }

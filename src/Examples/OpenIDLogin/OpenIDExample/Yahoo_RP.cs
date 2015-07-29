@@ -18,19 +18,11 @@ namespace OpenID20NameSpace
 
         public Yahoo_RP(string return_uri, string endpointUrl)
         {
+            this.Domain = return_uri;
             this.return_uri = return_uri;
             this.endpointUrl = endpointUrl;
         }
-
-        public override SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req)
-        {
-            return new SignInRP_Resp();
-        }
-        public void SignIn()
-        {
-
-        }
-
+        
         public string GenerateURL(AuthenticationRequest req)
         {
             StringBuilder sb = new StringBuilder(endpointUrl);
@@ -46,16 +38,6 @@ namespace OpenID20NameSpace
             sb.AppendFormat("?openid.claimed_id={0}&openid.identity={1}&openid.return_to={2}?SymT={6}&openid.realm={5}&openid.mode={3}&openid.ns={4}", HttpUtility.UrlEncode(req.claimed_id), HttpUtility.UrlEncode(req.identity), HttpUtility.UrlEncode(req.return_to), req.mode, HttpUtility.UrlEncode(req.ns), HttpUtility.UrlEncode(req.realm), HttpUtility.UrlEncode(req.SymT));
 
             return sb.ToString();
-        }
-
-        public override AuthenticationResponse callProcessAuthenticationRequest(AuthenticationRequest req)
-        {
-            AuthenticationResponse tr = base.callProcessAuthenticationRequest(req);
-
-            tr.SymT = req.SymT;
-            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), tr, typeof(OpenIDProvider).GetMethod("ProcessAuthenticationRequestS"));
-
-            return tr;
         }
 
 

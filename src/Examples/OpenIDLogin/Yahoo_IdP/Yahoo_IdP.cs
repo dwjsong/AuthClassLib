@@ -13,24 +13,30 @@ namespace OpenID20NameSpace
         public void init()
         {
             base.init(IDAssertionRecsDictionary);
+            IDAssertionRecsDictionary.Dictionary[GlobalObjects_base.SignInIdP_Req.IdPSessionSecret] = new Dictionary<string, IDAssertionEntry>();
         }
 
         IDAssertionRecsDictionary_def IDAssertionRecsDictionary = new IDAssertionRecsDictionary_def();
 
         public class IDAssertionRecsDictionary_def : IDAssertionRecs
         {
-            Dictionary<string, Dictionary<string, IDAssertionEntry>> Dictionary = new Dictionary<string, Dictionary<string, IDAssertionEntry>>();
+            public Dictionary<string, Dictionary<string, IDAssertionEntry>> Dictionary = new Dictionary<string, Dictionary<string, IDAssertionEntry>>();
+
             public ID_Claim getEntry(string IdPSessionSecret, string client_id)
             {
-                return Dictionary[IdPSessionSecret][client_id];
+                IDAssertionEntry entry = IDAssertionEntry.AssumeType(Dictionary[IdPSessionSecret][client_id]);
+
+                Dictionary[IdPSessionSecret][client_id] = entry;
+                return entry;
             }
             public bool setEntry(string IdPSessionSecret, string client_id, ID_Claim Entry)
             {
-                IDAssertionEntry IDTokenAndAccessTokenEntry = (IDAssertionEntry)Entry;
-                if (IDTokenAndAccessTokenEntry == null)
-                    return false;
-                Dictionary[IdPSessionSecret] = new Dictionary<string, IDAssertionEntry>();
-                Dictionary[IdPSessionSecret][client_id] = IDTokenAndAccessTokenEntry;
+                IDAssertionEntry IDAssertionEntry = new IDAssertionEntry();
+
+                IDAssertionEntry.openid_claimed_id = ((IDAssertionEntry)Entry).openid_claimed_id;
+                IDAssertionEntry.openid_return_to = ((IDAssertionEntry)Entry).openid_return_to;
+                Dictionary[IdPSessionSecret][client_id] = IDAssertionEntry;
+  
                 return true;
             }
         }

@@ -34,10 +34,12 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\CST.dll</HintPath>
     </Reference>
-    <Reference Include="GenericAuthNameSpace">
+    <Reference Include="GenericAuthNameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\GenericAuthNameSpace.dll</HintPath>
     </Reference>
-    <Reference Include="OpenID20NameSpace">
+    <Reference Include="OpenID20NameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\OpenID20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="System" />

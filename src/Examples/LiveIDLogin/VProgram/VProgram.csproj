@@ -41,8 +41,9 @@
     <Reference Include="CST_Ops">
       <HintPath>C:\CST\dlls\CST_Ops.5974518DCB5A233C43462AB8D81C4051DFB45BE7\CST_Ops.dll</HintPath>
     </Reference>
-    <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.78BC99E5F6A3CE06E0BDB88A7ECA3DF7DC9BD16E\GenericAuthNameSpace.dll</HintPath>
+    <Reference Include="GenericAuthNameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\GenericAuthNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OAuth20NameSpace">
       <HintPath>C:\CST\dlls\OAuth20NameSpace.16471236A317BEA3E8D5F98450F0394E64E88CBC\OAuth20NameSpace.dll</HintPath>

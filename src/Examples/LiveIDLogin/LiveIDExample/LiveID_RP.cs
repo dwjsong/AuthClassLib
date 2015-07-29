@@ -50,7 +50,7 @@
             TokenResponse tr = base.callTokenEndpoint(req);
 
             tr.SymT = req.SymT;
-            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"));
+            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"));
 
             return tr;
         }

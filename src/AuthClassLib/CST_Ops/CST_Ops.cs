@@ -19,8 +19,7 @@ namespace CST
         private static ConcurrentDictionary<string, bool> SymTResultCache = new ConcurrentDictionary<string, bool>();
         private static DLLServerUploader uploader = new DLLServerUploader();
 
-        
-        public static void recordme(Object o, CST_Struct msg)
+        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg)
         {
             StackTrace st = new StackTrace();
             StackFrame sf = st.GetFrame(1);
@@ -28,10 +27,10 @@ namespace CST
             Console.WriteLine(t);
             MethodInfo mi = (MethodInfo)sf.GetMethod();
 
-            recordme(o, msg, mi);
+            recordme(o, in_msg, out_msg, mi);
         }
 
-        public static void recordme(Object o, CST_Struct msg, MethodInfo mi)
+        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, MethodInfo mi)
         {
             Type objT = o.GetType();
             var t = mi.ReflectedType;
@@ -94,7 +93,7 @@ namespace CST
                 sha = methodSHADict[methodkey].getSHA();
             }
 
-            msg.SymT = sha + "(" + msg.SymT + ")";
+            out_msg.SymT = sha + "(" + in_msg.SymT + ")";
         }
 
         public static string GetRootClassName(Type type)
@@ -105,12 +104,6 @@ namespace CST
             }
 
             return type.Name;
-        }
-
-        public bool Conclude(CST_Struct msg)
-        {
-            /*make v program and verify*/
-            return Certify(msg);
         }
 
         public static bool Certify(CST_Struct msg)        

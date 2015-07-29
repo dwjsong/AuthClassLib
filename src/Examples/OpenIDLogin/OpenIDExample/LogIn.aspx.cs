@@ -21,17 +21,15 @@ namespace OpenIDExample
 
             if (!String.IsNullOrEmpty(mode))
             {
+                RP.CurrentSession = Session;
                 RP.AuthenticationConclusion d = new RP.AuthenticationConclusion();
-
                 AuthenticationResponse resp = RP.parseAuthenticationResponse(Request);
-                d = RP.conclude(resp);
+                RP.SignInRP(resp);
 
                 notLoggedIn.Visible = false;
                 LoggedIn.Visible = true;
 
-                logged_id.InnerHtml = String.Format("Your ID is {0} and SymT is {1}", Request.Params["openid.identity"], Request.Params["SymT"]);
-
-
+                logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
 
             }
             else
@@ -84,14 +82,14 @@ namespace OpenIDExample
 
             /* HACK for Yahoo IdP */
             AuthenticationRequest new_resq = new AuthenticationRequest();
-            new_resq.SymT = resp.SymT;
             new_resq.claimed_id = resp.claimed_id;
             new_resq.identity = resp.identity;
             new_resq.return_to = resp.return_to;
             new_resq.realm = resp.realm;
             new_resq.ns = resp.ns;
             new_resq.mode = resp.mode;
-            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), new_resq, typeof(Yahoo_IdP).GetMethod("ProcessAuthenticationRequest"));
+
+            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), resp, new_resq, typeof(Yahoo_IdP).GetMethod("SignInIdP"));
 
             string final_url = RP.GenerateURL(new_resq);
 

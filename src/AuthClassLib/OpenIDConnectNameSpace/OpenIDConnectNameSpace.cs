@@ -141,7 +141,7 @@
             tokenReq.redirect_uri = return_uri; 
             tokenReq.client_id =client_id;
             tokenReq.SymT = codeResp.SymT;
-            CST_Ops.recordme(this, tokenReq);
+            CST_Ops.recordme(this, codeResp, tokenReq);
 
             return tokenReq;
         } 
@@ -178,8 +178,7 @@
         {
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
             conclusion.SessionUID = tokenResp.id_token.Claims.UserId;
-            conclusion.SymT = tokenResp.SymT;
-            CST_Ops.recordme(this, conclusion);
+            CST_Ops.recordme(this, tokenResp, conclusion);
 
             if (AuthenticationDone(conclusion))
                 return conclusion;

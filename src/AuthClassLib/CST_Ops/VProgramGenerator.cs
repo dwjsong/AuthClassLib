@@ -126,7 +126,17 @@ namespace CST
                     string ClassN = tClassN[tClassN.Length - 1];
 
                     if (mr.returnType != "Void")
+                    {
+                        if (i != records.Count - 1 && mr.argType != records[i + 1].returnType)
+                        {
+                            variableC--;
+                            sb.Append(tabBuffer + DefType(mr.argType));
+                            variableC++;
+                            sb.Append(" = (" + mr.argType + ")" + records[i + 1].returnType[0] + (variableC - 1).ToString() + ";\n");
+                        }
+
                         sb.Append(tabBuffer + DefType(mr.returnType) + " = ((" + mr.className + ")" + globalobjectText + "." + mr.rootClassName + ")." + mr.methodName + "(" + mr.argType[0] + (variableC - 1).ToString() + ");\n");
+                    }
                     else
                         sb.Append(tabBuffer + "((" + globalobjectText + "." + mr.rootClassName + ")." + "." + mr.methodName + "(" + mr.argType[0] + (variableC - 1).ToString() + ");\n");
                 }
@@ -271,7 +281,8 @@ namespace CST
 
             process.WaitForExit();
 
-            if (File.Exists(vProPath + "corral_out_trace.txt"))
+            /* Change to check this program has no bugs */
+            if (File.Exists(vProPath + "\\corral_out_trace.txt"))
             {
                 return false;
             }

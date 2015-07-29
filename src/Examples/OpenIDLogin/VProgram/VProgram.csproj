@@ -32,36 +32,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.FEAD90148E86F7865C4A1A67041FD6C1407A296C\CST.dll</HintPath>
-    </Reference>
-    <Reference Include="CST, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\CST.dll</HintPath>
-    </Reference>
-    <Reference Include="CST_Ops">
-      <HintPath>C:\CST\dlls\CST_Ops.EC09B3F8F5A210CE9B6E730E42566B87FE493EC0\CST_Ops.dll</HintPath>
-    </Reference>
-    <Reference Include="CST_Ops">
-      <HintPath>..\..\..\..\lib\CST_Ops.dll</HintPath>
-    </Reference>
-    <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.24C5440C8E93CBB61607BE9A464644B41E450474\GenericAuthNameSpace.dll</HintPath>
-    </Reference>
     <Reference Include="GenericAuthNameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\GenericAuthNameSpace.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenID20NameSpace">
-      <HintPath>C:\CST\dlls\OpenID20NameSpace.D06944E73DE7A2555784A7578B72EC706564498C\OpenID20NameSpace.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenID20NameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\OpenID20NameSpace.dll</HintPath>
-    </Reference>
-    <Reference Include="OpenIDExample, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\OpenIDExample\bin\OpenIDExample.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -71,8 +44,26 @@
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
+    <Reference Include="CST">
+      <HintPath>C:\CST\dlls\CST.AF211344EA89EC6EBC496D693B5C166BF58B9FC5\CST.dll</HintPath>
+    </Reference>
+    <Reference Include="CST_Ops">
+      <HintPath>C:\CST\dlls\CST_Ops.F4AEA5CE86C2E69A7A3EBD9F6F06CB5FB45BDBB9\CST_Ops.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenID20NameSpace">
+      <HintPath>C:\CST\dlls\OpenID20NameSpace.B3AE4D4CD447C0D11D7600FD297A381B928A3520\OpenID20NameSpace.dll</HintPath>
+    </Reference>
+    <Reference Include="Communication">
+      <HintPath>C:\CST\dlls\Communication.D82C1AF611CB47ADC04D79242BC35D9094380863\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="OpenIDExample">
+      <HintPath>C:\CST\dlls\OpenIDExample.10E80DCB1BFF5432883AB46AC64B3751C00A5263\OpenIDExample.dll</HintPath>
+    </Reference>
     <Reference Include="Yahoo_IdP">
-      <HintPath>..\..\..\..\lib\Yahoo_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\Yahoo_IdP.CE2E19A203A2D877F9D393D0F83CF63A2908D05A\Yahoo_IdP.dll</HintPath>
+    </Reference>
+    <Reference Include="GenericAuthNameSpace">
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.29AAA1D0DF15A600DE7F167DFB7C563848955788\GenericAuthNameSpace.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
@@ -85,7 +76,7 @@
     <None Include="App.config" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">
   </Target>
