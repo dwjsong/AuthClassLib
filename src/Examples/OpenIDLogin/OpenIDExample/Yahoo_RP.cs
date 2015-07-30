@@ -18,7 +18,6 @@ namespace OpenID20NameSpace
 
         public Yahoo_RP(string return_uri, string endpointUrl)
         {
-            this.Domain = return_uri;
             this.return_uri = return_uri;
             this.endpointUrl = endpointUrl;
         }
@@ -39,7 +38,6 @@ namespace OpenID20NameSpace
 
             return sb.ToString();
         }
-
 
     }
 }

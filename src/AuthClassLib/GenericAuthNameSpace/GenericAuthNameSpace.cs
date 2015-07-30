@@ -58,7 +58,7 @@
 
         public virtual SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req)
         {
-            Contract.Assume(req == GlobalObjects_base.SignInIdP_Req);
+            GlobalObjects_base.SignInIdP_Req = req;
 
             if (req == null) return null;
             ID_Claim _ID_Claim = Process_SignInIdP_req(req);

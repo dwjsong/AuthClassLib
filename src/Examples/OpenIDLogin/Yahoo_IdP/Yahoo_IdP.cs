@@ -23,11 +23,17 @@ namespace OpenID20NameSpace
             public Dictionary<string, Dictionary<string, IDAssertionEntry>> Dictionary = new Dictionary<string, Dictionary<string, IDAssertionEntry>>();
 
             public ID_Claim getEntry(string IdPSessionSecret, string client_id)
-            {
-                IDAssertionEntry entry = IDAssertionEntry.AssumeType(Dictionary[IdPSessionSecret][client_id]);
+            {           
+                IDAssertionEntry entry = Dictionary[IdPSessionSecret][client_id];
 
-                Dictionary[IdPSessionSecret][client_id] = entry;
+                Contract.Assume(entry.GetType() == typeof(IDAssertionEntry));
+
                 return entry;
+                /*
+                IDAssertionEntry entry = IDAssertionEntry.AssumeType(Dictionary[IdPSessionSecret][client_id]);
+                Dictionary[IdPSessionSecret][client_id] = entry;
+
+                return entry;*/
             }
             public bool setEntry(string IdPSessionSecret, string client_id, ID_Claim Entry)
             {

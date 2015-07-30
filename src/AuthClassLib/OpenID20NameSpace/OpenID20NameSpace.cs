@@ -43,7 +43,7 @@ namespace OpenID20NameSpace
 
         public string endpointURL;
     }
-
+    
     //data structures
     public class IDAssertionEntry : ID_Claim
     {
@@ -95,18 +95,6 @@ namespace OpenID20NameSpace
             return req;
         }
 
-        public AuthenticationConclusion conclude(AuthenticationResponse resp)
-        {
-            AuthenticationConclusion conclusion = new AuthenticationConclusion();
-            conclusion.SessionUID = resp.claimed_id;
-            CST_Ops.recordme(this, resp, conclusion);
-
-            if (AuthenticationDone(conclusion))
-                return conclusion;
-            else
-                return null;
-        }
-
         public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
         {
             AuthenticationResponse r = new AuthenticationResponse();
@@ -115,7 +103,7 @@ namespace OpenID20NameSpace
             r.SymT = rawRequest.QueryString["SymT"];
             string return_url = rawRequest.QueryString["openid.return_to"];
 
-            /* Siunce we have added SymT in the return_uri, we need to strip them */
+            /* Since we have added SymT in the return_uri, we need to strip them */
             if (return_url.StartsWith(this.Domain)) {
                 string[] urls = return_url.Split('?');
                 r.return_to = urls[0];
@@ -129,12 +117,17 @@ namespace OpenID20NameSpace
         public override SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req1)
         {
             AuthenticationResponse req = (AuthenticationResponse)req1;
+            if (req == null) return null;
+            if (this.Domain != req.return_to) return null;
+            AuthenticationConclusion conclusion = new AuthenticationConclusion();
 
-            if (req.return_to == this.Domain) {
+            conclusion.SessionUID = req.claimed_id;
+            CST_Ops.recordme(this, req, conclusion);
 
-                conclude(req);
-            }
-            return null;
+            if (AuthenticationDone(conclusion))
+                return new SignInRP_Resp();
+            else
+                return null;
         }
     }
 
@@ -158,9 +151,8 @@ namespace OpenID20NameSpace
         public override SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req1)
         {
             AuthenticationRequest req = (AuthenticationRequest)req1;
-            Contract.Assume(req == GlobalObjects_base.SignInIdP_Req);
+            Contract.Assume(GlobalObjects_base.SignInIdP_Req.IdPSessionSecret == req.IdPSessionSecret);
 
-//            if (req.realm != GlobalObjects_base.RP.Domain) return null;
             if (req == null) return null;
             ID_Claim _ID_Claim = Process_SignInIdP_req(req);
             if (_ID_Claim == null) return null;
@@ -175,9 +167,10 @@ namespace OpenID20NameSpace
             switch (req.mode)
             {
                 case "checkid_setup":
-                    IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);        
-
-                    return entry;
+                    IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
+                    if (req.realm == entry.Redir_dest)
+                        return entry;
+                    return null;
             }
 
             return null;
@@ -185,7 +178,6 @@ namespace OpenID20NameSpace
 
         public override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim)
         {
-            if (_ID_Claim == null) return null;
             AuthenticationResponse req = new AuthenticationResponse();
 
             req.claimed_id = _ID_Claim.UserID;
