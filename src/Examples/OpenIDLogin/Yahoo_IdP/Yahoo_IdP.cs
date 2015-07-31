@@ -29,11 +29,6 @@ namespace OpenID20NameSpace
                 Contract.Assume(entry.GetType() == typeof(IDAssertionEntry));
 
                 return entry;
-                /*
-                IDAssertionEntry entry = IDAssertionEntry.AssumeType(Dictionary[IdPSessionSecret][client_id]);
-                Dictionary[IdPSessionSecret][client_id] = entry;
-
-                return entry;*/
             }
             public bool setEntry(string IdPSessionSecret, string client_id, ID_Claim Entry)
             {

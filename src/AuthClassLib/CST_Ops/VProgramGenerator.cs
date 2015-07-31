@@ -276,17 +276,18 @@ namespace CST
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
             startInfo.FileName = @"C:\Windows\System32\cmd.exe";
             startInfo.Arguments = "/c " + build_cmd;
+            startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardOutput = true;
             process.StartInfo = startInfo;
             process.Start();
 
+            string output = process.StandardOutput.ReadToEnd();
             process.WaitForExit();
 
-            /* Change to check this program has no bugs */
-            if (File.Exists(vProPath + "\\corral_out_trace.txt"))
-            {
+            if (output.IndexOf("Program has no bugs") > 0)
+                return true;
+            else
                 return false;
-            }
-            return true;
         }
 
     }
