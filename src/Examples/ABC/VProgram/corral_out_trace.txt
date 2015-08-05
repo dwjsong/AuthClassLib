@@ -1,0 +1,78 @@
+s
+#
+1 8 3 1 c
+1 8 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|14|
+1 21 3 1 c
+1 21 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|14|
+1 21 4 29 CALL ABC.A.#ctor$System.Int32
+1 28 3 1 c
+1 28 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|14|
+1 28 4 37 RETURN from ABC.A.#ctor$System.Int32 
+1 29 3 1 c
+1 29 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|14|
+1 32 3 1 c
+1 32 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|15|
+1 45 3 1 c
+1 45 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|15|
+1 45 4 29 CALL ABC.B.#ctor$System.Int32
+1 52 3 1 c
+1 52 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|15|
+1 52 4 37 RETURN from ABC.B.#ctor$System.Int32 
+1 53 3 1 c
+1 53 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|15|
+1 56 3 1 c
+1 56 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|16|
+1 69 3 1 c
+1 69 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|16|
+1 69 4 29 CALL ABC.C.#ctor$System.Int32
+1 105 3 1 c
+1 105 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|16|
+1 105 4 37 RETURN from ABC.C.#ctor$System.Int32 
+1 106 3 1 c
+1 106 6 134 GlobalObjectsForCST.#cctor|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|16|
+1 147 3 1 c
+1 147 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 149 3 1 c
+1 149 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 149 4 43 CALL SynthesizedPortion.SynthesizedSequence
+1 152 3 1 c
+1 152 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|5|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 156 3 1 c
+1 156 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|6|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 158 3 1 c
+1 158 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|6|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 158 4 29 CALL ABC.B.invoke$CST.Message
+1 208 3 1 c
+1 208 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|6|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 208 4 37 RETURN from ABC.B.invoke$CST.Message 
+1 209 3 1 c
+1 209 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|6|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 210 3 1 c
+1 210 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|7|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 212 3 1 c
+1 212 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|7|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 212 4 29 CALL ABC.C.invoke$CST.Message
+1 265 3 1 c
+1 265 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|7|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 265 4 37 RETURN from ABC.C.invoke$CST.Message 
+1 266 3 1 c
+1 266 6 278 SynthesizedPortion.SynthesizedSequence|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs|7|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 267 3 1 c
+1 267 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|25|
+1 267 4 51 RETURN from SynthesizedPortion.SynthesizedSequence 
+1 268 3 1 c
+1 268 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|26|
+1 270 3 1 c
+1 270 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|26|
+1 270 4 31 CALL PoirotMain.check_Assertion
+1 273 3 1 c
+1 273 6 257 PoirotMain.check_Assertion|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\Assertion.cs|7|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|26|
+1 297 3 1 c
+1 297 6 257 PoirotMain.check_Assertion|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\Assertion.cs|7|PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|26|
+1 297 4 15 ASSERTION FAILS
+1 298 3 1 c
+1 298 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|26|
+1 298 4 39 RETURN from PoirotMain.check_Assertion 
+1 299 3 1 c
+1 299 6 123 PoirotMain.Main|c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs|26|
+1 299 4 4 Done

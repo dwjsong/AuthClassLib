@@ -167,7 +167,7 @@ namespace CST
             dllsFolder = CSTFolder + @"\" + dllFolderName;
         }
 
-        public static void saveMethod(MethodRecord mr) //string depPath, string dllPath)
+        public static void saveMethod(MethodRecord mr)
         {
             if (!Directory.Exists(methodsFolder))
             {
@@ -187,8 +187,9 @@ namespace CST
         }
 
         public static MethodRecord getMRFromFile(string mr_sha)
-        {            
-            DLLServerDownloader.downloadMethodRecord(mr_sha);
+        {
+            if (!File.Exists(methodsFolder + "\\" + mr_sha + ".txt"))
+                DLLServerDownloader.downloadMethodRecord(mr_sha);
 
             string[] lines = System.IO.File.ReadAllLines(methodsFolder + "\\" + mr_sha + ".txt");
             string shaR = lines[0];
@@ -196,27 +197,7 @@ namespace CST
 
             string m = lines[2]; 
 
-            string[] method = m.Split(new char[] { ' ', ')', '('});
-            /*
-
-            string[] tS = method[0].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-  
-            string returnN = tS[tS.Length - 1];
-            string returnTypeNS = method[0].Substring(0, method[0].Length - returnN.Length - 1);
-
-            string[] tS2 = method[1].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-
-            string classN = tS2[tS2.Length - 1];
-            string classNS = method[1].Substring(0, method[1].Length - classN.Length - 1);
-
-            string[] tS4 = method[2].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-            string methodN = tS4[tS4.Length - 1];
-            string rootClassN = method[2].Substring(0, method[2].Length - methodN.Length - 1);
-
-            string[] tS3 = method[3].Split(new char[] { '.' }, StringSplitOptions.RemoveEmptyEntries);
-
-            string param = tS3[tS3.Length - 1];
-            string paramNS = method[3].Substring(0, method[3].Length - param.Length - 1);*/
+            string[] method = m.Split(new char[] { ' ', ')', '('});            
 
             string returnN = method[0];
             string classN = method[1];
@@ -224,8 +205,7 @@ namespace CST
             string methodN = method[3];
             string param = method[4];
 
-
-            MethodRecord mr = new MethodRecord(classN, methodN, rootClassN, param, returnN, shaD);
+            MethodRecord mr = new MethodRecord(classN, rootClassN, methodN, param, returnN, shaD);
 
             return mr;
         }
@@ -237,18 +217,24 @@ namespace CST
 
             foreach (string method in sha_methods)
             {
+                string[] partyNameSplit = method.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (partyNameSplit.Length <= 1) continue;
+
+                string stripped_method = partyNameSplit[1];
+
                 MethodRecord mr = null;
-                if (!methodSHADictKEYSHA.ContainsKey(method))
+                if (!methodSHADictKEYSHA.ContainsKey(stripped_method))
                 {
-                    if (!File.Exists(methodsFolder + @"\" + method + ".txt"))
+                    if (!File.Exists(methodsFolder + @"\" + stripped_method + ".txt"))
                     {
-                        DLLServerDownloader.downloadMethodRecord(method);
+                        DLLServerDownloader.downloadMethodRecord(stripped_method);
                     }
-                    mr = MethodHasher.getMRFromFile(method);
+                    mr = MethodHasher.getMRFromFile(stripped_method);
                 }
                 else
                 {
-                    mr = methodSHADictKEYSHA[method];
+                    mr = methodSHADictKEYSHA[stripped_method];
                 }
                 if (!Directory.Exists(dllsFolder + @"\" + mr.SHA_of_DLL))
                 {

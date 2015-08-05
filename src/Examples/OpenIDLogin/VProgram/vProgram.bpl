@@ -597,11 +597,11 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $label: int;
 
     assume {:breadcrumb 6} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
     call $tmp0 := OpenID20NameSpace.NondetOpenID20.SignInIdP_Req(F$PoirotMain.Nondet);
     G1_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
     if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.Yahoo_IdP)
     {
         call $tmp1 := OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.IdP, G1_Ref);
@@ -619,7 +619,7 @@ implementation SynthesizedPortion.SynthesizedSequence()
     }
 
     G2_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp1 else (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.OpenIDProvider then $tmp2 else $tmp3));
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
     if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.RP)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram)
     {
         call $tmp4 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req(F$GenericAuthNameSpace.GlobalObjects_base.RP, G2_Ref);
@@ -677,22 +677,140 @@ procedure LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericAuthNa
 
 
 
-procedure {:extern} GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion$in: Ref);
+var {:extern} F$GenericAuthNameSpace.IdP.IdpAuthRecs: [Ref]Ref;
+
+var {:extern} F$GenericAuthNameSpace.RP.Realm: [Ref]Ref;
+
+procedure {:extern} OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntry$System.String$System.String($this: Ref, IdPSessionSecret$in: Ref, client_id$in: Ref) returns ($result: Ref);
 
 
+
+procedure {:extern} GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($this: Ref, IdPSessionSecret$in: Ref, Realm$in: Ref) returns ($result: Ref);
+
+
+
+function {:extern} T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def() : Ref;
+
+const {:extern} unique T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def: int;
+
+axiom $TypeConstructor(T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def()) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def;
+
+procedure {:extern} OpenID20NameSpace.IDAssertionEntry.get_UserID($this: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} GenericAuthNameSpace.ID_Claim.get_UserID($this: Ref) returns ($result: Ref);
+
+
+
+function {:extern} T$OpenID20NameSpace.IDAssertionEntry() : Ref;
+
+const {:extern} unique T$OpenID20NameSpace.IDAssertionEntry: int;
+
+axiom $TypeConstructor(T$OpenID20NameSpace.IDAssertionEntry()) == T$OpenID20NameSpace.IDAssertionEntry;
+
+var {:extern} F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID: [Ref]Ref;
+
+procedure {:extern} OpenID20NameSpace.IDAssertionEntry.get_Redir_dest($this: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} GenericAuthNameSpace.ID_Claim.get_Redir_dest($this: Ref) returns ($result: Ref);
+
+
+
+var {:extern} F$GenericAuthNameSpace.RP.Domain: [Ref]Ref;
 
 implementation LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this: Ref, conclusion$in: Ref) returns ($result: bool)
 {
   var conclusion: Ref;
+  var ID_claim_Ref: Ref;
+  var $tmp0: Ref;
+  var $tmp1: Ref;
+  var $tmp2: Ref;
+  var $tmp3: Ref;
+  var $tmp4: Ref;
+  var $tmp5: Ref;
+  var $tmp6: Ref;
+  var $tmp7: Ref;
+  var $tmp8: Ref;
+  var $tmp9: Ref;
+  var $tmp10: Ref;
+  var $tmp11: Ref;
+  var $tmp12: Ref;
+  var $tmp13: Ref;
+  var $tmp14: bool;
+  var $tmp15: Ref;
+  var $tmp16: Ref;
+  var $tmp17: Ref;
+  var $tmp18: bool;
   var $localExc: Ref;
   var $label: int;
 
     conclusion := conclusion$in;
     assume {:breadcrumb 8} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 11} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 11} true;
-    call GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion);
     assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 13} true;
+    $tmp10 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
+    assume $tmp10 != null;
+    if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
+    {
+        $tmp0 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
+        assume $tmp0 != null;
+        $tmp1 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp0];
+        $tmp2 := F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req;
+        assume $tmp2 != null;
+        $tmp3 := F$GenericAuthNameSpace.GlobalObjects_base.RP;
+        assume $tmp3 != null;
+        call $tmp4 := OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntry$System.String$System.String($tmp1, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp2], F$GenericAuthNameSpace.RP.Realm[$tmp3]);
+    }
+    else
+    {
+        $tmp5 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
+        assume $tmp5 != null;
+        $tmp6 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp5];
+        $tmp7 := F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req;
+        assume $tmp7 != null;
+        $tmp8 := F$GenericAuthNameSpace.GlobalObjects_base.RP;
+        assume $tmp8 != null;
+        call $tmp9 := GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($tmp6, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp7], F$GenericAuthNameSpace.RP.Realm[$tmp8]);
+    }
+
+    ID_claim_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp4 else $tmp9);
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 16} true;
+    if ($TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+    {
+        call $tmp15 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(ID_claim_Ref);
+    }
+    else
+    {
+        call $tmp16 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(ID_claim_Ref);
+    }
+
+    $tmp17 := F$GenericAuthNameSpace.GlobalObjects_base.RP;
+    assume $tmp17 != null;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 16} true;
+    call $tmp18 := System.String.op_Equality$System.String$System.String((if $TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp15 else $tmp16), F$GenericAuthNameSpace.RP.Domain[$tmp17]);
+    if ($tmp18)
+    {
+        if ($TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+        {
+            call $tmp11 := OpenID20NameSpace.IDAssertionEntry.get_UserID(ID_claim_Ref);
+        }
+        else
+        {
+            call $tmp12 := GenericAuthNameSpace.ID_Claim.get_UserID(ID_claim_Ref);
+        }
+
+        $tmp13 := conclusion;
+        assume $tmp13 != null;
+        call $tmp14 := System.String.op_Equality$System.String$System.String((if $TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp11 else $tmp12), F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp13]);
+    }
+    else
+    {
+    }
+
+    assert (if $tmp18 then $tmp14 else false);
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 19} true;
     $result := true;
     return;
 }
@@ -724,10 +842,6 @@ implementation T$LiveIDNameSpace.Yahoo_RP_For_vProgram.#cctor()
 
 
 
-function T$OpenID20NameSpace.IDAssertionEntry() : Ref;
-
-const unique T$OpenID20NameSpace.IDAssertionEntry: int;
-
 var F$OpenID20NameSpace.IDAssertionEntry.openid_return_to: [Ref]Ref;
 
 var F$OpenID20NameSpace.IDAssertionEntry.openid_identity: [Ref]Ref;
@@ -738,37 +852,37 @@ var F$OpenID20NameSpace.IDAssertionEntry.openid_assoc_handle: [Ref]Ref;
 
 var F$OpenID20NameSpace.IDAssertionEntry.openid_op_endpoint: [Ref]Ref;
 
-procedure OpenID20NameSpace.IDAssertionEntry.get_Redir_dest($this: Ref) returns ($result: Ref);
-
-
-
 implementation OpenID20NameSpace.IDAssertionEntry.get_Redir_dest($this: Ref) returns ($result: Ref)
 {
+  var local_0_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     assume {:breadcrumb 10} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 57} true;
     assume $this != null;
-    $result := F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[$this];
+    local_0_Ref := F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[$this];
+    goto IL_000a;
+
+  IL_000a:
+    $result := local_0_Ref;
     return;
 }
 
 
 
-procedure OpenID20NameSpace.IDAssertionEntry.get_UserID($this: Ref) returns ($result: Ref);
-
-
-
 implementation OpenID20NameSpace.IDAssertionEntry.get_UserID($this: Ref) returns ($result: Ref)
 {
+  var local_0_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     assume {:breadcrumb 11} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 61} true;
     assume $this != null;
-    $result := F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[$this];
+    local_0_Ref := F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[$this];
+    goto IL_000a;
+
+  IL_000a:
+    $result := local_0_Ref;
     return;
 }
 
@@ -785,7 +899,8 @@ procedure OpenID20NameSpace.IDAssertionEntry.#ctor($this: Ref);
 implementation OpenID20NameSpace.IDAssertionEntry.AssumeType$OpenID20NameSpace.IDAssertionEntry(in_obj$in: Ref) returns ($result: Ref)
 {
   var in_obj: Ref;
-  var out_obj_Ref: Ref;
+  var local_1_Ref: Ref;
+  var local_0_prime_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
@@ -794,25 +909,22 @@ implementation OpenID20NameSpace.IDAssertionEntry.AssumeType$OpenID20NameSpace.I
 
     in_obj := in_obj$in;
     assume {:breadcrumb 12} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 66} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 66} true;
     call OpenID20NameSpace.IDAssertionEntry.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.IDAssertionEntry();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.IDAssertionEntry;
-    out_obj_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 67} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 67} true;
+    local_0_prime_Ref := $tmp0;
     $tmp1 := in_obj;
     assume $tmp1 != null;
-    F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[out_obj_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[$tmp1];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 68} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 68} true;
+    F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[local_0_prime_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[$tmp1];
     $tmp2 := in_obj;
     assume $tmp2 != null;
-    F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[out_obj_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[$tmp2];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 70} true;
-    $result := out_obj_Ref;
+    F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[local_0_prime_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[$tmp2];
+    local_1_Ref := local_0_prime_Ref;
+    goto IL_0023;
+
+  IL_0023:
+    $result := local_1_Ref;
     return;
 }
 
@@ -864,13 +976,17 @@ procedure OpenID20NameSpace.AuthenticationRequest.get_Realm($this: Ref) returns 
 
 implementation OpenID20NameSpace.AuthenticationRequest.get_Realm($this: Ref) returns ($result: Ref)
 {
+  var local_0_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     assume {:breadcrumb 14} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 26} true;
     assume $this != null;
-    $result := F$OpenID20NameSpace.AuthenticationRequest.realm[$this];
+    local_0_Ref := F$OpenID20NameSpace.AuthenticationRequest.realm[$this];
+    goto IL_000a;
+
+  IL_000a:
+    $result := local_0_Ref;
     return;
 }
 
@@ -884,8 +1000,6 @@ implementation OpenID20NameSpace.AuthenticationRequest.set_Realm$System.String($
 
     value := value$in;
     assume {:breadcrumb 15} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 27} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 27} true;
     F$OpenID20NameSpace.AuthenticationRequest.realm[$this] := value;
 }
 
@@ -911,10 +1025,7 @@ implementation OpenID20NameSpace.AuthenticationRequest.#ctor($this: Ref)
     F$OpenID20NameSpace.AuthenticationRequest.realm[$this] := null;
     F$OpenID20NameSpace.AuthenticationRequest.endpointURL[$this] := null;
     assume {:breadcrumb 16} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 16} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 16} true;
     F$OpenID20NameSpace.AuthenticationRequest.ns[$this] := $string_literal_http$$$specs.openid.net$auth$2.0_0;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 16} true;
     call GenericAuthNameSpace.SignInIdP_Req.#ctor($this);
 }
 
@@ -962,17 +1073,19 @@ procedure OpenID20NameSpace.RelyingParty.get_return_uri($this: Ref) returns ($re
 
 
 
-var {:extern} F$GenericAuthNameSpace.RP.Domain: [Ref]Ref;
-
 implementation OpenID20NameSpace.RelyingParty.get_return_uri($this: Ref) returns ($result: Ref)
 {
+  var local_0_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     assume {:breadcrumb 17} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 78} true;
     assume $this != null;
-    $result := F$GenericAuthNameSpace.RP.Domain[$this];
+    local_0_Ref := F$GenericAuthNameSpace.RP.Domain[$this];
+    goto IL_000a;
+
+  IL_000a:
+    $result := local_0_Ref;
     return;
 }
 
@@ -990,8 +1103,6 @@ implementation OpenID20NameSpace.RelyingParty.set_return_uri$System.String($this
 
     value := value$in;
     assume {:breadcrumb 18} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 79} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 79} true;
     F$GenericAuthNameSpace.RP.Domain[$this] := value;
 }
 
@@ -1008,42 +1119,32 @@ const {:value "checkid_setup"} unique $string_literal_checkid_setup_2: Ref;
 implementation OpenID20NameSpace.RelyingParty.RequestAuthentication$OpenID20NameSpace.AuthenticationResponse($this: Ref, resp$in: Ref) returns ($result: Ref)
 {
   var resp: Ref;
-  var req_Ref: Ref;
+  var local_1_Ref: Ref;
+  var local_0_prime_Ref: Ref;
   var $tmp0: Ref;
   var $localExc: Ref;
   var $label: int;
 
     resp := resp$in;
     assume {:breadcrumb 19} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 86} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 86} true;
     call OpenID20NameSpace.AuthenticationRequest.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.AuthenticationRequest();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.AuthenticationRequest;
-    req_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 88} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 88} true;
+    local_0_prime_Ref := $tmp0;
     assume $this != null;
-    F$OpenID20NameSpace.AuthenticationRequest.realm[req_Ref] := F$GenericAuthNameSpace.RP.Domain[$this];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 89} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 89} true;
-    F$OpenID20NameSpace.AuthenticationRequest.identity[req_Ref] := $string_literal_http$$$specs.openid.net$auth$2.0$identifier_select_1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 90} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 90} true;
-    F$OpenID20NameSpace.AuthenticationRequest.ns[req_Ref] := $string_literal_http$$$specs.openid.net$auth$2.0_0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 91} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 91} true;
-    F$OpenID20NameSpace.AuthenticationRequest.claimed_id[req_Ref] := $string_literal_http$$$specs.openid.net$auth$2.0$identifier_select_1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 92} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 92} true;
-    F$OpenID20NameSpace.AuthenticationRequest.mode[req_Ref] := $string_literal_checkid_setup_2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 93} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 93} true;
+    F$OpenID20NameSpace.AuthenticationRequest.realm[local_0_prime_Ref] := F$GenericAuthNameSpace.RP.Domain[$this];
+    F$OpenID20NameSpace.AuthenticationRequest.identity[local_0_prime_Ref] := $string_literal_http$$$specs.openid.net$auth$2.0$identifier_select_1;
+    F$OpenID20NameSpace.AuthenticationRequest.ns[local_0_prime_Ref] := $string_literal_http$$$specs.openid.net$auth$2.0_0;
+    F$OpenID20NameSpace.AuthenticationRequest.claimed_id[local_0_prime_Ref] := $string_literal_http$$$specs.openid.net$auth$2.0$identifier_select_1;
+    F$OpenID20NameSpace.AuthenticationRequest.mode[local_0_prime_Ref] := $string_literal_checkid_setup_2;
     assume $this != null;
-    F$OpenID20NameSpace.AuthenticationRequest.return_to[req_Ref] := F$GenericAuthNameSpace.RP.Domain[$this];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 95} true;
-    $result := req_Ref;
+    F$OpenID20NameSpace.AuthenticationRequest.return_to[local_0_prime_Ref] := F$GenericAuthNameSpace.RP.Domain[$this];
+    local_1_Ref := local_0_prime_Ref;
+    goto IL_004f;
+
+  IL_004f:
+    $result := local_1_Ref;
     return;
 }
 
@@ -1098,101 +1199,77 @@ procedure {:extern} System.String.IsNullOrEmpty$System.String(value$in: Ref) ret
 implementation OpenID20NameSpace.RelyingParty.parseAuthenticationResponse$System.Web.HttpRequest($this: Ref, rawRequest$in: Ref) returns ($result: Ref)
 {
   var rawRequest: Ref;
-  var r_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
-  var context_Ref: Ref;
+  var local_1_Ref: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
   var $tmp5: Ref;
-  var return_url_Ref: Ref;
+  var local_2_Ref: Ref;
   var $tmp6: Ref;
   var $tmp7: Ref;
   var $tmp8: bool;
-  var urls_Ref: Ref;
   var $tmp9: Ref;
   var $tmp10: Ref;
   var $tmp11: Ref;
   var $tmp12: bool;
+  var local_4_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     rawRequest := rawRequest$in;
     assume {:breadcrumb 20} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 114} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 114} true;
     call OpenID20NameSpace.AuthenticationResponse.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.AuthenticationResponse();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.AuthenticationResponse;
-    r_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 115} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 115} true;
+    local_0_Ref := $tmp0;
     call $tmp1 := System.Web.HttpContext.get_Current();
-    context_Ref := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 116} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 116} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 116} true;
+    local_1_Ref := $tmp1;
     call $tmp2 := System.Web.HttpRequest.get_QueryString(rawRequest);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 116} true;
     call $tmp3 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp2, $string_literal_openid.claimed_id_3);
-    F$OpenID20NameSpace.AuthenticationResponse.claimed_id[r_Ref] := $tmp3;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 117} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 117} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 117} true;
+    F$OpenID20NameSpace.AuthenticationResponse.claimed_id[local_0_Ref] := $tmp3;
     call $tmp4 := System.Web.HttpRequest.get_QueryString(rawRequest);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 117} true;
     call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_SymT_4);
-    F$CST.CST_Struct.SymT[r_Ref] := $tmp5;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 118} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 118} true;
+    F$CST.CST_Struct.SymT[local_0_Ref] := $tmp5;
     call $tmp6 := System.Web.HttpRequest.get_QueryString(rawRequest);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 118} true;
     call $tmp7 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp6, $string_literal_openid.return_to_5);
-    return_url_Ref := $tmp7;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 121} true;
+    local_2_Ref := $tmp7;
     assume $this != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 121} true;
-    call $tmp8 := System.String.StartsWith$System.String(return_url_Ref, F$GenericAuthNameSpace.RP.Domain[$this]);
+    call $tmp8 := System.String.StartsWith$System.String(local_2_Ref, F$GenericAuthNameSpace.RP.Domain[$this]);
     if ($tmp8)
     {
         assume {:breadcrumb 21} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 122} true;
         call $tmp9 := Alloc();
         assume $ArrayLength($tmp9) == 1 * 1;
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 122} true;
-        call $tmp10 := System.String.Split$System.Chararray(return_url_Ref, $tmp9);
-        urls_Ref := $tmp10;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 123} true;
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 123} true;
-        assume urls_Ref != null;
-        F$OpenID20NameSpace.AuthenticationResponse.return_to[r_Ref] := $ArrayContents[urls_Ref][0];
+        call $tmp10 := System.String.Split$System.Chararray(local_2_Ref, $tmp9);
+        assume $tmp10 != null;
+        F$OpenID20NameSpace.AuthenticationResponse.return_to[local_0_Ref] := $ArrayContents[$tmp10][0];
     }
     else
     {
         assume {:breadcrumb 22} true;
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 125} true;
-    $tmp11 := r_Ref;
+    $tmp11 := local_0_Ref;
     assume $tmp11 != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 125} true;
     call $tmp12 := System.String.IsNullOrEmpty$System.String(F$OpenID20NameSpace.AuthenticationResponse.claimed_id[$tmp11]);
     if ($tmp12)
     {
         assume {:breadcrumb 23} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 126} true;
-        $result := null;
-        return;
+        local_4_Ref := null;
     }
     else
     {
         assume {:breadcrumb 24} true;
+        local_4_Ref := local_0_Ref;
+        goto IL_009f;
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 128} true;
-    $result := r_Ref;
+  IL_009f:
+    $result := local_4_Ref;
     return;
 }
 
@@ -1207,8 +1284,6 @@ function {:extern} T$GenericAuthNameSpace.RP.AuthenticationConclusion() : Ref;
 const {:extern} unique T$GenericAuthNameSpace.RP.AuthenticationConclusion: int;
 
 axiom $TypeConstructor(T$GenericAuthNameSpace.RP.AuthenticationConclusion()) == T$GenericAuthNameSpace.RP.AuthenticationConclusion;
-
-var {:extern} F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID: [Ref]Ref;
 
 procedure {:extern} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct(o$in: Ref, in_msg$in: Ref, out_msg$in: Ref);
 
@@ -1231,11 +1306,12 @@ axiom $TypeConstructor(T$GenericAuthNameSpace.SignInRP_Resp()) == T$GenericAuthN
 implementation OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($this: Ref, req1$in: Ref) returns ($result: Ref)
 {
   var req1: Ref;
-  var req_Ref: Ref;
+  var local_0_Ref: Ref;
+  var local_2_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: bool;
   var $tmp2: Ref;
-  var conclusion_Ref: Ref;
+  var local_1_Ref: Ref;
   var $tmp3: Ref;
   var $tmp4: bool;
   var $tmp5: bool;
@@ -1247,98 +1323,79 @@ implementation OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.Sign
 
     req1 := req1$in;
     assume {:breadcrumb 25} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 133} true;
-    req_Ref := req1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 134} true;
-    if (req_Ref == null)
+    local_0_Ref := req1;
+    if (local_0_Ref == null)
     {
         assume {:breadcrumb 26} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 134} true;
-        $result := null;
-        return;
+        local_2_Ref := null;
     }
     else
     {
         assume {:breadcrumb 27} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 135} true;
-    assume $this != null;
-    $tmp0 := req_Ref;
-    assume $tmp0 != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 135} true;
-    call $tmp1 := System.String.op_Inequality$System.String$System.String(F$GenericAuthNameSpace.RP.Domain[$this], F$OpenID20NameSpace.AuthenticationResponse.return_to[$tmp0]);
-    if ($tmp1)
-    {
-        assume {:breadcrumb 28} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 135} true;
-        $result := null;
-        return;
-    }
-    else
-    {
-        assume {:breadcrumb 29} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 136} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 136} true;
-    call $tmp2 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 136} true;
-    call GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($tmp2);
-    assume $DynamicType($tmp2) == T$GenericAuthNameSpace.RP.AuthenticationConclusion();
-    assume $TypeConstructor($DynamicType($tmp2)) == T$GenericAuthNameSpace.RP.AuthenticationConclusion;
-    conclusion_Ref := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 138} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 138} true;
-    $tmp3 := req_Ref;
-    assume $tmp3 != null;
-    F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[conclusion_Ref] := F$OpenID20NameSpace.AuthenticationResponse.claimed_id[$tmp3];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 139} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 139} true;
-    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, req_Ref, conclusion_Ref);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 141} true;
-    if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram)
-    {
-        call $tmp4 := LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, conclusion_Ref);
-    }
-    else
-    {
-        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP)
+        assume $this != null;
+        $tmp0 := local_0_Ref;
+        assume $tmp0 != null;
+        call $tmp1 := System.String.op_Inequality$System.String$System.String(F$GenericAuthNameSpace.RP.Domain[$this], F$OpenID20NameSpace.AuthenticationResponse.return_to[$tmp0]);
+        if ($tmp1)
         {
-            call $tmp5 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, conclusion_Ref);
+            assume {:breadcrumb 28} true;
+            local_2_Ref := null;
         }
         else
         {
-            if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty)
+            assume {:breadcrumb 29} true;
+            call $tmp2 := Alloc();
+            call GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($tmp2);
+            assume $DynamicType($tmp2) == T$GenericAuthNameSpace.RP.AuthenticationConclusion();
+            assume $TypeConstructor($DynamicType($tmp2)) == T$GenericAuthNameSpace.RP.AuthenticationConclusion;
+            local_1_Ref := $tmp2;
+            $tmp3 := local_0_Ref;
+            assume $tmp3 != null;
+            F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[local_1_Ref] := F$OpenID20NameSpace.AuthenticationResponse.claimed_id[$tmp3];
+            call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, local_0_Ref, local_1_Ref);
+            if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram)
             {
-                call $tmp6 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, conclusion_Ref);
+                call $tmp4 := LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
             }
             else
             {
-                call $tmp7 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, conclusion_Ref);
+                if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP)
+                {
+                    call $tmp5 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                }
+                else
+                {
+                    if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty)
+                    {
+                        call $tmp6 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                    }
+                    else
+                    {
+                        call $tmp7 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                    }
+                }
+            }
+
+            if ((if $TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram then $tmp4 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP then $tmp5 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty then $tmp6 else $tmp7))))
+            {
+                assume {:breadcrumb 30} true;
+                call $tmp8 := Alloc();
+                call GenericAuthNameSpace.SignInRP_Resp.#ctor($tmp8);
+                assume $DynamicType($tmp8) == T$GenericAuthNameSpace.SignInRP_Resp();
+                assume $TypeConstructor($DynamicType($tmp8)) == T$GenericAuthNameSpace.SignInRP_Resp;
+                local_2_Ref := $tmp8;
+            }
+            else
+            {
+                assume {:breadcrumb 31} true;
+                local_2_Ref := null;
+                goto IL_0068;
             }
         }
     }
 
-    if ((if $TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram then $tmp4 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP then $tmp5 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty then $tmp6 else $tmp7))))
-    {
-        assume {:breadcrumb 30} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 142} true;
-        call $tmp8 := Alloc();
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 142} true;
-        call GenericAuthNameSpace.SignInRP_Resp.#ctor($tmp8);
-        assume $DynamicType($tmp8) == T$GenericAuthNameSpace.SignInRP_Resp();
-        assume $TypeConstructor($DynamicType($tmp8)) == T$GenericAuthNameSpace.SignInRP_Resp;
-        $result := $tmp8;
-        return;
-    }
-    else
-    {
-        assume {:breadcrumb 31} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 144} true;
-    $result := null;
+  IL_0068:
+    $result := local_2_Ref;
     return;
 }
 
@@ -1405,10 +1462,7 @@ implementation OpenID20NameSpace.AuthenticationResponse.#ctor($this: Ref)
     F$OpenID20NameSpace.AuthenticationResponse.realm[$this] := null;
     F$OpenID20NameSpace.AuthenticationResponse.endpointURL[$this] := null;
     assume {:breadcrumb 33} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 35} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 35} true;
     F$OpenID20NameSpace.AuthenticationResponse.ns[$this] := $string_literal_http$$$specs.openid.net$auth$2.0_0;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 35} true;
     call GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req.#ctor($this);
 }
 
@@ -1444,8 +1498,6 @@ implementation OpenID20NameSpace.OpenIDProvider.init$OpenID20NameSpace.IDAsserti
 
     recs := recs$in;
     assume {:breadcrumb 34} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 156} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 156} true;
     call OpenID20NameSpace.OpenIDProvider.set_IDAssertionRecs$OpenID20NameSpace.IDAssertionRecs($this, recs);
 }
 
@@ -1455,17 +1507,19 @@ procedure OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this: Ref) retur
 
 
 
-var {:extern} F$GenericAuthNameSpace.IdP.IdpAuthRecs: [Ref]Ref;
-
 implementation OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this: Ref) returns ($result: Ref)
 {
+  var local_0_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     assume {:breadcrumb 35} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 161} true;
     assume $this != null;
-    $result := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+    local_0_Ref := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+    goto IL_000f;
+
+  IL_000f:
+    $result := local_0_Ref;
     return;
 }
 
@@ -1479,8 +1533,6 @@ implementation OpenID20NameSpace.OpenIDProvider.set_IDAssertionRecs$OpenID20Name
 
     value := value$in;
     assume {:breadcrumb 36} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 162} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 162} true;
     F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this] := value;
 }
 
@@ -1491,10 +1543,6 @@ procedure OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthName
 
 
 procedure {:extern} GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref);
-
-
-
-procedure {:extern} GenericAuthNameSpace.ID_Claim.get_Redir_dest($this: Ref) returns ($result: Ref);
 
 
 
@@ -1509,14 +1557,15 @@ procedure {:extern} GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthName
 implementation OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req1$in: Ref) returns ($result: Ref)
 {
   var req1: Ref;
-  var req_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: bool;
+  var local_2_Ref: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
   var $tmp5: Ref;
-  var _ID_Claim_Ref: Ref;
+  var local_1_Ref: Ref;
   var $tmp6: Ref;
   var $tmp7: Ref;
   var $tmp8: Ref;
@@ -1531,131 +1580,107 @@ implementation OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.S
 
     req1 := req1$in;
     assume {:breadcrumb 37} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 167} true;
-    req_Ref := req1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 168} true;
+    local_0_Ref := req1;
     $tmp0 := F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req;
     assume $tmp0 != null;
-    $tmp1 := req_Ref;
+    $tmp1 := local_0_Ref;
     assume $tmp1 != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 168} true;
     call $tmp2 := System.String.op_Equality$System.String$System.String(F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp0], F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp1]);
     assume $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 170} true;
-    if (req_Ref == null)
+    if (local_0_Ref == null)
     {
         assume {:breadcrumb 38} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 170} true;
-        $result := null;
-        return;
+        local_2_Ref := null;
     }
     else
     {
         assume {:breadcrumb 39} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 171} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 171} true;
-    if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
-    {
-        call $tmp3 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req_Ref);
-    }
-    else
-    {
-        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
+        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
         {
-            call $tmp4 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req_Ref);
+            call $tmp3 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, local_0_Ref);
         }
         else
         {
-            call $tmp5 := GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req_Ref);
-        }
-    }
-
-    _ID_Claim_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp3 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp4 else $tmp5));
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 172} true;
-    if (_ID_Claim_Ref == null)
-    {
-        assume {:breadcrumb 40} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 172} true;
-        $result := null;
-        return;
-    }
-    else
-    {
-        assume {:breadcrumb 41} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 174} true;
-    if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
-    {
-        if ($TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
-        {
-            call $tmp6 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim_Ref);
-        }
-        else
-        {
-            call $tmp7 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim_Ref);
-        }
-
-        call $tmp8 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp6 else $tmp7), _ID_Claim_Ref);
-    }
-    else
-    {
-        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
-        {
-            if ($TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+            if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
             {
-                call $tmp9 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim_Ref);
+                call $tmp4 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, local_0_Ref);
             }
             else
             {
-                call $tmp10 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim_Ref);
+                call $tmp5 := GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, local_0_Ref);
             }
+        }
 
-            call $tmp11 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp9 else $tmp10), _ID_Claim_Ref);
+        local_1_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp3 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp4 else $tmp5));
+        if (local_1_Ref == null)
+        {
+            assume {:breadcrumb 40} true;
+            local_2_Ref := null;
         }
         else
         {
-            if ($TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+            assume {:breadcrumb 41} true;
+            if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
             {
-                call $tmp12 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim_Ref);
+                if ($TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+                {
+                    call $tmp6 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_1_Ref);
+                }
+                else
+                {
+                    call $tmp7 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_1_Ref);
+                }
+
+                call $tmp8 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp6 else $tmp7), local_1_Ref);
             }
             else
             {
-                call $tmp13 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim_Ref);
+                if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
+                {
+                    if ($TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+                    {
+                        call $tmp9 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_1_Ref);
+                    }
+                    else
+                    {
+                        call $tmp10 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_1_Ref);
+                    }
+
+                    call $tmp11 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp9 else $tmp10), local_1_Ref);
+                }
+                else
+                {
+                    if ($TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+                    {
+                        call $tmp12 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_1_Ref);
+                    }
+                    else
+                    {
+                        call $tmp13 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_1_Ref);
+                    }
+
+                    call $tmp14 := GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp12 else $tmp13), local_1_Ref);
+                }
             }
 
-            call $tmp14 := GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp12 else $tmp13), _ID_Claim_Ref);
+            local_2_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp8 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp11 else $tmp14));
+            goto IL_0059;
         }
     }
 
-    $result := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp8 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp11 else $tmp14));
+  IL_0059:
+    $result := local_2_Ref;
     return;
 }
 
 
 
-procedure {:extern} OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntry$System.String$System.String($this: Ref, IdPSessionSecret$in: Ref, client_id$in: Ref) returns ($result: Ref);
-
-
-
-procedure {:extern} GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($this: Ref, IdPSessionSecret$in: Ref, Realm$in: Ref) returns ($result: Ref);
-
-
-
-function {:extern} T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def() : Ref;
-
-const {:extern} unique T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def: int;
-
-axiom $TypeConstructor(T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def()) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def;
-
 implementation OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req1$in: Ref) returns ($result: Ref)
 {
   var req1: Ref;
-  var req_Ref: Ref;
+  var local_0_Ref: Ref;
+  var local_3_Ref: Ref;
   var $tmp0: Ref;
-  var CS$4$0001_Ref: Ref;
   var $tmp1: bool;
   var $tmp2: Ref;
   var $tmp3: Ref;
@@ -1666,102 +1691,92 @@ implementation OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAut
   var $tmp8: Ref;
   var $tmp9: Ref;
   var $tmp10: Ref;
-  var entry_Ref: Ref;
+  var local_1_Ref: Ref;
   var $tmp11: Ref;
   var $tmp12: Ref;
   var $tmp13: Ref;
   var $tmp14: bool;
+  var local_2_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     req1 := req1$in;
     assume {:breadcrumb 42} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 179} true;
-    req_Ref := req1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 181} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 181} true;
-    $tmp0 := req_Ref;
+    local_0_Ref := req1;
+    $tmp0 := local_0_Ref;
     assume $tmp0 != null;
-    CS$4$0001_Ref := F$OpenID20NameSpace.AuthenticationRequest.mode[$tmp0];
-    if (CS$4$0001_Ref != null)
+    local_3_Ref := F$OpenID20NameSpace.AuthenticationRequest.mode[$tmp0];
+    if (local_3_Ref != null)
     {
         assume {:breadcrumb 43} true;
-        call $tmp1 := System.String.op_Equality$System.String$System.String(CS$4$0001_Ref, $string_literal_checkid_setup_2);
+        call $tmp1 := System.String.op_Equality$System.String$System.String(local_3_Ref, $string_literal_checkid_setup_2);
         if (!$tmp1)
         {
             assume {:breadcrumb 45} true;
+            goto IL_0060;
         }
         else
         {
             assume {:breadcrumb 46} true;
-            assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 184} true;
-            assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 184} true;
-            assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 184} true;
-            call $tmp10 := OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this);
-            if ($TypeConstructor($DynamicType($tmp10)) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
-            {
-                call $tmp2 := OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this);
-                $tmp3 := req_Ref;
-                assume $tmp3 != null;
-                $tmp4 := req_Ref;
-                assume $tmp4 != null;
-                call $tmp5 := OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntry$System.String$System.String($tmp2, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp3], F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp4]);
-            }
-            else
-            {
-                call $tmp6 := OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this);
-                $tmp7 := req_Ref;
-                assume $tmp7 != null;
-                $tmp8 := req_Ref;
-                assume $tmp8 != null;
-                call $tmp9 := GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($tmp6, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp7], F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp8]);
-            }
+        }
 
-            entry_Ref := (if $TypeConstructor($DynamicType($tmp10)) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp5 else $tmp9);
-            assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 185} true;
-            $tmp11 := req_Ref;
-            assume $tmp11 != null;
-            if ($TypeConstructor($DynamicType(entry_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
-            {
-                call $tmp12 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(entry_Ref);
-            }
-            else
-            {
-                call $tmp13 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(entry_Ref);
-            }
+        call $tmp10 := OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this);
+        if ($TypeConstructor($DynamicType($tmp10)) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
+        {
+            call $tmp2 := OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this);
+            $tmp3 := local_0_Ref;
+            assume $tmp3 != null;
+            $tmp4 := local_0_Ref;
+            assume $tmp4 != null;
+            call $tmp5 := OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntry$System.String$System.String($tmp2, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp3], F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp4]);
+        }
+        else
+        {
+            call $tmp6 := OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this);
+            $tmp7 := local_0_Ref;
+            assume $tmp7 != null;
+            $tmp8 := local_0_Ref;
+            assume $tmp8 != null;
+            call $tmp9 := GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($tmp6, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp7], F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp8]);
+        }
 
-            assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 185} true;
-            call $tmp14 := System.String.op_Equality$System.String$System.String(F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp11], (if $TypeConstructor($DynamicType(entry_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp12 else $tmp13));
-            if ($tmp14)
-            {
-                assume {:breadcrumb 47} true;
-                assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 186} true;
-                $result := entry_Ref;
-                return;
-            }
-            else
-            {
-                assume {:breadcrumb 48} true;
-            }
+        local_1_Ref := (if $TypeConstructor($DynamicType($tmp10)) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp5 else $tmp9);
+        $tmp11 := local_0_Ref;
+        assume $tmp11 != null;
+        if ($TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+        {
+            call $tmp12 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_1_Ref);
+        }
+        else
+        {
+            call $tmp13 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_1_Ref);
+        }
 
-            assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 187} true;
-            $result := null;
-            return;
+        call $tmp14 := System.String.op_Equality$System.String$System.String(F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp11], (if $TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp12 else $tmp13));
+        if ($tmp14)
+        {
+            assume {:breadcrumb 47} true;
+            local_2_Ref := local_1_Ref;
+        }
+        else
+        {
+            assume {:breadcrumb 48} true;
+            local_2_Ref := null;
         }
     }
     else
     {
         assume {:breadcrumb 44} true;
+
+      IL_0060:
+        local_2_Ref := null;
+        goto IL_0064;
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 190} true;
-    $result := null;
+  IL_0064:
+    $result := local_2_Ref;
     return;
 }
-
-
-
-procedure {:extern} GenericAuthNameSpace.ID_Claim.get_UserID($this: Ref) returns ($result: Ref);
 
 
 
@@ -1769,7 +1784,8 @@ implementation OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthN
 {
   var dest: Ref;
   var _ID_Claim: Ref;
-  var req_Ref: Ref;
+  var local_1_Ref: Ref;
+  var local_0_prime_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
@@ -1781,15 +1797,11 @@ implementation OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthN
     dest := dest$in;
     _ID_Claim := _ID_Claim$in;
     assume {:breadcrumb 49} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 195} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 195} true;
     call OpenID20NameSpace.AuthenticationResponse.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.AuthenticationResponse();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.AuthenticationResponse;
-    req_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 197} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 197} true;
+    local_0_prime_Ref := $tmp0;
     if ($TypeConstructor($DynamicType(_ID_Claim)) == T$OpenID20NameSpace.IDAssertionEntry)
     {
         call $tmp1 := OpenID20NameSpace.IDAssertionEntry.get_UserID(_ID_Claim);
@@ -1799,9 +1811,7 @@ implementation OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthN
         call $tmp2 := GenericAuthNameSpace.ID_Claim.get_UserID(_ID_Claim);
     }
 
-    F$OpenID20NameSpace.AuthenticationResponse.claimed_id[req_Ref] := (if $TypeConstructor($DynamicType(_ID_Claim)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp1 else $tmp2);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 198} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 198} true;
+    F$OpenID20NameSpace.AuthenticationResponse.claimed_id[local_0_prime_Ref] := (if $TypeConstructor($DynamicType(_ID_Claim)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp1 else $tmp2);
     if ($TypeConstructor($DynamicType(_ID_Claim)) == T$OpenID20NameSpace.IDAssertionEntry)
     {
         call $tmp3 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim);
@@ -1811,9 +1821,12 @@ implementation OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthN
         call $tmp4 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim);
     }
 
-    F$OpenID20NameSpace.AuthenticationResponse.return_to[req_Ref] := (if $TypeConstructor($DynamicType(_ID_Claim)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp3 else $tmp4);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenID20NameSpace\OpenID20NameSpace.cs"} {:sourceLine 204} true;
-    $result := req_Ref;
+    F$OpenID20NameSpace.AuthenticationResponse.return_to[local_0_prime_Ref] := (if $TypeConstructor($DynamicType(_ID_Claim)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp3 else $tmp4);
+    local_1_Ref := local_0_prime_Ref;
+    goto IL_0023;
+
+  IL_0023:
+    $result := local_1_Ref;
     return;
 }
 
@@ -1852,12 +1865,14 @@ function T$GenericAuthNameSpace.GlobalObjects_base() : Ref;
 
 const unique T$GenericAuthNameSpace.GlobalObjects_base: int;
 
-var F$GenericAuthNameSpace.RP.Realm: [Ref]Ref;
+procedure GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion$in: Ref);
+
+
 
 implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion$in: Ref)
 {
   var conclusion: Ref;
-  var ID_claim_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
@@ -1882,7 +1897,6 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
 
     conclusion := conclusion$in;
     assume {:breadcrumb 51} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 104} true;
     $tmp10 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
     assume $tmp10 != null;
     if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
@@ -1908,41 +1922,40 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
         call $tmp9 := GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($tmp6, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp7], F$GenericAuthNameSpace.RP.Realm[$tmp8]);
     }
 
-    ID_claim_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp4 else $tmp9);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 107} true;
-    if ($TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+    local_0_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp4 else $tmp9);
+    if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
     {
-        call $tmp15 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(ID_claim_Ref);
+        call $tmp15 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_0_Ref);
     }
     else
     {
-        call $tmp16 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(ID_claim_Ref);
+        call $tmp16 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_0_Ref);
     }
 
     $tmp17 := F$GenericAuthNameSpace.GlobalObjects_base.RP;
     assume $tmp17 != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 107} true;
-    call $tmp18 := System.String.op_Equality$System.String$System.String((if $TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp15 else $tmp16), F$GenericAuthNameSpace.RP.Domain[$tmp17]);
+    call $tmp18 := System.String.op_Inequality$System.String$System.String((if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp15 else $tmp16), F$GenericAuthNameSpace.RP.Domain[$tmp17]);
     if ($tmp18)
     {
-        if ($TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+        if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
         {
-            call $tmp11 := OpenID20NameSpace.IDAssertionEntry.get_UserID(ID_claim_Ref);
+            call $tmp11 := OpenID20NameSpace.IDAssertionEntry.get_UserID(local_0_Ref);
         }
         else
         {
-            call $tmp12 := GenericAuthNameSpace.ID_Claim.get_UserID(ID_claim_Ref);
+            call $tmp12 := GenericAuthNameSpace.ID_Claim.get_UserID(local_0_Ref);
         }
 
         $tmp13 := conclusion;
         assume $tmp13 != null;
-        call $tmp14 := System.String.op_Equality$System.String$System.String((if $TypeConstructor($DynamicType(ID_claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp11 else $tmp12), F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp13]);
+        call $tmp14 := System.String.op_Inequality$System.String$System.String((if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp11 else $tmp12), F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp13]);
     }
     else
     {
     }
 
     assert (if $tmp18 then $tmp14 else false);
+    assert false;
 }
 
 
@@ -1990,10 +2003,11 @@ procedure GenericAuthNameSpace.IdPAuthRecords_Base.setEntry$System.String$System
 implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref)
 {
   var req: Ref;
+  var local_1_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
-  var _ID_Claim_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
   var $tmp5: Ref;
@@ -2018,135 +2032,126 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
 
     req := req$in;
     assume {:breadcrumb 53} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 61} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 61} true;
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := req;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 63} true;
     if (req == null)
     {
         assume {:breadcrumb 54} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 63} true;
-        $result := null;
-        return;
+        local_1_Ref := null;
     }
     else
     {
         assume {:breadcrumb 55} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 64} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 64} true;
-    if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
-    {
-        call $tmp0 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
-    }
-    else
-    {
-        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
+        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
         {
-            call $tmp1 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
+            call $tmp0 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
         }
         else
         {
-            call $tmp2 := GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
-        }
-    }
-
-    _ID_Claim_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp0 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp1 else $tmp2));
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 65} true;
-    assume $this != null;
-    if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
-    {
-        assume $this != null;
-        $tmp3 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
-        $tmp4 := req;
-        assume $tmp4 != null;
-        if ($TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest)
-        {
-            call $tmp5 := OpenID20NameSpace.AuthenticationRequest.get_Realm(req);
-        }
-        else
-        {
-            call $tmp6 := GenericAuthNameSpace.SignInIdP_Req.get_Realm(req);
-        }
-
-        call $tmp7 := OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($tmp3, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp4], (if $TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest then $tmp5 else $tmp6), _ID_Claim_Ref);
-    }
-    else
-    {
-        assume $this != null;
-        $tmp8 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
-        $tmp9 := req;
-        assume $tmp9 != null;
-        if ($TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest)
-        {
-            call $tmp10 := OpenID20NameSpace.AuthenticationRequest.get_Realm(req);
-        }
-        else
-        {
-            call $tmp11 := GenericAuthNameSpace.SignInIdP_Req.get_Realm(req);
-        }
-
-        call $tmp12 := GenericAuthNameSpace.IdPAuthRecords_Base.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($tmp8, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp9], (if $TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest then $tmp10 else $tmp11), _ID_Claim_Ref);
-    }
-
-    if (!(if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp7 else $tmp12))
-    {
-        assume {:breadcrumb 56} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 66} true;
-        $result := null;
-        return;
-    }
-    else
-    {
-        assume {:breadcrumb 57} true;
-    }
-
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 67} true;
-    if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
-    {
-        if ($TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
-        {
-            call $tmp13 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim_Ref);
-        }
-        else
-        {
-            call $tmp14 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim_Ref);
-        }
-
-        call $tmp15 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp13 else $tmp14), _ID_Claim_Ref);
-    }
-    else
-    {
-        if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
-        {
-            if ($TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+            if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
             {
-                call $tmp16 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim_Ref);
+                call $tmp1 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
             }
             else
             {
-                call $tmp17 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim_Ref);
+                call $tmp2 := GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
             }
-
-            call $tmp18 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp16 else $tmp17), _ID_Claim_Ref);
         }
-        else
+
+        local_0_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp0 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp1 else $tmp2));
+        assume $this != null;
+        if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
         {
-            if ($TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+            assume $this != null;
+            $tmp3 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+            $tmp4 := req;
+            assume $tmp4 != null;
+            if ($TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest)
             {
-                call $tmp19 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(_ID_Claim_Ref);
+                call $tmp5 := OpenID20NameSpace.AuthenticationRequest.get_Realm(req);
             }
             else
             {
-                call $tmp20 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(_ID_Claim_Ref);
+                call $tmp6 := GenericAuthNameSpace.SignInIdP_Req.get_Realm(req);
             }
 
-            call $tmp21 := GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(_ID_Claim_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp19 else $tmp20), _ID_Claim_Ref);
+            call $tmp7 := OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($tmp3, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp4], (if $TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest then $tmp5 else $tmp6), local_0_Ref);
+        }
+        else
+        {
+            assume $this != null;
+            $tmp8 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+            $tmp9 := req;
+            assume $tmp9 != null;
+            if ($TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest)
+            {
+                call $tmp10 := OpenID20NameSpace.AuthenticationRequest.get_Realm(req);
+            }
+            else
+            {
+                call $tmp11 := GenericAuthNameSpace.SignInIdP_Req.get_Realm(req);
+            }
+
+            call $tmp12 := GenericAuthNameSpace.IdPAuthRecords_Base.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($tmp8, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp9], (if $TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest then $tmp10 else $tmp11), local_0_Ref);
+        }
+
+        if (!(if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp7 else $tmp12))
+        {
+            assume {:breadcrumb 56} true;
+            local_1_Ref := null;
+        }
+        else
+        {
+            assume {:breadcrumb 57} true;
+            if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
+            {
+                if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+                {
+                    call $tmp13 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_0_Ref);
+                }
+                else
+                {
+                    call $tmp14 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_0_Ref);
+                }
+
+                call $tmp15 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp13 else $tmp14), local_0_Ref);
+            }
+            else
+            {
+                if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider)
+                {
+                    if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+                    {
+                        call $tmp16 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_0_Ref);
+                    }
+                    else
+                    {
+                        call $tmp17 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_0_Ref);
+                    }
+
+                    call $tmp18 := OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp16 else $tmp17), local_0_Ref);
+                }
+                else
+                {
+                    if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
+                    {
+                        call $tmp19 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_0_Ref);
+                    }
+                    else
+                    {
+                        call $tmp20 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_0_Ref);
+                    }
+
+                    call $tmp21 := GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp19 else $tmp20), local_0_Ref);
+                }
+            }
+
+            local_1_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp15 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp18 else $tmp21));
+            goto IL_004e;
         }
     }
 
-    $result := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp15 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp18 else $tmp21));
+  IL_004e:
+    $result := local_1_Ref;
     return;
 }
 
@@ -2300,22 +2305,21 @@ procedure {:extern} System.Web.SessionState.HttpSessionState.set_Item$System.Str
 implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this: Ref, conclusion$in: Ref) returns ($result: bool)
 {
   var conclusion: Ref;
-  var CST_verified_bool: bool;
+  var local_0_bool: bool;
   var $tmp0: bool;
   var $tmp1: Ref;
   var $tmp2: Ref;
+  var local_1_bool: bool;
   var $localExc: Ref;
   var $label: int;
 
     conclusion := conclusion$in;
     assume {:breadcrumb 63} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 85} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 85} true;
     call $tmp0 := CST.CST_Ops.Certify$CST.CST_Struct(conclusion);
-    CST_verified_bool := $tmp0;
+    local_0_bool := $tmp0;
     assume $this != null;
     $tmp1 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
-    if (CST_verified_bool)
+    if (local_0_bool)
     {
         $tmp2 := conclusion;
         assume $tmp2 != null;
@@ -2324,10 +2328,12 @@ implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.R
     {
     }
 
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 85} true;
-    call System.Web.SessionState.HttpSessionState.set_Item$System.String$System.Object($tmp1, $string_literal_UserID_6, (if CST_verified_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp2] else $string_literal__7));
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\GenericAuthNameSpace.cs"} {:sourceLine 87} true;
-    $result := CST_verified_bool;
+    call System.Web.SessionState.HttpSessionState.set_Item$System.String$System.Object($tmp1, $string_literal_UserID_6, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp2] else $string_literal__7));
+    local_1_bool := local_0_bool;
+    goto IL_002e;
+
+  IL_002e:
+    $result := local_1_bool;
     return;
 }
 
@@ -2451,15 +2457,13 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 {
   var sender: Ref;
   var e: Ref;
-  var mode_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: bool;
   var $tmp4: Ref;
-  var d_Ref: Ref;
   var $tmp5: Ref;
-  var resp_Ref: Ref;
+  var local_1_Ref: Ref;
   var $tmp6: Ref;
   var $tmp7: Ref;
   var $tmp8: Ref;
@@ -2492,54 +2496,46 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
   var $tmp35: Ref;
   var $tmp36: Ref;
   var $tmp37: Ref;
+  var $tmp38: Ref;
+  var $tmp39: Ref;
+  var $tmp40: Ref;
+  var $tmp41: Ref;
+  var $tmp42: Ref;
+  var $tmp43: Ref;
+  var $tmp44: Ref;
+  var $tmp45: Ref;
+  var $tmp46: Ref;
   var $localExc: Ref;
   var $label: int;
 
     sender := sender$in;
     e := e$in;
     assume {:breadcrumb 66} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 20} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 20} true;
     call $tmp0 := System.Web.UI.Page.get_Request($this);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 20} true;
     call $tmp1 := System.Web.HttpRequest.get_Params($tmp0);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 20} true;
     call $tmp2 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp1, $string_literal_openid.mode_8);
-    mode_Ref := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 22} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 22} true;
-    call $tmp3 := System.String.IsNullOrEmpty$System.String(mode_Ref);
+    call $tmp3 := System.String.IsNullOrEmpty$System.String($tmp2);
     if (!$tmp3)
     {
         assume {:breadcrumb 67} true;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 24} true;
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 24} true;
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 24} true;
         call $tmp4 := System.Web.UI.Page.get_Session($this);
         assume $this != null;
         F$GenericAuthNameSpace.RP.CurrentSession[F$OpenIDExample.LogIn.RP[$this]] := $tmp4;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 25} true;
         call $tmp5 := Alloc();
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 25} true;
         call GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($tmp5);
         assume $DynamicType($tmp5) == T$GenericAuthNameSpace.RP.AuthenticationConclusion();
         assume $TypeConstructor($DynamicType($tmp5)) == T$GenericAuthNameSpace.RP.AuthenticationConclusion;
-        d_Ref := $tmp5;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 26} true;
-        assume $this != null;
-        $tmp6 := F$OpenIDExample.LogIn.RP[$this];
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 26} true;
-        call $tmp7 := System.Web.UI.Page.get_Request($this);
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 26} true;
-        call $tmp8 := OpenID20NameSpace.RelyingParty.parseAuthenticationResponse$System.Web.HttpRequest($tmp6, $tmp7);
-        resp_Ref := $tmp8;
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 27} true;
+        local_1_Ref := $tmp5;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.RP[$this])) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram)
         {
             assume $this != null;
-            $tmp9 := F$OpenIDExample.LogIn.RP[$this];
-            call $tmp10 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp9, resp_Ref);
+            $tmp6 := F$OpenIDExample.LogIn.RP[$this];
+            assume $this != null;
+            $tmp7 := F$OpenIDExample.LogIn.RP[$this];
+            call $tmp8 := System.Web.UI.Page.get_Request($this);
+            call $tmp9 := OpenID20NameSpace.RelyingParty.parseAuthenticationResponse$System.Web.HttpRequest($tmp7, $tmp8);
+            call $tmp10 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp6, $tmp9);
         }
         else
         {
@@ -2548,7 +2544,11 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
             {
                 assume $this != null;
                 $tmp11 := F$OpenIDExample.LogIn.RP[$this];
-                call $tmp12 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp11, resp_Ref);
+                assume $this != null;
+                $tmp12 := F$OpenIDExample.LogIn.RP[$this];
+                call $tmp13 := System.Web.UI.Page.get_Request($this);
+                call $tmp14 := OpenID20NameSpace.RelyingParty.parseAuthenticationResponse$System.Web.HttpRequest($tmp12, $tmp13);
+                call $tmp15 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp11, $tmp14);
             }
             else
             {
@@ -2556,26 +2556,33 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
                 if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.RP[$this])) == T$OpenID20NameSpace.RelyingParty)
                 {
                     assume $this != null;
-                    $tmp13 := F$OpenIDExample.LogIn.RP[$this];
-                    call $tmp14 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp13, resp_Ref);
+                    $tmp16 := F$OpenIDExample.LogIn.RP[$this];
+                    assume $this != null;
+                    $tmp17 := F$OpenIDExample.LogIn.RP[$this];
+                    call $tmp18 := System.Web.UI.Page.get_Request($this);
+                    call $tmp19 := OpenID20NameSpace.RelyingParty.parseAuthenticationResponse$System.Web.HttpRequest($tmp17, $tmp18);
+                    call $tmp20 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp16, $tmp19);
                 }
                 else
                 {
                     assume $this != null;
-                    $tmp15 := F$OpenIDExample.LogIn.RP[$this];
-                    call $tmp16 := GenericAuthNameSpace.RP.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp15, resp_Ref);
+                    $tmp21 := F$OpenIDExample.LogIn.RP[$this];
+                    assume $this != null;
+                    $tmp22 := F$OpenIDExample.LogIn.RP[$this];
+                    call $tmp23 := System.Web.UI.Page.get_Request($this);
+                    call $tmp24 := OpenID20NameSpace.RelyingParty.parseAuthenticationResponse$System.Web.HttpRequest($tmp22, $tmp23);
+                    call $tmp25 := GenericAuthNameSpace.RP.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp21, $tmp24);
                 }
             }
         }
 
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 29} true;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn)
         {
             assume {:breadcrumb 69} true;
             assume $this != null;
-            $tmp17 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-            call System.Web.UI.Page.set_Visible$System.Boolean($tmp17, false);
+            $tmp26 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+            call System.Web.UI.Page.set_Visible$System.Boolean($tmp26, false);
         }
         else
         {
@@ -2585,8 +2592,8 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
             {
                 assume {:breadcrumb 71} true;
                 assume $this != null;
-                $tmp18 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-                call System.Web.UI.Page.set_Visible$System.Boolean($tmp18, false);
+                $tmp27 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+                call System.Web.UI.Page.set_Visible$System.Boolean($tmp27, false);
             }
             else
             {
@@ -2596,27 +2603,26 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
                 {
                     assume {:breadcrumb 73} true;
                     assume $this != null;
-                    $tmp19 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp19, false);
+                    $tmp28 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp28, false);
                 }
                 else
                 {
                     assume {:breadcrumb 74} true;
                     assume $this != null;
-                    $tmp20 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp20, false);
+                    $tmp29 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp29, false);
                 }
             }
         }
 
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 30} true;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn)
         {
             assume {:breadcrumb 75} true;
             assume $this != null;
-            $tmp21 := F$OpenIDExample.LogIn.LoggedIn[$this];
-            call System.Web.UI.Page.set_Visible$System.Boolean($tmp21, true);
+            $tmp30 := F$OpenIDExample.LogIn.LoggedIn[$this];
+            call System.Web.UI.Page.set_Visible$System.Boolean($tmp30, true);
         }
         else
         {
@@ -2626,8 +2632,8 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
             {
                 assume {:breadcrumb 77} true;
                 assume $this != null;
-                $tmp22 := F$OpenIDExample.LogIn.LoggedIn[$this];
-                call System.Web.UI.Page.set_Visible$System.Boolean($tmp22, true);
+                $tmp31 := F$OpenIDExample.LogIn.LoggedIn[$this];
+                call System.Web.UI.Page.set_Visible$System.Boolean($tmp31, true);
             }
             else
             {
@@ -2637,32 +2643,26 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
                 {
                     assume {:breadcrumb 79} true;
                     assume $this != null;
-                    $tmp23 := F$OpenIDExample.LogIn.LoggedIn[$this];
-                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp23, true);
+                    $tmp32 := F$OpenIDExample.LogIn.LoggedIn[$this];
+                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp32, true);
                 }
                 else
                 {
                     assume {:breadcrumb 80} true;
                     assume $this != null;
-                    $tmp24 := F$OpenIDExample.LogIn.LoggedIn[$this];
-                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp24, true);
+                    $tmp33 := F$OpenIDExample.LogIn.LoggedIn[$this];
+                    call System.Web.UI.Control.set_Visible$System.Boolean($tmp33, true);
                 }
             }
         }
 
-        assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 32} true;
         assume $this != null;
-        $tmp25 := F$OpenIDExample.LogIn.logged_id[$this];
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 32} true;
-        call $tmp26 := System.Web.UI.Page.get_Request($this);
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 32} true;
-        call $tmp27 := System.Web.HttpRequest.get_Params($tmp26);
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 32} true;
-        call $tmp28 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp27, $string_literal_openid.identity_10);
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 32} true;
-        call $tmp29 := System.String.Format$System.String$System.Object($string_literal_Your$ID$is$$0$_9, $tmp28);
-        assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 32} true;
-        call System.Web.UI.HtmlControls.HtmlContainerControl.set_InnerHtml$System.String($tmp25, $tmp29);
+        $tmp34 := F$OpenIDExample.LogIn.logged_id[$this];
+        call $tmp35 := System.Web.UI.Page.get_Request($this);
+        call $tmp36 := System.Web.HttpRequest.get_Params($tmp35);
+        call $tmp37 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp36, $string_literal_openid.identity_10);
+        call $tmp38 := System.String.Format$System.String$System.Object($string_literal_Your$ID$is$$0$_9, $tmp37);
+        call System.Web.UI.HtmlControls.HtmlContainerControl.set_InnerHtml$System.String($tmp34, $tmp38);
         return;
     }
     else
@@ -2670,14 +2670,13 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
         assume {:breadcrumb 68} true;
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 37} true;
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
         assume {:breadcrumb 81} true;
         assume $this != null;
-        $tmp30 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-        call System.Web.UI.Page.set_Visible$System.Boolean($tmp30, true);
+        $tmp39 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+        call System.Web.UI.Page.set_Visible$System.Boolean($tmp39, true);
     }
     else
     {
@@ -2687,8 +2686,8 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
         {
             assume {:breadcrumb 83} true;
             assume $this != null;
-            $tmp31 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-            call System.Web.UI.Page.set_Visible$System.Boolean($tmp31, true);
+            $tmp40 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+            call System.Web.UI.Page.set_Visible$System.Boolean($tmp40, true);
         }
         else
         {
@@ -2698,27 +2697,26 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
             {
                 assume {:breadcrumb 85} true;
                 assume $this != null;
-                $tmp32 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-                call System.Web.UI.Control.set_Visible$System.Boolean($tmp32, true);
+                $tmp41 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+                call System.Web.UI.Control.set_Visible$System.Boolean($tmp41, true);
             }
             else
             {
                 assume {:breadcrumb 86} true;
                 assume $this != null;
-                $tmp33 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-                call System.Web.UI.Control.set_Visible$System.Boolean($tmp33, true);
+                $tmp42 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+                call System.Web.UI.Control.set_Visible$System.Boolean($tmp42, true);
             }
         }
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 38} true;
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
         assume {:breadcrumb 87} true;
         assume $this != null;
-        $tmp34 := F$OpenIDExample.LogIn.LoggedIn[$this];
-        call System.Web.UI.Page.set_Visible$System.Boolean($tmp34, false);
+        $tmp43 := F$OpenIDExample.LogIn.LoggedIn[$this];
+        call System.Web.UI.Page.set_Visible$System.Boolean($tmp43, false);
     }
     else
     {
@@ -2728,8 +2726,8 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
         {
             assume {:breadcrumb 89} true;
             assume $this != null;
-            $tmp35 := F$OpenIDExample.LogIn.LoggedIn[$this];
-            call System.Web.UI.Page.set_Visible$System.Boolean($tmp35, false);
+            $tmp44 := F$OpenIDExample.LogIn.LoggedIn[$this];
+            call System.Web.UI.Page.set_Visible$System.Boolean($tmp44, false);
         }
         else
         {
@@ -2739,15 +2737,15 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
             {
                 assume {:breadcrumb 91} true;
                 assume $this != null;
-                $tmp36 := F$OpenIDExample.LogIn.LoggedIn[$this];
-                call System.Web.UI.Control.set_Visible$System.Boolean($tmp36, false);
+                $tmp45 := F$OpenIDExample.LogIn.LoggedIn[$this];
+                call System.Web.UI.Control.set_Visible$System.Boolean($tmp45, false);
             }
             else
             {
                 assume {:breadcrumb 92} true;
                 assume $this != null;
-                $tmp37 := F$OpenIDExample.LogIn.LoggedIn[$this];
-                call System.Web.UI.Control.set_Visible$System.Boolean($tmp37, false);
+                $tmp46 := F$OpenIDExample.LogIn.LoggedIn[$this];
+                call System.Web.UI.Control.set_Visible$System.Boolean($tmp46, false);
             }
         }
     }
@@ -2785,12 +2783,11 @@ implementation OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs
 {
   var sender: Ref;
   var e: Ref;
-  var req_Ref: Ref;
+  var local_1_Ref: Ref;
   var $tmp0: Ref;
-  var resp_Ref: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
-  var new_resq_Ref: Ref;
+  var local_2_Ref: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
   var $tmp5: Ref;
@@ -2801,7 +2798,7 @@ implementation OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs
   var $tmp10: Ref;
   var $tmp11: Ref;
   var $tmp12: Ref;
-  var final_url_Ref: Ref;
+  var local_3_Ref: Ref;
   var $tmp13: Ref;
   var $tmp14: Ref;
   var $tmp15: Ref;
@@ -2811,78 +2808,50 @@ implementation OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs
     sender := sender$in;
     e := e$in;
     assume {:breadcrumb 93} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 79} true;
-    call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 79} true;
-    call OpenID20NameSpace.AuthenticationResponse.#ctor($tmp0);
-    assume $DynamicType($tmp0) == T$OpenID20NameSpace.AuthenticationResponse();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.AuthenticationResponse;
-    req_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 81} true;
     assume $this != null;
-    $tmp1 := F$OpenIDExample.LogIn.RP[$this];
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 81} true;
-    call $tmp2 := OpenID20NameSpace.RelyingParty.RequestAuthentication$OpenID20NameSpace.AuthenticationResponse($tmp1, req_Ref);
-    resp_Ref := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 84} true;
+    $tmp0 := F$OpenIDExample.LogIn.RP[$this];
+    call $tmp1 := Alloc();
+    call OpenID20NameSpace.AuthenticationResponse.#ctor($tmp1);
+    assume $DynamicType($tmp1) == T$OpenID20NameSpace.AuthenticationResponse();
+    assume $TypeConstructor($DynamicType($tmp1)) == T$OpenID20NameSpace.AuthenticationResponse;
+    call $tmp2 := OpenID20NameSpace.RelyingParty.RequestAuthentication$OpenID20NameSpace.AuthenticationResponse($tmp0, $tmp1);
+    local_1_Ref := $tmp2;
     call $tmp3 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 84} true;
     call OpenID20NameSpace.AuthenticationRequest.#ctor($tmp3);
     assume $DynamicType($tmp3) == T$OpenID20NameSpace.AuthenticationRequest();
     assume $TypeConstructor($DynamicType($tmp3)) == T$OpenID20NameSpace.AuthenticationRequest;
-    new_resq_Ref := $tmp3;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 85} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 85} true;
-    $tmp4 := resp_Ref;
+    local_2_Ref := $tmp3;
+    $tmp4 := local_1_Ref;
     assume $tmp4 != null;
-    F$OpenID20NameSpace.AuthenticationRequest.claimed_id[new_resq_Ref] := F$OpenID20NameSpace.AuthenticationRequest.claimed_id[$tmp4];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 86} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 86} true;
-    $tmp5 := resp_Ref;
+    F$OpenID20NameSpace.AuthenticationRequest.claimed_id[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.claimed_id[$tmp4];
+    $tmp5 := local_1_Ref;
     assume $tmp5 != null;
-    F$OpenID20NameSpace.AuthenticationRequest.identity[new_resq_Ref] := F$OpenID20NameSpace.AuthenticationRequest.identity[$tmp5];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 87} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 87} true;
-    $tmp6 := resp_Ref;
+    F$OpenID20NameSpace.AuthenticationRequest.identity[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.identity[$tmp5];
+    $tmp6 := local_1_Ref;
     assume $tmp6 != null;
-    F$OpenID20NameSpace.AuthenticationRequest.return_to[new_resq_Ref] := F$OpenID20NameSpace.AuthenticationRequest.return_to[$tmp6];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 88} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 88} true;
-    $tmp7 := resp_Ref;
+    F$OpenID20NameSpace.AuthenticationRequest.return_to[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.return_to[$tmp6];
+    $tmp7 := local_1_Ref;
     assume $tmp7 != null;
-    F$OpenID20NameSpace.AuthenticationRequest.realm[new_resq_Ref] := F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp7];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 89} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 89} true;
-    $tmp8 := resp_Ref;
+    F$OpenID20NameSpace.AuthenticationRequest.realm[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.realm[$tmp7];
+    $tmp8 := local_1_Ref;
     assume $tmp8 != null;
-    F$OpenID20NameSpace.AuthenticationRequest.ns[new_resq_Ref] := F$OpenID20NameSpace.AuthenticationRequest.ns[$tmp8];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 90} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 90} true;
-    $tmp9 := resp_Ref;
+    F$OpenID20NameSpace.AuthenticationRequest.ns[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.ns[$tmp8];
+    $tmp9 := local_1_Ref;
     assume $tmp9 != null;
-    F$OpenID20NameSpace.AuthenticationRequest.mode[new_resq_Ref] := F$OpenID20NameSpace.AuthenticationRequest.mode[$tmp9];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 92} true;
+    F$OpenID20NameSpace.AuthenticationRequest.mode[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.mode[$tmp9];
     call $tmp10 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 92} true;
     call OpenID20NameSpace.Yahoo_IdP.#ctor($tmp10);
     assume $DynamicType($tmp10) == T$OpenID20NameSpace.Yahoo_IdP();
     assume $TypeConstructor($DynamicType($tmp10)) == T$OpenID20NameSpace.Yahoo_IdP;
     $tmp11 := T$OpenID20NameSpace.Yahoo_IdP();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 92} true;
     call $tmp12 := System.Type.GetMethod$System.String($tmp11, $string_literal_SignInIdP_11);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 92} true;
-    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo($tmp10, resp_Ref, new_resq_Ref, $tmp12);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 94} true;
+    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo($tmp10, local_1_Ref, local_2_Ref, $tmp12);
     assume $this != null;
     $tmp13 := F$OpenIDExample.LogIn.RP[$this];
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 94} true;
-    call $tmp14 := OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationRequest($tmp13, new_resq_Ref);
-    final_url_Ref := $tmp14;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 96} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 96} true;
+    call $tmp14 := OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationRequest($tmp13, local_2_Ref);
+    local_3_Ref := $tmp14;
     call $tmp15 := System.Web.UI.Page.get_Response($this);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 96} true;
-    call System.Web.HttpResponse.Redirect$System.String($tmp15, final_url_Ref);
+    call System.Web.HttpResponse.Redirect$System.String($tmp15, local_3_Ref);
 }
 
 
@@ -2909,7 +2878,6 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
     sender := sender$in;
     e := e$in;
     assume {:breadcrumb 94} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 101} true;
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
@@ -2950,7 +2918,6 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
         }
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 102} true;
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
@@ -3024,15 +2991,11 @@ implementation OpenIDExample.LogIn.#ctor($this: Ref)
     F$OpenIDExample.LogIn.logged_id[$this] := null;
     F$OpenIDExample.LogIn.Logout[$this] := null;
     assume {:breadcrumb 107} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 15} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 15} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 15} true;
     call OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($tmp0, $string_literal_http$$$localhost$32928$LogIn.aspx_12, $string_literal_https$$$open.login.yahooapis.com$openid$op$auth_13);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.Yahoo_RP();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.Yahoo_RP;
     F$OpenIDExample.LogIn.RP[$this] := $tmp0;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\LogIn.aspx.cs"} {:sourceLine 15} true;
     call System.Web.UI.Page.#ctor($this);
 }
 
@@ -3054,8 +3017,6 @@ implementation OpenID20NameSpace.Yahoo_RP.#ctor($this: Ref)
   var $label: int;
 
     assume {:breadcrumb 108} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 14} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 14} true;
     call OpenID20NameSpace.RelyingParty.#ctor($this);
 }
 
@@ -3071,14 +3032,8 @@ implementation OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($thi
     return_uri := return_uri$in;
     endpointUrl := endpointUrl$in;
     assume {:breadcrumb 109} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 19} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 19} true;
     call OpenID20NameSpace.RelyingParty.#ctor($this);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 21} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 21} true;
     call OpenID20NameSpace.RelyingParty.set_return_uri$System.String($this, return_uri);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 22} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 22} true;
     F$OpenID20NameSpace.RelyingParty.endpointUrl[$this] := endpointUrl;
 }
 
@@ -3107,33 +3062,32 @@ procedure {:extern} System.Object.ToString($this: Ref) returns ($result: Ref);
 implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationRequest($this: Ref, req$in: Ref) returns ($result: Ref)
 {
   var req: Ref;
-  var sb_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
+  var local_1_Ref: Ref;
   var $tmp3: Ref;
   var $localExc: Ref;
   var $label: int;
 
     req := req$in;
     assume {:breadcrumb 110} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 27} true;
     call $tmp0 := Alloc();
     assume $this != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 27} true;
     call System.Text.StringBuilder.#ctor$System.String($tmp0, F$OpenID20NameSpace.RelyingParty.endpointUrl[$this]);
     assume $DynamicType($tmp0) == T$System.Text.StringBuilder();
     assume $TypeConstructor($DynamicType($tmp0)) == T$System.Text.StringBuilder;
-    sb_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 29} true;
+    local_0_Ref := $tmp0;
     call $tmp1 := Alloc();
     assume $ArrayLength($tmp1) == 1 * 7;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 29} true;
-    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(sb_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_14, $tmp1);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 31} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 31} true;
-    call $tmp3 := System.Object.ToString(sb_Ref);
-    $result := $tmp3;
+    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(local_0_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_14, $tmp1);
+    call $tmp3 := System.Object.ToString(local_0_Ref);
+    local_1_Ref := $tmp3;
+    goto IL_0087;
+
+  IL_0087:
+    $result := local_1_Ref;
     return;
 }
 
@@ -3146,33 +3100,32 @@ procedure OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenticatio
 implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationResponse($this: Ref, req$in: Ref) returns ($result: Ref)
 {
   var req: Ref;
-  var sb_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
+  var local_1_Ref: Ref;
   var $tmp3: Ref;
   var $localExc: Ref;
   var $label: int;
 
     req := req$in;
     assume {:breadcrumb 111} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 35} true;
     call $tmp0 := Alloc();
     assume $this != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 35} true;
     call System.Text.StringBuilder.#ctor$System.String($tmp0, F$OpenID20NameSpace.RelyingParty.endpointUrl[$this]);
     assume $DynamicType($tmp0) == T$System.Text.StringBuilder();
     assume $TypeConstructor($DynamicType($tmp0)) == T$System.Text.StringBuilder;
-    sb_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 37} true;
+    local_0_Ref := $tmp0;
     call $tmp1 := Alloc();
     assume $ArrayLength($tmp1) == 1 * 7;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 37} true;
-    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(sb_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_14, $tmp1);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 39} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\OpenIDExample\Yahoo_RP.cs"} {:sourceLine 39} true;
-    call $tmp3 := System.Object.ToString(sb_Ref);
-    $result := $tmp3;
+    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(local_0_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_14, $tmp1);
+    call $tmp3 := System.Object.ToString(local_0_Ref);
+    local_1_Ref := $tmp3;
+    goto IL_0087;
+
+  IL_0087:
+    $result := local_1_Ref;
     return;
 }
 
@@ -3214,7 +3167,6 @@ implementation CST.Debug.reached()
   var $label: int;
 
     assume {:breadcrumb 112} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\CST.cs"} {:sourceLine 22} true;
     assert false;
 }
 
@@ -3259,13 +3211,8 @@ implementation CST.CST_Struct.#ctor($this: Ref)
     F$CST.CST_Struct.SymT[$this] := null;
     F$CST.CST_Struct.SignedBy[$this] := null;
     assume {:breadcrumb 114} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\CST.cs"} {:sourceLine 15} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\CST.cs"} {:sourceLine 15} true;
     F$CST.CST_Struct.SymT[$this] := $string_literal__7;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\CST.cs"} {:sourceLine 16} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\CST.cs"} {:sourceLine 16} true;
     F$CST.CST_Struct.SignedBy[$this] := $string_literal__7;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Common\CST.cs"} {:sourceLine 16} true;
     call System.Object.#ctor($this);
 }
 
@@ -3317,11 +3264,8 @@ implementation OpenID20NameSpace.Yahoo_IdP.init($this: Ref)
   var $label: int;
 
     assume {:breadcrumb 115} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 15} true;
     assume $this != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 15} true;
     call OpenID20NameSpace.OpenIDProvider.init$OpenID20NameSpace.IDAssertionRecs($this, F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this]);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 16} true;
     assume $this != null;
     $tmp0 := F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this];
     assume $tmp0 != null;
@@ -3329,13 +3273,11 @@ implementation OpenID20NameSpace.Yahoo_IdP.init($this: Ref)
     $tmp2 := F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req;
     assume $tmp2 != null;
     call $tmp3 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 16} true;
     call System.Collections.Generic.Dictionary`2.#ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OpenID20NameSpace.IDAssertionEntry());
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Collections.Generic.Dictionary`2;
     assume TKey$T$System.Collections.Generic.Dictionary`2($DynamicType($tmp3)) == T$System.String();
     assume TValue$T$System.Collections.Generic.Dictionary`2($DynamicType($tmp3)) == T$OpenID20NameSpace.IDAssertionEntry();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 16} true;
     call System.Collections.Generic.Dictionary`2.set_Item$`0$`1($tmp1, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp2], $tmp3);
 }
 
@@ -3353,15 +3295,11 @@ implementation OpenID20NameSpace.Yahoo_IdP.#ctor($this: Ref)
 
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this] := null;
     assume {:breadcrumb 116} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 19} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 19} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 19} true;
     call OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def;
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this] := $tmp0;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 19} true;
     call OpenID20NameSpace.OpenIDProvider.#ctor($this);
 }
 
@@ -3375,32 +3313,32 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntr
 {
   var IdPSessionSecret: Ref;
   var client_id: Ref;
-  var entry_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
+  var local_1_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
     assume {:breadcrumb 117} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 27} true;
     assume $this != null;
     $tmp0 := F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this];
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 27} true;
     call $tmp2 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp0, IdPSessionSecret);
     $tmp1 := $tmp2;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 27} true;
     call $tmp4 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp1, client_id);
     $tmp3 := $tmp4;
-    entry_Ref := $tmp3;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 29} true;
-    assume $TypeConstructor($DynamicType(entry_Ref)) == T$OpenID20NameSpace.IDAssertionEntry;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 31} true;
-    $result := entry_Ref;
+    local_0_Ref := $tmp3;
+    assume $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry;
+    local_1_Ref := local_0_Ref;
+    goto IL_0033;
+
+  IL_0033:
+    $result := local_1_Ref;
     return;
 }
 
@@ -3411,11 +3349,12 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntr
   var IdPSessionSecret: Ref;
   var client_id: Ref;
   var Entry: Ref;
-  var IDAssertionEntry_Ref: Ref;
+  var local_0_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
+  var local_1_bool: bool;
   var $localExc: Ref;
   var $label: int;
 
@@ -3423,31 +3362,25 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntr
     client_id := client_id$in;
     Entry := Entry$in;
     assume {:breadcrumb 118} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 40} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 40} true;
     call OpenID20NameSpace.IDAssertionEntry.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.IDAssertionEntry();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.IDAssertionEntry;
-    IDAssertionEntry_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 42} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 42} true;
+    local_0_Ref := $tmp0;
     assume Entry != null;
-    F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[IDAssertionEntry_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[Entry];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 43} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 43} true;
+    F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[local_0_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_claimed_id[Entry];
     assume Entry != null;
-    F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[IDAssertionEntry_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[Entry];
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 44} true;
+    F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[local_0_Ref] := F$OpenID20NameSpace.IDAssertionEntry.openid_return_to[Entry];
     assume $this != null;
     $tmp1 := F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this];
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 44} true;
     call $tmp3 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp1, IdPSessionSecret);
     $tmp2 := $tmp3;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 44} true;
-    call System.Collections.Generic.Dictionary`2.set_Item$`0$`1($tmp2, client_id, IDAssertionEntry_Ref);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 46} true;
-    $result := true;
+    call System.Collections.Generic.Dictionary`2.set_Item$`0$`1($tmp2, client_id, local_0_Ref);
+    local_1_bool := true;
+    goto IL_0041;
+
+  IL_0041:
+    $result := local_1_bool;
     return;
 }
 
@@ -3461,17 +3394,13 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.#ctor($
 
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this] := null;
     assume {:breadcrumb 119} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 23} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 23} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 23} true;
     call System.Collections.Generic.Dictionary`2.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OpenID20NameSpace.IDAssertionEntry()));
     assume $TypeConstructor($DynamicType($tmp0)) == T$System.Collections.Generic.Dictionary`2;
     assume TKey$T$System.Collections.Generic.Dictionary`2($DynamicType($tmp0)) == T$System.String();
     assume TValue$T$System.Collections.Generic.Dictionary`2($DynamicType($tmp0)) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OpenID20NameSpace.IDAssertionEntry());
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this] := $tmp0;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\Yahoo_IdP\Yahoo_IdP.cs"} {:sourceLine 23} true;
     call System.Object.#ctor($this);
 }
 

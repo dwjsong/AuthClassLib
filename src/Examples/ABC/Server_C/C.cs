@@ -22,14 +22,13 @@ namespace ABC
         public int data;
         public Message conclusion = new Message();
 
-        public Message invoke(Message msg)
+        public Message invoke(Message in_msg)
         {
-            CST_Ops.recordme(msg);
+            CST_Ops.recordme(this, in_msg, conclusion);
 
-            conclusion.value = msg.value;
-            conclusion.largestParty = msg.largestParty;
-            conclusion.SignedBy = msg.SignedBy;
-            conclusion.SymT = msg.SymT;
+            conclusion.value = in_msg.value;
+            conclusion.largestParty = in_msg.largestParty;
+            conclusion.SignedBy = in_msg.SignedBy;
 
             if (conclusion.value < data)
             {
@@ -40,16 +39,16 @@ namespace ABC
 
             if (conclude(conclusion))
             {
-                msg.certified = true;
+                conclusion.certified = true;
                 Console.WriteLine("The largest party is " + conclusion.largestParty + ".");
             }
             else
             {
-                msg.certified = false;
+                conclusion.certified = false;
                 Console.WriteLine("Not verified.");
             }
 
-            return msg;
+            return conclusion;
         }
 
         public bool conclude(Message msg)

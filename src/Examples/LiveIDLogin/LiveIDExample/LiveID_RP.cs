@@ -25,8 +25,6 @@
         public LiveID_RP( string client_id, string return_uri, string client_secret, string TokenEndpointUrl)
             :base(client_id, return_uri, client_secret, TokenEndpointUrl) 
         {
-            CST_Ops.myPartyName = new Uri(return_uri).Host;
-            CST_Ops.trustedParties = new string[] { CST_Ops.myPartyName, new Uri(TokenEndpointUrl).Host };
         }
         public LiveID_RP()
             : this(
@@ -49,8 +47,7 @@
         {
             TokenResponse tr = base.callTokenEndpoint(req);
 
-            tr.SymT = req.SymT;
-            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"));
+            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"), "live.com");
 
             return tr;
         }

@@ -1,22 +1,28 @@
 using System.Diagnostics.Contracts;
 using System.Text;
 using CST;
+using ABC;
+
+public interface NondetVProgram : CST.Nondet_Base
+{
+    CST.Message Message();
+}
+
+
+public class GlobalObjectsForCST
+{
+    public static A A = new A(PoirotMain.Nondet.Int());
+    public static B B = new B(PoirotMain.Nondet.Int());
+    public static C C = new C(PoirotMain.Nondet.Int());
+}
 
 partial class PoirotMain
 {
-     interface NondetVProgram : CST.Nondet_Base
-      {
-          CST.CST_Message CST_Message();
-      }
-      static NondetVProgram Nondet;
-      static ABC.A A = new ABC.A(Nondet.Int());
-      static ABC.B B = new ABC.B(Nondet.Int());
-      static ABC.C C = new ABC.C(Nondet.Int());
+    public static NondetVProgram Nondet;
 
       static void Main()
       {
-		  Contract.Assert(false);
-          call_SynthesizedSequence();
+          SynthesizedPortion.SynthesizedSequence();
           check_Assertion();        
       }
 }

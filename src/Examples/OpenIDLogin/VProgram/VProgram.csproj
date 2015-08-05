@@ -73,13 +73,13 @@
       <HintPath>C:\CST\dlls\OpenID20NameSpace.D48BA7ABB8AEB34EBC4E97C4A0D1AA09A32C6692\OpenID20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="Yahoo_IdP">
-      <HintPath>C:\CST\dlls\Yahoo_IdP.93F371802054371A4BC0D948032D75D1EA18D047\Yahoo_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\Yahoo_IdP.C1A028EFE0D5300955CAAF18120C48873FF6F014\Yahoo_IdP.dll</HintPath>
     </Reference>
     <Reference Include="Communication">
       <HintPath>C:\CST\dlls\Communication.4C8751724884755F0A1CB6E1792562B7D74D2609\Communication.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDExample">
-      <HintPath>C:\CST\dlls\OpenIDExample.EB62BE453774DA0BD7B9DC23D96453EE718E630E\OpenIDExample.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDExample.A306013B0ED6C19603ED79CE52706ABF307E0FAB\OpenIDExample.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

@@ -1,11 +1,11 @@
 <References>
 	<Reference>
-		..\..\..\..\lib\Communication.dll
+		C:\CST\dlls\Communication.510CF1BF3C49645F8CA60A1A79F9B3C3A435AEC4\Communication.dll
 	</Reference>
 	<Reference>
-		..\..\..\..\lib\CST.dll
+		C:\CST\dlls\CST.F46642AD4178E258A410B38A230F022B20BDC5F8\CST.dll
 	</Reference>
 	<Reference>
-		..\..\..\..\lib\CST_Ops.dll
+		C:\CST\dlls\CST_Ops.AC6727535C371FE8CD3BB779DACF875BFE39ABDD\CST_Ops.dll
 	</Reference>
 </References>

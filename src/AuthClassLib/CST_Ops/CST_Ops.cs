@@ -9,6 +9,8 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
 using System.Collections.Concurrent;
+using System.Configuration;
+using System.Web.Configuration;
 
 namespace CST
 {
@@ -18,6 +20,38 @@ namespace CST
         private static ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA = new ConcurrentDictionary<string, MethodRecord>();
         private static ConcurrentDictionary<string, bool> SymTResultCache = new ConcurrentDictionary<string, bool>();
         private static DLLServerUploader uploader = new DLLServerUploader();
+        static public string myPartyName;
+        static public HashSet<string> trustedParties = new HashSet<string>();
+
+        static CST_Ops()
+        {
+            if (HttpContext.Current == null) return;
+
+            Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+
+            if (webConfig.AppSettings.Settings.Count > 0)
+            {
+                KeyValueConfigurationElement partySetting =
+                    webConfig.AppSettings.Settings["PartyName"];
+                if (partySetting != null)
+                {
+                    myPartyName = partySetting.Value;
+                }
+                else
+                {
+                    myPartyName = @"";
+                }
+
+                KeyValueConfigurationElement truestedPartySetting =
+                    webConfig.AppSettings.Settings["TruestedParty"];
+                if (truestedPartySetting != null)
+                {
+                    string trustedP = truestedPartySetting.Value;
+                    trustedParties = new HashSet<string>(trustedP.Split(new char[] { ',' }));
+                }
+                trustedParties.Add(myPartyName);
+            }
+        }
 
         public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg)
         {
@@ -27,17 +61,16 @@ namespace CST
             Console.WriteLine(t);
             MethodInfo mi = (MethodInfo)sf.GetMethod();
 
-            recordme(o, in_msg, out_msg, mi);
+            recordme(o, in_msg, out_msg, mi, myPartyName);
         }
 
-        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, MethodInfo mi)
+        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, MethodInfo mi, string partyName)
         {
             Type objT = o.GetType();
             var t = mi.ReflectedType;
 
             string rootClass = GetRootClassName(t);
 
-            //string className = mi.ReflectedType.FullName;
             string className = objT.FullName;
             className = className.Replace("\\", string.Empty).Replace('+', '.');
 
@@ -63,7 +96,6 @@ namespace CST
             
             if (!methodSHADict.ContainsKey(methodkey))
             {
-                //string dllName = mi.Module.FullyQualifiedName;
                 string dllName = objT.Module.FullyQualifiedName;
 
                 string path = Path.GetDirectoryName(dllName);
@@ -93,7 +125,7 @@ namespace CST
                 sha = methodSHADict[methodkey].getSHA();
             }
 
-            out_msg.SymT = sha + "(" + in_msg.SymT + ")";
+            out_msg.SymT = partyName + ":" + sha + "(" + in_msg.SymT + ")";
         }
 
         public static string GetRootClassName(Type type)
@@ -108,6 +140,8 @@ namespace CST
 
         public static bool Certify(CST_Struct msg)        
         {
+            RemoveUntrustedSymTPart(msg);
+
             if (!SymTResultCache.ContainsKey(msg.SymT))
             {
                 List<MethodRecord> methodList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
@@ -125,13 +159,31 @@ namespace CST
             return SymTResultCache[msg.SymT];
         }
 
+        private static void RemoveUntrustedSymTPart(CST_Struct msg)
+        {
+            string peeledSymT = msg.SymT;
+            int pos = 0, del, cnt = 0;
+
+            while ((del = peeledSymT.IndexOf(':', pos)) != -1)
+            {
+                string name = peeledSymT.Substring(pos, del - pos);
+
+                if (!trustedParties.Contains(name))
+                {
+                    peeledSymT = peeledSymT.Substring(0, pos) + new String(')', cnt);
+                    break;
+                }
+                cnt++;
+                pos = peeledSymT.IndexOf('(', del) + 1;
+            }
+
+            msg.SymT = peeledSymT;
+        }
+
         static string dehash_server_host = "http://protoagnostic.cloudapp.net:8500/";
         static string upload_path = "Hash/CodeToHash";
-        static string dehash_path = "Hash/HashToCode";
+//        static string dehash_path = "Hash/HashToCode";
         static Dictionary<string, string> codeHashMap = new Dictionary<string, string>();
-
-        static public string myPartyName;
-        static public string[] trustedParties;
 
         //a.com:CALL1    -- colon controlled by bSelfSuppliedInput
         static public string ConstructSymT(string methodCall, bool bSigned)

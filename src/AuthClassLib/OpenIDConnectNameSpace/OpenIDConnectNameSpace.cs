@@ -206,7 +206,7 @@
             else
                 return (AuthenticationResponse)SignInIdP(req);
         }
-        protected override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim claim)
+        public override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim claim)
         {
             var AuthCode = claim as AuthorizationCodeEntry;
             if (AuthCode == null)

@@ -1,11 +1,12 @@
 ﻿using System.Diagnostics.Contracts;
+using ABC;
 partial class PoirotMain
 {
     static void check_Assertion()
     {
         Contract.Assert(
-                 (!(C.conclusion.largestParty == "Alice") ||
-                 ((A.data >= B.data) && (A.data >= C.data)))
+                 (!(GlobalObjectsForCST.C.conclusion.largestParty == "Alice") ||
+                 ((GlobalObjectsForCST.A.data >= GlobalObjectsForCST.B.data) && (GlobalObjectsForCST.A.data >= GlobalObjectsForCST.C.data)))
                  );
     }
 }

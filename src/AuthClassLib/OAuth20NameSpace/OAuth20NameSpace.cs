@@ -157,7 +157,7 @@
             AuthorizationCodeRecs = AuthorizationCodeRecs1;
             AccessTokenRecs = AccessTokenRecs1;
         }
-        protected override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
+        public override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
         {
             AuthorizationRequest req = (AuthorizationRequest)req1;
             switch (req.response_type)

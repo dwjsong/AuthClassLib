@@ -14,12 +14,12 @@ namespace Server_A
         A server_a = new A(40);
         protected void Page_Load(object sender, EventArgs e)
         {
-            CST_Message m = new CST_Message();
-            if (CST_Message.parse(m, Request))
+            Message m = new Message();
+            if (Message.parse(m, Request))
             {
-                CST_Message m2 = server_a.invoke(m);
+                Message m2 = server_a.invoke(m);
 
-                CST_Message.respond(m2, Response);
+                Message.respond(m2, Response);
             }
         }
     }

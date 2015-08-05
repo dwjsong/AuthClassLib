@@ -18,17 +18,20 @@ namespace ABC
             data = i1;
         }
         public int data;
-        public Message invoke(Message msg)
+        public Message invoke(Message in_msg)
         {
-            CST_Ops.recordme(msg);
+            Message out_msg = new Message();
+            CST_Ops.recordme(this, in_msg, out_msg);
+            out_msg.value = in_msg.value;
+            out_msg.largestParty = in_msg.largestParty;
 
-            if (msg.value < data)
+            if (out_msg.value < data)
             {
-                msg.value = data;
-                msg.largestParty = "Bob";
+                out_msg.value = data;
+                out_msg.largestParty = "Bob";
             }
-            msg.SignedBy= "Bob";
-            return msg;
+            out_msg.SignedBy = "Bob";
+            return out_msg;
         }
     }
 }

@@ -1,14 +1,11 @@
 <References>
 	<Reference>
-		..\..\..\..\lib\Communication.dll
+		C:\CST\dlls\CST.2C89049D946957162E6A9DA8387773D492B91E22\CST.dll
 	</Reference>
 	<Reference>
-		..\..\..\..\lib\CST.dll
+		C:\CST\dlls\CST_Ops.2C45F5E10A6A2ABCCF917BA5F37E69930E44FA4F\CST_Ops.dll
 	</Reference>
 	<Reference>
-		..\..\..\..\lib\CST_Ops.dll
-	</Reference>
-	<Reference>
-		C:\CST\dlls\CST_Message.CC0E010C82B105E692B8CDD277D4CE5B3708942F\CST_Message.dll
+		C:\CST\dlls\Message.BFEF21B12E2327839A8642A307D55BB19485EA98\Message.dll
 	</Reference>
 </References>

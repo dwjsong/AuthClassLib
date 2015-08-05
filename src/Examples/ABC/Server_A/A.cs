@@ -19,15 +19,16 @@ namespace ABC
         }
         public int data;
 
-        public Message invoke(Message msg)
+        public Message invoke(Message in_msg)
         {
-            CST_Ops.recordme(msg);
+            Message out_msg = new Message();
+            CST_Ops.recordme(this, in_msg, out_msg);
 
-            msg.value = data;
-            msg.largestParty = "Alice";
-            msg.SignedBy = "Alice";
+            out_msg.value = data;
+            out_msg.largestParty = "Alice";
+            out_msg.SignedBy = "Alice";
 
-            return msg;
+            return out_msg;
         }
     }
 }
