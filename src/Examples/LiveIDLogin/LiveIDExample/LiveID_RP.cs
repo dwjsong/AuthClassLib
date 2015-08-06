@@ -47,7 +47,7 @@
         {
             TokenResponse tr = base.callTokenEndpoint(req);
 
-            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"), "live.com");
+            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"), "live.com", false, false);
 
             return tr;
         }

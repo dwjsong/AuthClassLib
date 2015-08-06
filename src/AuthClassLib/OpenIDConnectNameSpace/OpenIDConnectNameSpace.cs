@@ -178,7 +178,7 @@
         {
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
             conclusion.SessionUID = tokenResp.id_token.Claims.UserId;
-            CST_Ops.recordme(this, tokenResp, conclusion);
+            CST_Ops.recordme(this, tokenResp, conclusion, false, true);
 
             if (AuthenticationDone(conclusion))
                 return conclusion;

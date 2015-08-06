@@ -493,16 +493,11 @@ function T$SynthesizedPortion() : Ref;
 const unique T$SynthesizedPortion: int;
 
 procedure SynthesizedPortion.SynthesizedSequence();
-  modifies $Alloc, F$CST.Message.value, F$CST.Message.largestParty, F$CST.CST_Struct.SignedBy, F$CST.Message.certified, F$CST.CST_Struct.SymT;
+  modifies F$CST.Message.value, F$CST.Message.largestParty, F$CST.CST_Struct.SignedBy, F$CST.Message.certified;
 
 
 
 procedure NondetVProgram.Message($this: Ref) returns ($result: Ref);
-
-
-
-procedure {:extern} ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
-  modifies $Alloc, F$CST.Message.value, F$CST.Message.largestParty, F$CST.CST_Struct.SignedBy, F$CST.Message.certified, F$CST.CST_Struct.SymT;
 
 
 
@@ -517,8 +512,6 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $tmp0: Ref;
   var C2_Ref: Ref;
   var $tmp1: Ref;
-  var C3_Ref: Ref;
-  var $tmp2: Ref;
 
   anon0:
     assume {:breadcrumb 2} true;
@@ -536,16 +529,8 @@ implementation SynthesizedPortion.SynthesizedSequence()
     goto corral_source_split_17;
 
   corral_source_split_17:
-    call {:si_unique_call 7} $tmp1 := ABC.B.invoke$CST.Message(F$GlobalObjectsForCST.B, C1_Ref);
+    call {:si_unique_call 7} $tmp1 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C1_Ref);
     C2_Ref := $tmp1;
-    goto corral_source_split_18;
-
-  corral_source_split_18:
-    goto corral_source_split_19;
-
-  corral_source_split_19:
-    call {:si_unique_call 8} $tmp2 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C2_Ref);
-    C3_Ref := $tmp2;
     return;
 }
 
@@ -607,16 +592,16 @@ implementation PoirotMain.check_Assertion()
 
   anon0:
     assume {:breadcrumb 4} true;
-    goto corral_source_split_21;
+    goto corral_source_split_19;
 
-  corral_source_split_21:
+  corral_source_split_19:
     $tmp4 := F$GlobalObjectsForCST.C;
     assume $tmp4 != null;
     $tmp5 := F$ABC.C.conclusion[$tmp4];
     assume $tmp5 != null;
-    goto corral_source_split_22;
+    goto corral_source_split_20;
 
-  corral_source_split_22:
+  corral_source_split_20:
     goto inline$System.String.op_Equality$System.String$System.String$0$Entry;
 
   inline$System.String.op_Equality$System.String$System.String$0$Entry:
@@ -676,35 +661,35 @@ implementation PoirotMain.Main()
 {
 
   anon0:
-    call {:si_unique_call 9} GlobalObjectsForCST.#cctor();
-    call {:si_unique_call 10} T$SynthesizedPortion.#cctor();
-    call {:si_unique_call 11} T$PoirotMain.#cctor();
-    call {:si_unique_call 12} T$ABC.A.#cctor();
-    call {:si_unique_call 13} T$Server_A.A_invoke.#cctor();
-    call {:si_unique_call 14} T$ABC.B.#cctor();
-    call {:si_unique_call 15} T$Server_B.B_invoke.#cctor();
-    call {:si_unique_call 16} T$Server_C.C_invoke.#cctor();
-    call {:si_unique_call 17} T$ABC.C.#cctor();
-    call {:si_unique_call 18} T$CST.Message.#cctor();
-    call {:si_unique_call 19} T$CST.CST_Struct.#cctor();
-    call {:si_unique_call 20} T$CST.Debug.#cctor();
+    call {:si_unique_call 8} GlobalObjectsForCST.#cctor();
+    call {:si_unique_call 9} T$SynthesizedPortion.#cctor();
+    call {:si_unique_call 10} T$PoirotMain.#cctor();
+    call {:si_unique_call 11} T$ABC.A.#cctor();
+    call {:si_unique_call 12} T$Server_A.A_invoke.#cctor();
+    call {:si_unique_call 13} T$ABC.B.#cctor();
+    call {:si_unique_call 14} T$Server_B.B_invoke.#cctor();
+    call {:si_unique_call 15} T$Server_C.C_invoke.#cctor();
+    call {:si_unique_call 16} T$ABC.C.#cctor();
+    call {:si_unique_call 17} T$CST.Message.#cctor();
+    call {:si_unique_call 18} T$CST.CST_Struct.#cctor();
+    call {:si_unique_call 19} T$CST.Debug.#cctor();
     $Exception := null;
     $GetMeHereTracker := 0;
     assume {:breadcrumb 5} true;
+    goto corral_source_split_22;
+
+  corral_source_split_22:
+    goto corral_source_split_23;
+
+  corral_source_split_23:
+    call {:si_unique_call 20} SynthesizedPortion.SynthesizedSequence();
     goto corral_source_split_24;
 
   corral_source_split_24:
     goto corral_source_split_25;
 
   corral_source_split_25:
-    call {:si_unique_call 21} SynthesizedPortion.SynthesizedSequence();
-    goto corral_source_split_26;
-
-  corral_source_split_26:
-    goto corral_source_split_27;
-
-  corral_source_split_27:
-    call {:si_unique_call 22} PoirotMain.check_Assertion();
+    call {:si_unique_call 21} PoirotMain.check_Assertion();
     return;
 }
 
@@ -741,7 +726,7 @@ implementation ABC.A.#ctor$System.Int32($this: Ref, i1$in: int)
     i1 := i1$in;
     F$ABC.A.data[$this] := 0;
     assume {:breadcrumb 8} true;
-    call {:si_unique_call 23} System.Object.#ctor($this);
+    call {:si_unique_call 22} System.Object.#ctor($this);
     F$ABC.A.data[$this] := i1;
     return;
 }
@@ -843,87 +828,18 @@ implementation ABC.B.#ctor$System.Int32($this: Ref, i1$in: int)
     i1 := i1$in;
     F$ABC.B.data[$this] := 0;
     assume {:breadcrumb 15} true;
-    call {:si_unique_call 24} System.Object.#ctor($this);
+    call {:si_unique_call 23} System.Object.#ctor($this);
     F$ABC.B.data[$this] := i1;
     return;
 }
 
 
 
+procedure ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
+
+
+
 const {:value "Bob"} unique $string_literal_Bob_1: Ref;
-
-implementation ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref)
-{
-  var in_msg: Ref;
-  var local_0_Ref: Ref;
-  var $tmp0: Ref;
-  var $tmp1: Ref;
-  var $tmp2: Ref;
-  var $tmp3: Ref;
-  var local_1_Ref: Ref;
-  var inline$Alloc$0$x: Ref;
-  var inline$Alloc$0$$Alloc: [Ref]bool;
-
-  anon0:
-    in_msg := in_msg$in;
-    assume {:breadcrumb 16} true;
-    goto inline$Alloc$0$Entry;
-
-  inline$Alloc$0$Entry:
-    havoc inline$Alloc$0$x;
-    inline$Alloc$0$$Alloc := $Alloc;
-    goto inline$Alloc$0$anon0;
-
-  inline$Alloc$0$anon0:
-    assume ($Alloc[inline$Alloc$0$x] <==> false) && inline$Alloc$0$x != null;
-    $Alloc[inline$Alloc$0$x] := true;
-    goto inline$Alloc$0$Return;
-
-  inline$Alloc$0$Return:
-    $tmp0 := inline$Alloc$0$x;
-    goto anon0$1;
-
-  anon0$1:
-    call {:si_unique_call 25} CST.Message.#ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CST.Message();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CST.Message;
-    local_0_Ref := $tmp0;
-    call {:si_unique_call 26} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, in_msg, local_0_Ref);
-    $tmp1 := in_msg;
-    assume $tmp1 != null;
-    F$CST.Message.value[local_0_Ref] := F$CST.Message.value[$tmp1];
-    $tmp2 := in_msg;
-    assume $tmp2 != null;
-    F$CST.Message.largestParty[local_0_Ref] := F$CST.Message.largestParty[$tmp2];
-    $tmp3 := local_0_Ref;
-    assume $tmp3 != null;
-    assume $this != null;
-    goto anon4_Then, anon4_Else;
-
-  anon4_Then:
-    assume {:partition} F$CST.Message.value[$tmp3] < F$ABC.B.data[$this];
-    assume {:breadcrumb 17} true;
-    assume $this != null;
-    F$CST.Message.value[local_0_Ref] := F$ABC.B.data[$this];
-    F$CST.Message.largestParty[local_0_Ref] := $string_literal_Bob_1;
-    goto anon3;
-
-  anon4_Else:
-    assume {:partition} F$ABC.B.data[$this] <= F$CST.Message.value[$tmp3];
-    assume {:breadcrumb 18} true;
-    goto anon3;
-
-  anon3:
-    F$CST.CST_Struct.SignedBy[local_0_Ref] := $string_literal_Bob_1;
-    local_1_Ref := local_0_Ref;
-    goto IL_0065;
-
-  IL_0065:
-    $result := local_1_Ref;
-    return;
-}
-
-
 
 procedure T$ABC.B.#cctor();
 
@@ -1025,11 +941,11 @@ implementation ABC.C.#ctor$System.Int32($this: Ref, i1$in: int)
     goto anon0$1;
 
   anon0$1:
-    call {:si_unique_call 27} CST.Message.#ctor($tmp0);
+    call {:si_unique_call 24} CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
     assume $TypeConstructor($DynamicType($tmp0)) == T$CST.Message;
     F$ABC.C.conclusion[$this] := $tmp0;
-    call {:si_unique_call 28} System.Object.#ctor($this);
+    call {:si_unique_call 25} System.Object.#ctor($this);
     F$ABC.C.data[$this] := i1;
     return;
 }
@@ -1074,7 +990,7 @@ implementation ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($re
     in_msg := in_msg$in;
     assume {:breadcrumb 29} true;
     assume $this != null;
-    call {:si_unique_call 29} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, in_msg, F$ABC.C.conclusion[$this]);
+    call {:si_unique_call 26} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, in_msg, F$ABC.C.conclusion[$this]);
     $tmp0 := in_msg;
     assume $tmp0 != null;
     assume $this != null;
@@ -1112,7 +1028,7 @@ implementation ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($re
     assume $this != null;
     F$CST.CST_Struct.SignedBy[F$ABC.C.conclusion[$this]] := $string_literal_Charles_2;
     assume $this != null;
-    call {:si_unique_call 30} $tmp4 := ABC.C.conclude$CST.Message($this, F$ABC.C.conclusion[$this]);
+    call {:si_unique_call 27} $tmp4 := ABC.C.conclude$CST.Message($this, F$ABC.C.conclusion[$this]);
     goto anon8_Then, anon8_Else;
 
   anon8_Then:
@@ -1123,8 +1039,8 @@ implementation ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($re
     assume $this != null;
     $tmp5 := F$ABC.C.conclusion[$this];
     assume $tmp5 != null;
-    call {:si_unique_call 31} $tmp6 := System.String.Concat$System.String$System.String$System.String($string_literal_The$largest$party$is$_3, F$CST.Message.largestParty[$tmp5], $string_literal_._4);
-    call {:si_unique_call 32} System.Console.WriteLine$System.String($tmp6);
+    call {:si_unique_call 28} $tmp6 := System.String.Concat$System.String$System.String$System.String($string_literal_The$largest$party$is$_3, F$CST.Message.largestParty[$tmp5], $string_literal_._4);
+    call {:si_unique_call 29} System.Console.WriteLine$System.String($tmp6);
     goto anon6;
 
   anon8_Else:
@@ -1132,7 +1048,7 @@ implementation ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($re
     assume {:breadcrumb 33} true;
     assume $this != null;
     F$CST.Message.certified[F$ABC.C.conclusion[$this]] := false;
-    call {:si_unique_call 33} System.Console.WriteLine$System.String($string_literal_Not$verified._5);
+    call {:si_unique_call 30} System.Console.WriteLine$System.String($string_literal_Not$verified._5);
     goto anon6;
 
   anon6:
@@ -1160,7 +1076,7 @@ implementation ABC.C.conclude$CST.Message($this: Ref, msg$in: Ref) returns ($res
   anon0:
     msg := msg$in;
     assume {:breadcrumb 34} true;
-    call {:si_unique_call 34} $tmp0 := CST.CST_Ops.Certify$CST.CST_Struct(msg);
+    call {:si_unique_call 31} $tmp0 := CST.CST_Ops.Certify$CST.CST_Struct(msg);
     local_0_bool := $tmp0;
     goto IL_000a;
 
@@ -1295,7 +1211,7 @@ implementation CST.Message.#ctor($this: Ref)
     F$CST.Message.largestParty[$this] := null;
     F$CST.Message.certified[$this] := false;
     assume {:breadcrumb 43} true;
-    call {:si_unique_call 35} CST.CST_Struct.#ctor($this);
+    call {:si_unique_call 32} CST.CST_Struct.#ctor($this);
     return;
 }
 
@@ -1341,7 +1257,7 @@ implementation CST.CST_Struct.#ctor($this: Ref)
     assume {:breadcrumb 44} true;
     F$CST.CST_Struct.SymT[$this] := $string_literal__13;
     F$CST.CST_Struct.SignedBy[$this] := $string_literal__13;
-    call {:si_unique_call 36} System.Object.#ctor($this);
+    call {:si_unique_call 33} System.Object.#ctor($this);
     return;
 }
 

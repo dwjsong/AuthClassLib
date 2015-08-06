@@ -53,7 +53,7 @@
       <HintPath>C:\CST\dlls\Communication.510CF1BF3C49645F8CA60A1A79F9B3C3A435AEC4\Communication.dll</HintPath>
     </Reference>
     <Reference Include="Server_C">
-      <HintPath>C:\CST\dlls\Server_C.8F30781BE2D7E1A769FD3B67F4ED405A24074C7A\Server_C.dll</HintPath>
+      <HintPath>C:\CST\dlls\Server_C.CBAC156BAB822EE0E7C9E4127828A5D5B3D78110\Server_C.dll</HintPath>
     </Reference>
     <Reference Include="Server_B">
       <HintPath>C:\CST\dlls\Server_B.90E45C96A7B6BFF7EFDE2779B19A63D1B4EE1E1E\Server_B.dll</HintPath>

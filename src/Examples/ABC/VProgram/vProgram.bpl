@@ -425,10 +425,6 @@ procedure NondetVProgram.Message($this: Ref) returns ($result: Ref);
 
 
 
-procedure {:extern} ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
-
-
-
 procedure {:extern} ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
 
 
@@ -439,8 +435,6 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $tmp0: Ref;
   var C2_Ref: Ref;
   var $tmp1: Ref;
-  var C3_Ref: Ref;
-  var $tmp2: Ref;
   var $localExc: Ref;
   var $label: int;
 
@@ -451,12 +445,8 @@ implementation SynthesizedPortion.SynthesizedSequence()
     C1_Ref := $tmp0;
     assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
     assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    call $tmp1 := ABC.B.invoke$CST.Message(F$GlobalObjectsForCST.B, C1_Ref);
+    call $tmp1 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C1_Ref);
     C2_Ref := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
-    call $tmp2 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C2_Ref);
-    C3_Ref := $tmp2;
 }
 
 
@@ -827,6 +817,10 @@ implementation ABC.B.#ctor$System.Int32($this: Ref, i1$in: int)
     call System.Object.#ctor($this);
     F$ABC.B.data[$this] := i1;
 }
+
+
+
+procedure ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
 
 
 

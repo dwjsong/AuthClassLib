@@ -152,7 +152,7 @@ namespace OpenID20NameSpace
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
 
             conclusion.SessionUID = req.claimed_id;
-            CST_Ops.recordme(this, req, conclusion);
+            CST_Ops.recordme(this, req, conclusion, true);
 
             if (AuthenticationDone(conclusion))
                 return new SignInRP_Resp();

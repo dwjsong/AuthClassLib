@@ -32,7 +32,7 @@ namespace CST
             if (webConfig.AppSettings.Settings.Count > 0)
             {
                 KeyValueConfigurationElement partySetting =
-                    webConfig.AppSettings.Settings["PartyName"];
+                    webConfig.AppSettings.Settings["MyPartyName"];
                 if (partySetting != null)
                 {
                     myPartyName = partySetting.Value;
@@ -43,7 +43,7 @@ namespace CST
                 }
 
                 KeyValueConfigurationElement truestedPartySetting =
-                    webConfig.AppSettings.Settings["TruestedParty"];
+                    webConfig.AppSettings.Settings["TrustedParty"];
                 if (truestedPartySetting != null)
                 {
                     string trustedP = truestedPartySetting.Value;
@@ -51,6 +51,28 @@ namespace CST
                 }
                 trustedParties.Add(myPartyName);
             }
+        }
+
+
+        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, bool signed)
+        {
+            StackTrace st = new StackTrace();
+            StackFrame sf = st.GetFrame(1);
+            Type t = st.GetType();
+            Console.WriteLine(t);
+            MethodInfo mi = (MethodInfo)sf.GetMethod();
+
+            recordme(o, in_msg, out_msg, mi, myPartyName, signed, false);
+        }
+        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, bool signed, bool server_to_server)
+        {
+            StackTrace st = new StackTrace();
+            StackFrame sf = st.GetFrame(1);
+            Type t = st.GetType();
+            Console.WriteLine(t);
+            MethodInfo mi = (MethodInfo)sf.GetMethod();
+
+            recordme(o, in_msg, out_msg, mi, myPartyName, signed, server_to_server);
         }
 
         public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg)
@@ -61,10 +83,10 @@ namespace CST
             Console.WriteLine(t);
             MethodInfo mi = (MethodInfo)sf.GetMethod();
 
-            recordme(o, in_msg, out_msg, mi, myPartyName);
+            recordme(o, in_msg, out_msg, mi, myPartyName, false, false);
         }
 
-        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, MethodInfo mi, string partyName)
+        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, MethodInfo mi, string partyName, bool signed, bool server_to_server)
         {
             Type objT = o.GetType();
             var t = mi.ReflectedType;
@@ -125,7 +147,22 @@ namespace CST
                 sha = methodSHADict[methodkey].getSHA();
             }
 
-            out_msg.SymT = partyName + ":" + sha + "(" + in_msg.SymT + ")";
+            string colons = ":";
+
+            if (signed)
+                colons = "::";
+
+            string in_msg_symT = in_msg.SymT;
+
+            if (server_to_server)
+            {
+                int idx = in_msg_symT.IndexOf('(');
+
+                if (idx != -1)
+                    in_msg_symT = '(' + in_msg_symT.Substring(0, idx) + '(' + in_msg_symT.Substring(idx, in_msg_symT.Length - idx) + "))";
+            }
+
+            out_msg.SymT = partyName + colons + sha + "(" + in_msg_symT + ")";
         }
 
         public static string GetRootClassName(Type type)
@@ -162,19 +199,52 @@ namespace CST
         private static void RemoveUntrustedSymTPart(CST_Struct msg)
         {
             string peeledSymT = msg.SymT;
-            int pos = 0, del, cnt = 0;
+            int pos = 0, st_of_sym = 0, brk_cnt = 0;
+            bool no_more_symT = false;
+            bool signed_symT = true;
 
-            while ((del = peeledSymT.IndexOf(':', pos)) != -1)
+            while (!no_more_symT)
             {
-                string name = peeledSymT.Substring(pos, del - pos);
-
-                if (!trustedParties.Contains(name))
+                for (; pos < msg.SymT.Length; pos++)
                 {
-                    peeledSymT = peeledSymT.Substring(0, pos) + new String(')', cnt);
-                    break;
+                    if (msg.SymT[pos] == ':')
+                    {
+                        if (msg.SymT[pos + 1] == ':' || signed_symT)
+                        {
+                            string partyN = msg.SymT.Substring(st_of_sym, pos-st_of_sym);
+
+                            if (!trustedParties.Contains(partyN))
+                            {
+                                peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
+                                no_more_symT = true;
+                                break;
+                            }
+
+                            if (msg.SymT[pos + 1] == ':')
+                                pos++;
+                        }
+                        else
+                        {
+                            peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
+                            no_more_symT = true;
+                            break;
+                        }
+                    }
+                    if (msg.SymT[pos] == '(')
+                    {
+                        brk_cnt++;
+                        if (msg.SymT[pos + 1] == '(')
+                        {
+                            signed_symT = true;
+                            pos++;
+                            brk_cnt++;
+                        }
+                        else
+                            signed_symT = false;
+
+                        st_of_sym = pos + 1;
+                    }
                 }
-                cnt++;
-                pos = peeledSymT.IndexOf('(', del) + 1;
             }
 
             msg.SymT = peeledSymT;

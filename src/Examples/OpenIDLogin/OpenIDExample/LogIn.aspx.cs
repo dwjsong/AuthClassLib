@@ -96,7 +96,7 @@ namespace OpenIDExample
             new_resq.ns = resp.ns;
             new_resq.mode = resp.mode;
 
-            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), resp, new_resq, typeof(Yahoo_IdP).GetMethod("SignInIdP"), "yahoo.com");
+            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), resp, new_resq, typeof(Yahoo_IdP).GetMethod("SignInIdP"), "yahoo.com", true, false);
 
             string final_url = RP.GenerateURL(new_resq);
 
