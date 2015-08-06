@@ -7,12 +7,16 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using CST;
 using GenericAuthNameSpace;
+using System.Net;
+using System.Text;
+using HTTP;
 
 namespace OpenIDExample
 {
     public partial class LogIn : System.Web.UI.Page
     {
-        Yahoo_RP RP = new Yahoo_RP("http://localhost:32928/LogIn.aspx", "https://open.login.yahooapis.com/openid/op/auth");
+        static string yahoo_str = "https://open.login.yahooapis.com/openid/op/auth";
+        Yahoo_RP RP = new Yahoo_RP("http://localhost:32928/LogIn.aspx", yahoo_str);
 
         protected void Page_Load(object sender, EventArgs e)
         {            
@@ -22,15 +26,18 @@ namespace OpenIDExample
             if (!String.IsNullOrEmpty(mode))
             {
                 RP.CurrentSession = Session;
-                RP.AuthenticationConclusion d = new RP.AuthenticationConclusion();
-                AuthenticationResponse resp = RP.parseAuthenticationResponse(Request);
-                RP.SignInRP(resp);
 
-                notLoggedIn.Visible = false;
-                LoggedIn.Visible = true;
+                if (RP.ValidateSignature(Request))
+                {
+                    AuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
 
-                logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
+                    RP.SignInRP(resp);
 
+                    notLoggedIn.Visible = false;
+                    LoggedIn.Visible = true;
+
+                    logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
+                }
             }
             else
             {

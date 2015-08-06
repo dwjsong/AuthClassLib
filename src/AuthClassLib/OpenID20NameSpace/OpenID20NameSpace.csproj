@@ -44,6 +44,10 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Communication\Communication.csproj">
+      <Project>{51feeb06-18d9-4c31-9cba-7c50a6ec393b}</Project>
+      <Name>Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CST_Common\CST_Common.csproj">
       <Project>{e871eff5-08c9-464a-9a85-248f2c6a9e94}</Project>
       <Name>CST_Common</Name>

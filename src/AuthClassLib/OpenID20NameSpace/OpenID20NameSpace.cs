@@ -8,6 +8,7 @@ using System.Net;
 using CST;
 using System.Web;
 using System.Diagnostics.Contracts;
+using HTTP;
 
 namespace OpenID20NameSpace
 {
@@ -91,11 +92,40 @@ namespace OpenID20NameSpace
             req.claimed_id = "http://specs.openid.net/auth/2.0/identifier_select";
             req.mode = "checkid_setup";
             req.return_to = this.Domain;
+            CST_Ops.recordme(this, resp, req);
 
             return req;
         }
 
-        public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
+        public bool ValidateSignature(HttpRequest request)
+        {
+            StringBuilder sb = new StringBuilder();
+
+            string[] keys = request.Params.AllKeys;
+            bool not_first = false;
+
+            for (int i = 0; i < keys.Length; i++)
+            {
+                if (not_first) sb.Append("&");
+                if (keys[i].StartsWith("openid."))
+                {
+                    if (keys[i] == "openid.mode")
+                        sb.Append(keys[i] + "=check_authentication");
+                    else
+                        sb.Append(keys[i] + "=" + request.Params[keys[i]]);
+                    not_first = true;
+                }
+            }
+
+            HttpWebResponse response = HTTPComm.HttpReq(endpointUrl, sb.ToString(), "POST");
+            string result = HTTPComm.HttpPost(endpointUrl, sb.ToString());
+
+            if (result.Contains("is_valid:true\n")) return true;
+
+            return false;
+        }
+
+        public AuthenticationResponse ParseAuthenticationResponse(HttpRequest rawRequest)
         {
             AuthenticationResponse r = new AuthenticationResponse();
             HttpContext context = HttpContext.Current;

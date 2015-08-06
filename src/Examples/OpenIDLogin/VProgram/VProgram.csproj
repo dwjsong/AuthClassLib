@@ -79,7 +79,7 @@
       <HintPath>C:\CST\dlls\Communication.4C8751724884755F0A1CB6E1792562B7D74D2609\Communication.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDExample">
-      <HintPath>C:\CST\dlls\OpenIDExample.A306013B0ED6C19603ED79CE52706ABF307E0FAB\OpenIDExample.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDExample.5D2D8E3F5C54299D2BEA14141E43DFF0E56BEC18\OpenIDExample.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
