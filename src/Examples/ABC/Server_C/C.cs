@@ -53,9 +53,6 @@ namespace ABC
 
         public bool conclude(Message msg)
         {
-                        //return CST_Ops.certify(conclusion.SymT));
-            // synthesize vProgram
-            // verify it
             return CST_Ops.Certify(msg);
         }
 

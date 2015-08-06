@@ -61,25 +61,25 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.8EC7B69C102B4FA9B14E2A065595ED638DD670D0\CST.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST.CD75724187A824BAA63B3BD9873A62CA00DE7291\CST.dll</HintPath>
     </Reference>
     <Reference Include="CST_Ops">
-      <HintPath>C:\CST\dlls\CST_Ops.81FA0B4EB1CF34B863C3E12069EB6251E5BD3114\CST_Ops.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST_Ops.E9908CF26730191B3365172F3FDF005322CC10B9\CST_Ops.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.795A4FCD1463A53C02B8C492D15019A9E36EFB11\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.530D3D9F9FA22DCDF8AFC48101A9FA4E09EDAAA8\GenericAuthNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OpenID20NameSpace">
-      <HintPath>C:\CST\dlls\OpenID20NameSpace.D48BA7ABB8AEB34EBC4E97C4A0D1AA09A32C6692\OpenID20NameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenID20NameSpace.E222A1771A42A7624A11495849E95AEEC74F9EC3\OpenID20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="Yahoo_IdP">
-      <HintPath>C:\CST\dlls\Yahoo_IdP.C1A028EFE0D5300955CAAF18120C48873FF6F014\Yahoo_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\Yahoo_IdP.043D37CC78A79D0A0B45CDB8C27C3836371425CF\Yahoo_IdP.dll</HintPath>
     </Reference>
     <Reference Include="Communication">
-      <HintPath>C:\CST\dlls\Communication.4C8751724884755F0A1CB6E1792562B7D74D2609\Communication.dll</HintPath>
+      <HintPath>C:\CST\dlls\Communication.6050780D59DD902F1D23533AC41F0C3B7ED8ADFA\Communication.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDExample">
-      <HintPath>C:\CST\dlls\OpenIDExample.A854F15EFB32C0DBDB66DA74A3A476E5A2571BB9\OpenIDExample.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDExample.73C6345425D8C596AE6CC9EA86351D975562E4E9\OpenIDExample.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

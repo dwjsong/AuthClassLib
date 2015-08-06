@@ -866,6 +866,14 @@ procedure NondetVProgram.Message($this: Ref) returns ($result: Ref);
 
 
 
+procedure {:extern} ABC.A.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
+
+
+
 procedure {:extern} ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
 
 
@@ -876,6 +884,10 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $tmp0: Ref;
   var C2_Ref: Ref;
   var $tmp1: Ref;
+  var C3_Ref: Ref;
+  var $tmp2: Ref;
+  var C4_Ref: Ref;
+  var $tmp3: Ref;
   var $localExc: Ref;
   var $label: int;
 
@@ -887,8 +899,16 @@ implementation SynthesizedPortion.SynthesizedSequence()
     C1_Ref := $tmp0;
     assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
     assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    call $tmp1 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C1_Ref);
+    call $tmp1 := ABC.A.invoke$CST.Message(F$GlobalObjectsForCST.A, C1_Ref);
     C2_Ref := $tmp1;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    call $tmp2 := ABC.B.invoke$CST.Message(F$GlobalObjectsForCST.B, C2_Ref);
+    C3_Ref := $tmp2;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    call $tmp3 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C3_Ref);
+    C4_Ref := $tmp3;
     return;
 }
 
@@ -1104,10 +1124,6 @@ implementation ABC.A.#ctor$System.Int32($this: Ref, i1$in: int)
 
 
 
-procedure ABC.A.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
-
-
-
 procedure {:extern} CST.Message.#ctor($this: Ref);
 
 
@@ -1315,10 +1331,6 @@ implementation ABC.B.#ctor$System.Int32($this: Ref, i1$in: int)
     F$ABC.B.data[$this] := i1;
     return;
 }
-
-
-
-procedure ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref);
 
 
 

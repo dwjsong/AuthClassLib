@@ -17,7 +17,7 @@ if exist corral_out_trace.txt del corral_out_trace.txt
 
 copy %POIROT_ROOT%\poirot4.net\library\poirot_stubs.bpl
 
-::C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe vProgram.csproj /p:OutputPath=bin\Debug
+C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe vProgram.csproj /p:OutputPath=bin\Debug
 
 call %POIROT_ROOT%\Poirot4.NET\BCT\BytecodeTranslator.exe /e:1 /ib /whole /heap:splitFields %file_name%.exe bin\Debug\OpenID20NameSpace.dll bin\Debug\GenericAuthNameSpace.dll bin\Debug\OpenIDExample.dll bin\Debug\CST.dll bin\Debug\Yahoo_IdP.dll
 call %POIROT_ROOT%\Corral\BctCleanup.exe %model_name%.bpl %clean_name%.bpl /main:PoirotMain.Main /include:poirot_stubs.bpl

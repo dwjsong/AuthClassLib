@@ -17,27 +17,29 @@ namespace OpenIDExample
     {
         static string yahoo_str = "https://open.login.yahooapis.com/openid/op/auth";
         Yahoo_RP RP = new Yahoo_RP("http://localhost:32928/LogIn.aspx", yahoo_str);
+        static bool expecting_redir = false;
 
         protected void Page_Load(object sender, EventArgs e)
         {            
-            //AuthenticationRequest m = new AuthenticationRequest();
             string mode = Request.Params["openid.mode"];
 
-            if (!String.IsNullOrEmpty(mode))
+            if (!String.IsNullOrEmpty(mode) && RP.ValidateSignature(Request))
             {
+                if (!expecting_redir)
+                    return;
+
+                expecting_redir = false;
+
                 RP.CurrentSession = Session;
 
-                if (RP.ValidateSignature(Request))
-                {
-                    AuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
+                AuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
 
-                    RP.SignInRP(resp);
+                RP.SignInRP(resp);
 
-                    notLoggedIn.Visible = false;
-                    LoggedIn.Visible = true;
+                notLoggedIn.Visible = false;
+                LoggedIn.Visible = true;
 
-                    logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
-                }
+                logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
             }
             else
             {
@@ -83,6 +85,7 @@ namespace OpenIDExample
 
         protected void LoginBtn_Click(Object sender, EventArgs e)
         {
+            expecting_redir = true;
             AuthenticationResponse req = new AuthenticationResponse();
 
             var resp = RP.RequestAuthentication(req);

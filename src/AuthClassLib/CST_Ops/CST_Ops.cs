@@ -47,7 +47,7 @@ namespace CST
                 if (truestedPartySetting != null)
                 {
                     string trustedP = truestedPartySetting.Value;
-                    trustedParties = new HashSet<string>(trustedP.Split(new char[] { ',' }));
+                    trustedParties = new HashSet<string>(trustedP.Split(new char[] { ',', ' ' }));
                 }
                 trustedParties.Add(myPartyName);
             }
@@ -203,47 +203,44 @@ namespace CST
             bool no_more_symT = false;
             bool signed_symT = true;
 
-            while (!no_more_symT)
+            for (; pos < msg.SymT.Length && msg.SymT[pos] != ')'; pos++)
             {
-                for (; pos < msg.SymT.Length; pos++)
+                if (msg.SymT[pos] == ':')
                 {
-                    if (msg.SymT[pos] == ':')
+                    if (msg.SymT[pos + 1] == ':' || signed_symT)
                     {
-                        if (msg.SymT[pos + 1] == ':' || signed_symT)
-                        {
-                            string partyN = msg.SymT.Substring(st_of_sym, pos-st_of_sym);
+                        string partyN = msg.SymT.Substring(st_of_sym, pos-st_of_sym);
 
-                            if (!trustedParties.Contains(partyN))
-                            {
-                                peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
-                                no_more_symT = true;
-                                break;
-                            }
-
-                            if (msg.SymT[pos + 1] == ':')
-                                pos++;
-                        }
-                        else
+                        if (!trustedParties.Contains(partyN))
                         {
                             peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
                             no_more_symT = true;
                             break;
                         }
-                    }
-                    if (msg.SymT[pos] == '(')
-                    {
-                        brk_cnt++;
-                        if (msg.SymT[pos + 1] == '(')
-                        {
-                            signed_symT = true;
-                            pos++;
-                            brk_cnt++;
-                        }
-                        else
-                            signed_symT = false;
 
-                        st_of_sym = pos + 1;
+                        if (msg.SymT[pos + 1] == ':')
+                            pos++;
                     }
+                    else
+                    {
+                        peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
+                        no_more_symT = true;
+                        break;
+                    }
+                }
+                if (msg.SymT[pos] == '(')
+                {
+                    brk_cnt++;
+                    if (msg.SymT[pos + 1] == '(')
+                    {
+                        signed_symT = true;
+                        pos++;
+                        brk_cnt++;
+                    }
+                    else
+                        signed_symT = false;
+
+                    st_of_sym = pos + 1;
                 }
             }
 

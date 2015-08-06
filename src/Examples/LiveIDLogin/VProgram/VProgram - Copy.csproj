@@ -33,22 +33,22 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Communication">
-      <HintPath>C:\CST\dlls\Communication.496AF44ABA781283278D4AF90700B045A413103F\Communication.dll</HintPath>
+      <HintPath>C:\CST\dlls\Communication.BADA51C3A79B11DFDF6F2B99CF3E3A8C502A1463\Communication.dll</HintPath>
     </Reference>
     <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.2C89049D946957162E6A9DA8387773D492B91E22\CST.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST.CA8B2BD299C57E5FE9939972DFBFBE3F5E789D1D\CST.dll</HintPath>
     </Reference>
     <Reference Include="CST_Ops">
-      <HintPath>C:\CST\dlls\CST_Ops.2C45F5E10A6A2ABCCF917BA5F37E69930E44FA4F\CST_Ops.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST_Ops.227D1DDDA96EFFE4817607594A3F91D4B7B814B2\CST_Ops.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.C5C806541B8A0DEE9C7DD58BC4F9C2E94D0AEF2A\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.11D9C9914F512FC4A8E1D2CD0E6C3155701A161C\GenericAuthNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OAuth20NameSpace">
-      <HintPath>C:\CST\dlls\OAuth20NameSpace.5376536EA523A1E272153E057AA3D5F2E0B0E661\OAuth20NameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OAuth20NameSpace.CC69A88DF7828A2F0F52FCF54A7CD7050C917A07\OAuth20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDConnectNameSpace">
-      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.9CDB36CEF41933F0814346D12275AB2F78C9CA9A\OpenIDConnectNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.1AEF37D66EFB9E043FC0CFA13E730E4F42CCBBF9\OpenIDConnectNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -59,10 +59,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="LiveID_IdP">
-      <HintPath>C:\CST\dlls\LiveID_IdP.C3EB35734011F12AA9CFE752C30653C2CB47FF61\LiveID_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\LiveID_IdP.0F3C6EF4A86F658EF5BC7DDC50873E989710520C\LiveID_IdP.dll</HintPath>
     </Reference>
     <Reference Include="LiveIDExample">
-      <HintPath>C:\CST\dlls\LiveIDExample.2A1D05673E968A3996FA88067873C27617DB5A55\LiveIDExample.dll</HintPath>
+      <HintPath>C:\CST\dlls\LiveIDExample.08F24301CBBFE15D2870EC488AFC569C4F1E1E96\LiveIDExample.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>
