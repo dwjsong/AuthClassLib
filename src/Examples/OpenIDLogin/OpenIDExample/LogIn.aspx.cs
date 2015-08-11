@@ -30,7 +30,9 @@ namespace OpenIDExample
 
                 expecting_redir = false;
 
-                RP.CurrentSession = Session;
+                HttpSessionStateBase sessionBase = new HttpSessionStateWrapper(Session);
+
+                RP.CurrentSession = sessionBase;
 
                 AuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
 

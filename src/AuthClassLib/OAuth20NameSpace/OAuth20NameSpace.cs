@@ -109,6 +109,9 @@
     /***********************************************************/
     public abstract class Client: RP
     {
+        public Client()
+        {
+        }
         public string client_id
         {
             get { return Realm; }

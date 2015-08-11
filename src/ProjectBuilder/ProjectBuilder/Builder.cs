@@ -110,7 +110,11 @@ namespace ProjectBuilder
                     string dll_name = reference.Element(msbuild + "HintPath").Value;
                     string dll_path = Path.GetDirectoryName(build_file) + @"\" + dll_name;
 
-                    string shaFromDLL = GetSHAFromDLL(dll_path);
+                    if (!File.Exists(dll_path.Substring(0, dll_path.Length - 4) + ".dep"))
+                        continue;
+
+
+                    string shaFromDLL = hasher.GetSHAFromDLL(dll_path);
 
                     if (shaFromDLL != null && shaFromDLL != "0000000000000000000000000000000000000000")
                     {
@@ -160,7 +164,10 @@ namespace ProjectBuilder
 
                     foreach (string fileEnt in fileEntries)
                     {
-                        string shaFromDLL = GetSHAFromDLL(fileEnt);
+                        if (!File.Exists(fileEnt.Substring(0, fileEnt.Length - 4) + ".dep"))
+                            continue;
+
+                        string shaFromDLL = hasher.GetSHAFromDLL(fileEnt);
 
                         if (shaFromDLL.Equals(generatedSHA))
                         {
@@ -243,65 +250,12 @@ namespace ProjectBuilder
             }
         }
 
-        class MyBoundaryObject : MarshalByRefObject
-        {
-            public void SomeMethod(AppDomainArgs ada)
-            {
-                try
-                {
-                    Assembly assembly = Assembly.ReflectionOnlyLoadFrom(ada.dll_path);
-
-                    IList<CustomAttributeData> descriptionAttrList = assembly.GetCustomAttributesData();
-
-                    foreach (CustomAttributeData attribute in descriptionAttrList)
-                    {
-                        if (attribute.AttributeType.Equals(typeof(AssemblyDescriptionAttribute)))
-                        {
-                            string typeVal = attribute.ToString();
-
-                            if (typeVal.Length - typeof(AssemblyDescriptionAttribute).ToString().Length - 43 < 0) break;
-
-                            ada.sha = typeVal.Substring(typeof(AssemblyDescriptionAttribute).ToString().Length + 3, 40);
-                            break;
-                        }
-                    }
-                }
-                catch (System.IO.FileLoadException)
-                {
-
-                }
-            }
-        }
-        private class AppDomainArgs : MarshalByRefObject
-        {
-            public string dll_path { get; set; }
-            public string sha { get; set; }
-        }
-
-        public static string GetSHAFromDLL(string dll_file_path)
-        {
-            AppDomain tempDomain = AppDomain.CreateDomain("TemporaryAppDomain");
-            MyBoundaryObject boundary = (MyBoundaryObject)
-              tempDomain.CreateInstanceAndUnwrap(
-                 typeof(MyBoundaryObject).Assembly.FullName,
-                 typeof(MyBoundaryObject).FullName);
-
-            AppDomainArgs ada = new AppDomainArgs();
-            ada.dll_path = dll_file_path;
-            ada.sha = sha_default;
-            boundary.SomeMethod(ada);
-
-            AppDomain.Unload(tempDomain);
-
-            return ada.sha;
-        }
-
 
         public static void EditDLLASM(string sha, string dll_file)
         {
             if (File.Exists(dll_file))
             {
-                string currentSHA = GetSHAFromDLL(dll_file);
+                string currentSHA = hasher.GetSHAFromDLL(dll_file);
 
                 byte[] file = File.ReadAllBytes(dll_file);
                 byte[] curSHA = Encoding.Default.GetBytes(currentSHA);
@@ -432,10 +386,13 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\LiveIDExample.csproj";
-                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\";
-                string c = "LiveIDExample";
+                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\CILRepository\CILRepository.csproj";
+                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\CILRepository\bin\";
+                string c = "CILRepository";
                 Builder.GenerateDep(a, b, c, "Debug");
+//                string dll = @"C:\CST\CILRepository.dll";
+//                string sha = Builder.GetSHAFromDLL(dll);
+//                Console.Write(sha);
                 Console.ReadKey();
 
             }

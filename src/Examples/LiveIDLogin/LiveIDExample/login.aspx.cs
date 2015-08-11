@@ -14,7 +14,9 @@ partial class login : System.Web.UI.Page
 
     protected void Page_Load(object sender, EventArgs e)
     {
-        RP.CurrentSession = Session;
+        HttpSessionStateBase sessionBase = new HttpSessionStateWrapper(Session);
+
+        RP.CurrentSession = sessionBase;
         AuthenticationResponse codeResp = RP.parseAuthenticationResponse(HttpContext.Current.Request);
         if (codeResp == null) return;
         RP.SignInRP(codeResp);

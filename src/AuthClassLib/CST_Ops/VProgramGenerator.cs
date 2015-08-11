@@ -160,6 +160,10 @@ namespace CST
 
         public static HashSet<string> getDep(HashSet<string> dllSet, string fileName)
         {
+            /*
+             * Add Part where 
+             * !File.exists(fileName) download();
+             */
             XmlTextReader reader = new XmlTextReader(fileName);
             HashSet<string> set_for_this_Dep = new HashSet<string>();
 
@@ -210,7 +214,7 @@ namespace CST
 
                     foreach (string fileName in fileES)
                     {
-                        if (fileName.EndsWith(".dll") || fileName.EndsWith(".exe"))
+                        if (fileName.EndsWith(".dll"))
                         {
                             string name = Path.GetFileNameWithoutExtension(fileName);
                             dllNameSet.Add(name);

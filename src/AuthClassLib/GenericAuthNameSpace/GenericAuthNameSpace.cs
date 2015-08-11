@@ -3,6 +3,7 @@
     using System.Diagnostics.Contracts;
     using System.Web.SessionState;
     using CST;
+    using System.Web;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -52,7 +53,7 @@
     /***********************************************************/
     /*                          Parties                        */
     /***********************************************************/
-    public abstract class IdP 
+    public abstract class IdP
     {
         public IdPAuthRecords_Base IdpAuthRecs;
 
@@ -73,7 +74,7 @@
 
     public abstract class RP
     {
-        public HttpSessionState CurrentSession;
+        public HttpSessionStateBase CurrentSession;
         public string Domain, Realm;
         public abstract SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req);
         public class AuthenticationConclusion: CST_Struct
@@ -83,7 +84,10 @@
         public virtual bool AuthenticationDone(AuthenticationConclusion conclusion)
         {
             bool CST_verified = CST_Ops.Certify(conclusion);
-            CurrentSession["UserID"] = CST_verified?conclusion.SessionUID:"";
+            if (CurrentSession["UserID"] != null)
+                CurrentSession["UserID"] = CST_verified?conclusion.SessionUID:"";
+            else
+                CurrentSession.Add("UserID", CST_verified ? conclusion.SessionUID : "");
             return CST_verified;
         }       
     }

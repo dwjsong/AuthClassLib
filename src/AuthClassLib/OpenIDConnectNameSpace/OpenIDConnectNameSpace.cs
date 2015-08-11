@@ -10,6 +10,7 @@
     using GenericAuthNameSpace;
     using OAuth20NameSpace;
     using CST;
+    using System.Text;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -111,6 +112,9 @@
 
     public abstract class RelyingParty : Client
     {
+        public RelyingParty()
+        {
+        }
         public RelyingParty(string client_id1, string return_uri1, string client_secret1, string TokenEndpointUrl1)
             :base(client_id1, return_uri1, client_secret1, TokenEndpointUrl1){}
         public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)

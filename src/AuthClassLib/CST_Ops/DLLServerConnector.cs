@@ -193,7 +193,6 @@ namespace CST
                     requestStream.Close();
                 }
 
-
                 return request.GetResponse() as HttpWebResponse;
             }
             return null;

@@ -18,6 +18,7 @@ namespace CST
         public string CSTFolder = @"C:\CST";
         public string dllFolderName = @"dlls\";
         public string dllsFolder = @"C:\CST\dlls\";
+        public string defaultSHA = "0000000000000000000000000000000000000000";
 
         public DLLHasher()
         {
@@ -78,21 +79,13 @@ namespace CST
            {
                 depFS = File.OpenRead(depPath);
                 dllFS = File.OpenRead(dllPath);
-                byte[] fileInByte = new byte[depFS.Length + dllFS.Length];
+                byte[] fileInByte = new byte[depFS.Length];
                 byte[] fileIndllBytes = new byte[dllFS.Length];
 
                 depFS.Read(fileInByte, 0, Convert.ToInt32(depFS.Length));
                 dllFS.Read(fileIndllBytes, 0, Convert.ToInt32(dllFS.Length));
 
-                string shaAttr = GetSHAFromDLLAttribute(dllPath);
-
-                RemoveHashInDLLByte(fileIndllBytes, shaAttr);
-
-                Buffer.BlockCopy(fileIndllBytes, 0, fileInByte, Convert.ToInt32(depFS.Length), Convert.ToInt32(dllFS.Length));
-
-                byte[] result = new SHA1CryptoServiceProvider().ComputeHash(fileInByte);
-
-                return result;
+                return GenerateHash(fileInByte, fileIndllBytes);
             }
             finally
             {
@@ -128,13 +121,63 @@ namespace CST
             }
         }
 
+        public string GetSHAFromDLL(string dll_file_path)
+        {
+            if (File.Exists(dll_file_path))
+            {
+                byte[] dep = File.ReadAllBytes(dll_file_path.Substring(0, dll_file_path.Length - 4) + ".dep");
+                byte[] file = File.ReadAllBytes(dll_file_path);
+
+                for (int i = 0; i < file.Length; i++)
+                {
+                    if (file[i] == '(')
+                    {
+                        bool is_sha = true;
+                        int j;
+                        for (j = i + 1; j < i + 1 + 40; j++)
+                        {
+                            if (!((file[j] >= '0' && file[j] <= '9') || (file[j] >= 'A' && file[j] <= 'F')))
+                            {
+                                is_sha = false;
+                                break;
+                            }
+                        }
+
+                        if (is_sha)
+                        {
+                            byte[] sha_byte = new byte[40];
+
+                            for (j = i + 1; j < i + 1 + 40; j++)
+                            {
+                                sha_byte[j - i - 1] = file[j];
+                                file[j] = (byte)'0';
+                            }
+
+                            string sha = System.Text.Encoding.UTF8.GetString(sha_byte);
+
+                            string generated_sha = GenerateHashInHexStr(dep, file);
+
+                            if (sha == generated_sha)
+                                return sha;
+                        }
+
+                        i = j;
+                    }
+
+                }
+            }
+
+            return defaultSHA;
+        }
+
+        public string GenerateHashInHexStr(byte[] fileInByte, byte[] fileIndllBytes)
+        {
+            return BitConverter.ToString(GenerateHash(fileInByte, fileIndllBytes)).Replace("-", string.Empty);
+        }
+
         public byte[] GenerateHash(byte[] fileInByte, byte[] fileIndllBytes)
         {
             byte[] fileOutByte = new byte[fileInByte.Length + fileIndllBytes.Length];
-
-            string shaAttr = GetSHAFromRawDLLAttrByte(fileIndllBytes);
-
-            RemoveHashInDLLByte(fileIndllBytes, shaAttr);
 
             Buffer.BlockCopy(fileInByte, 0, fileOutByte, 0, fileInByte.Length);
             Buffer.BlockCopy(fileIndllBytes, 0, fileOutByte, fileInByte.Length, fileIndllBytes.Length);
@@ -153,93 +196,6 @@ namespace CST
         {
             return BitConverter.ToString(GenerateHash(path, name)).Replace("-", string.Empty);
         }
-
-        public class MyBoundaryObject : MarshalByRefObject
-        {
-            public void GetShaFromDLL(AppDomainArgs ada)
-            {
-                Assembly assembly = Assembly.ReflectionOnlyLoadFrom(ada.dll_path);
-
-                GetSHA(ada, assembly);
-            }
-            public void GetSHA(AppDomainArgs ada, Assembly assembly)
-            {
-                IList<CustomAttributeData> descriptionAttrList = assembly.GetCustomAttributesData();
-
-                foreach (CustomAttributeData a in descriptionAttrList)
-                {
-                    if (a.AttributeType.Equals(typeof(AssemblyDescriptionAttribute)))
-                    {
-                        string typeVal = a.ToString();
-                        ada.sha = typeVal.Substring(typeof(AssemblyDescriptionAttribute).ToString().Length + 3, 40);
-                        break;
-                    }
-                }
-
-            }
-
-            public void GetShaFromDLLByte(AppDomainArgs ada)
-            {
-                Assembly assembly = Assembly.ReflectionOnlyLoad(ada.dllB);
-
-                GetSHA(ada, assembly);
-            }
-        }
-
-        public class AppDomainArgs : MarshalByRefObject
-        {
-            public string dll_path { get; set; }
-            public string sha { get; set; }
-            public byte[] dllB { get; set; }
-
-        }
-
-        public string GetSHAFromRawDLLAttrByte(byte[] dll)
-        {
-            string SHA = "0000000000000000000000000000000000000000";
-
-            var appdomainSetup = new AppDomainSetup();
-
-            appdomainSetup.CachePath = AppDomain.CurrentDomain.SetupInformation.CachePath;
-            appdomainSetup.ApplicationBase = AppDomain.CurrentDomain.SetupInformation.ApplicationBase;
-
-            AppDomain tempDomain = AppDomain.CreateDomain("TemporaryAppDomain", AppDomain.CurrentDomain.Evidence, AppDomain.CurrentDomain.SetupInformation);
-            MyBoundaryObject boundary = (MyBoundaryObject)
-              tempDomain.CreateInstanceAndUnwrap(
-                 typeof(MyBoundaryObject).Assembly.FullName,
-                 typeof(MyBoundaryObject).FullName);
-
-            AppDomainArgs ada = new AppDomainArgs();
-            ada.sha = SHA;
-            ada.dllB = dll;
-            boundary.GetShaFromDLLByte(ada);
-
-            AppDomain.Unload(tempDomain);
-
-            return ada.sha;
-
-        }
-
-        public string GetSHAFromDLLAttribute(string dll_file_path)
-        {
-            string SHA = "0000000000000000000000000000000000000000";
-
-            AppDomain tempDomain = AppDomain.CreateDomain("TemporaryAppDomain");
-            MyBoundaryObject boundary = (MyBoundaryObject)
-              tempDomain.CreateInstanceAndUnwrap(
-                 typeof(MyBoundaryObject).Assembly.FullName,
-                 typeof(MyBoundaryObject).FullName);
-
-            AppDomainArgs ada = new AppDomainArgs();
-            ada.dll_path = dll_file_path;
-            ada.sha = SHA;
-            boundary.GetShaFromDLL(ada);
-
-            AppDomain.Unload(tempDomain);
-
-            return ada.sha;
-        }
-
 
         public void CopyDLL(string generated_SHA, string build_path, string output_path, string name) //string depPath, string dllPath)
         {
@@ -280,12 +236,7 @@ namespace CST
 
             return false;
         }
-
-        public string GenerateHashInHexStr(byte[] depFileData, byte[] dllFileData)
-        {
-            return BitConverter.ToString(GenerateHash(depFileData, dllFileData)).Replace("-", string.Empty);
-        }
-
+        
         public void saveToCSTFolder(string depFileName, byte[] depFileData, string dllFileName, byte[] dllFileData, string sha)
         {
             string name = Path.GetFileNameWithoutExtension(depFileName);
@@ -309,8 +260,6 @@ namespace CST
             catch
             {
             }
-
         }
-
     }
 }
