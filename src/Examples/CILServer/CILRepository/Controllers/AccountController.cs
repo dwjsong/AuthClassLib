@@ -5,12 +5,14 @@ using System.Security.Claims;
 using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
+using System.IO;
 using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using CILRepository.Models;
 using LiveIDNameSpace;
 using OpenIDConnectNameSpace;
+using System.Collections;
 
 namespace CILRepository.Controllers
 {
@@ -29,6 +31,68 @@ namespace CILRepository.Controllers
 
         public UserManager<ApplicationUser> UserManager { get; private set; }
 
+
+        public FileResult DownloadToken()
+        {
+            string token = User.Identity.GetUserId();
+
+            return File(System.Text.Encoding.UTF8.GetBytes(token), "application/octet-stream", "CIL_Server_token");
+        }
+
+        
+        //test token: C43v4byi0khUXP9ynfyXSZj/e2tHrK0p
+        [AllowAnonymous]
+        public FileResult DLLHandle(string sha, string token)
+        {
+            ViewBag.Message = "";
+
+            var user = UserManager.FindById(token);
+
+            if (user != null)
+            {
+                string sha_folder = @"C:\CST\dlls\" + sha;
+
+                if (System.IO.Directory.Exists(sha_folder)) {
+                    IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
+
+                    foreach (string file in files)
+                    {
+                        if (file.EndsWith(".dll"))
+                        {
+                            string name = System.IO.Path.GetFileName(file);
+                            return File(file, "application/octet-stream", name);
+                        }
+                    }
+                    
+                }
+            }
+
+
+            return null;
+        }
+
+        [HttpPost]
+        public ActionResult UploadDll(string user_sha)
+        {
+            string sha_folder = @"C:\CST\dlls\" + user_sha;
+
+            if (Request.Files.Count > 0)
+            {
+                var file = Request.Files[0];
+
+                if (file != null && file.ContentLength > 0)
+                {
+                    var fileName = Path.GetFileName(file.FileName);
+                    if (!Directory.Exists(sha_folder))
+                        Directory.CreateDirectory(sha_folder);
+                    var path = Path.Combine(sha_folder, fileName);
+                    file.SaveAs(path);
+                }
+            }
+
+            return RedirectToAction("UploadDocument");
+        }
+
         //
         // GET: /Account/Login
         [AllowAnonymous]
@@ -40,7 +104,7 @@ namespace CILRepository.Controllers
 
         private LiveID_RP RP = new LiveID_RP();
 
-        // POST: /Account/ExternalLogin
+        // POST: /Account/MSLogin
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
@@ -60,20 +124,44 @@ namespace CILRepository.Controllers
         //
         // GET: /Account/ExternalLoginCallback
         [AllowAnonymous]
+        string name = "2672633b99598c2b366a437dc797ae4d";
         public async Task<ActionResult> MSLoginCallback(string code)
         {
             if (!string.IsNullOrEmpty(code))
             {
                 AuthenticationResponse r = new AuthenticationResponse();
                 r.code = code;
-
                 RP.CurrentSession = HttpContext.Session;
+                /* verify the logic */
                 RP.SignInRP(r);
-                string userID = RP.GetUserID();
-                Console.WriteLine(userID);
+                if (RP.IsVerified())
+                {
+                    string userID = RP.GetUserID();
+                    var user = await UserManager.FindByNameAsync(userID);
+
+                    if (user == null)
+                    {
+                        byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
+                        byte[] key = Guid.NewGuid().ToByteArray();
+                        string token = Convert.ToBase64String(time.Concat(key).ToArray());
+
+                        user = new ApplicationUser() { UserName = name, Id = token };
+                        var result = await UserManager.CreateAsync(user);
+                        if (result.Succeeded)
+                        {
+                            await SignInAsync(user, isPersistent: false);
+                            return RedirectToAction("Index", "Home");
+                        }
+                    }
+                    else
+                    {
+                        await SignInAsync(user, isPersistent: false);
+                        return RedirectToAction("Index", "Home");
+                    }
+                }
             }
 
-            return RedirectToAction("MSLogin");
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -129,7 +217,8 @@ namespace CILRepository.Controllers
             if (ModelState.IsValid)
             {
                 var user = new ApplicationUser() { UserName = model.UserName };
-                var result = await UserManager.CreateAsync(user, model.Password);
+                //                var result = await UserManager.CreateAsync(user, model.Password);
+                var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {
                     await SignInAsync(user, isPersistent: false);
@@ -192,6 +281,7 @@ namespace CILRepository.Controllers
             {
                 if (ModelState.IsValid)
                 {
+                    /*
                     IdentityResult result = await UserManager.ChangePasswordAsync(User.Identity.GetUserId(), model.OldPassword, model.NewPassword);
                     if (result.Succeeded)
                     {
@@ -201,6 +291,7 @@ namespace CILRepository.Controllers
                     {
                         AddErrors(result);
                     }
+                     */
                 }
             }
             else
@@ -214,6 +305,7 @@ namespace CILRepository.Controllers
 
                 if (ModelState.IsValid)
                 {
+                    /*
                     IdentityResult result = await UserManager.AddPasswordAsync(User.Identity.GetUserId(), model.NewPassword);
                     if (result.Succeeded)
                     {
@@ -222,7 +314,7 @@ namespace CILRepository.Controllers
                     else
                     {
                         AddErrors(result);
-                    }
+                    }*/
                 }
             }
 

@@ -20,9 +20,9 @@ namespace CILRepository
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Uncomment the following lines to enable logging in with third party login providers
-            app.UseMicrosoftAccountAuthentication(
-                clientId: "0000000044159E9D",
-                clientSecret: "pQZPJYxVuzaF7zk3-0cfuA6lWoW3GHkf");
+//            app.UseMicrosoftAccountAuthentication(
+ //               clientId: "0000000044159E9D",
+  //              clientSecret: "pQZPJYxVuzaF7zk3-0cfuA6lWoW3GHkf");
 
             //app.UseTwitterAuthentication(
             //   consumerKey: "",

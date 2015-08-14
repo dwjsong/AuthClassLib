@@ -60,10 +60,10 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="CILRepository">
-      <HintPath>C:\CST\dlls\CILRepository.00FAFDA5A3BA8F29650D05AE176B16DDD7C44ED2\CILRepository.dll</HintPath>
+      <HintPath>C:\CST\dlls\CILRepository.B9B5E3898906166D79BAA6A0E3C64E2D6779E422\CILRepository.dll</HintPath>
     </Reference>
     <Reference Include="LiveID_IdP">
-      <HintPath>C:\CST\dlls\LiveID_IdP.3D3C73A75057F5159CC7E48C28B5B62510A9D7C6\LiveID_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\LiveID_IdP.94051A83F18EB19911C656C512C0BF274E825B4D\LiveID_IdP.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
       <HintPath>C:\CST\dlls\GenericAuthNameSpace.AD85F658BACD56BE6A38E09A356B76B037DCF9C4\GenericAuthNameSpace.dll</HintPath>

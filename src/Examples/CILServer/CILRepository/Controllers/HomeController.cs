@@ -15,14 +15,46 @@ namespace CILRepository.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "";
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Upload()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult Download()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
+
+        [Authorize]
+        public ActionResult DownloadToken()
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
+
+        [AllowAnonymous]
+        public ActionResult DLLHandle(string sha, string token)
+        {
+            ViewBag.Message = "";
 
             return View();
         }

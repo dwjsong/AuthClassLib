@@ -56,5 +56,11 @@
         {
             return (string)CurrentSession["UserID"];
         }
+
+        public bool IsVerified()
+        {
+            return true;
+        }
+
     }
 }
