@@ -42,7 +42,7 @@ namespace CILRepository.Controllers
         
         //test token: C43v4byi0khUXP9ynfyXSZj/e2tHrK0p
         [AllowAnonymous]
-        public FileResult DLLHandle(string sha, string token)
+        public FileResult DllHandle(string user_sha, string token)
         {
             ViewBag.Message = "";
 
@@ -50,20 +50,43 @@ namespace CILRepository.Controllers
 
             if (user != null)
             {
-                string sha_folder = @"C:\CST\dlls\" + sha;
+                string sha_folder = @"C:\CST\dlls\" + user_sha;
 
-                if (System.IO.Directory.Exists(sha_folder)) {
-                    IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
+                if (System.IO.Directory.Exists(sha_folder))
+                {
+                    var owner_path = Path.Combine(sha_folder, "owner.txt");
 
-                    foreach (string file in files)
+                    if (System.IO.File.Exists(owner_path))
                     {
-                        if (file.EndsWith(".dll"))
+                        var owner = System.IO.File.ReadAllText(owner_path);
+
+                        if (owner == user.Id)
                         {
-                            string name = System.IO.Path.GetFileName(file);
-                            return File(file, "application/octet-stream", name);
+                            IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
+
+                            foreach (string file in files)
+                            {
+                                if (file.EndsWith(".dll"))
+                                {
+                                    string name = System.IO.Path.GetFileName(file);
+                                    return File(file, "application/octet-stream", name);
+                                }
+                            }
                         }
                     }
-                    
+                    else
+                    {
+                        IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
+
+                        foreach (string file in files)
+                        {
+                            if (file.EndsWith(".dll"))
+                            {
+                                string name = System.IO.Path.GetFileName(file);
+                                return File(file, "application/octet-stream", name);
+                            }
+                        }
+                    }
                 }
             }
 
@@ -71,26 +94,139 @@ namespace CILRepository.Controllers
             return null;
         }
 
-        [HttpPost]
-        public ActionResult UploadDll(string user_sha)
+
+        [AllowAnonymous]
+        public FileResult DepHandle(string user_sha, string token)
         {
-            string sha_folder = @"C:\CST\dlls\" + user_sha;
+            ViewBag.Message = "";
 
-            if (Request.Files.Count > 0)
+            var user = UserManager.FindById(token);
+
+            if (user != null)
             {
-                var file = Request.Files[0];
+                string sha_folder = @"C:\CST\dlls\" + user_sha;
 
-                if (file != null && file.ContentLength > 0)
+                if (System.IO.Directory.Exists(sha_folder))
                 {
-                    var fileName = Path.GetFileName(file.FileName);
-                    if (!Directory.Exists(sha_folder))
-                        Directory.CreateDirectory(sha_folder);
-                    var path = Path.Combine(sha_folder, fileName);
-                    file.SaveAs(path);
+                    var owner_path = Path.Combine(sha_folder, "owner.txt");
+
+                    if (System.IO.File.Exists(owner_path))
+                    {
+                        var owner = System.IO.File.ReadAllText(owner_path);
+
+                        if (owner == user.Id)
+                        {
+                            IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
+
+                            foreach (string file in files)
+                            {
+                                if (file.EndsWith(".dep"))
+                                {
+                                    string name = System.IO.Path.GetFileName(file);
+                                    return File(file, "application/octet-stream", name);
+                                }
+                            }
+                        }
+                    }
+                    else
+                    {
+                        IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
+
+                        foreach (string file in files)
+                        {
+                            if (file.EndsWith(".dep"))
+                            {
+                                string name = System.IO.Path.GetFileName(file);
+                                return File(file, "application/octet-stream", name);
+                            }
+                        }
+                    }
                 }
             }
 
-            return RedirectToAction("UploadDocument");
+
+            return null;
+        }
+
+        [AllowAnonymous]
+        public FileResult DownloadMethodRecord(string user_sha, string token)
+        {
+            ViewBag.Message = "";
+
+            var user = UserManager.FindById(token);
+
+            if (user != null)
+            {
+                string method_file = @"C:\CST\methods\" + user_sha + ".txt";
+
+                if (System.IO.File.Exists(method_file))
+                {
+                    return File(method_file, "application/octet-stream", user_sha + ".txt");
+                }
+            }
+
+            return null;
+        }
+
+        [AllowAnonymous]
+        public ActionResult UploadMethodRecord(string user_sha, string token)
+        {
+            var user = UserManager.FindById(token);
+
+            if (user != null)
+            {
+                string method_file = @"C:\CST\methods\" + user_sha + ".txt";
+                if (Request.Files.Count > 0)
+                {
+                   var file = Request.Files[0];
+
+                    if (file != null && file.ContentLength > 0)
+                    {
+                        var fileName = Path.GetFileName(file.FileName);
+
+                        file.SaveAs(method_file);
+                    }
+
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
+        }
+
+        [AllowAnonymous]
+        public ActionResult UploadDll(string user_sha, string token)
+        {
+            var user = UserManager.FindById(token);
+
+            if (user != null)
+            {
+                string sha_folder = @"C:\CST\dlls\" + user_sha;
+                if (Request.Files.Count > 0)
+                {
+                    if (!Directory.Exists(sha_folder))
+                        Directory.CreateDirectory(sha_folder);
+                    for (int i = 0; i < Request.Files.Count; i++)
+                    {
+                        var file = Request.Files[i];
+
+                        if (file != null && file.ContentLength > 0)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+
+                            var path = Path.Combine(sha_folder, fileName);
+                            file.SaveAs(path);
+                        }
+                    }
+
+                    if (user.isIdP)
+                    {
+                        var owner_path = Path.Combine(sha_folder, "owner.txt");
+                        System.IO.File.WriteAllText(owner_path, user.Id);
+                    }
+                }
+            }
+
+            return RedirectToAction("Index", "Home");
         }
 
         //
@@ -118,13 +254,14 @@ namespace CILRepository.Controllers
             string callback = Url.Action("MSLoginCallback", "Account", null, Request.Url.Scheme);
 
             string url = "https://login.live.com/oauth20_authorize.srf?client_id=0000000044159E9D&scope=wl.signin%20wl.basic%20wl.offline_access&response_type=code&redirect_uri=" + callback;
+//            string url = "https://login.live.com/oauth20_authorize.srf?client_id=0000000044114C32&scope=wl.signin%20wl.basic%20wl.offline_access&response_type=code&redirect_uri=" + callback;
             return Redirect(url);
         }
 
         //
         // GET: /Account/ExternalLoginCallback
+//        string name = "2672633b99598c2b366a437dc797ae4d";
         [AllowAnonymous]
-        string name = "2672633b99598c2b366a437dc797ae4d";
         public async Task<ActionResult> MSLoginCallback(string code)
         {
             if (!string.IsNullOrEmpty(code))
@@ -144,6 +281,8 @@ namespace CILRepository.Controllers
                         byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
                         byte[] key = Guid.NewGuid().ToByteArray();
                         string token = Convert.ToBase64String(time.Concat(key).ToArray());
+
+                        string name = userID;
 
                         user = new ApplicationUser() { UserName = name, Id = token };
                         var result = await UserManager.CreateAsync(user);

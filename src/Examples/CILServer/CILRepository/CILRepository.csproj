@@ -269,6 +269,7 @@
     <Content Include="Views\Home\Download.cshtml" />
     <Content Include="Views\Home\DownloadToken.cshtml" />
     <Content Include="Views\Home\DLLHandle.cshtml" />
+    <Content Include="Views\Home\UploadDll.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Views\CIL\" />
@@ -293,15 +294,23 @@
   <Target Name="MvcBuildViews" AfterTargets="AfterBuild" Condition="'$(MvcBuildViews)'=='true'">
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
   </Target>
+  <PropertyGroup>
+    <PreBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -a "$(ProjectDir)"</PreBuildEvent>
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -d "$(ProjectPath)" "$(ProjectDir)$(OutDir)\" "$(TargetName)" "$(ConfigurationName)"</PostBuildEvent>
+  </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>
       <FlavorProperties GUID="{349c5851-65df-11da-9384-00065b846f21}">
         <WebProjectProperties>
           <UseIIS>True</UseIIS>
           <AutoAssignPort>True</AutoAssignPort>
-          <DevelopmentServerPort>6779</DevelopmentServerPort>
+          <DevelopmentServerPort>50288</DevelopmentServerPort>
           <DevelopmentServerVPath>/</DevelopmentServerVPath>
-          <IISUrl>http://mydomain2.com:31689/CILRepository</IISUrl>
+          <IISUrl>http://localhost:8700</IISUrl>
+          <OverrideIISAppRootUrl>True</OverrideIISAppRootUrl>
+          <IISAppRootUrl>http://localhost:8700</IISAppRootUrl>
           <NTLMAuthentication>False</NTLMAuthentication>
           <UseCustomServer>False</UseCustomServer>
           <CustomServerUrl>
@@ -311,12 +320,6 @@
       </FlavorProperties>
     </VisualStudio>
   </ProjectExtensions>
-  <PropertyGroup>
-    <PreBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -a "$(ProjectDir)"</PreBuildEvent>
-  </PropertyGroup>
-  <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -d "$(ProjectPath)" "$(ProjectDir)$(OutDir)\" "$(TargetName)" "$(ConfigurationName)"</PostBuildEvent>
-  </PropertyGroup>
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it.
        Other similar extension points exist, see Microsoft.Common.targets.
   <Target Name="BeforeBuild">

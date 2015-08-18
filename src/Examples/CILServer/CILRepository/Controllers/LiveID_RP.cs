@@ -29,8 +29,10 @@
         public LiveID_RP()
             : this(
                 "0000000044159E9D",
-                "http://mydomain2.com:31689/CILRepository/Account/MSLoginCallback",
+//                "0000000044114C32",
+                "http://mydomain2.com:8700/Account/MSLoginCallback",
                 "pQZPJYxVuzaF7zk3-0cfuA6lWoW3GHkf",
+//                "a09S5EtRiwXmg8CbASYFsQQ9QEIqb8yv",
                 "https://login.live.com/oauth20_token.srf"
                 )
         {

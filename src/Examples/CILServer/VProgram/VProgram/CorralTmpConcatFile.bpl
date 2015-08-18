@@ -481,11 +481,11 @@ implementation PoirotMain.Main()
   var $label: int;
 
     assume {:breadcrumb 0} true;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 20} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 20} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 20} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 20} true;
     call GlobalObjectsForCST.init();
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 21} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 21} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 21} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 21} true;
     call SynthesizedPortion.SynthesizedSequence();
 }
 
@@ -541,10 +541,10 @@ implementation LiveIDNameSpace.LiveID_RP_For_vProgram.AuthenticationDone$Generic
 
     conclusion := conclusion$in;
     assume {:breadcrumb 2} true;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Assertion.cs"} {:sourceLine 9} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Assertion.cs"} {:sourceLine 9} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Assertion.cs"} {:sourceLine 9} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Assertion.cs"} {:sourceLine 9} true;
     call GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion);
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Assertion.cs"} {:sourceLine 10} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Assertion.cs"} {:sourceLine 10} true;
     $result := true;
     return;
 }
@@ -618,20 +618,20 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $label: int;
 
     assume {:breadcrumb 4} true;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
     call $tmp0 := OpenIDConnectNameSpace.NondetOpenIDConnect.AuthenticationResponse(F$PoirotMain.Nondet);
     O1_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
     call $tmp1 := OpenIDConnectNameSpace.RelyingParty.constructTokenRequest$OpenIDConnectNameSpace.AuthenticationResponse(F$GenericAuthNameSpace.GlobalObjects_base.RP, O1_Ref);
     O2_Ref := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
     call $tmp2 := OpenIDConnectNameSpace.OpenIDProvider.TokenEndpoint$OpenIDConnectNameSpace.TokenRequest(F$GenericAuthNameSpace.GlobalObjects_base.IdP, O2_Ref);
     O3_Ref := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
     call $tmp3 := OpenIDConnectNameSpace.RelyingParty.conclude$OpenIDConnectNameSpace.TokenResponse(F$GenericAuthNameSpace.GlobalObjects_base.RP, O3_Ref);
     G4_Ref := $tmp3;
 }
@@ -696,26 +696,26 @@ implementation GlobalObjectsForCST.init()
   var $label: int;
 
     assume {:breadcrumb 6} true;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 10} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 10} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 10} true;
     call $tmp0 := OpenIDConnectNameSpace.NondetOpenIDConnect.AuthenticationRequest(F$PoirotMain.Nondet);
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
     call $tmp1 := Alloc();
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
     call LiveIDNameSpace.LiveID_IdP.#ctor($tmp1);
     assume $DynamicType($tmp1) == T$LiveIDNameSpace.LiveID_IdP();
     assume $TypeConstructor($DynamicType($tmp1)) == T$LiveIDNameSpace.LiveID_IdP;
     F$GenericAuthNameSpace.GlobalObjects_base.IdP := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 11} true;
     call LiveIDNameSpace.LiveID_IdP.init(F$GenericAuthNameSpace.GlobalObjects_base.IdP);
-    assert {:first} {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 12} true;
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 12} true;
     call $tmp2 := Alloc();
-    assert {:sourceFile "c:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\VProgram\Program.cs"} {:sourceLine 12} true;
     call LiveIDNameSpace.LiveID_RP_For_vProgram.#ctor($tmp2);
     assume $DynamicType($tmp2) == T$LiveIDNameSpace.LiveID_RP_For_vProgram();
     assume $TypeConstructor($DynamicType($tmp2)) == T$LiveIDNameSpace.LiveID_RP_For_vProgram;
@@ -5625,7 +5625,7 @@ implementation LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$Syste
 
 const {:value "0000000044159E9D"} unique $string_literal_0000000044159E9D_27: Ref;
 
-const {:value "http://mydomain2.com:8700/Account/MSLoginCallback"} unique $string_literal_http$$$mydomain2.com$8700$Account$MSLoginCallback_28: Ref;
+const {:value "http://mydomain2.com:31689/CILRepository/Account/MSLoginCallback"} unique $string_literal_http$$$mydomain2.com$31689$CILRepository$Account$MSLoginCallback_28: Ref;
 
 const {:value "pQZPJYxVuzaF7zk3-0cfuA6lWoW3GHkf"} unique $string_literal_pQZPJYxVuzaF7zk3$0cfuA6lWoW3GHkf_29: Ref;
 
@@ -5637,7 +5637,7 @@ implementation LiveIDNameSpace.LiveID_RP.#ctor($this: Ref)
   var $label: int;
 
     assume {:breadcrumb 175} true;
-    call LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$System.String$System.String($this, $string_literal_0000000044159E9D_27, $string_literal_http$$$mydomain2.com$8700$Account$MSLoginCallback_28, $string_literal_pQZPJYxVuzaF7zk3$0cfuA6lWoW3GHkf_29, $string_literal_https$$$login.live.com$oauth20_token.srf_30);
+    call LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$System.String$System.String($this, $string_literal_0000000044159E9D_27, $string_literal_http$$$mydomain2.com$31689$CILRepository$Account$MSLoginCallback_28, $string_literal_pQZPJYxVuzaF7zk3$0cfuA6lWoW3GHkf_29, $string_literal_https$$$login.live.com$oauth20_token.srf_30);
 }
 
 
@@ -6436,6 +6436,8 @@ var F$CILRepository.Controllers.AccountController.XsrfKey: Ref;
 
 var F$CILRepository.Controllers.AccountController.RP: [Ref]Ref;
 
+var F$CILRepository.Controllers.AccountController.name: [Ref]Ref;
+
 var F$CILRepository.Controllers.AccountController.$UserManager$k__BackingField: [Ref]bool;
 
 procedure CILRepository.Controllers.AccountController.#ctor($this: Ref);
@@ -6445,6 +6447,8 @@ procedure CILRepository.Controllers.AccountController.#ctor($this: Ref);
 procedure CILRepository.Controllers.AccountController.#ctor$Microsoft.AspNet.Identity.UserManager$CILRepository.Models.ApplicationUser$($this: Ref, userManager$in: Ref);
 
 
+
+const {:value "2672633b99598c2b366a437dc797ae4d"} unique $string_literal_2672633b99598c2b366a437dc797ae4d_37: Ref;
 
 procedure {:System.Runtime.CompilerServices.CompilerGenerated} CILRepository.Controllers.AccountController.get_UserManager($this: Ref) returns ($result: Ref);
 
@@ -6495,7 +6499,7 @@ procedure {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountCont
 
 var F$CILRepository.Controllers.AccountController.$DLLHandle$o__SiteContainer0.$$p__Site1: Ref;
 
-const {:value "Message"} unique $string_literal_Message_37: Ref;
+const {:value "Message"} unique $string_literal_Message_38: Ref;
 
 procedure {:extern} Microsoft.CSharp.RuntimeBinder.Binder.SetMember$Microsoft.CSharp.RuntimeBinder.CSharpBinderFlags$System.String$System.Type$System.Collections.Generic.IEnumerable$Microsoft.CSharp.RuntimeBinder.CSharpArgumentInfo$(flags$in: int, name$in: Ref, context$in: Ref, argumentInfo$in: Ref) returns ($result: Ref);
 
@@ -6535,7 +6539,7 @@ procedure {:System.Web.Mvc.HttpPost} CILRepository.Controllers.AccountController
 
 
 
-const {:value "C:\CST\dlls\"} unique $string_literal_C$$CST$dlls$_38: Ref;
+const {:value "C:\CST\dlls\"} unique $string_literal_C$$CST$dlls$_39: Ref;
 
 procedure {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountController.Login$System.String($this: Ref, returnUrl$in: Ref) returns ($result: Ref);
 
@@ -6543,13 +6547,13 @@ procedure {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountCont
 
 var F$CILRepository.Controllers.AccountController.$Login$o__SiteContainer2.$$p__Site3: Ref;
 
-const {:value "ReturnUrl"} unique $string_literal_ReturnUrl_39: Ref;
+const {:value "ReturnUrl"} unique $string_literal_ReturnUrl_40: Ref;
 
-procedure {:System.Web.Mvc.HttpPost} {:System.Web.Mvc.AllowAnonymous} {:System.Web.Mvc.ValidateAntiForgeryToken} CILRepository.Controllers.AccountController.MSLogin$System.String$System.String($this: Ref, provider$in: Ref, returnUrl$in: Ref) returns ($result: Ref);
+procedure {:System.Web.Mvc.ValidateAntiForgeryToken} {:System.Web.Mvc.AllowAnonymous} {:System.Web.Mvc.HttpPost} CILRepository.Controllers.AccountController.MSLogin$System.String$System.String($this: Ref, provider$in: Ref, returnUrl$in: Ref) returns ($result: Ref);
 
 
 
-procedure {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnostics.DebuggerStepThrough} {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountController.MSLoginCallback$System.String($this: Ref, code$in: Ref) returns ($result: Ref);
+procedure {:System.Diagnostics.DebuggerStepThrough} {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountController.MSLoginCallback$System.String($this: Ref, code$in: Ref) returns ($result: Ref);
 
 
 
@@ -6633,27 +6637,27 @@ implementation CILRepository.Controllers.AccountController.MSLoginCallback$Syste
 
 
 
-procedure {:System.Web.Mvc.HttpPost} {:System.Web.Mvc.ValidateAntiForgeryToken} {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnostics.DebuggerStepThrough} {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountController.Login$CILRepository.Models.LoginViewModel$System.String($this: Ref, model$in: Ref, returnUrl$in: Ref) returns ($result: Ref);
+procedure {:System.Web.Mvc.HttpPost} {:System.Web.Mvc.AllowAnonymous} {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnostics.DebuggerStepThrough} {:System.Web.Mvc.ValidateAntiForgeryToken} CILRepository.Controllers.AccountController.Login$CILRepository.Models.LoginViewModel$System.String($this: Ref, model$in: Ref, returnUrl$in: Ref) returns ($result: Ref);
 
 
 
-procedure CILRepository.Controllers.AccountController.$Login$d__12.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Login$d__11.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$Login$d__12() : Ref;
+function T$CILRepository.Controllers.AccountController.$Login$d__11() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$Login$d__12: int;
+const unique T$CILRepository.Controllers.AccountController.$Login$d__11: int;
 
-var F$CILRepository.Controllers.AccountController.$Login$d__12.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Login$d__11.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Login$d__12.model: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Login$d__11.model: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Login$d__12.returnUrl: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Login$d__11.returnUrl: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Login$d__12.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$Login$d__11.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.Login$CILRepository.Models.LoginViewModel$System.String($this: Ref, model$in: Ref, returnUrl$in: Ref) returns ($result: Ref)
 {
@@ -6673,21 +6677,21 @@ implementation CILRepository.Controllers.AccountController.Login$CILRepository.M
     returnUrl := returnUrl$in;
     assume {:breadcrumb 225} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$Login$d__12.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Login$d__12();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Login$d__12;
+    call CILRepository.Controllers.AccountController.$Login$d__11.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Login$d__11();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Login$d__11;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.model[local_0_Ref] := model;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.returnUrl[local_0_Ref] := returnUrl;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.model[local_0_Ref] := model;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.returnUrl[local_0_Ref] := returnUrl;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Login$d__12());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Login$d__11());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_004c;
@@ -6703,25 +6707,25 @@ procedure {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountCont
 
 
 
-procedure {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnostics.DebuggerStepThrough} {:System.Web.Mvc.ValidateAntiForgeryToken} {:System.Web.Mvc.HttpPost} {:System.Web.Mvc.AllowAnonymous} CILRepository.Controllers.AccountController.Register$CILRepository.Models.RegisterViewModel($this: Ref, model$in: Ref) returns ($result: Ref);
+procedure {:System.Web.Mvc.AllowAnonymous} {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnostics.DebuggerStepThrough} {:System.Web.Mvc.HttpPost} {:System.Web.Mvc.ValidateAntiForgeryToken} CILRepository.Controllers.AccountController.Register$CILRepository.Models.RegisterViewModel($this: Ref, model$in: Ref) returns ($result: Ref);
 
 
 
-procedure CILRepository.Controllers.AccountController.$Register$d__15.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Register$d__14.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$Register$d__15() : Ref;
+function T$CILRepository.Controllers.AccountController.$Register$d__14() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$Register$d__15: int;
+const unique T$CILRepository.Controllers.AccountController.$Register$d__14: int;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.model: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.model: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.Register$CILRepository.Models.RegisterViewModel($this: Ref, model$in: Ref) returns ($result: Ref)
 {
@@ -6739,20 +6743,20 @@ implementation CILRepository.Controllers.AccountController.Register$CILRepositor
     model := model$in;
     assume {:breadcrumb 227} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$Register$d__15.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Register$d__15();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Register$d__15;
+    call CILRepository.Controllers.AccountController.$Register$d__14.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Register$d__14();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Register$d__14;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.model[local_0_Ref] := model;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.model[local_0_Ref] := model;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Register$d__15());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Register$d__14());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_0044;
@@ -6764,27 +6768,27 @@ implementation CILRepository.Controllers.AccountController.Register$CILRepositor
 
 
 
-procedure {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnostics.DebuggerStepThrough} {:System.Web.Mvc.ValidateAntiForgeryToken} {:System.Web.Mvc.HttpPost} CILRepository.Controllers.AccountController.Disassociate$System.String$System.String($this: Ref, loginProvider$in: Ref, providerKey$in: Ref) returns ($result: Ref);
+procedure {:System.Diagnostics.DebuggerStepThrough} {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Web.Mvc.HttpPost} {:System.Web.Mvc.ValidateAntiForgeryToken} CILRepository.Controllers.AccountController.Disassociate$System.String$System.String($this: Ref, loginProvider$in: Ref, providerKey$in: Ref) returns ($result: Ref);
 
 
 
-procedure CILRepository.Controllers.AccountController.$Disassociate$d__1b.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Disassociate$d__1a.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$Disassociate$d__1b() : Ref;
+function T$CILRepository.Controllers.AccountController.$Disassociate$d__1a() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$Disassociate$d__1b: int;
+const unique T$CILRepository.Controllers.AccountController.$Disassociate$d__1a: int;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.loginProvider: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.loginProvider: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.providerKey: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.providerKey: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.Disassociate$System.String$System.String($this: Ref, loginProvider$in: Ref, providerKey$in: Ref) returns ($result: Ref)
 {
@@ -6804,21 +6808,21 @@ implementation CILRepository.Controllers.AccountController.Disassociate$System.S
     providerKey := providerKey$in;
     assume {:breadcrumb 228} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$Disassociate$d__1b.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Disassociate$d__1b();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Disassociate$d__1b;
+    call CILRepository.Controllers.AccountController.$Disassociate$d__1a.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Disassociate$d__1a();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Disassociate$d__1a;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.loginProvider[local_0_Ref] := loginProvider;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.providerKey[local_0_Ref] := providerKey;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.loginProvider[local_0_Ref] := loginProvider;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.providerKey[local_0_Ref] := providerKey;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Disassociate$d__1b());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Disassociate$d__1a());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_004c;
@@ -6842,29 +6846,29 @@ function T$CILRepository.Controllers.AccountController.ManageMessageId() : Ref;
 
 const unique T$CILRepository.Controllers.AccountController.ManageMessageId: int;
 
-var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.$$p__Site21: Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.$$p__Site20: Ref;
 
-const {:value "StatusMessage"} unique $string_literal_StatusMessage_40: Ref;
+const {:value "StatusMessage"} unique $string_literal_StatusMessage_41: Ref;
 
 procedure {:System.Web.Mvc.ValidateAntiForgeryToken} {:System.Web.Mvc.HttpPost} {:System.Diagnostics.DebuggerStepThrough} {:System.Runtime.CompilerServices.AsyncStateMachine} CILRepository.Controllers.AccountController.Manage$CILRepository.Models.ManageUserViewModel($this: Ref, model$in: Ref) returns ($result: Ref);
 
 
 
-procedure CILRepository.Controllers.AccountController.$Manage$d__27.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Manage$d__26.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$Manage$d__27() : Ref;
+function T$CILRepository.Controllers.AccountController.$Manage$d__26() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$Manage$d__27: int;
+const unique T$CILRepository.Controllers.AccountController.$Manage$d__26: int;
 
-var F$CILRepository.Controllers.AccountController.$Manage$d__27.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$d__26.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Manage$d__27.model: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$d__26.model: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Manage$d__27.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$Manage$d__26.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.Manage$CILRepository.Models.ManageUserViewModel($this: Ref, model$in: Ref) returns ($result: Ref)
 {
@@ -6882,20 +6886,20 @@ implementation CILRepository.Controllers.AccountController.Manage$CILRepository.
     model := model$in;
     assume {:breadcrumb 232} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$Manage$d__27.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Manage$d__27();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Manage$d__27;
+    call CILRepository.Controllers.AccountController.$Manage$d__26.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$Manage$d__26();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$Manage$d__26;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.model[local_0_Ref] := model;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.model[local_0_Ref] := model;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Manage$d__27());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$Manage$d__26());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_0044;
@@ -6915,21 +6919,21 @@ procedure {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Web.Mvc.
 
 
 
-procedure CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d() : Ref;
+function T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d: int;
+const unique T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c: int;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.returnUrl: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.returnUrl: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.ExternalLoginCallback$System.String($this: Ref, returnUrl$in: Ref) returns ($result: Ref)
 {
@@ -6947,20 +6951,20 @@ implementation CILRepository.Controllers.AccountController.ExternalLoginCallback
     returnUrl := returnUrl$in;
     assume {:breadcrumb 234} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d;
+    call CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.returnUrl[local_0_Ref] := returnUrl;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.returnUrl[local_0_Ref] := returnUrl;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_0044;
@@ -6980,19 +6984,19 @@ procedure {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnost
 
 
 
-procedure CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34() : Ref;
+function T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34: int;
+const unique T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33: int;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.LinkLoginCallback($this: Ref) returns ($result: Ref)
 {
@@ -7008,19 +7012,19 @@ implementation CILRepository.Controllers.AccountController.LinkLoginCallback($th
 
     assume {:breadcrumb 236} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34;
+    call CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$4__this[local_0_Ref] := $this;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_003c;
@@ -7036,23 +7040,23 @@ procedure {:System.Web.Mvc.AllowAnonymous} {:System.Web.Mvc.HttpPost} {:System.R
 
 
 
-procedure CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d() : Ref;
+function T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d: int;
+const unique T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c: int;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.model: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.model: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.returnUrl: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.returnUrl: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$1__state: [Ref]int;
 
 implementation CILRepository.Controllers.AccountController.ExternalLoginConfirmation$CILRepository.Models.ExternalLoginConfirmationViewModel$System.String($this: Ref, model$in: Ref, returnUrl$in: Ref) returns ($result: Ref)
 {
@@ -7072,21 +7076,21 @@ implementation CILRepository.Controllers.AccountController.ExternalLoginConfirma
     returnUrl := returnUrl$in;
     assume {:breadcrumb 237} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d;
+    call CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.model[local_0_Ref] := model;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.returnUrl[local_0_Ref] := returnUrl;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.model[local_0_Ref] := model;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.returnUrl[local_0_Ref] := returnUrl;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Create(Microsoft.Cci.DummyTypeReference());
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_004c;
@@ -7122,27 +7126,27 @@ procedure {:System.Runtime.CompilerServices.AsyncStateMachine} {:System.Diagnost
 
 
 
-procedure CILRepository.Controllers.AccountController.$SignInAsync$d__48.#default_ctor($this: Ref);
+procedure CILRepository.Controllers.AccountController.$SignInAsync$d__47.#default_ctor($this: Ref);
 
 
 
-function T$CILRepository.Controllers.AccountController.$SignInAsync$d__48() : Ref;
+function T$CILRepository.Controllers.AccountController.$SignInAsync$d__47() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$SignInAsync$d__48: int;
+const unique T$CILRepository.Controllers.AccountController.$SignInAsync$d__47: int;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$4__this: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$4__this: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.user: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.user: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.isPersistent: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.isPersistent: [Ref]bool;
 
 procedure {:extern} System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Create() returns ($result: Ref);
 
 
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$1__state: [Ref]int;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$1__state: [Ref]int;
 
 procedure {:extern} System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start``1$``0$($this: Ref, stateMachine$in: Ref, TStateMachine: Ref) returns (stateMachine$out: Ref);
 
@@ -7170,21 +7174,21 @@ implementation CILRepository.Controllers.AccountController.SignInAsync$CILReposi
     isPersistent := isPersistent$in;
     assume {:breadcrumb 245} true;
     call $tmp0 := Alloc();
-    call CILRepository.Controllers.AccountController.$SignInAsync$d__48.#default_ctor($tmp0);
-    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$SignInAsync$d__48();
-    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$SignInAsync$d__48;
+    call CILRepository.Controllers.AccountController.$SignInAsync$d__47.#default_ctor($tmp0);
+    assume $DynamicType($tmp0) == T$CILRepository.Controllers.AccountController.$SignInAsync$d__47();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$CILRepository.Controllers.AccountController.$SignInAsync$d__47;
     local_0_Ref := $tmp0;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$4__this[local_0_Ref] := $this;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.user[local_0_Ref] := user;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.isPersistent[local_0_Ref] := isPersistent;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$4__this[local_0_Ref] := $this;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.user[local_0_Ref] := user;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.isPersistent[local_0_Ref] := isPersistent;
     call $tmp1 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Create();
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[local_0_Ref] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$1__state[local_0_Ref] := -1;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[local_0_Ref] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$1__state[local_0_Ref] := -1;
     assume local_0_Ref != null;
-    $tmp2 := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[local_0_Ref];
-    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$SignInAsync$d__48());
+    $tmp2 := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[local_0_Ref];
+    call local_0_Ref := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.Start``1$``0$($tmp2, local_0_Ref, T$CILRepository.Controllers.AccountController.$SignInAsync$d__47());
     assume local_0_Ref != null;
-    $tmp3 := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[local_0_Ref];
+    $tmp3 := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[local_0_Ref];
     call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.get_Task($tmp3);
     local_1_Ref := $tmp4;
     goto IL_004c;
@@ -7424,9 +7428,7 @@ var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$key$5__
 
 var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$token$5__b: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$name$5__c: [Ref]Ref;
-
-var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__d: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__c: [Ref]bool;
 
 var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$g__initLocal4: [Ref]Ref;
 
@@ -7444,7 +7446,7 @@ function T$CILRepository.Models.ApplicationUser() : Ref;
 
 const unique T$CILRepository.Models.ApplicationUser: int;
 
-var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterd: [Ref]Ref;
 
 var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$t__stack: [Ref]Ref;
 
@@ -7452,7 +7454,7 @@ procedure System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.
 
 
 
-var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere: [Ref]Ref;
 
 procedure System.Runtime.CompilerServices.TaskAwaiter.#default_ctor($this: Ref);
 
@@ -7464,7 +7466,7 @@ const {:extern} unique T$System.Runtime.CompilerServices.TaskAwaiter: int;
 
 axiom $TypeConstructor(T$System.Runtime.CompilerServices.TaskAwaiter()) == T$System.Runtime.CompilerServices.TaskAwaiter;
 
-var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiter10: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf: [Ref]Ref;
 
 implementation {:inline 1} CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.#default_ctor($this: Ref)
 {
@@ -7488,27 +7490,26 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$MSLoginC
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$time$5__9[$this] := null;
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$key$5__a[$this] := null;
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$token$5__b[$this] := null;
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$name$5__c[$this] := null;
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__d[$this] := null;
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__c[$this] := null;
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$g__initLocal4[$this] := null;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$CILRepository.Models.ApplicationUser$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.TaskAwaiter`1(T$CILRepository.Models.ApplicationUser());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp1)) == T$CILRepository.Models.ApplicationUser();
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterd[$this] := $tmp1;
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$t__stack[$this] := null;
     call $tmp2 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.IdentityResult$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp2)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere[$this] := $tmp2;
     call $tmp3 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter.#default_ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Runtime.CompilerServices.TaskAwaiter();
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Runtime.CompilerServices.TaskAwaiter;
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiter10[$this] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf[$this] := $tmp3;
 }
 
 
@@ -7543,16 +7544,15 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$MSLoginC
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$time$5__9[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$time$5__9[this];
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$key$5__a[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$key$5__a[this];
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$token$5__b[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$token$5__b[this];
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$name$5__c[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$name$5__c[this];
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__d[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__d[this];
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__c[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$result$5__c[this];
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$g__initLocal4[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$g__initLocal4[this];
-    call $tmp5 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere[this]);
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere[other] := $tmp5;
+    call $tmp5 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterd[this]);
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterd[other] := $tmp5;
     F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$t__stack[this];
-    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf[this]);
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf[other] := $tmp6;
-    call $tmp7 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiter10[this]);
-    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiter10[other] := $tmp7;
+    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere[this]);
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaitere[other] := $tmp6;
+    call $tmp7 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf[this]);
+    F$CILRepository.Controllers.AccountController.$MSLoginCallback$d__5.$$u__$awaiterf[other] := $tmp7;
 }
 
 
@@ -7585,54 +7585,54 @@ implementation CILRepository.Controllers.AccountController.$MSLoginCallback$d__5
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Login$d__12.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Login$d__11.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
 
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.model[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.returnUrl[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.model[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.returnUrl[$this] := null;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Login$d__12.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$Login$d__11.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Login$d__12.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Login$d__11.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp2: Ref;
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Login$d__12.$$1__state[this];
-    call $tmp2 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[other] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$Login$d__12.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Login$d__12.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$Login$d__12.model[other] := F$CILRepository.Controllers.AccountController.$Login$d__12.model[this];
-    F$CILRepository.Controllers.AccountController.$Login$d__12.returnUrl[other] := F$CILRepository.Controllers.AccountController.$Login$d__12.returnUrl[this];
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Login$d__11.$$1__state[this];
+    call $tmp2 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[other] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$Login$d__11.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Login$d__11.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$Login$d__11.model[other] := F$CILRepository.Controllers.AccountController.$Login$d__11.model[this];
+    F$CILRepository.Controllers.AccountController.$Login$d__11.returnUrl[other] := F$CILRepository.Controllers.AccountController.$Login$d__11.returnUrl[this];
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Login$d__12.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Login$d__11.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Login$d__12.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Login$d__11.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$Login$d__12.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$Login$d__11.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -7642,64 +7642,64 @@ implementation CILRepository.Controllers.AccountController.$Login$d__12.SetState
     param0 := param0$in;
     assume {:breadcrumb 267} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$Login$d__12.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$Login$d__11.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$user$5__16: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$user$5__15: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$result$5__17: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$result$5__16: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$g__initLocal14: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$g__initLocal13: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter18: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter17: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__stack: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__stack: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter19: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter18: [Ref]Ref;
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Register$d__15.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Register$d__14.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
 
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.model[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$user$5__16[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$result$5__17[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$g__initLocal14[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.model[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$user$5__15[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$result$5__16[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$g__initLocal13[$this] := null;
     call $tmp2 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.IdentityResult$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp2)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter18[$this] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__stack[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter17[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__stack[$this] := null;
     call $tmp3 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter.#default_ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Runtime.CompilerServices.TaskAwaiter();
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Runtime.CompilerServices.TaskAwaiter;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter19[$this] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter18[$this] := $tmp3;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Register$d__15.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$Register$d__14.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Register$d__15.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Register$d__14.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp4: Ref;
   var $tmp5: Ref;
@@ -7707,32 +7707,32 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$Register
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.$$1__state[this];
-    call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[other] := $tmp4;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$Register$d__15.model[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.model[this];
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$user$5__16[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.$user$5__16[this];
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$result$5__17[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.$result$5__17[this];
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$g__initLocal14[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.$$g__initLocal14[this];
-    call $tmp5 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter18[this]);
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter18[other] := $tmp5;
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__stack[this];
-    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter19[this]);
-    F$CILRepository.Controllers.AccountController.$Register$d__15.$$u__$awaiter19[other] := $tmp6;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.$$1__state[this];
+    call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[other] := $tmp4;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$Register$d__14.model[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.model[this];
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$user$5__15[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.$user$5__15[this];
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$result$5__16[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.$result$5__16[this];
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$g__initLocal13[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.$$g__initLocal13[this];
+    call $tmp5 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter17[this]);
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter17[other] := $tmp5;
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__stack[this];
+    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter18[this]);
+    F$CILRepository.Controllers.AccountController.$Register$d__14.$$u__$awaiter18[other] := $tmp6;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Register$d__15.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Register$d__14.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Register$d__15.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Register$d__14.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$Register$d__15.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$Register$d__14.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -7742,60 +7742,60 @@ implementation CILRepository.Controllers.AccountController.$Register$d__15.SetSt
     param0 := param0$in;
     assume {:breadcrumb 271} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$Register$d__15.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$Register$d__14.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$message$5__1c: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$message$5__1b: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$result$5__1d: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$result$5__1c: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$u__$awaiter1e: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$u__$awaiter1d: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__stack: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__stack: [Ref]Ref;
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Disassociate$d__1b.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Disassociate$d__1a.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
 
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.loginProvider[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.providerKey[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.loginProvider[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.providerKey[$this] := null;
     call $tmp2 := Alloc();
     call System.Nullable$CILRepository.Controllers.AccountController.ManageMessageId$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Nullable`1(T$CILRepository.Controllers.AccountController.ManageMessageId());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Nullable`1;
     assume T$T$System.Nullable`1($DynamicType($tmp2)) == T$CILRepository.Controllers.AccountController.ManageMessageId();
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$message$5__1c[$this] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$result$5__1d[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$message$5__1b[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$result$5__1c[$this] := null;
     call $tmp3 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.IdentityResult$.#default_ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp3)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$u__$awaiter1e[$this] := $tmp3;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__stack[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$u__$awaiter1d[$this] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__stack[$this] := null;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Disassociate$d__1b.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$Disassociate$d__1a.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Disassociate$d__1b.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Disassociate$d__1a.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp4: Ref;
   var $tmp5: Ref;
@@ -7803,31 +7803,31 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$Disassoc
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$1__state[this];
-    call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[other] := $tmp4;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.loginProvider[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.loginProvider[this];
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.providerKey[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.providerKey[this];
-    call $tmp5 := System.Nullable.#copy_ctor(F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$message$5__1c[this]);
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$message$5__1c[other] := $tmp5;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$result$5__1d[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$result$5__1d[this];
-    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$u__$awaiter1e[this]);
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$u__$awaiter1e[other] := $tmp6;
-    F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__stack[this];
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$1__state[this];
+    call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[other] := $tmp4;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.loginProvider[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.loginProvider[this];
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.providerKey[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.providerKey[this];
+    call $tmp5 := System.Nullable.#copy_ctor(F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$message$5__1b[this]);
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$message$5__1b[other] := $tmp5;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$result$5__1c[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$result$5__1c[this];
+    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$u__$awaiter1d[this]);
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$u__$awaiter1d[other] := $tmp6;
+    F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__stack[this];
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Disassociate$d__1b.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Disassociate$d__1a.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Disassociate$d__1b.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Disassociate$d__1a.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$Disassociate$d__1b.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$Disassociate$d__1a.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -7837,95 +7837,95 @@ implementation CILRepository.Controllers.AccountController.$Disassociate$d__1b.S
     param0 := param0$in;
     assume {:breadcrumb 277} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$Disassociate$d__1b.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$Disassociate$d__1a.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-function T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20() : Ref;
+function T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20: int;
+const unique T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f: int;
 
-var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.$$p__Site22: Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.$$p__Site21: Ref;
 
-var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.$$p__Site23: Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.$$p__Site22: Ref;
 
-procedure T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.#cctor();
+procedure T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.#cctor();
 
 
 
-implementation T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.#cctor()
+implementation T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.#cctor()
 {
-    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.$$p__Site21 := null;
-    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.$$p__Site22 := null;
-    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer20.$$p__Site23 := null;
+    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.$$p__Site20 := null;
+    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.$$p__Site21 := null;
+    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer1f.$$p__Site22 := null;
 }
 
 
 
-function T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24() : Ref;
+function T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24: int;
+const unique T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23: int;
 
-var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24.$$p__Site25: Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23.$$p__Site24: Ref;
 
-var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24.$$p__Site26: Ref;
+var F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23.$$p__Site25: Ref;
 
-procedure T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24.#cctor();
+procedure T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23.#cctor();
 
 
 
-implementation T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24.#cctor()
+implementation T$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23.#cctor()
 {
-    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24.$$p__Site25 := null;
-    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer24.$$p__Site26 := null;
+    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23.$$p__Site24 := null;
+    F$CILRepository.Controllers.AccountController.$Manage$o__SiteContainer23.$$p__Site25 := null;
 }
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Manage$d__27.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Manage$d__26.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
 
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.model[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.model[$this] := null;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Manage$d__27.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$Manage$d__26.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$Manage$d__27.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$Manage$d__26.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp2: Ref;
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Manage$d__27.$$1__state[this];
-    call $tmp2 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[other] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Manage$d__27.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$Manage$d__27.model[other] := F$CILRepository.Controllers.AccountController.$Manage$d__27.model[this];
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$1__state[other] := F$CILRepository.Controllers.AccountController.$Manage$d__26.$$1__state[this];
+    call $tmp2 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[other] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.$$4__this[other] := F$CILRepository.Controllers.AccountController.$Manage$d__26.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$Manage$d__26.model[other] := F$CILRepository.Controllers.AccountController.$Manage$d__26.model[this];
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$Manage$d__27.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$Manage$d__26.MoveNext($this: Ref);
 
 
 
-const {:value "HasLocalPassword"} unique $string_literal_HasLocalPassword_41: Ref;
+const {:value "HasLocalPassword"} unique $string_literal_HasLocalPassword_42: Ref;
 
 function {:extern} T$System.Boolean() : Ref;
 
@@ -7933,11 +7933,11 @@ const {:extern} unique T$System.Boolean: int;
 
 axiom $TypeConstructor(T$System.Boolean()) == T$System.Boolean;
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Manage$d__27.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$Manage$d__26.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$Manage$d__27.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$Manage$d__26.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -7947,94 +7947,94 @@ implementation CILRepository.Controllers.AccountController.$Manage$d__27.SetStat
     param0 := param0$in;
     assume {:breadcrumb 283} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$Manage$d__27.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$Manage$d__26.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-function T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a() : Ref;
+function T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a: int;
+const unique T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29: int;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a.$$p__Site2b: Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29.$$p__Site2a: Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a.$$p__Site2c: Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29.$$p__Site2b: Ref;
 
-procedure T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a.#cctor();
+procedure T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29.#cctor();
 
 
 
-implementation T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a.#cctor()
+implementation T$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29.#cctor()
 {
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a.$$p__Site2b := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer2a.$$p__Site2c := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29.$$p__Site2a := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$o__SiteContainer29.$$p__Site2b := null;
 }
 
 
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$loginInfo$5__2e: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$loginInfo$5__2d: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$user$5__2f: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$user$5__2e: [Ref]Ref;
 
 procedure System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.Owin.ExternalLoginInfo$.#default_ctor($this: Ref);
 
 
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter30: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter2f: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__stack: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__stack: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter31: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter30: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter32: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter31: [Ref]Ref;
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
 
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.returnUrl[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$loginInfo$5__2e[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$user$5__2f[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.returnUrl[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$loginInfo$5__2d[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$user$5__2e[$this] := null;
     call $tmp2 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.Owin.ExternalLoginInfo$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp2)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter30[$this] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__stack[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter2f[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__stack[$this] := null;
     call $tmp3 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$CILRepository.Models.ApplicationUser$.#default_ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Runtime.CompilerServices.TaskAwaiter`1(T$CILRepository.Models.ApplicationUser());
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp3)) == T$CILRepository.Models.ApplicationUser();
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter31[$this] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter30[$this] := $tmp3;
     call $tmp4 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter.#default_ctor($tmp4);
     assume $DynamicType($tmp4) == T$System.Runtime.CompilerServices.TaskAwaiter();
     assume $TypeConstructor($DynamicType($tmp4)) == T$System.Runtime.CompilerServices.TaskAwaiter;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter32[$this] := $tmp4;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter31[$this] := $tmp4;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp5: Ref;
   var $tmp6: Ref;
@@ -8043,33 +8043,33 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$External
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$1__state[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$1__state[this];
-    call $tmp5 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[other] := $tmp5;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$4__this[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.returnUrl[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.returnUrl[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$loginInfo$5__2e[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$loginInfo$5__2e[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$user$5__2f[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$user$5__2f[this];
-    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter30[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter30[other] := $tmp6;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__stack[this];
-    call $tmp7 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter31[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter31[other] := $tmp7;
-    call $tmp8 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter32[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$u__$awaiter32[other] := $tmp8;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$1__state[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$1__state[this];
+    call $tmp5 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[other] := $tmp5;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$4__this[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.returnUrl[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.returnUrl[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$loginInfo$5__2d[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$loginInfo$5__2d[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$user$5__2e[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$user$5__2e[this];
+    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter2f[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter2f[other] := $tmp6;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__stack[this];
+    call $tmp7 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter30[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter30[other] := $tmp7;
+    call $tmp8 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter31[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$u__$awaiter31[other] := $tmp8;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -8079,61 +8079,61 @@ implementation CILRepository.Controllers.AccountController.$ExternalLoginCallbac
     param0 := param0$in;
     assume {:breadcrumb 285} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2d.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$ExternalLoginCallback$d__2c.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$loginInfo$5__35: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$loginInfo$5__34: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$result$5__36: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$result$5__35: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter37: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter36: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__stack: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__stack: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter38: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter37: [Ref]Ref;
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
 
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$loginInfo$5__35[$this] := null;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$result$5__36[$this] := null;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$loginInfo$5__34[$this] := null;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$result$5__35[$this] := null;
     call $tmp2 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.Owin.ExternalLoginInfo$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp2)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter37[$this] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__stack[$this] := null;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter36[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__stack[$this] := null;
     call $tmp3 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.IdentityResult$.#default_ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp3)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter38[$this] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter37[$this] := $tmp3;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp4: Ref;
   var $tmp5: Ref;
@@ -8141,30 +8141,30 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$LinkLogi
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$1__state[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$1__state[this];
-    call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[other] := $tmp4;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$4__this[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$loginInfo$5__35[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$loginInfo$5__35[this];
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$result$5__36[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$result$5__36[this];
-    call $tmp5 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter37[this]);
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter37[other] := $tmp5;
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__stack[this];
-    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter38[this]);
-    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$u__$awaiter38[other] := $tmp6;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$1__state[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$1__state[this];
+    call $tmp4 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[other] := $tmp4;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$4__this[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$loginInfo$5__34[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$loginInfo$5__34[this];
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$result$5__35[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$result$5__35[this];
+    call $tmp5 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter36[this]);
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter36[other] := $tmp5;
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__stack[this];
+    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter37[this]);
+    F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$u__$awaiter37[other] := $tmp6;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -8174,94 +8174,94 @@ implementation CILRepository.Controllers.AccountController.$LinkLoginCallback$d_
     param0 := param0$in;
     assume {:breadcrumb 287} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__34.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$LinkLoginCallback$d__33.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-function T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3b() : Ref;
+function T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3a() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3b: int;
+const unique T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3a: int;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3b.$$p__Site3c: Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3a.$$p__Site3b: Ref;
 
-procedure T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3b.#cctor();
+procedure T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3a.#cctor();
 
 
 
-implementation T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3b.#cctor()
+implementation T$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3a.#cctor()
 {
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3b.$$p__Site3c := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$o__SiteContainer3a.$$p__Site3b := null;
 }
 
 
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$info$5__3e: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$info$5__3d: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$user$5__3f: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$user$5__3e: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$result$5__40: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$result$5__3f: [Ref]bool;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$g__initLocal3a: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$g__initLocal39: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter41: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter40: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__stack: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__stack: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter42: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter41: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter43: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter42: [Ref]Ref;
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
   var $tmp2: Ref;
   var $tmp3: Ref;
   var $tmp4: Ref;
 
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder$System.Web.Mvc.ActionResult$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1;
     assume TResult$T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1($DynamicType($tmp1)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.model[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.returnUrl[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$info$5__3e[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$user$5__3f[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$result$5__40[$this] := null;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$g__initLocal3a[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.model[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.returnUrl[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$info$5__3d[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$user$5__3e[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$result$5__3f[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$g__initLocal39[$this] := null;
     call $tmp2 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.Owin.ExternalLoginInfo$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp2)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter41[$this] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__stack[$this] := null;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter40[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__stack[$this] := null;
     call $tmp3 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$Microsoft.AspNet.Identity.IdentityResult$.#default_ctor($tmp3);
     assume $DynamicType($tmp3) == T$System.Runtime.CompilerServices.TaskAwaiter`1(Microsoft.Cci.DummyTypeReference());
     assume $TypeConstructor($DynamicType($tmp3)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp3)) == Microsoft.Cci.DummyTypeReference();
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter42[$this] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter41[$this] := $tmp3;
     call $tmp4 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter.#default_ctor($tmp4);
     assume $DynamicType($tmp4) == T$System.Runtime.CompilerServices.TaskAwaiter();
     assume $TypeConstructor($DynamicType($tmp4)) == T$System.Runtime.CompilerServices.TaskAwaiter;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter43[$this] := $tmp4;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter42[$this] := $tmp4;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp5: Ref;
   var $tmp6: Ref;
@@ -8270,36 +8270,36 @@ implementation {:inline 1} CILRepository.Controllers.AccountController.$External
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$1__state[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$1__state[this];
-    call $tmp5 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[other] := $tmp5;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$4__this[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.model[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.model[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.returnUrl[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.returnUrl[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$info$5__3e[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$info$5__3e[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$user$5__3f[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$user$5__3f[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$result$5__40[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$result$5__40[this];
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$g__initLocal3a[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$g__initLocal3a[this];
-    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter41[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter41[other] := $tmp6;
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__stack[this];
-    call $tmp7 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter42[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter42[other] := $tmp7;
-    call $tmp8 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter43[this]);
-    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$u__$awaiter43[other] := $tmp8;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$1__state[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$1__state[this];
+    call $tmp5 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[other] := $tmp5;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$4__this[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.model[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.model[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.returnUrl[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.returnUrl[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$info$5__3d[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$info$5__3d[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$user$5__3e[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$user$5__3e[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$result$5__3f[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$result$5__3f[this];
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$g__initLocal39[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$g__initLocal39[this];
+    call $tmp6 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter40[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter40[other] := $tmp6;
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__stack[this];
+    call $tmp7 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter41[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter41[other] := $tmp7;
+    call $tmp8 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter42[this]);
+    F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$u__$awaiter42[other] := $tmp8;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
-implementation CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -8309,25 +8309,25 @@ implementation CILRepository.Controllers.AccountController.$ExternalLoginConfirm
     param0 := param0$in;
     assume {:breadcrumb 291} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3d.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$ExternalLoginConfirmation$d__3c.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder`1.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
 
 
-function T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer45() : Ref;
+function T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer44() : Ref;
 
-const unique T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer45: int;
+const unique T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer44: int;
 
-var F$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer45.$$p__Site46: Ref;
+var F$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer44.$$p__Site45: Ref;
 
-procedure T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer45.#cctor();
+procedure T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer44.#cctor();
 
 
 
-implementation T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer45.#cctor()
+implementation T$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer44.#cctor()
 {
-    F$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer45.$$p__Site46 := null;
+    F$CILRepository.Controllers.AccountController.$RemoveAccountList$o__SiteContainer44.$$p__Site45 := null;
 }
 
 
@@ -8342,9 +8342,9 @@ const {:extern} unique T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder:
 
 axiom $TypeConstructor(T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder()) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$identity$5__49: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$identity$5__48: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$g__initLocal47: [Ref]bool;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$g__initLocal46: [Ref]bool;
 
 procedure System.Runtime.CompilerServices.TaskAwaiter$System.Security.Claims.ClaimsIdentity$.#default_ctor($this: Ref);
 
@@ -8356,69 +8356,69 @@ const {:extern} unique T$System.Security.Claims.ClaimsIdentity: int;
 
 axiom $TypeConstructor(T$System.Security.Claims.ClaimsIdentity()) == T$System.Security.Claims.ClaimsIdentity;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$u__$awaiter4a: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$u__$awaiter49: [Ref]Ref;
 
-var F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__stack: [Ref]Ref;
+var F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__stack: [Ref]Ref;
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$SignInAsync$d__48.#default_ctor($this: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$SignInAsync$d__47.#default_ctor($this: Ref)
 {
   var $tmp1: Ref;
   var $tmp2: Ref;
 
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$1__state[$this] := 0;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$1__state[$this] := 0;
     call $tmp1 := Alloc();
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder();
     assume $TypeConstructor($DynamicType($tmp1)) == T$System.Runtime.CompilerServices.AsyncTaskMethodBuilder;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[$this] := $tmp1;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$4__this[$this] := null;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.user[$this] := null;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.isPersistent[$this] := false;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$identity$5__49[$this] := null;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$g__initLocal47[$this] := null;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[$this] := $tmp1;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$4__this[$this] := null;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.user[$this] := null;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.isPersistent[$this] := false;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$identity$5__48[$this] := null;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$g__initLocal46[$this] := null;
     call $tmp2 := Alloc();
     call System.Runtime.CompilerServices.TaskAwaiter$System.Security.Claims.ClaimsIdentity$.#default_ctor($tmp2);
     assume $DynamicType($tmp2) == T$System.Runtime.CompilerServices.TaskAwaiter`1(T$System.Security.Claims.ClaimsIdentity());
     assume $TypeConstructor($DynamicType($tmp2)) == T$System.Runtime.CompilerServices.TaskAwaiter`1;
     assume TResult$T$System.Runtime.CompilerServices.TaskAwaiter`1($DynamicType($tmp2)) == T$System.Security.Claims.ClaimsIdentity();
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$u__$awaiter4a[$this] := $tmp2;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__stack[$this] := null;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$u__$awaiter49[$this] := $tmp2;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__stack[$this] := null;
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$SignInAsync$d__48.#copy_ctor(this: Ref) returns (other: Ref);
+procedure CILRepository.Controllers.AccountController.$SignInAsync$d__47.#copy_ctor(this: Ref) returns (other: Ref);
   free ensures this != other;
 
 
 
-implementation {:inline 1} CILRepository.Controllers.AccountController.$SignInAsync$d__48.#copy_ctor(this: Ref) returns (other: Ref)
+implementation {:inline 1} CILRepository.Controllers.AccountController.$SignInAsync$d__47.#copy_ctor(this: Ref) returns (other: Ref)
 {
   var $tmp3: Ref;
   var $tmp4: Ref;
 
     call other := Alloc();
     assume $DynamicType(other) == $DynamicType(this);
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$1__state[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$1__state[this];
-    call $tmp3 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[this]);
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[other] := $tmp3;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$4__this[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$4__this[this];
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.user[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.user[this];
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.isPersistent[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.isPersistent[this];
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$identity$5__49[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$identity$5__49[this];
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$g__initLocal47[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$g__initLocal47[this];
-    call $tmp4 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$u__$awaiter4a[this]);
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$u__$awaiter4a[other] := $tmp4;
-    F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__stack[this];
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$1__state[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$1__state[this];
+    call $tmp3 := System.Runtime.CompilerServices.AsyncTaskMethodBuilder.#copy_ctor(F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[this]);
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[other] := $tmp3;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$4__this[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$4__this[this];
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.user[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.user[this];
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.isPersistent[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.isPersistent[this];
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$identity$5__48[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$identity$5__48[this];
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$g__initLocal46[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$g__initLocal46[this];
+    call $tmp4 := System.Runtime.CompilerServices.TaskAwaiter.#copy_ctor(F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$u__$awaiter49[this]);
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$u__$awaiter49[other] := $tmp4;
+    F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__stack[other] := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__stack[this];
 }
 
 
 
-procedure CILRepository.Controllers.AccountController.$SignInAsync$d__48.MoveNext($this: Ref);
+procedure CILRepository.Controllers.AccountController.$SignInAsync$d__47.MoveNext($this: Ref);
 
 
 
-procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$SignInAsync$d__48.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
+procedure {:System.Diagnostics.DebuggerHidden} CILRepository.Controllers.AccountController.$SignInAsync$d__47.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref);
 
 
 
@@ -8426,7 +8426,7 @@ procedure {:extern} System.Runtime.CompilerServices.AsyncTaskMethodBuilder.SetSt
 
 
 
-implementation CILRepository.Controllers.AccountController.$SignInAsync$d__48.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
+implementation CILRepository.Controllers.AccountController.$SignInAsync$d__47.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($this: Ref, param0$in: Ref)
 {
   var param0: Ref;
   var $tmp0: Ref;
@@ -8436,7 +8436,7 @@ implementation CILRepository.Controllers.AccountController.$SignInAsync$d__48.Se
     param0 := param0$in;
     assume {:breadcrumb 297} true;
     assume $this != null;
-    $tmp0 := F$CILRepository.Controllers.AccountController.$SignInAsync$d__48.$$t__builder[$this];
+    $tmp0 := F$CILRepository.Controllers.AccountController.$SignInAsync$d__47.$$t__builder[$this];
     call System.Runtime.CompilerServices.AsyncTaskMethodBuilder.SetStateMachine$System.Runtime.CompilerServices.IAsyncStateMachine($tmp0, param0);
 }
 
@@ -9045,7 +9045,7 @@ implementation OAuth20NameSpace.AuthorizationServer.init$OAuth20NameSpace.Author
 
 var F$OAuth20NameSpace.AuthorizationRequest.response_type: [Ref]Ref;
 
-const {:value "token"} unique $string_literal_token_42: Ref;
+const {:value "token"} unique $string_literal_token_43: Ref;
 
 procedure OAuth20NameSpace.AuthorizationServer.createAuthorizationCodeEntry$OAuth20NameSpace.AuthorizationRequest($this: Ref, req$in: Ref) returns ($result: Ref);
 
@@ -9091,7 +9091,7 @@ implementation OAuth20NameSpace.AuthorizationServer.Process_SignInIdP_req$Generi
         if (!$tmp1)
         {
             assume {:breadcrumb 343} true;
-            call $tmp2 := System.String.op_Equality$System.String$System.String(local_2_Ref, $string_literal_token_42);
+            call $tmp2 := System.String.op_Equality$System.String$System.String(local_2_Ref, $string_literal_token_43);
             if ($tmp2)
             {
                 assume {:breadcrumb 345} true;
@@ -9210,7 +9210,7 @@ procedure OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpace.Ac
 
 
 
-const {:value "refresh_token"} unique $string_literal_refresh_token_43: Ref;
+const {:value "refresh_token"} unique $string_literal_refresh_token_44: Ref;
 
 function T$OAuth20NameSpace.AccessTokenResponse() : Ref;
 
@@ -9350,7 +9350,7 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
             if (!$tmp1)
             {
                 assume {:breadcrumb 353} true;
-                call $tmp2 := System.String.op_Equality$System.String$System.String(local_7_Ref, $string_literal_refresh_token_43);
+                call $tmp2 := System.String.op_Equality$System.String$System.String(local_7_Ref, $string_literal_refresh_token_44);
                 if ($tmp2)
                 {
                     assume {:breadcrumb 355} true;

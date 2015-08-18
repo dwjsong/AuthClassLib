@@ -58,5 +58,13 @@ namespace CILRepository.Controllers
 
             return View();
         }
+
+        [AllowAnonymous]
+        public ActionResult UploadDll(string sha, string token)
+        {
+            ViewBag.Message = "";
+
+            return View();
+        }
     }
 }
