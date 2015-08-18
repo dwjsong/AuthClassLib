@@ -145,6 +145,7 @@ namespace CST
         private static string dllFolderName = "dlls";
         public static string methodsFolder = CSTFolder + @"\" + methodsFolderName + @"\";
         public static string dllsFolder = CSTFolder + @"\" + dllFolderName;
+        private static SHA1 sha = new SHA1CryptoServiceProvider();
 
         static MethodHasher()
         {
@@ -184,6 +185,24 @@ namespace CST
             catch (IOException)
             {
             }
+        }
+
+        public static string CalculateSHAFromMRText(string text)
+        {
+
+            string forSHA = text.Substring(text.IndexOf('\n'));
+
+
+            byte[] recordBytes = new byte[forSHA.Length * sizeof(char)];
+
+            System.Buffer.BlockCopy(forSHA.ToCharArray(), 0, recordBytes, 0, recordBytes.Length);
+
+            byte[] result = sha.ComputeHash(recordBytes);
+
+            string SHA = BitConverter.ToString(result).Replace("-", string.Empty);
+
+
+            return SHA;
         }
 
         public static MethodRecord getMRFromFile(string mr_sha)

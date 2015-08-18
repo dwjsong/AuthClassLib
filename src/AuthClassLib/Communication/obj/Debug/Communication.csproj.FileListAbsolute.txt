@@ -17,4 +17,3 @@ C:\Users\daniel\Documents\AuthClassLib\lib\Communication.dll
 C:\Users\daniel\Documents\AuthClassLib\lib\Communication.pdb
 C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.dll
 C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
