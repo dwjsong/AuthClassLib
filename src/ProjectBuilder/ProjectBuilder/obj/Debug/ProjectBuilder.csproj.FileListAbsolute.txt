@@ -8,3 +8,8 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBui
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Debug\ProjectBuilder.pdb
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Debug\ProjectBuilder.exe
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Debug\ProjectBuilder.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Debug\ProjectBuilder.exe.config
+C:\Users\daniel\Documents\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Debug\ProjectBuilder.exe
+C:\Users\daniel\Documents\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Debug\ProjectBuilder.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Debug\ProjectBuilder.exe
+C:\Users\daniel\Documents\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Debug\ProjectBuilder.pdb

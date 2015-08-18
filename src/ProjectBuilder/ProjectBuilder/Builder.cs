@@ -391,8 +391,8 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\CILRepository\CILRepository.csproj";
-                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\CILServer\CILRepository\bin\";
+                string a = @"C:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\CILRepository\CILRepository.csproj";
+                string b = @"C:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\CILRepository\bin\";
                 string c = "CILRepository";
                 Builder.GenerateDep(a, b, c, "Debug");
 //                string dll = @"C:\CST\CILRepository.dll";

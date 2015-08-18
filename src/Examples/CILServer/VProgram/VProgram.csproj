@@ -33,23 +33,19 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="Communication">
-      <HintPath>C:\CST\dlls\Communication.6803291B51588E695704CEC56EDAAB4F4E46403D\Communication.dll</HintPath>
+      <HintPath>C:\CST\dlls\Communication.CA4AC9829C60CFC972CEF7CD9865ED31929B043A\Communication.dll</HintPath>
     </Reference>
     <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.825179A4B1E89EDDD4CD891B33C74DF9FEC2974B\CST.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST.404C747FFB734A36CAE095EBF125EEED025ED572\CST.dll</HintPath>
     </Reference>
     <Reference Include="CST_Ops">
-      <HintPath>C:\CST\dlls\CST_Ops.B8AB90AFEA74919B273C35D41C188E6E92094E04\CST_Ops.dll</HintPath>
-    </Reference>
-    <Reference Include="GenericAuthNameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\..\..\..\lib\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST_Ops.F09C0398DB17C99B2FB03A4E0AB12A5992108C9C\CST_Ops.dll</HintPath>
     </Reference>
     <Reference Include="OAuth20NameSpace">
-      <HintPath>C:\CST\dlls\OAuth20NameSpace.5E43B6339E05580E13CCD48393871660BC36CAA5\OAuth20NameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OAuth20NameSpace.EAA91C1C383DBC8E95516BD51B543B7034A8704E\OAuth20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDConnectNameSpace">
-      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.D596CE539730577485218A0432C50F4EB2CBBAE4\OpenIDConnectNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.C14C00A5847AA73BF7AA6BF1D421E35B1DE7F304\OpenIDConnectNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="System" />
     <Reference Include="System.Core" />
@@ -60,13 +56,13 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="CILRepository">
-      <HintPath>C:\CST\dlls\CILRepository.9363B8670AE44BCBD04C6A83D507F7253A831AA8\CILRepository.dll</HintPath>
-    </Reference>
-    <Reference Include="LiveID_IdP">
-      <HintPath>C:\CST\dlls\LiveID_IdP.2DEE1E8B928E009CCE6D7E346441255F6DF9166F\LiveID_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\CILRepository.EC610D55A776F19FF21170DFC0D5F1202305216F\CILRepository.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.050356EF4948ED02C362791B1F0FDEF5AB563817\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.BB5F47483CD2AD86990F0C9C844EDA7B7CA8B74E\GenericAuthNameSpace.dll</HintPath>
+    </Reference>
+    <Reference Include="LiveID_IdP">
+      <HintPath>C:\CST\dlls\LiveID_IdP.CBF54BFB1F508C1A072588A4EE9A6AE7DAE8AE82\LiveID_IdP.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

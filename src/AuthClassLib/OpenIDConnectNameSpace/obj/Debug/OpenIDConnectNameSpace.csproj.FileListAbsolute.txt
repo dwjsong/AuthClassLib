@@ -18,3 +18,8 @@ C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\OpenIDConn
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenIDConnectNameSpace\obj\Debug\OpenIDConnectNameSpace.csprojResolveAssemblyReference.cache
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenIDConnectNameSpace\obj\Debug\OpenIDConnectNameSpace.dll
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\OpenIDConnectNameSpace\obj\Debug\OpenIDConnectNameSpace.pdb
+C:\Users\daniel\Documents\AuthClassLib\lib\OpenIDConnectNameSpace.dll
+C:\Users\daniel\Documents\AuthClassLib\lib\OpenIDConnectNameSpace.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\OpenIDConnectNameSpace\obj\Debug\OpenIDConnectNameSpace.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\OpenIDConnectNameSpace\obj\Debug\OpenIDConnectNameSpace.dll
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\OpenIDConnectNameSpace\obj\Debug\OpenIDConnectNameSpace.pdb

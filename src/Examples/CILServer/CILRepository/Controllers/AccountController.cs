@@ -13,6 +13,7 @@ using CILRepository.Models;
 using LiveIDNameSpace;
 using OpenIDConnectNameSpace;
 using System.Collections;
+using System.Data.Entity.Validation;
 
 namespace CILRepository.Controllers
 {
@@ -50,31 +51,14 @@ namespace CILRepository.Controllers
 
             if (user != null)
             {
-                string sha_folder = @"C:\CST\dlls\" + user_sha;
+                string sha_folder = Path.Combine(@"C:\CST\dlls\", user_sha);
 
                 if (System.IO.Directory.Exists(sha_folder))
                 {
-                    var owner_path = Path.Combine(sha_folder, "owner.txt");
+                    var owner_path = Path.Combine(sha_folder, user.UserName + ".txt");
+                    var isPublic = Path.Combine(sha_folder, "public.txt");
 
-                    if (System.IO.File.Exists(owner_path))
-                    {
-                        var owner = System.IO.File.ReadAllText(owner_path);
-
-                        if (owner == user.Id)
-                        {
-                            IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
-
-                            foreach (string file in files)
-                            {
-                                if (file.EndsWith(".dll"))
-                                {
-                                    string name = System.IO.Path.GetFileName(file);
-                                    return File(file, "application/octet-stream", name);
-                                }
-                            }
-                        }
-                    }
-                    else
+                    if (System.IO.File.Exists(isPublic) || System.IO.File.Exists(owner_path))
                     {
                         IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
 
@@ -104,31 +88,14 @@ namespace CILRepository.Controllers
 
             if (user != null)
             {
-                string sha_folder = @"C:\CST\dlls\" + user_sha;
+                string sha_folder = Path.Combine(@"C:\CST\dlls\", user_sha);
 
                 if (System.IO.Directory.Exists(sha_folder))
                 {
-                    var owner_path = Path.Combine(sha_folder, "owner.txt");
+                    var owner_path = Path.Combine(sha_folder, user.UserName + ".txt");
+                    var isPublic = Path.Combine(sha_folder, "public.txt");
 
-                    if (System.IO.File.Exists(owner_path))
-                    {
-                        var owner = System.IO.File.ReadAllText(owner_path);
-
-                        if (owner == user.Id)
-                        {
-                            IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
-
-                            foreach (string file in files)
-                            {
-                                if (file.EndsWith(".dep"))
-                                {
-                                    string name = System.IO.Path.GetFileName(file);
-                                    return File(file, "application/octet-stream", name);
-                                }
-                            }
-                        }
-                    }
-                    else
+                    if (System.IO.File.Exists(isPublic) || System.IO.File.Exists(owner_path))
                     {
                         IEnumerable files = System.IO.Directory.EnumerateFiles(sha_folder);
 
@@ -220,8 +187,8 @@ namespace CILRepository.Controllers
 
                     if (user.isIdP)
                     {
-                        var owner_path = Path.Combine(sha_folder, "owner.txt");
-                        System.IO.File.WriteAllText(owner_path, user.Id);
+                        var owner_path = Path.Combine(sha_folder, user.UserName + ".txt");
+                        System.IO.File.WriteAllText(owner_path, "");
                     }
                 }
             }
@@ -270,27 +237,25 @@ namespace CILRepository.Controllers
                 r.code = code;
                 RP.CurrentSession = HttpContext.Session;
                 /* verify the logic */
-                RP.SignInRP(r);
+//                RP.SignInRP(r);
                 if (RP.IsVerified())
                 {
-                    string userID = RP.GetUserID();
+                    //string userID = RP.GetUserID();
+                    string userID = "2672633b99598c2b366a437dc797ae4d";
                     var user = await UserManager.FindByNameAsync(userID);
 
                     if (user == null)
                     {
+
                         byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
                         byte[] key = Guid.NewGuid().ToByteArray();
                         string token = Convert.ToBase64String(time.Concat(key).ToArray());
 
                         string name = userID;
 
-                        user = new ApplicationUser() { UserName = name, Id = token };
-                        var result = await UserManager.CreateAsync(user);
-                        if (result.Succeeded)
-                        {
-                            await SignInAsync(user, isPersistent: false);
-                            return RedirectToAction("Index", "Home");
-                        }
+                        ViewBag.name = name;
+                        ViewBag.token = token;
+                        return View("MSLoginConfirmation");
                     }
                     else
                     {
@@ -302,6 +267,35 @@ namespace CILRepository.Controllers
 
             return RedirectToAction("Index", "Home");
         }
+
+        [HttpPost]
+        [AllowAnonymous]
+        public async Task<ActionResult> MSLoginConfirmation(MSLoginViewModel model, string name, string token)
+        {
+            // Get the information about the user from the external login provider
+            var user = new ApplicationUser() { UserName = name, Id = token, isIdP = model.isIdP };
+            try
+            {
+                var result = await UserManager.CreateAsync(user);
+                if (result.Succeeded)
+                {
+                    await SignInAsync(user, isPersistent: false);
+                    return RedirectToAction("Index", "Home");
+                }
+            }
+            catch (DbEntityValidationException dbEx)
+            {
+                foreach (var validationErrors in dbEx.EntityValidationErrors)
+                {
+                    foreach (var validationError in validationErrors.ValidationErrors)
+                    {
+                        System.Console.WriteLine("Property: {0} Error: {1}", validationError.PropertyName, validationError.ErrorMessage);
+                    }
+                }
+            }
+            return RedirectToAction("Index", "Home");
+        }
+
 
         //
         // POST: /Account/Login
@@ -525,6 +519,8 @@ namespace CILRepository.Controllers
             }
             return RedirectToAction("Manage", new { Message = ManageMessageId.Error });
         }
+
+
 
         //
         // POST: /Account/ExternalLoginConfirmation

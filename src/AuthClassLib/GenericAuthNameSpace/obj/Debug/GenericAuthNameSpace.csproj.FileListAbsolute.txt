@@ -14,3 +14,8 @@ C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\GenericAut
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.csprojResolveAssemblyReference.cache
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.dll
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.pdb
+C:\Users\daniel\Documents\AuthClassLib\lib\GenericAuthNameSpace.dll
+C:\Users\daniel\Documents\AuthClassLib\lib\GenericAuthNameSpace.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.csprojResolveAssemblyReference.cache
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.dll
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\GenericAuthNameSpace\obj\Debug\GenericAuthNameSpace.pdb

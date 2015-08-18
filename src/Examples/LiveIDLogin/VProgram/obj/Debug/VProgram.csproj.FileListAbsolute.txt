@@ -25,3 +25,11 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\L
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.exe
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.exe.config
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.exe
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.exe
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\GenericAuthNameSpace.dll
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\GenericAuthNameSpace.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.csprojResolveAssemblyReference.cache

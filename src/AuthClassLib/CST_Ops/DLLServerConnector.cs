@@ -26,9 +26,9 @@ namespace CST
         public static string server_url = "http://protoagnostic.cloudapp.net:8700/";
         public static string depdown_page = "Account/DepHandle";
         public static string dlldown_page = "Account/DllHandle";
-        public static string methoddown_page = "CST_Support_MethodDown.aspx";
+        public static string methoddown_page = "Account/DownloadMethodRecord";
         public static string dllanddepUp_page = "Account/UploadDll";
-        public static string methodup_page = "CST_Support_MethodUp.aspx";
+        public static string methodup_page = "Account/UploadMethodRecord";
         public static string sha_parameter_name = "USER_SHA";
         private static string token;
 

@@ -13,3 +13,7 @@ C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\Communicat
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\lib\Communication.pdb
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.dll
 C:\Users\t-das\documents\visual studio 2013\Projects\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.pdb
+C:\Users\daniel\Documents\AuthClassLib\lib\Communication.dll
+C:\Users\daniel\Documents\AuthClassLib\lib\Communication.pdb
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.dll
+C:\Users\daniel\Documents\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.pdb
