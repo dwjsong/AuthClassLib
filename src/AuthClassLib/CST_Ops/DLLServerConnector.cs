@@ -30,7 +30,7 @@ namespace CST
         public static string dllanddepUp_page = "Account/UploadDll";
         public static string methodup_page = "Account/UploadMethodRecord";
         public static string sha_parameter_name = "USER_SHA";
-        private static string token;
+        public static string token;
 
         public class FileParameter
         {
@@ -129,9 +129,8 @@ namespace CST
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();
             postParameters.Add("file", new FileParameter(data, fileName, "application/octet-stream"));
-            postParameters.Add("token", token);
 
-            string url = server_url + methodup_page + "?" + sha_parameter_name + "=" + sha;
+            string url = server_url + methodup_page + "?" + sha_parameter_name + "=" + sha + "&token=" + System.Uri.EscapeDataString(token);
 
             uploadFile(postParameters, url);
         }
@@ -156,7 +155,7 @@ namespace CST
             postParameters.Add("file", new FileParameter(dllData, dllFileName, "application/octet-stream"));
             postParameters.Add("file2", new FileParameter(depData, depFileName, "application/octet-stream"));
 
-            string url = server_url + dllanddepUp_page + "?" + sha_parameter_name + "=" + sha + "&token=" + token;
+            string url = server_url + dllanddepUp_page + "?" + sha_parameter_name + "=" + sha + "&token=" + System.Uri.EscapeDataString(token);
 
             uploadFile(postParameters, url);
 
@@ -280,7 +279,7 @@ namespace CST
         public static string methodup_page = "CST_Support_MethodUp.aspx";
         public static string sha_parameter_name = "USER_SHA";
         public static string dllname_parameter_name = "DLL_NAME";
-        private static string token;
+        public static string token;
 
         public DLLServerDownloader()
         {
@@ -365,8 +364,8 @@ namespace CST
 
         public static void downloadDLLandDep(string sha)
         {
-            downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha + "&token=" + token);
-            downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha + "&token=" + token);
+            downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha + "&token=" + System.Uri.EscapeDataString(token));
+            downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha + "&token=" + System.Uri.EscapeDataString(token));
 
             string path = dllsFolder + sha;
 

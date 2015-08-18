@@ -113,7 +113,7 @@ namespace CST
             }
         }
 
-        private void RemoveHashInDLLByte(byte[] dllBytes, string sha)
+        public void RemoveHashInDLLByte(byte[] dllBytes, string sha)
         {
             byte[] curSHA = Encoding.Default.GetBytes(sha);
 
