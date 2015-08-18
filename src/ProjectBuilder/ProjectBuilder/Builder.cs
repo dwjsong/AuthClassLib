@@ -23,6 +23,7 @@ namespace ProjectBuilder
         private static XNamespace msbuild = "http://schemas.microsoft.com/developer/msbuild/2003";
         private static DLLServerUploader uploader = new DLLServerUploader();
         private static DLLHasher hasher = new DLLHasher();
+        private static string token;
 
         public static void ReadWebConfig(string webConfig)
         {
@@ -49,6 +50,10 @@ namespace ProjectBuilder
                         dllsFolder = CSTFolder + dllFolderName + @"\";
                     else
                         dllsFolder = CSTFolder + @"\" + dllFolderName + @"\";
+                }
+                else if (key == "Token")
+                {
+                    token = value;
                 }
             }
 
@@ -183,7 +188,7 @@ namespace ProjectBuilder
                 EditDLLASM(sha, project_dll);
                 hasher.CopyDLL(sha, project_path, output_path, proj_n.Substring(0, proj_n.Length - 4));
 
-                uploader.uploadDllDep(project_dll, project_dll.Substring(0, project_dll.Length - 4) + ".dep", sha);
+                uploader.uploadDllDep(project_dll, project_dll.Substring(0, project_dll.Length - 4) + ".dep", proj_n.Substring(0, proj_n.Length - 4) + "." + sha);
 
                 return sha;
             }

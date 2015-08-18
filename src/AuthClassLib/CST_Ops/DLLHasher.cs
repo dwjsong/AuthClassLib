@@ -19,6 +19,7 @@ namespace CST
         public string dllFolderName = @"dlls\";
         public string dllsFolder = @"C:\CST\dlls\";
         public string defaultSHA = "0000000000000000000000000000000000000000";
+        private string token;
 
         public DLLHasher()
         {
@@ -36,6 +37,12 @@ namespace CST
                 else
                 {
                     CSTFolder = @"C:\CST";
+                }
+                KeyValueConfigurationElement tokenSetting =
+                    webConfig.AppSettings.Settings["Token"];
+                if (tokenSetting != null)
+                {
+                    token = tokenSetting.Value;
                 }
             }
 
@@ -64,6 +71,10 @@ namespace CST
                 {
                     CSTFolder = value;
                     dllsFolder = CSTFolder + @"\" + dllFolderName;
+                }
+                else if (key == "Token")
+                {
+                    token = value;
                 }
             }
 

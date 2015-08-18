@@ -23,14 +23,14 @@ namespace CST
         public static string dllFolderName = "dlls";
         public static string methodsFolder = CSTFolder + @"\" + methodsFolderName + @"\";
         public static string dllsFolder = CSTFolder + @"\" + dllFolderName + @"\";
-        public static string server_url = "http://protoagnostic.cloudapp.net:8600/";
-        public static string depdown_page = "CST_Support_DepDown.aspx";
-        public static string dlldown_page = "CST_Support_DllDown.aspx";
+        public static string server_url = "http://protoagnostic.cloudapp.net:8700/";
+        public static string depdown_page = "Account/DepHandle";
+        public static string dlldown_page = "Account/DllHandle";
         public static string methoddown_page = "CST_Support_MethodDown.aspx";
-        public static string dllanddepUp_page = "CST_Support_up.aspx";
+        public static string dllanddepUp_page = "Account/UploadDll";
         public static string methodup_page = "CST_Support_MethodUp.aspx";
         public static string sha_parameter_name = "USER_SHA";
-        public static string dllname_parameter_name = "DLL_NAME";
+        private static string token;
 
         public class FileParameter
         {
@@ -64,10 +64,18 @@ namespace CST
 
                     KeyValueConfigurationElement dllSetting =
                         webConfig.AppSettings.Settings["DLLServerAddress"];
-                    if (customSetting != null)
+                    if (dllSetting != null)
                     {
                         server_url = dllSetting.Value;
                     }
+
+                    KeyValueConfigurationElement tokenSetting =
+                        webConfig.AppSettings.Settings["Token"];
+                    if (tokenSetting != null)
+                    {
+                        token = tokenSetting.Value;
+                    }
+
                 }
 
                 methodsFolder = CSTFolder + @"\" + methodsFolderName;
@@ -102,7 +110,11 @@ namespace CST
                 {
                     server_url = value;
                 }
-                
+                else if (key == "Token")
+                {
+                    token = value;
+                }
+
             }
         }
 
@@ -117,6 +129,7 @@ namespace CST
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();
             postParameters.Add("file", new FileParameter(data, fileName, "application/octet-stream"));
+            postParameters.Add("token", token);
 
             string url = server_url + methodup_page + "?" + sha_parameter_name + "=" + sha;
 
@@ -143,7 +156,7 @@ namespace CST
             postParameters.Add("file", new FileParameter(dllData, dllFileName, "application/octet-stream"));
             postParameters.Add("file2", new FileParameter(depData, depFileName, "application/octet-stream"));
 
-            string url = server_url + dllanddepUp_page + "?" + sha_parameter_name + "=" + sha;
+            string url = server_url + dllanddepUp_page + "?" + sha_parameter_name + "=" + sha + "&token=" + token;
 
             uploadFile(postParameters, url);
 
@@ -267,6 +280,7 @@ namespace CST
         public static string methodup_page = "CST_Support_MethodUp.aspx";
         public static string sha_parameter_name = "USER_SHA";
         public static string dllname_parameter_name = "DLL_NAME";
+        private static string token;
 
         public DLLServerDownloader()
         {
@@ -285,9 +299,15 @@ namespace CST
 
                     KeyValueConfigurationElement dllSetting =
                         webConfig.AppSettings.Settings["DLLServerAddress"];
-                    if (customSetting != null)
+                    if (dllSetting != null)
                     {
                         server_url = dllSetting.Value;
+                    }
+                    KeyValueConfigurationElement tokenSetting =
+                        webConfig.AppSettings.Settings["Token"];
+                    if (tokenSetting != null)
+                    {
+                        token = tokenSetting.Value;
                     }
                 }
 
@@ -345,8 +365,8 @@ namespace CST
 
         public static void downloadDLLandDep(string sha)
         {
-            downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha);
-            downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha);
+            downloadFile(dllsFolder + sha + "\\", server_url + depdown_page + "?" + sha_parameter_name + "=" + sha + "&token=" + token);
+            downloadFile(dllsFolder + sha + "\\", server_url + dlldown_page + "?" + sha_parameter_name + "=" + sha + "&token=" + token);
 
             string path = dllsFolder + sha;
 
