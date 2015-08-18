@@ -189,9 +189,7 @@ namespace CST
 
         public static string CalculateSHAFromMRText(string text)
         {
-
-            string forSHA = text.Substring(text.IndexOf('\n'));
-
+            string forSHA = text.Substring(text.IndexOf('\n') + 1);
 
             byte[] recordBytes = new byte[forSHA.Length * sizeof(char)];
 
