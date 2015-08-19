@@ -2637,9 +2637,17 @@ procedure {:extern} CST.CST_Ops.Certify$CST.CST_Struct(msg$in: Ref) returns ($re
 
 const {:value "UserID"} unique $string_literal_UserID_13: Ref;
 
+procedure {:extern} System.Web.HttpSessionStateBase.get_Item$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
+
+
+
 const {:value ""} unique $string_literal__14: Ref;
 
-procedure {:extern} System.Web.SessionState.HttpSessionState.set_Item$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
+procedure {:extern} System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
+
+
+
+procedure {:extern} System.Web.HttpSessionStateBase.Add$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
 
 
 
@@ -2650,6 +2658,10 @@ implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.R
   var $tmp0: bool;
   var $tmp1: Ref;
   var $tmp2: Ref;
+  var $tmp3: Ref;
+  var $tmp4: Ref;
+  var $tmp5: Ref;
+  var $tmp6: Ref;
   var local_1_bool: bool;
   var $localExc: Ref;
   var $label: int;
@@ -2661,24 +2673,56 @@ implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.R
     local_0_bool := $tmp0;
     assume $this != null;
     $tmp1 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
-    goto anon4_Then, anon4_Else;
+    call $tmp2 := System.Web.HttpSessionStateBase.get_Item$System.String($tmp1, $string_literal_UserID_13);
+    goto anon10_Then, anon10_Else;
 
-  anon4_Then:
+  anon10_Then:
+    assume {:partition} $tmp2 != null;
+    assume {:breadcrumb 63} true;
+    assume $this != null;
+    $tmp3 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
+    goto anon11_Then, anon11_Else;
+
+  anon11_Then:
     assume {:partition} local_0_bool;
-    $tmp2 := conclusion;
-    assume $tmp2 != null;
-    goto anon3;
+    $tmp4 := conclusion;
+    assume $tmp4 != null;
+    goto anon4;
 
-  anon4_Else:
+  anon11_Else:
     assume {:partition} !local_0_bool;
-    goto anon3;
+    goto anon4;
 
-  anon3:
-    call System.Web.SessionState.HttpSessionState.set_Item$System.String$System.Object($tmp1, $string_literal_UserID_13, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp2] else $string_literal__14));
+  anon4:
+    call System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($tmp3, $string_literal_UserID_13, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp4] else $string_literal__14));
+    goto anon9;
+
+  anon10_Else:
+    assume {:partition} $tmp2 == null;
+    assume {:breadcrumb 64} true;
+    assume $this != null;
+    $tmp5 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
+    goto anon12_Then, anon12_Else;
+
+  anon12_Then:
+    assume {:partition} local_0_bool;
+    $tmp6 := conclusion;
+    assume $tmp6 != null;
+    goto anon8;
+
+  anon12_Else:
+    assume {:partition} !local_0_bool;
+    goto anon8;
+
+  anon8:
+    call System.Web.HttpSessionStateBase.Add$System.String$System.Object($tmp5, $string_literal_UserID_13, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp6] else $string_literal__14));
+    goto anon9;
+
+  anon9:
     local_1_bool := local_0_bool;
-    goto IL_002e;
+    goto IL_0069;
 
-  IL_002e:
+  IL_0069:
     $result := local_1_bool;
     return;
 }
@@ -2694,7 +2738,7 @@ implementation GenericAuthNameSpace.RP.#ctor($this: Ref)
     F$GenericAuthNameSpace.RP.CurrentSession[$this] := null;
     F$GenericAuthNameSpace.RP.Domain[$this] := null;
     F$GenericAuthNameSpace.RP.Realm[$this] := null;
-    assume {:breadcrumb 63} true;
+    assume {:breadcrumb 65} true;
     call System.Object.#ctor($this);
     return;
 }
@@ -2712,7 +2756,7 @@ implementation GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($this: Ref
 
   anon0:
     F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$this] := null;
-    assume {:breadcrumb 64} true;
+    assume {:breadcrumb 66} true;
     call CST.CST_Struct.#ctor($this);
     return;
 }
@@ -2755,7 +2799,7 @@ implementation GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req.#ctor($this: Ref
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 65} true;
+    assume {:breadcrumb 67} true;
     call CST.CST_Struct.#ctor($this);
     return;
 }
@@ -2781,7 +2825,7 @@ implementation GenericAuthNameSpace.SignInRP_Resp.#ctor($this: Ref)
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 66} true;
+    assume {:breadcrumb 68} true;
     call CST.CST_Struct.#ctor($this);
     return;
 }
@@ -2811,7 +2855,7 @@ implementation GenericAuthNameSpace.ID_Claim.#ctor($this: Ref)
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 67} true;
+    assume {:breadcrumb 69} true;
     call System.Object.#ctor($this);
     return;
 }
@@ -2863,7 +2907,7 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
 
   anon0:
     conclusion := conclusion$in;
-    assume {:breadcrumb 68} true;
+    assume {:breadcrumb 70} true;
     $tmp10 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
     assume $tmp10 != null;
     goto anon13_Then, anon13_Else;
@@ -2949,7 +2993,7 @@ implementation GenericAuthNameSpace.GlobalObjects_base.#ctor($this: Ref)
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 69} true;
+    assume {:breadcrumb 71} true;
     call System.Object.#ctor($this);
     return;
 }
@@ -2987,7 +3031,7 @@ implementation GenericAuthNameSpace.SignInIdP_Req.#ctor($this: Ref)
 
   anon0:
     F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$this] := null;
-    assume {:breadcrumb 70} true;
+    assume {:breadcrumb 72} true;
     call CST.CST_Struct.#ctor($this);
     return;
 }
@@ -3051,19 +3095,19 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
 
   anon0:
     req := req$in;
-    assume {:breadcrumb 71} true;
+    assume {:breadcrumb 73} true;
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := req;
     goto anon33_Then, anon33_Else;
 
   anon33_Then:
     assume {:partition} req == null;
-    assume {:breadcrumb 72} true;
+    assume {:breadcrumb 74} true;
     local_1_Ref := null;
     goto IL_004e;
 
   anon33_Else:
     assume {:partition} req != null;
-    assume {:breadcrumb 73} true;
+    assume {:breadcrumb 75} true;
     goto anon34_Then, anon34_Else;
 
   anon34_Then:
@@ -3139,13 +3183,13 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
 
   anon39_Then:
     assume {:partition} !(if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp7 else $tmp12);
-    assume {:breadcrumb 74} true;
+    assume {:breadcrumb 76} true;
     local_1_Ref := null;
     goto IL_004e;
 
   anon39_Else:
     assume {:partition} (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp7 else $tmp12);
-    assume {:breadcrumb 75} true;
+    assume {:breadcrumb 77} true;
     goto anon40_Then, anon40_Else;
 
   anon40_Then:
@@ -3224,7 +3268,7 @@ implementation GenericAuthNameSpace.IdP.#ctor($this: Ref)
 
   anon0:
     F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this] := null;
-    assume {:breadcrumb 76} true;
+    assume {:breadcrumb 78} true;
     call System.Object.#ctor($this);
     return;
 }
@@ -3281,6 +3325,16 @@ procedure {:extern} System.Web.UI.Page.get_Request($this: Ref) returns ($result:
 procedure {:extern} System.Web.UI.Page.get_Session($this: Ref) returns ($result: Ref);
 
 
+
+procedure {:extern} System.Web.HttpSessionStateWrapper.#ctor$System.Web.SessionState.HttpSessionState($this: Ref, httpSessionState$in: Ref);
+
+
+
+function {:extern} T$System.Web.HttpSessionStateWrapper() : Ref;
+
+const {:extern} unique T$System.Web.HttpSessionStateWrapper: int;
+
+axiom $TypeConstructor(T$System.Web.HttpSessionStateWrapper()) == T$System.Web.HttpSessionStateWrapper;
 
 procedure {:extern} System.Web.UI.Page.set_Visible$System.Boolean($this: Ref, value$in: bool);
 
@@ -3367,13 +3421,14 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
   var $tmp46: Ref;
   var $tmp47: Ref;
   var $tmp48: Ref;
+  var $tmp49: Ref;
   var $localExc: Ref;
   var $label: int;
 
   anon0:
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 77} true;
+    assume {:breadcrumb 79} true;
     call $tmp3 := System.Web.UI.Page.get_Request($this);
     call $tmp4 := System.Web.HttpRequest.get_Params($tmp3);
     call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_openid.mode_5);
@@ -3397,22 +3452,26 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
   anon45_Then:
     assume {:partition} (if !$tmp6 then $tmp2 else false);
-    assume {:breadcrumb 78} true;
+    assume {:breadcrumb 80} true;
     goto anon46_Then, anon46_Else;
 
   anon46_Then:
     assume {:partition} !F$OpenIDExample.LogIn.expecting_redir;
-    assume {:breadcrumb 80} true;
+    assume {:breadcrumb 82} true;
     return;
 
   anon46_Else:
     assume {:partition} F$OpenIDExample.LogIn.expecting_redir;
-    assume {:breadcrumb 81} true;
+    assume {:breadcrumb 83} true;
     goto anon7;
 
   anon7:
     F$OpenIDExample.LogIn.expecting_redir := false;
-    call $tmp7 := System.Web.UI.Page.get_Session($this);
+    call $tmp7 := Alloc();
+    call $tmp8 := System.Web.UI.Page.get_Session($this);
+    call System.Web.HttpSessionStateWrapper.#ctor$System.Web.SessionState.HttpSessionState($tmp7, $tmp8);
+    assume $DynamicType($tmp7) == T$System.Web.HttpSessionStateWrapper();
+    assume $TypeConstructor($DynamicType($tmp7)) == T$System.Web.HttpSessionStateWrapper;
     assume $this != null;
     F$GenericAuthNameSpace.RP.CurrentSession[F$OpenIDExample.LogIn.RP[$this]] := $tmp7;
     assume $this != null;
@@ -3421,12 +3480,12 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
   anon47_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.RP[$this])) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram;
     assume $this != null;
-    $tmp8 := F$OpenIDExample.LogIn.RP[$this];
-    assume $this != null;
     $tmp9 := F$OpenIDExample.LogIn.RP[$this];
-    call $tmp10 := System.Web.UI.Page.get_Request($this);
-    call $tmp11 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp9, $tmp10);
-    call $tmp12 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp8, $tmp11);
+    assume $this != null;
+    $tmp10 := F$OpenIDExample.LogIn.RP[$this];
+    call $tmp11 := System.Web.UI.Page.get_Request($this);
+    call $tmp12 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp10, $tmp11);
+    call $tmp13 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp9, $tmp12);
     goto anon14;
 
   anon47_Else:
@@ -3437,12 +3496,12 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
   anon48_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.RP[$this])) == T$OpenID20NameSpace.Yahoo_RP;
     assume $this != null;
-    $tmp13 := F$OpenIDExample.LogIn.RP[$this];
-    assume $this != null;
     $tmp14 := F$OpenIDExample.LogIn.RP[$this];
-    call $tmp15 := System.Web.UI.Page.get_Request($this);
-    call $tmp16 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp14, $tmp15);
-    call $tmp17 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp13, $tmp16);
+    assume $this != null;
+    $tmp15 := F$OpenIDExample.LogIn.RP[$this];
+    call $tmp16 := System.Web.UI.Page.get_Request($this);
+    call $tmp17 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp15, $tmp16);
+    call $tmp18 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp14, $tmp17);
     goto anon14;
 
   anon48_Else:
@@ -3453,23 +3512,23 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
   anon49_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.RP[$this])) == T$OpenID20NameSpace.RelyingParty;
     assume $this != null;
-    $tmp18 := F$OpenIDExample.LogIn.RP[$this];
-    assume $this != null;
     $tmp19 := F$OpenIDExample.LogIn.RP[$this];
-    call $tmp20 := System.Web.UI.Page.get_Request($this);
-    call $tmp21 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp19, $tmp20);
-    call $tmp22 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp18, $tmp21);
+    assume $this != null;
+    $tmp20 := F$OpenIDExample.LogIn.RP[$this];
+    call $tmp21 := System.Web.UI.Page.get_Request($this);
+    call $tmp22 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp20, $tmp21);
+    call $tmp23 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp19, $tmp22);
     goto anon14;
 
   anon49_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.RP[$this])) != T$OpenID20NameSpace.RelyingParty;
     assume $this != null;
-    $tmp23 := F$OpenIDExample.LogIn.RP[$this];
-    assume $this != null;
     $tmp24 := F$OpenIDExample.LogIn.RP[$this];
-    call $tmp25 := System.Web.UI.Page.get_Request($this);
-    call $tmp26 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp24, $tmp25);
-    call $tmp27 := GenericAuthNameSpace.RP.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp23, $tmp26);
+    assume $this != null;
+    $tmp25 := F$OpenIDExample.LogIn.RP[$this];
+    call $tmp26 := System.Web.UI.Page.get_Request($this);
+    call $tmp27 := OpenID20NameSpace.RelyingParty.ParseAuthenticationResponse$System.Web.HttpRequest($tmp25, $tmp26);
+    call $tmp28 := GenericAuthNameSpace.RP.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req($tmp24, $tmp27);
     goto anon14;
 
   anon14:
@@ -3478,46 +3537,46 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
   anon50_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn;
-    assume {:breadcrumb 82} true;
-    assume $this != null;
-    $tmp28 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-    call System.Web.UI.Page.set_Visible$System.Boolean($tmp28, false);
-    goto anon21;
-
-  anon50_Else:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$OpenIDExample.LogIn;
-    assume {:breadcrumb 83} true;
-    assume $this != null;
-    goto anon51_Then, anon51_Else;
-
-  anon51_Then:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page;
     assume {:breadcrumb 84} true;
     assume $this != null;
     $tmp29 := F$OpenIDExample.LogIn.notLoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp29, false);
     goto anon21;
 
+  anon50_Else:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$OpenIDExample.LogIn;
+    assume {:breadcrumb 85} true;
+    assume $this != null;
+    goto anon51_Then, anon51_Else;
+
+  anon51_Then:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page;
+    assume {:breadcrumb 86} true;
+    assume $this != null;
+    $tmp30 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+    call System.Web.UI.Page.set_Visible$System.Boolean($tmp30, false);
+    goto anon21;
+
   anon51_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$System.Web.UI.Page;
-    assume {:breadcrumb 85} true;
+    assume {:breadcrumb 87} true;
     assume $this != null;
     goto anon52_Then, anon52_Else;
 
   anon52_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 86} true;
+    assume {:breadcrumb 88} true;
     assume $this != null;
-    $tmp30 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp30, false);
+    $tmp31 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp31, false);
     goto anon21;
 
   anon52_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 87} true;
+    assume {:breadcrumb 89} true;
     assume $this != null;
-    $tmp31 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp31, false);
+    $tmp32 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp32, false);
     goto anon21;
 
   anon21:
@@ -3526,61 +3585,61 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
   anon53_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn;
-    assume {:breadcrumb 88} true;
-    assume $this != null;
-    $tmp32 := F$OpenIDExample.LogIn.LoggedIn[$this];
-    call System.Web.UI.Page.set_Visible$System.Boolean($tmp32, true);
-    goto anon28;
-
-  anon53_Else:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$OpenIDExample.LogIn;
-    assume {:breadcrumb 89} true;
-    assume $this != null;
-    goto anon54_Then, anon54_Else;
-
-  anon54_Then:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page;
     assume {:breadcrumb 90} true;
     assume $this != null;
     $tmp33 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp33, true);
     goto anon28;
 
+  anon53_Else:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$OpenIDExample.LogIn;
+    assume {:breadcrumb 91} true;
+    assume $this != null;
+    goto anon54_Then, anon54_Else;
+
+  anon54_Then:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page;
+    assume {:breadcrumb 92} true;
+    assume $this != null;
+    $tmp34 := F$OpenIDExample.LogIn.LoggedIn[$this];
+    call System.Web.UI.Page.set_Visible$System.Boolean($tmp34, true);
+    goto anon28;
+
   anon54_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.Page;
-    assume {:breadcrumb 91} true;
+    assume {:breadcrumb 93} true;
     assume $this != null;
     goto anon55_Then, anon55_Else;
 
   anon55_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 92} true;
-    assume $this != null;
-    $tmp34 := F$OpenIDExample.LogIn.LoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp34, true);
-    goto anon28;
-
-  anon55_Else:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 93} true;
+    assume {:breadcrumb 94} true;
     assume $this != null;
     $tmp35 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Control.set_Visible$System.Boolean($tmp35, true);
     goto anon28;
 
+  anon55_Else:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.TemplateControl;
+    assume {:breadcrumb 95} true;
+    assume $this != null;
+    $tmp36 := F$OpenIDExample.LogIn.LoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp36, true);
+    goto anon28;
+
   anon28:
     assume $this != null;
-    $tmp36 := F$OpenIDExample.LogIn.logged_id[$this];
-    call $tmp37 := System.Web.UI.Page.get_Request($this);
-    call $tmp38 := System.Web.HttpRequest.get_Params($tmp37);
-    call $tmp39 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp38, $string_literal_openid.identity_16);
-    call $tmp40 := System.String.Format$System.String$System.Object($string_literal_Your$ID$is$$0$_15, $tmp39);
-    call System.Web.UI.HtmlControls.HtmlContainerControl.set_InnerHtml$System.String($tmp36, $tmp40);
+    $tmp37 := F$OpenIDExample.LogIn.logged_id[$this];
+    call $tmp38 := System.Web.UI.Page.get_Request($this);
+    call $tmp39 := System.Web.HttpRequest.get_Params($tmp38);
+    call $tmp40 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp39, $string_literal_openid.identity_16);
+    call $tmp41 := System.String.Format$System.String$System.Object($string_literal_Your$ID$is$$0$_15, $tmp40);
+    call System.Web.UI.HtmlControls.HtmlContainerControl.set_InnerHtml$System.String($tmp37, $tmp41);
     return;
 
   anon45_Else:
     assume {:partition} !(if !$tmp6 then $tmp2 else false);
-    assume {:breadcrumb 79} true;
+    assume {:breadcrumb 81} true;
     goto anon30;
 
   anon30:
@@ -3589,46 +3648,46 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
   anon56_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn;
-    assume {:breadcrumb 94} true;
-    assume $this != null;
-    $tmp41 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-    call System.Web.UI.Page.set_Visible$System.Boolean($tmp41, true);
-    goto anon37;
-
-  anon56_Else:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$OpenIDExample.LogIn;
-    assume {:breadcrumb 95} true;
-    assume $this != null;
-    goto anon57_Then, anon57_Else;
-
-  anon57_Then:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page;
     assume {:breadcrumb 96} true;
     assume $this != null;
     $tmp42 := F$OpenIDExample.LogIn.notLoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp42, true);
     goto anon37;
 
+  anon56_Else:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$OpenIDExample.LogIn;
+    assume {:breadcrumb 97} true;
+    assume $this != null;
+    goto anon57_Then, anon57_Else;
+
+  anon57_Then:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page;
+    assume {:breadcrumb 98} true;
+    assume $this != null;
+    $tmp43 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+    call System.Web.UI.Page.set_Visible$System.Boolean($tmp43, true);
+    goto anon37;
+
   anon57_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$System.Web.UI.Page;
-    assume {:breadcrumb 97} true;
+    assume {:breadcrumb 99} true;
     assume $this != null;
     goto anon58_Then, anon58_Else;
 
   anon58_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 98} true;
+    assume {:breadcrumb 100} true;
     assume $this != null;
-    $tmp43 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp43, true);
+    $tmp44 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp44, true);
     goto anon37;
 
   anon58_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 99} true;
+    assume {:breadcrumb 101} true;
     assume $this != null;
-    $tmp44 := F$OpenIDExample.LogIn.notLoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp44, true);
+    $tmp45 := F$OpenIDExample.LogIn.notLoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp45, true);
     goto anon37;
 
   anon37:
@@ -3637,46 +3696,46 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
   anon59_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn;
-    assume {:breadcrumb 100} true;
-    assume $this != null;
-    $tmp45 := F$OpenIDExample.LogIn.LoggedIn[$this];
-    call System.Web.UI.Page.set_Visible$System.Boolean($tmp45, false);
-    return;
-
-  anon59_Else:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$OpenIDExample.LogIn;
-    assume {:breadcrumb 101} true;
-    assume $this != null;
-    goto anon60_Then, anon60_Else;
-
-  anon60_Then:
-    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page;
     assume {:breadcrumb 102} true;
     assume $this != null;
     $tmp46 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp46, false);
     return;
 
+  anon59_Else:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$OpenIDExample.LogIn;
+    assume {:breadcrumb 103} true;
+    assume $this != null;
+    goto anon60_Then, anon60_Else;
+
+  anon60_Then:
+    assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page;
+    assume {:breadcrumb 104} true;
+    assume $this != null;
+    $tmp47 := F$OpenIDExample.LogIn.LoggedIn[$this];
+    call System.Web.UI.Page.set_Visible$System.Boolean($tmp47, false);
+    return;
+
   anon60_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.Page;
-    assume {:breadcrumb 103} true;
+    assume {:breadcrumb 105} true;
     assume $this != null;
     goto anon61_Then, anon61_Else;
 
   anon61_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 104} true;
+    assume {:breadcrumb 106} true;
     assume $this != null;
-    $tmp47 := F$OpenIDExample.LogIn.LoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp47, false);
+    $tmp48 := F$OpenIDExample.LogIn.LoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp48, false);
     return;
 
   anon61_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 105} true;
+    assume {:breadcrumb 107} true;
     assume $this != null;
-    $tmp48 := F$OpenIDExample.LogIn.LoggedIn[$this];
-    call System.Web.UI.Control.set_Visible$System.Boolean($tmp48, false);
+    $tmp49 := F$OpenIDExample.LogIn.LoggedIn[$this];
+    call System.Web.UI.Control.set_Visible$System.Boolean($tmp49, false);
     return;
 }
 
@@ -3739,7 +3798,7 @@ implementation OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs
   anon0:
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 106} true;
+    assume {:breadcrumb 108} true;
     F$OpenIDExample.LogIn.expecting_redir := true;
     assume $this != null;
     $tmp0 := F$OpenIDExample.LogIn.RP[$this];
@@ -3812,13 +3871,13 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
   anon0:
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 107} true;
+    assume {:breadcrumb 109} true;
     assume $this != null;
     goto anon14_Then, anon14_Else;
 
   anon14_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn;
-    assume {:breadcrumb 108} true;
+    assume {:breadcrumb 110} true;
     assume $this != null;
     $tmp0 := F$OpenIDExample.LogIn.notLoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp0, true);
@@ -3826,13 +3885,13 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon14_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$OpenIDExample.LogIn;
-    assume {:breadcrumb 109} true;
+    assume {:breadcrumb 111} true;
     assume $this != null;
     goto anon15_Then, anon15_Else;
 
   anon15_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page;
-    assume {:breadcrumb 110} true;
+    assume {:breadcrumb 112} true;
     assume $this != null;
     $tmp1 := F$OpenIDExample.LogIn.notLoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp1, true);
@@ -3840,13 +3899,13 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon15_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$System.Web.UI.Page;
-    assume {:breadcrumb 111} true;
+    assume {:breadcrumb 113} true;
     assume $this != null;
     goto anon16_Then, anon16_Else;
 
   anon16_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 112} true;
+    assume {:breadcrumb 114} true;
     assume $this != null;
     $tmp2 := F$OpenIDExample.LogIn.notLoggedIn[$this];
     call System.Web.UI.Control.set_Visible$System.Boolean($tmp2, true);
@@ -3854,7 +3913,7 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon16_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) != T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 113} true;
+    assume {:breadcrumb 115} true;
     assume $this != null;
     $tmp3 := F$OpenIDExample.LogIn.notLoggedIn[$this];
     call System.Web.UI.Control.set_Visible$System.Boolean($tmp3, true);
@@ -3866,7 +3925,7 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon17_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn;
-    assume {:breadcrumb 114} true;
+    assume {:breadcrumb 116} true;
     assume $this != null;
     $tmp4 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp4, false);
@@ -3874,13 +3933,13 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon17_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$OpenIDExample.LogIn;
-    assume {:breadcrumb 115} true;
+    assume {:breadcrumb 117} true;
     assume $this != null;
     goto anon18_Then, anon18_Else;
 
   anon18_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page;
-    assume {:breadcrumb 116} true;
+    assume {:breadcrumb 118} true;
     assume $this != null;
     $tmp5 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Page.set_Visible$System.Boolean($tmp5, false);
@@ -3888,13 +3947,13 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon18_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.Page;
-    assume {:breadcrumb 117} true;
+    assume {:breadcrumb 119} true;
     assume $this != null;
     goto anon19_Then, anon19_Else;
 
   anon19_Then:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 118} true;
+    assume {:breadcrumb 120} true;
     assume $this != null;
     $tmp6 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Control.set_Visible$System.Boolean($tmp6, false);
@@ -3902,7 +3961,7 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
   anon19_Else:
     assume {:partition} $TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) != T$System.Web.UI.TemplateControl;
-    assume {:breadcrumb 119} true;
+    assume {:breadcrumb 121} true;
     assume $this != null;
     $tmp7 := F$OpenIDExample.LogIn.LoggedIn[$this];
     call System.Web.UI.Control.set_Visible$System.Boolean($tmp7, false);
@@ -3939,7 +3998,7 @@ implementation OpenIDExample.LogIn.#ctor($this: Ref)
     F$OpenIDExample.LogIn.LoggedIn[$this] := null;
     F$OpenIDExample.LogIn.logged_id[$this] := null;
     F$OpenIDExample.LogIn.Logout[$this] := null;
-    assume {:breadcrumb 120} true;
+    assume {:breadcrumb 122} true;
     call $tmp0 := Alloc();
     call OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($tmp0, $string_literal_http$$$localhost$32928$LogIn.aspx_19, F$OpenIDExample.LogIn.yahoo_str);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.Yahoo_RP();
@@ -3965,7 +4024,7 @@ implementation OpenIDExample.LogIn.#cctor()
   anon0:
     F$OpenIDExample.LogIn.yahoo_str := null;
     F$OpenIDExample.LogIn.expecting_redir := false;
-    assume {:breadcrumb 121} true;
+    assume {:breadcrumb 123} true;
     F$OpenIDExample.LogIn.yahoo_str := $string_literal_https$$$open.login.yahooapis.com$openid$op$auth_20;
     F$OpenIDExample.LogIn.expecting_redir := false;
     return;
@@ -3979,7 +4038,7 @@ implementation OpenID20NameSpace.Yahoo_RP.#ctor($this: Ref)
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 122} true;
+    assume {:breadcrumb 124} true;
     call OpenID20NameSpace.RelyingParty.#ctor($this);
     return;
 }
@@ -3996,7 +4055,7 @@ implementation OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($thi
   anon0:
     return_uri := return_uri$in;
     endpointUrl := endpointUrl$in;
-    assume {:breadcrumb 123} true;
+    assume {:breadcrumb 125} true;
     call OpenID20NameSpace.RelyingParty.#ctor($this);
     call OpenID20NameSpace.RelyingParty.set_return_uri$System.String($this, return_uri);
     F$OpenID20NameSpace.RelyingParty.endpointUrl[$this] := endpointUrl;
@@ -4029,7 +4088,7 @@ implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenti
 
   anon0:
     req := req$in;
-    assume {:breadcrumb 124} true;
+    assume {:breadcrumb 126} true;
     call $tmp0 := Alloc();
     assume $this != null;
     call System.Text.StringBuilder.#ctor$System.String($tmp0, F$OpenID20NameSpace.RelyingParty.endpointUrl[$this]);
@@ -4068,7 +4127,7 @@ implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenti
 
   anon0:
     req := req$in;
-    assume {:breadcrumb 125} true;
+    assume {:breadcrumb 127} true;
     call $tmp0 := Alloc();
     assume $this != null;
     call System.Text.StringBuilder.#ctor$System.String($tmp0, F$OpenID20NameSpace.RelyingParty.endpointUrl[$this]);
@@ -4116,7 +4175,7 @@ implementation CST.Debug.reached()
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 126} true;
+    assume {:breadcrumb 128} true;
     assert false;
     return;
 }
@@ -4133,7 +4192,7 @@ implementation CST.Debug.#ctor($this: Ref)
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 127} true;
+    assume {:breadcrumb 129} true;
     call System.Object.#ctor($this);
     return;
 }
@@ -4167,7 +4226,7 @@ implementation CST.CST_Struct.#ctor($this: Ref)
   anon0:
     F$CST.CST_Struct.SymT[$this] := null;
     F$CST.CST_Struct.SignedBy[$this] := null;
-    assume {:breadcrumb 128} true;
+    assume {:breadcrumb 130} true;
     F$CST.CST_Struct.SymT[$this] := $string_literal__14;
     F$CST.CST_Struct.SignedBy[$this] := $string_literal__14;
     call System.Object.#ctor($this);
@@ -4233,7 +4292,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.init($this: Ref)
   var $label: int;
 
   anon0:
-    assume {:breadcrumb 129} true;
+    assume {:breadcrumb 131} true;
     assume $this != null;
     call OpenID20NameSpace.OpenIDProvider.init$OpenID20NameSpace.IDAssertionRecs($this, F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this]);
     assume $this != null;
@@ -4266,7 +4325,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.#ctor($this: Ref)
 
   anon0:
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this] := null;
-    assume {:breadcrumb 130} true;
+    assume {:breadcrumb 132} true;
     call $tmp0 := Alloc();
     call OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def();
@@ -4295,7 +4354,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntr
   anon0:
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
-    assume {:breadcrumb 131} true;
+    assume {:breadcrumb 133} true;
     assume $this != null;
     $tmp0 := F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this];
     call $tmp2 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp0, IdPSessionSecret);
@@ -4332,7 +4391,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntr
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
     Entry := Entry$in;
-    assume {:breadcrumb 132} true;
+    assume {:breadcrumb 134} true;
     call $tmp0 := Alloc();
     call OpenID20NameSpace.IDAssertionEntry.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.IDAssertionEntry();
@@ -4365,7 +4424,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.#ctor($
 
   anon0:
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this] := null;
-    assume {:breadcrumb 133} true;
+    assume {:breadcrumb 135} true;
     call $tmp0 := Alloc();
     call System.Collections.Generic.Dictionary`2.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OpenID20NameSpace.IDAssertionEntry()));
