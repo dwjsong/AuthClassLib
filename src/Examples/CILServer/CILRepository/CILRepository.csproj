@@ -204,10 +204,6 @@
     <Compile Include="Startup.cs" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="App_Data\AuthenticateTokenDB.mdf" />
-    <Content Include="App_Data\AuthenticateTokenDB_log.ldf">
-      <DependentUpon>AuthenticateTokenDB.mdf</DependentUpon>
-    </Content>
     <Content Include="Content\bootstrap-theme.css" />
     <Content Include="Content\bootstrap-theme.min.css" />
     <Content Include="Content\bootstrap.css" />
@@ -272,6 +268,7 @@
     <Content Include="Views\Home\UploadDll.cshtml" />
   </ItemGroup>
   <ItemGroup>
+    <Folder Include="App_Data\" />
     <Folder Include="Views\CIL\" />
   </ItemGroup>
   <ItemGroup>
@@ -295,10 +292,12 @@
     <AspNetCompiler VirtualPath="temp" PhysicalPath="$(WebProjectOutputDir)" />
   </Target>
   <PropertyGroup>
-    <PreBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -a "$(ProjectDir)"</PreBuildEvent>
+    <PreBuildEvent>
+    </PreBuildEvent>
   </PropertyGroup>
   <PropertyGroup>
-    <PostBuildEvent>"$(SolutionDir)ProjectBuilder.exe" -d "$(ProjectPath)" "$(ProjectDir)$(OutDir)\" "$(TargetName)" "$(ConfigurationName)"</PostBuildEvent>
+    <PostBuildEvent>
+    </PostBuildEvent>
   </PropertyGroup>
   <ProjectExtensions>
     <VisualStudio>

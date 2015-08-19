@@ -288,11 +288,11 @@ namespace CILRepository.Controllers
                 r.code = code;
                 RP.CurrentSession = HttpContext.Session;
                 /* verify the logic */
-//                RP.SignInRP(r);
+                RP.SignInRP(r);
                 if (RP.IsVerified())
                 {
-                    //string userID = RP.GetUserID();
-                    string userID = "2672633b99598c2b366a437dc797ae4d";
+                    string userID = RP.GetUserID();
+                   // string userID = "2672633b99598c2b366a437dc797ae4d";
                     var user = await UserManager.FindByNameAsync(userID);
 
                     if (user == null)

@@ -30,7 +30,7 @@ namespace CST
         public static string dllanddepUp_page = "Account/UploadDll";
         public static string methodup_page = "Account/UploadMethodRecord";
         public static string sha_parameter_name = "USER_SHA";
-        public static string token;
+        public static string token = "";
 
         public class FileParameter
         {
@@ -278,7 +278,7 @@ namespace CST
         public static string dllanddepUp_page = "Account/UploadDll";
         public static string methodup_page = "Account/UploadMethodRecord";
         public static string sha_parameter_name = "USER_SHA";
-        public static string token;
+        public static string token = "";
 
 
 
