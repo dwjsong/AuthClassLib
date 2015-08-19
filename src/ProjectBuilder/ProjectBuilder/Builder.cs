@@ -24,6 +24,7 @@ namespace ProjectBuilder
         private static DLLServerUploader uploader = new DLLServerUploader();
         private static DLLHasher hasher = new DLLHasher();
         private static string token;
+        private static string token_file_name = "CIL_Server_token";
 
         public static void ReadWebConfig(string webConfig)
         {
@@ -343,8 +344,20 @@ namespace ProjectBuilder
             }
         }
 
+        public static void Read_Token_File()
+        {
+            string token_path = Path.Combine(Path.GetDirectoryName(Environment.GetCommandLineArgs()[0]), token_file_name);
+            if (File.Exists(token_path))
+            {
+                token = File.ReadAllText(token_path);
+                DLLServerUploader.token = token;
+                DLLServerDownloader.token = token;
+            }
+        }
+
         public static string GenerateDep(string build_file, string outputPath, string prj_name, string mode)
         {
+            Read_Token_File();
             hasher.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
             uploader.ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
             ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
@@ -391,9 +404,9 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\CILRepository\CILRepository.csproj";
-                string b = @"C:\Users\daniel\Documents\AuthClassLib\src\Examples\CILServer\CILRepository\bin\";
-                string c = "CILRepository";
+                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\Server_A.csproj";
+                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\bin";
+                string c = "Server_A";
                 Builder.GenerateDep(a, b, c, "Debug");
 //                string dll = @"C:\CST\CILRepository.dll";
 //                string sha = Builder.GetSHAFromDLL(dll);
