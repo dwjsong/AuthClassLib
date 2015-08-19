@@ -1,14 +1,2 @@
 <References>
-	<Reference>
-		C:\CST\dlls\Communication.23E27D5426CC579A59EC13129886CE478CFB25A3\Communication.dll
-	</Reference>
-	<Reference>
-		C:\CST\dlls\CST.0056BC0B603E447F18E2E2C24B9BDA6A6C691A51\CST.dll
-	</Reference>
-	<Reference>
-		C:\CST\dlls\CST_Ops.84A215C1BFE0AB76D8AA7E6ACE9FC925CF312B4B\CST_Ops.dll
-	</Reference>
-	<Reference>
-		C:\CST\dlls\GenericAuthNameSpace.57E07C62570A601D8ACC799F156619CCCF6CB6F9\GenericAuthNameSpace.dll
-	</Reference>
 </References>
