@@ -54,7 +54,7 @@ namespace CST
                     vProPath = vProSetting.Value;
                     try
                     {
-                        string[] csproj = Directory.GetFiles(vProPath, "*.csproj");
+                        string[] csproj = Directory.GetFiles(vProPath, "VProgram.csproj");
 
                         if (csproj != null)
                         {
@@ -188,7 +188,7 @@ namespace CST
 
             foreach (string dll in set_for_this_Dep)
             {
-                getDep(dllSet, dll);
+                dllSet.Concat(getDep(new HashSet<string>(), dll));
             }
 
             return dllSet;

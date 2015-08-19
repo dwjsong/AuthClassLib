@@ -281,39 +281,6 @@ namespace CST
         public static string token;
 
 
-        public DLLServerDownloader()
-        {
-            if (HttpContext.Current != null)
-            {
-                Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
-
-                if (webConfig.AppSettings.Settings.Count > 0)
-                {
-                    KeyValueConfigurationElement customSetting =
-                        webConfig.AppSettings.Settings["CSTFolderPath"];
-                    if (customSetting != null)
-                    {
-                        CSTFolder = customSetting.Value;
-                    }
-
-                    KeyValueConfigurationElement dllSetting =
-                        webConfig.AppSettings.Settings["DLLServerAddress"];
-                    if (dllSetting != null)
-                    {
-                        server_url = dllSetting.Value;
-                    }
-                    KeyValueConfigurationElement tokenSetting =
-                        webConfig.AppSettings.Settings["Token"];
-                    if (tokenSetting != null)
-                    {
-                        token = tokenSetting.Value;
-                    }
-                }
-
-                methodsFolder = CSTFolder + @"\" + methodsFolderName;
-                dllsFolder = CSTFolder + @"\" + dllFolderName;
-            }
-        }
 
         private static void downloadFile(string path, string url)
         {
@@ -361,6 +328,41 @@ namespace CST
                 }
             }
         }
+
+        public DLLServerDownloader()
+        {
+            if (HttpContext.Current != null)
+            {
+                Configuration webConfig = WebConfigurationManager.OpenWebConfiguration(HttpContext.Current.Request.ApplicationPath);
+
+                if (webConfig.AppSettings.Settings.Count > 0)
+                {
+                    KeyValueConfigurationElement customSetting =
+                        webConfig.AppSettings.Settings["CSTFolderPath"];
+                    if (customSetting != null)
+                    {
+                        CSTFolder = customSetting.Value;
+                    }
+
+                    KeyValueConfigurationElement dllSetting =
+                        webConfig.AppSettings.Settings["DLLServerAddress"];
+                    if (dllSetting != null)
+                    {
+                        server_url = dllSetting.Value;
+                    }
+                    KeyValueConfigurationElement tokenSetting =
+                        webConfig.AppSettings.Settings["Token"];
+                    if (tokenSetting != null)
+                    {
+                        token = tokenSetting.Value;
+                    }
+                }
+
+                methodsFolder = CSTFolder + @"\" + methodsFolderName;
+                dllsFolder = CSTFolder + @"\" + dllFolderName;
+            }
+        }
+
 
         public static void downloadDLLandDep(string sha)
         {

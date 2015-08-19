@@ -135,7 +135,7 @@ namespace CST
 
                 MethodHasher.saveMethod(mr);
 
-                uploader.uploadMethodRecord(MethodHasher.methodsFolder + "\\" + mr.getSHA() + ".txt", sha);
+                uploader.uploadMethodRecord(MethodHasher.methodsFolder + "\\" + mr.getSHA() + ".txt", mr.getSHA());
 
                 methodSHADict.AddOrUpdate(methodkey, mr, (k, v) => v);
                 methodSHADictKEYSHA.AddOrUpdate(mr.getSHA(), mr, (k, v) => v);
