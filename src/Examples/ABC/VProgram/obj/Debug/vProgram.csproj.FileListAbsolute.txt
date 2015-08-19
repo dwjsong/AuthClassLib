@@ -30,6 +30,7 @@ c:\CST\vProgram\bin\Debug\Communication.dll
 c:\CST\vProgram\bin\Debug\CST.dll
 c:\CST\vProgram\bin\Debug\CST_Message.dll
 c:\CST\vProgram\bin\Debug\CST_Ops.dll
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\obj\Debug\vProgram.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\bin\Debug\vProgram.exe.config
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\bin\Debug\vProgram.exe
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\bin\Debug\vProgram.pdb
@@ -40,6 +41,5 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\A
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\bin\Debug\Server_A.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\bin\Debug\Server_B.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\bin\Debug\Server_C.dll
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\obj\Debug\vProgram.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\obj\Debug\vProgram.exe
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\obj\Debug\vProgram.pdb

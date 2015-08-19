@@ -35,8 +35,8 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\A
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\bin\Communication.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\bin\CST.pdb
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\bin\CST_Ops.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\bin\Message.pdb
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\bin\Communication.pdb
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.pdb
-C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.csprojResolveAssemblyReference.cache
+C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_B\bin\Message.pdb
