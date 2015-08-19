@@ -14,6 +14,7 @@ using LiveIDNameSpace;
 using OpenIDConnectNameSpace;
 using System.Collections;
 using System.Data.Entity.Validation;
+using CST;
 
 namespace CILRepository.Controllers
 {
@@ -47,6 +48,7 @@ namespace CILRepository.Controllers
         {
             ViewBag.Message = "";
 
+            token = token.Trim();
             var user = UserManager.FindById(token);
 
             if (user != null)
@@ -84,6 +86,7 @@ namespace CILRepository.Controllers
         {
             ViewBag.Message = "";
 
+            token = token.Trim();
             var user = UserManager.FindById(token);
 
             if (user != null)
@@ -120,6 +123,7 @@ namespace CILRepository.Controllers
         {
             ViewBag.Message = "";
 
+            token = token.Trim();
             var user = UserManager.FindById(token);
 
             if (user != null)
@@ -149,9 +153,19 @@ namespace CILRepository.Controllers
 
                     if (file != null && file.ContentLength > 0)
                     {
-                        var fileName = Path.GetFileName(file.FileName);
+                        StreamReader sr = new StreamReader(file.InputStream);
 
-                        file.SaveAs(method_file);
+                        string mrStr = sr.ReadToEnd();
+                        string cal_sha = MethodHasher.CalculateSHAFromMRText(mrStr);
+                        string[] tr_sha = user_sha.Split(new char[] { '.' });
+                        string trimmed_sha = tr_sha[tr_sha.Length - 1];
+
+                        if (cal_sha == trimmed_sha)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+
+                            file.SaveAs(method_file);
+                        }
                     }
 
                 }
@@ -160,9 +174,12 @@ namespace CILRepository.Controllers
             return RedirectToAction("Index", "Home");
         }
 
+        DLLHasher hasher = new DLLHasher();
+
         [AllowAnonymous]
         public ActionResult UploadDll(string user_sha, string token)
         {
+            token = token.Trim();
             var user = UserManager.FindById(token);
 
             if (user != null)
@@ -170,32 +187,66 @@ namespace CILRepository.Controllers
                 string sha_folder = @"C:\CST\dlls\" + user_sha;
                 if (Request.Files.Count > 0)
                 {
-                    if (!Directory.Exists(sha_folder))
-                        Directory.CreateDirectory(sha_folder);
+                    HttpPostedFileBase depFile = null, dllFile = null;
+                    string depFileName = "", dllFileName = "";
                     for (int i = 0; i < Request.Files.Count; i++)
                     {
-                        var file = Request.Files[i];
+                        HttpPostedFileBase file = Request.Files[i];
 
                         if (file != null && file.ContentLength > 0)
                         {
                             var fileName = Path.GetFileName(file.FileName);
+                            if (file.FileName.EndsWith(".dep"))
+                            {
+                                depFile = file;
+                                depFileName = file.FileName;
+                            }
+                            else if (file.FileName.EndsWith(".dll"))
+                            {
+                                dllFile = file;
+                                depFileName = file.FileName;
+                            }
 
-                            var path = Path.Combine(sha_folder, fileName);
-                            file.SaveAs(path);
                         }
                     }
 
-                    if (user.isIdP)
+                    if (depFile != null && dllFile != null)
                     {
-                        var owner_path = Path.Combine(sha_folder, user.UserName + ".txt");
-                        System.IO.File.WriteAllText(owner_path, "");
+                        byte[] depFileData = new byte[depFile.InputStream.Length];
+                        depFile.InputStream.Read(depFileData, 0, depFileData.Length);
+                        byte[] dllFileData = new byte[dllFile.InputStream.Length];
+                        dllFile.InputStream.Read(dllFileData, 0, dllFileData.Length);
+
+
+                        string[] tr_sha = user_sha.Split(new char[] { '.' });
+                        string trimmed_sha = tr_sha[tr_sha.Length - 1];
+
+                        hasher.RemoveHashInDLLByte(dllFileData, trimmed_sha);
+
+                        string calculated_sha = hasher.GenerateHashInHexStr(depFileData, dllFileData);
+                        if (calculated_sha.Equals(trimmed_sha))
+                        {
+                            if (!Directory.Exists(sha_folder))
+                                Directory.CreateDirectory(sha_folder);
+
+                            hasher.saveToCSTFolder(depFileName, depFileData, dllFileName, dllFileData, user_sha);
+
+                            if (user.isIdP)
+                            {
+                                var owner_path = Path.Combine(sha_folder, user.UserName + ".txt");
+                                System.IO.File.WriteAllText(owner_path, "");
+                            }
+                        }
                     }
+
+                    //                    var path = Path.Combine(sha_folder, fileName);
+                    //                    file.SaveAs(path);
+
                 }
             }
 
             return RedirectToAction("Index", "Home");
         }
-
         //
         // GET: /Account/Login
         [AllowAnonymous]
