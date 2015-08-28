@@ -40,3 +40,16 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\A
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.pdb
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\bin\Message.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Server_A.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Server_A.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\CST.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\CST_Ops.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Communication.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\CST.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\CST_Ops.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Communication.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Message.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Message.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.csprojResolveAssemblyReference.cache

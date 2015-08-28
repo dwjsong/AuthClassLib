@@ -40,3 +40,16 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\A
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Server_C.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Server_C.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\CST.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\CST_Ops.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Message.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Communication.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\CST.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\CST_Ops.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Message.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Communication.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.pdb

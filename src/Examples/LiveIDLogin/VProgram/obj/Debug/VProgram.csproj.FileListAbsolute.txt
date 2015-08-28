@@ -33,3 +33,9 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\L
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\OpenIDConnectNameSpace.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.exe
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.exe.config
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.exe
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.exe
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.csprojResolveAssemblyReference.cache

@@ -17,3 +17,8 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\lib\CST_Ops.pd
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.csprojResolveAssemblyReference.cache
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.dll
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\lib\CST_Ops.dll
+C:\Users\Daniel\Desktop\AuthClassLib\lib\CST_Ops.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Desktop\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.dll
+C:\Users\Daniel\Desktop\AuthClassLib\src\AuthClassLib\CST_Ops\obj\Debug\CST_Ops.pdb
