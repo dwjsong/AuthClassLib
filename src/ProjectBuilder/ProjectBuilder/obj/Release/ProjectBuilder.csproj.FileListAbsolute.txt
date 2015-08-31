@@ -9,8 +9,8 @@ C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBui
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
 C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe.config
-C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
-C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.pdb
+C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
+C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.csprojResolveAssemblyReference.cache

@@ -38,6 +38,10 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Communication, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <SpecificVersion>False</SpecificVersion>
+      <HintPath>..\..\..\..\lib\Communication.dll</HintPath>
+    </Reference>
     <Reference Include="CST, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\CST.dll</HintPath>
@@ -58,9 +62,6 @@
     <Reference Include="OpenIDConnectNameSpace, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\OpenIDConnectNameSpace.dll</HintPath>
-    </Reference>
-    <Reference Include="ProjectBuilder">
-      <HintPath>..\..\..\..\tools\ProjectBuilder.exe</HintPath>
     </Reference>
     <Reference Include="System.Web.DynamicData" />
     <Reference Include="System.Web.Entity" />

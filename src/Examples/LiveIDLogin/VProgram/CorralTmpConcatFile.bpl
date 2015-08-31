@@ -481,11 +481,11 @@ implementation PoirotMain.Main()
   var $label: int;
 
     assume {:breadcrumb 0} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 20} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 20} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 20} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 20} true;
     call GlobalObjectsForCST.init();
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 21} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 21} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 21} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 21} true;
     call SynthesizedPortion.SynthesizedSequence();
 }
 
@@ -541,10 +541,10 @@ implementation LiveIDNameSpace.LiveID_RP_For_vProgram.AuthenticationDone$Generic
 
     conclusion := conclusion$in;
     assume {:breadcrumb 2} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Assertion.cs"} {:sourceLine 9} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Assertion.cs"} {:sourceLine 9} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Assertion.cs"} {:sourceLine 9} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Assertion.cs"} {:sourceLine 9} true;
     call GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Assertion.cs"} {:sourceLine 10} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Assertion.cs"} {:sourceLine 10} true;
     $result := true;
     return;
 }
@@ -618,20 +618,20 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $label: int;
 
     assume {:breadcrumb 4} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
     call $tmp0 := OpenIDConnectNameSpace.NondetOpenIDConnect.AuthenticationResponse(F$PoirotMain.Nondet);
     O1_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
     call $tmp1 := OpenIDConnectNameSpace.RelyingParty.constructTokenRequest$OpenIDConnectNameSpace.AuthenticationResponse(F$GenericAuthNameSpace.GlobalObjects_base.RP, O1_Ref);
     O2_Ref := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
     call $tmp2 := OpenIDConnectNameSpace.OpenIDProvider.TokenEndpoint$OpenIDConnectNameSpace.TokenRequest(F$GenericAuthNameSpace.GlobalObjects_base.IdP, O2_Ref);
     O3_Ref := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
     call $tmp3 := OpenIDConnectNameSpace.RelyingParty.conclude$OpenIDConnectNameSpace.TokenResponse(F$GenericAuthNameSpace.GlobalObjects_base.RP, O3_Ref);
     G4_Ref := $tmp3;
 }
@@ -696,26 +696,26 @@ implementation GlobalObjectsForCST.init()
   var $label: int;
 
     assume {:breadcrumb 6} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
     call $tmp0 := OpenIDConnectNameSpace.NondetOpenIDConnect.AuthenticationRequest(F$PoirotMain.Nondet);
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
     call $tmp1 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
     call LiveIDNameSpace.LiveID_IdP.#ctor($tmp1);
     assume $DynamicType($tmp1) == T$LiveIDNameSpace.LiveID_IdP();
     assume $TypeConstructor($DynamicType($tmp1)) == T$LiveIDNameSpace.LiveID_IdP;
     F$GenericAuthNameSpace.GlobalObjects_base.IdP := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
     call LiveIDNameSpace.LiveID_IdP.init(F$GenericAuthNameSpace.GlobalObjects_base.IdP);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
     call $tmp2 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:sourceFile "c:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
     call LiveIDNameSpace.LiveID_RP_For_vProgram.#ctor($tmp2);
     assume $DynamicType($tmp2) == T$LiveIDNameSpace.LiveID_RP_For_vProgram();
     assume $TypeConstructor($DynamicType($tmp2)) == T$LiveIDNameSpace.LiveID_RP_For_vProgram;
@@ -903,9 +903,69 @@ var {:extern} F$OAuth20NameSpace.AuthorizationCodeEntry.code: [Ref]Ref;
 
 var {:extern} F$OAuth20NameSpace.AuthorizationResponse.code: [Ref]Ref;
 
+const {:value "code="} unique $string_literal_code$_1: Ref;
+
+procedure {:extern} System.String.Concat$System.String$System.String(str0$in: Ref, str1$in: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} HTTP.HTTPComm.HttpPost$System.String$System.String(url$in: Ref, post$in: Ref) returns ($result: Ref);
+
+
+
+implementation OpenIDConnectNameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSpace.ID_Claim($this: Ref, dest$in: Ref, claim$in: Ref) returns ($result: Ref)
+{
+  var dest: Ref;
+  var claim: Ref;
+  var local_0_Ref: Ref;
+  var local_2_Ref: Ref;
+  var $tmp0: Ref;
+  var local_1_Ref: Ref;
+  var $tmp1: Ref;
+  var $tmp2: Ref;
+  var $tmp3: Ref;
+  var $tmp4: Ref;
+  var $localExc: Ref;
+  var $label: int;
+
+    dest := dest$in;
+    claim := claim$in;
+    assume {:breadcrumb 14} true;
+    local_0_Ref := $As(claim, T$OAuth20NameSpace.AuthorizationCodeEntry());
+    if (local_0_Ref == null)
+    {
+        assume {:breadcrumb 15} true;
+        local_2_Ref := null;
+    }
+    else
+    {
+        assume {:breadcrumb 16} true;
+        call $tmp0 := Alloc();
+        call OpenIDConnectNameSpace.AuthenticationResponse.#ctor($tmp0);
+        assume $DynamicType($tmp0) == T$OpenIDConnectNameSpace.AuthenticationResponse();
+        assume $TypeConstructor($DynamicType($tmp0)) == T$OpenIDConnectNameSpace.AuthenticationResponse;
+        local_1_Ref := $tmp0;
+        $tmp1 := local_0_Ref;
+        assume $tmp1 != null;
+        F$OAuth20NameSpace.AuthorizationResponse.code[local_1_Ref] := F$OAuth20NameSpace.AuthorizationCodeEntry.code[$tmp1];
+        $tmp2 := local_1_Ref;
+        assume $tmp2 != null;
+        call $tmp3 := System.String.Concat$System.String$System.String($string_literal_code$_1, F$OAuth20NameSpace.AuthorizationResponse.code[$tmp2]);
+        call $tmp4 := HTTP.HTTPComm.HttpPost$System.String$System.String(dest, $tmp3);
+        local_2_Ref := local_1_Ref;
+        goto IL_0044;
+    }
+
+  IL_0044:
+    $result := local_2_Ref;
+    return;
+}
+
+
+
 var {:extern} F$OAuth20NameSpace.AccessTokenRequest.grant_type: [Ref]Ref;
 
-const {:value "authorization_code"} unique $string_literal_authorization_code_1: Ref;
+const {:value "authorization_code"} unique $string_literal_authorization_code_2: Ref;
 
 var {:extern} F$OAuth20NameSpace.AuthorizationServer.AuthorizationCodeRecs: [Ref]Ref;
 
@@ -1075,7 +1135,7 @@ implementation OpenIDConnectNameSpace.OpenIDProvider.TokenEndpoint$OpenIDConnect
         if (local_6_Ref != null)
         {
             assume {:breadcrumb 20} true;
-            call $tmp1 := System.String.op_Equality$System.String$System.String(local_6_Ref, $string_literal_authorization_code_1);
+            call $tmp1 := System.String.op_Equality$System.String$System.String(local_6_Ref, $string_literal_authorization_code_2);
             if (!$tmp1)
             {
                 assume {:breadcrumb 22} true;
@@ -1699,13 +1759,13 @@ procedure {:extern} System.Web.HttpRequest.get_QueryString($this: Ref) returns (
 
 
 
-const {:value "code"} unique $string_literal_code_2: Ref;
+const {:value "code"} unique $string_literal_code_3: Ref;
 
 procedure {:extern} System.Collections.Specialized.NameValueCollection.get_Item$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
 
 
 
-const {:value "state"} unique $string_literal_state_3: Ref;
+const {:value "state"} unique $string_literal_state_4: Ref;
 
 var {:extern} F$OAuth20NameSpace.AuthorizationResponse.state: [Ref]Ref;
 
@@ -1740,10 +1800,10 @@ implementation OpenIDConnectNameSpace.RelyingParty.parseAuthenticationResponse$S
     call $tmp1 := System.Web.HttpContext.get_Current();
     local_1_Ref := $tmp1;
     call $tmp2 := System.Web.HttpRequest.get_QueryString(rawRequest);
-    call $tmp3 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp2, $string_literal_code_2);
+    call $tmp3 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp2, $string_literal_code_3);
     F$OAuth20NameSpace.AuthorizationResponse.code[local_0_Ref] := $tmp3;
     call $tmp4 := System.Web.HttpRequest.get_QueryString(rawRequest);
-    call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_state_3);
+    call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_state_4);
     F$OAuth20NameSpace.AuthorizationResponse.state[local_0_Ref] := $tmp5;
     $tmp6 := local_0_Ref;
     assume $tmp6 != null;
@@ -1879,7 +1939,7 @@ implementation OpenIDConnectNameSpace.RelyingParty.constructTokenRequest$OpenIDC
     $tmp1 := codeResp;
     assume $tmp1 != null;
     F$OAuth20NameSpace.AccessTokenRequest.code[local_0_Ref] := F$OAuth20NameSpace.AuthorizationResponse.code[$tmp1];
-    F$OAuth20NameSpace.AccessTokenRequest.grant_type[local_0_Ref] := $string_literal_authorization_code_1;
+    F$OAuth20NameSpace.AccessTokenRequest.grant_type[local_0_Ref] := $string_literal_authorization_code_2;
     call $tmp2 := OAuth20NameSpace.Client.get_return_uri($this);
     F$OAuth20NameSpace.AccessTokenRequest.redirect_uri[local_0_Ref] := $tmp2;
     call $tmp3 := OAuth20NameSpace.Client.get_client_id($this);
@@ -1905,6 +1965,126 @@ procedure OpenIDConnectNameSpace.JsonDataStrcuture.#ctor($this: Ref);
 function T$OpenIDConnectNameSpace.JsonDataStrcuture() : Ref;
 
 const unique T$OpenIDConnectNameSpace.JsonDataStrcuture: int;
+
+var {:extern} F$OAuth20NameSpace.Client.TokenEndpointUrl: [Ref]Ref;
+
+const {:value "client_id={0}&redirect_uri={1}&client_secret={2}&code={3}&grant_type=authorization_code"} unique $string_literal_client_id$$0$$redirect_uri$$1$$client_secret$$2$$code$$3$$grant_type$authorization_code_5: Ref;
+
+procedure {:extern} System.String.Format$System.String$System.Objectarray(format$in: Ref, args$in: Ref) returns ($result: Ref);
+
+
+
+const {:value "POST"} unique $string_literal_POST_6: Ref;
+
+procedure {:extern} HTTP.HTTPComm.HttpReq$System.String$System.String$System.String(url$in: Ref, post$in: Ref, method$in: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} System.Runtime.Serialization.Json.DataContractJsonSerializer.#ctor$System.Type($this: Ref, type$in: Ref);
+
+
+
+function {:extern} T$System.Runtime.Serialization.Json.DataContractJsonSerializer() : Ref;
+
+const {:extern} unique T$System.Runtime.Serialization.Json.DataContractJsonSerializer: int;
+
+axiom $TypeConstructor(T$System.Runtime.Serialization.Json.DataContractJsonSerializer()) == T$System.Runtime.Serialization.Json.DataContractJsonSerializer;
+
+procedure {:extern} System.Net.WebResponse.GetResponseStream($this: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} System.Runtime.Serialization.XmlObjectSerializer.ReadObject$System.IO.Stream($this: Ref, stream$in: Ref) returns ($result: Ref);
+
+
+
+var {:extern} F$OAuth20NameSpace.Client.client_secret: [Ref]Ref;
+
+implementation OpenIDConnectNameSpace.RelyingParty.callTokenEndpoint$OpenIDConnectNameSpace.TokenRequest($this: Ref, req$in: Ref) returns ($result: Ref)
+{
+  var req: Ref;
+  var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var local_2_Ref: Ref;
+  var $tmp1: Ref;
+  var $tmp2: Ref;
+  var $tmp3: Ref;
+  var $tmp4: Ref;
+  var $tmp5: Ref;
+  var $tmp6: Ref;
+  var $tmp7: Ref;
+  var local_4_Ref: Ref;
+  var $tmp8: bool;
+  var local_5_Ref: Ref;
+  var $localExc: Ref;
+  var $label: int;
+
+    req := req$in;
+    assume {:breadcrumb 49} true;
+    call $tmp0 := Alloc();
+    call OpenIDConnectNameSpace.JsonDataStrcuture.#ctor($tmp0);
+    assume $DynamicType($tmp0) == T$OpenIDConnectNameSpace.JsonDataStrcuture();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$OpenIDConnectNameSpace.JsonDataStrcuture;
+    local_0_Ref := $tmp0;
+    assume $this != null;
+    call $tmp1 := Alloc();
+    assume $ArrayLength($tmp1) == 1 * 5;
+    call $tmp2 := System.String.Format$System.String$System.Objectarray($string_literal_client_id$$0$$redirect_uri$$1$$client_secret$$2$$code$$3$$grant_type$authorization_code_5, $tmp1);
+    call $tmp3 := HTTP.HTTPComm.HttpReq$System.String$System.String$System.String(F$OAuth20NameSpace.Client.TokenEndpointUrl[$this], $tmp2, $string_literal_POST_6);
+    local_2_Ref := $tmp3;
+    if (local_2_Ref != null)
+    {
+        assume {:breadcrumb 50} true;
+        call $tmp4 := Alloc();
+        call System.Runtime.Serialization.Json.DataContractJsonSerializer.#ctor$System.Type($tmp4, T$OpenIDConnectNameSpace.JsonDataStrcuture());
+        assume $DynamicType($tmp4) == T$System.Runtime.Serialization.Json.DataContractJsonSerializer();
+        assume $TypeConstructor($DynamicType($tmp4)) == T$System.Runtime.Serialization.Json.DataContractJsonSerializer;
+        call $tmp5 := System.Net.WebResponse.GetResponseStream(local_2_Ref);
+        call $tmp6 := System.Runtime.Serialization.XmlObjectSerializer.ReadObject$System.IO.Stream($tmp4, $tmp5);
+        local_0_Ref := $As($tmp6, T$OpenIDConnectNameSpace.JsonDataStrcuture());
+        if (local_0_Ref != null)
+        {
+            assume {:breadcrumb 52} true;
+            call $tmp7 := Alloc();
+            call OpenIDConnectNameSpace.TokenResponse.#ctor($tmp7);
+            assume $DynamicType($tmp7) == T$OpenIDConnectNameSpace.TokenResponse();
+            assume $TypeConstructor($DynamicType($tmp7)) == T$OpenIDConnectNameSpace.TokenResponse;
+            local_4_Ref := $tmp7;
+            assume $this != null;
+            call $tmp8 := OpenIDConnectNameSpace.TokenResponse.parseJasonDataStructure$OpenIDConnectNameSpace.JsonDataStrcuture$System.String(local_4_Ref, local_0_Ref, F$OAuth20NameSpace.Client.client_secret[$this]);
+            if ($tmp8)
+            {
+                assume {:breadcrumb 54} true;
+                local_5_Ref := local_4_Ref;
+                goto IL_00e1;
+            }
+            else
+            {
+                assume {:breadcrumb 55} true;
+            }
+
+            local_5_Ref := null;
+            goto IL_00e1;
+        }
+        else
+        {
+            assume {:breadcrumb 53} true;
+        }
+    }
+    else
+    {
+        assume {:breadcrumb 51} true;
+    }
+
+    local_5_Ref := null;
+    goto IL_00e1;
+
+  IL_00e1:
+    $result := local_5_Ref;
+    return;
+}
+
+
 
 procedure {:extern} GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($this: Ref);
 
@@ -1951,7 +2131,7 @@ implementation OpenIDConnectNameSpace.RelyingParty.conclude$OpenIDConnectNameSpa
   var $label: int;
 
     tokenResp := tokenResp$in;
-    assume {:breadcrumb 50} true;
+    assume {:breadcrumb 56} true;
     call $tmp0 := Alloc();
     call GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$GenericAuthNameSpace.RP.AuthenticationConclusion();
@@ -1996,12 +2176,12 @@ implementation OpenIDConnectNameSpace.RelyingParty.conclude$OpenIDConnectNameSpa
 
     if ((if $TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.LiveID_RP_For_vProgram then $tmp5 else (if $TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.LiveID_RP then $tmp6 else (if $TypeConstructor($DynamicType($this)) == T$OpenIDConnectNameSpace.RelyingParty then $tmp7 else (if $TypeConstructor($DynamicType($this)) == T$OAuth20NameSpace.Client then $tmp8 else $tmp9)))))
     {
-        assume {:breadcrumb 51} true;
+        assume {:breadcrumb 57} true;
         local_1_Ref := local_0_Ref;
     }
     else
     {
-        assume {:breadcrumb 52} true;
+        assume {:breadcrumb 58} true;
         local_1_Ref := null;
         goto IL_003e;
     }
@@ -2039,7 +2219,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.get_AccessToken($this: R
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 53} true;
+    assume {:breadcrumb 59} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonDataStrcuture.$AccessToken$k__BackingField[$this];
     goto IL_0009;
@@ -2062,7 +2242,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.set_AccessToken$System.S
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 54} true;
+    assume {:breadcrumb 60} true;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$AccessToken$k__BackingField[$this] := value;
 }
 
@@ -2074,7 +2254,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.get_AuthenticationToken(
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 55} true;
+    assume {:breadcrumb 61} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonDataStrcuture.$AuthenticationToken$k__BackingField[$this];
     goto IL_0009;
@@ -2097,7 +2277,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.set_AuthenticationToken$
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 56} true;
+    assume {:breadcrumb 62} true;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$AuthenticationToken$k__BackingField[$this] := value;
 }
 
@@ -2109,7 +2289,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.get_RefreshToken($this: 
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 57} true;
+    assume {:breadcrumb 63} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonDataStrcuture.$RefreshToken$k__BackingField[$this];
     goto IL_0009;
@@ -2132,7 +2312,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.set_RefreshToken$System.
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 58} true;
+    assume {:breadcrumb 64} true;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$RefreshToken$k__BackingField[$this] := value;
 }
 
@@ -2144,7 +2324,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.get_ExpiresIn($this: Ref
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 59} true;
+    assume {:breadcrumb 65} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonDataStrcuture.$ExpiresIn$k__BackingField[$this];
     goto IL_0009;
@@ -2167,7 +2347,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.set_ExpiresIn$System.Str
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 60} true;
+    assume {:breadcrumb 66} true;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$ExpiresIn$k__BackingField[$this] := value;
 }
 
@@ -2183,7 +2363,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.get_Scope($this: Ref) re
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 61} true;
+    assume {:breadcrumb 67} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonDataStrcuture.$Scope$k__BackingField[$this];
     goto IL_0009;
@@ -2206,7 +2386,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.set_Scope$System.String(
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 62} true;
+    assume {:breadcrumb 68} true;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$Scope$k__BackingField[$this] := value;
 }
 
@@ -2222,7 +2402,7 @@ implementation OpenIDConnectNameSpace.JsonDataStrcuture.#ctor($this: Ref)
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$RefreshToken$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$ExpiresIn$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonDataStrcuture.$Scope$k__BackingField[$this] := null;
-    assume {:breadcrumb 63} true;
+    assume {:breadcrumb 69} true;
     call System.Object.#ctor($this);
 }
 
@@ -2262,7 +2442,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.get_Claims($this: Ref) return
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 64} true;
+    assume {:breadcrumb 70} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.$Claims$k__BackingField[$this];
     goto IL_0009;
@@ -2285,7 +2465,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.set_Claims$OpenIDConnectNameS
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 65} true;
+    assume {:breadcrumb 71} true;
     F$OpenIDConnectNameSpace.JsonWebToken.$Claims$k__BackingField[$this] := value;
 }
 
@@ -2301,7 +2481,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.get_Envelope($this: Ref) retu
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 66} true;
+    assume {:breadcrumb 72} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.$Envelope$k__BackingField[$this];
     goto IL_0009;
@@ -2324,7 +2504,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.set_Envelope$OpenIDConnectNam
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 67} true;
+    assume {:breadcrumb 73} true;
     F$OpenIDConnectNameSpace.JsonWebToken.$Envelope$k__BackingField[$this] := value;
 }
 
@@ -2340,7 +2520,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.get_Signature($this: Ref) ret
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 68} true;
+    assume {:breadcrumb 74} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.$Signature$k__BackingField[$this];
     goto IL_0009;
@@ -2363,7 +2543,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.set_Signature$System.String($
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 69} true;
+    assume {:breadcrumb 75} true;
     F$OpenIDConnectNameSpace.JsonWebToken.$Signature$k__BackingField[$this] := value;
 }
 
@@ -2403,7 +2583,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.get_IsExpired($this: Ref) ret
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 70} true;
+    assume {:breadcrumb 76} true;
     call $tmp0 := OpenIDConnectNameSpace.JsonWebToken.get_Claims($this);
     call $tmp1 := OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Expiration($tmp0);
     call $tmp2 := System.DateTime.#copy_ctor($tmp1);
@@ -2440,7 +2620,7 @@ procedure {:extern} System.Collections.Generic.Dictionary`2.ContainsKey$`0($this
 
 
 
-const {:value "Could not find key with id {0}"} unique $string_literal_Could$not$find$key$with$id$$0$_4: Ref;
+const {:value "Could not find key with id {0}"} unique $string_literal_Could$not$find$key$with$id$$0$_7: Ref;
 
 procedure {:extern} System.String.Format$System.String$System.Object(format$in: Ref, arg0$in: Ref) returns ($result: Ref);
 
@@ -2493,7 +2673,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.#ctor$System.String$System.Co
     F$OpenIDConnectNameSpace.JsonWebToken.$Claims$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.$Envelope$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.$Signature$k__BackingField[$this] := null;
-    assume {:breadcrumb 71} true;
+    assume {:breadcrumb 77} true;
     call System.Object.#ctor($this);
     call $tmp0 := OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($this, token);
     if ($Exception != null)
@@ -2530,12 +2710,12 @@ implementation OpenIDConnectNameSpace.JsonWebToken.#ctor$System.String$System.Co
     call $tmp5 := System.Collections.Generic.Dictionary`2.ContainsKey$`0(keyIdsKeys, Int2Union($tmp4));
     if (!$tmp5)
     {
-        assume {:breadcrumb 72} true;
+        assume {:breadcrumb 78} true;
         call $tmp6 := Alloc();
         call $tmp7 := OpenIDConnectNameSpace.JsonWebToken.get_Envelope($this);
         call $tmp8 := OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_KeyId($tmp7);
         call $tmp9 := $BoxFromInt($tmp8);
-        call $tmp10 := System.String.Format$System.String$System.Object($string_literal_Could$not$find$key$with$id$$0$_4, $tmp9);
+        call $tmp10 := System.String.Format$System.String$System.Object($string_literal_Could$not$find$key$with$id$$0$_7, $tmp9);
         call System.Exception.#ctor$System.String($tmp6, $tmp10);
         assume $DynamicType($tmp6) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp6)) == T$System.Exception;
@@ -2544,7 +2724,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.#ctor$System.String$System.Co
     }
     else
     {
-        assume {:breadcrumb 73} true;
+        assume {:breadcrumb 79} true;
     }
 
     call $tmp11 := OpenIDConnectNameSpace.JsonWebToken.get_Envelope($this);
@@ -2582,7 +2762,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.#ctor($this: Ref)
     F$OpenIDConnectNameSpace.JsonWebToken.$Claims$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.$Envelope$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.$Signature$k__BackingField[$this] := null;
-    assume {:breadcrumb 74} true;
+    assume {:breadcrumb 80} true;
     call System.Object.#ctor($this);
 }
 
@@ -2602,10 +2782,6 @@ const {:extern} unique T$System.IO.MemoryStream: int;
 
 axiom $TypeConstructor(T$System.IO.MemoryStream()) == T$System.IO.MemoryStream;
 
-procedure {:extern} System.Runtime.Serialization.XmlObjectSerializer.ReadObject$System.IO.Stream($this: Ref, stream$in: Ref) returns ($result: Ref);
-
-
-
 function T$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims() : Ref;
 
 const unique T$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims: int;
@@ -2622,7 +2798,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.GetClaimsFromTokenSegment$Sys
   var $label: int;
 
     claimsTokenSegment := claimsTokenSegment$in;
-    assume {:breadcrumb 75} true;
+    assume {:breadcrumb 81} true;
     call $tmp0 := Alloc();
     call $tmp1 := OpenIDConnectNameSpace.JsonWebToken.Base64UrlDecode$System.String($this, claimsTokenSegment);
     if ($Exception != null)
@@ -2658,7 +2834,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.GetEnvelopeFromTokenSegment$S
   var $label: int;
 
     envelopeTokenSegment := envelopeTokenSegment$in;
-    assume {:breadcrumb 76} true;
+    assume {:breadcrumb 82} true;
     call $tmp0 := Alloc();
     call $tmp1 := OpenIDConnectNameSpace.JsonWebToken.Base64UrlDecode$System.String($this, envelopeTokenSegment);
     if ($Exception != null)
@@ -2678,19 +2854,19 @@ implementation OpenIDConnectNameSpace.JsonWebToken.GetEnvelopeFromTokenSegment$S
 
 
 
-const {:value "Token is empty or null."} unique $string_literal_Token$is$empty$or$null._5: Ref;
+const {:value "Token is empty or null."} unique $string_literal_Token$is$empty$or$null._8: Ref;
 
 procedure {:extern} System.String.Split$System.Chararray($this: Ref, separator$in: Ref) returns ($result: Ref);
 
 
 
-const {:value "Invalid token format. Expected Envelope.Claims.Signature"} unique $string_literal_Invalid$token$format.$Expected$Envelope.Claims.Signature_6: Ref;
+const {:value "Invalid token format. Expected Envelope.Claims.Signature"} unique $string_literal_Invalid$token$format.$Expected$Envelope.Claims.Signature_9: Ref;
 
-const {:value "Invalid token format. Envelope must not be empty"} unique $string_literal_Invalid$token$format.$Envelope$must$not$be$empty_7: Ref;
+const {:value "Invalid token format. Envelope must not be empty"} unique $string_literal_Invalid$token$format.$Envelope$must$not$be$empty_10: Ref;
 
-const {:value "Invalid token format. Claims must not be empty"} unique $string_literal_Invalid$token$format.$Claims$must$not$be$empty_8: Ref;
+const {:value "Invalid token format. Claims must not be empty"} unique $string_literal_Invalid$token$format.$Claims$must$not$be$empty_11: Ref;
 
-const {:value "Invalid token format. Signature must not be empty"} unique $string_literal_Invalid$token$format.$Signature$must$not$be$empty_9: Ref;
+const {:value "Invalid token format. Signature must not be empty"} unique $string_literal_Invalid$token$format.$Signature$must$not$be$empty_12: Ref;
 
 implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($this: Ref, token$in: Ref) returns ($result: Ref)
 {
@@ -2712,13 +2888,13 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
   var $label: int;
 
     token := token$in;
-    assume {:breadcrumb 77} true;
+    assume {:breadcrumb 83} true;
     call $tmp0 := System.String.IsNullOrEmpty$System.String(token);
     if ($tmp0)
     {
-        assume {:breadcrumb 78} true;
+        assume {:breadcrumb 84} true;
         call $tmp1 := Alloc();
-        call System.Exception.#ctor$System.String($tmp1, $string_literal_Token$is$empty$or$null._5);
+        call System.Exception.#ctor$System.String($tmp1, $string_literal_Token$is$empty$or$null._8);
         assume $DynamicType($tmp1) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp1)) == T$System.Exception;
         $Exception := $tmp1;
@@ -2726,7 +2902,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
     }
     else
     {
-        assume {:breadcrumb 79} true;
+        assume {:breadcrumb 85} true;
     }
 
     call $tmp2 := Alloc();
@@ -2735,9 +2911,9 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
     local_0_Ref := $tmp3;
     if ($ArrayLength(local_0_Ref) != 3)
     {
-        assume {:breadcrumb 80} true;
+        assume {:breadcrumb 86} true;
         call $tmp4 := Alloc();
-        call System.Exception.#ctor$System.String($tmp4, $string_literal_Invalid$token$format.$Expected$Envelope.Claims.Signature_6);
+        call System.Exception.#ctor$System.String($tmp4, $string_literal_Invalid$token$format.$Expected$Envelope.Claims.Signature_9);
         assume $DynamicType($tmp4) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp4)) == T$System.Exception;
         $Exception := $tmp4;
@@ -2745,16 +2921,16 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
     }
     else
     {
-        assume {:breadcrumb 81} true;
+        assume {:breadcrumb 87} true;
     }
 
     assume local_0_Ref != null;
     call $tmp5 := System.String.IsNullOrEmpty$System.String($ArrayContents[local_0_Ref][0]);
     if ($tmp5)
     {
-        assume {:breadcrumb 82} true;
+        assume {:breadcrumb 88} true;
         call $tmp6 := Alloc();
-        call System.Exception.#ctor$System.String($tmp6, $string_literal_Invalid$token$format.$Envelope$must$not$be$empty_7);
+        call System.Exception.#ctor$System.String($tmp6, $string_literal_Invalid$token$format.$Envelope$must$not$be$empty_10);
         assume $DynamicType($tmp6) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp6)) == T$System.Exception;
         $Exception := $tmp6;
@@ -2762,16 +2938,16 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
     }
     else
     {
-        assume {:breadcrumb 83} true;
+        assume {:breadcrumb 89} true;
     }
 
     assume local_0_Ref != null;
     call $tmp7 := System.String.IsNullOrEmpty$System.String($ArrayContents[local_0_Ref][1]);
     if ($tmp7)
     {
-        assume {:breadcrumb 84} true;
+        assume {:breadcrumb 90} true;
         call $tmp8 := Alloc();
-        call System.Exception.#ctor$System.String($tmp8, $string_literal_Invalid$token$format.$Claims$must$not$be$empty_8);
+        call System.Exception.#ctor$System.String($tmp8, $string_literal_Invalid$token$format.$Claims$must$not$be$empty_11);
         assume $DynamicType($tmp8) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp8)) == T$System.Exception;
         $Exception := $tmp8;
@@ -2779,16 +2955,16 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
     }
     else
     {
-        assume {:breadcrumb 85} true;
+        assume {:breadcrumb 91} true;
     }
 
     assume local_0_Ref != null;
     call $tmp9 := System.String.IsNullOrEmpty$System.String($ArrayContents[local_0_Ref][2]);
     if ($tmp9)
     {
-        assume {:breadcrumb 86} true;
+        assume {:breadcrumb 92} true;
         call $tmp10 := Alloc();
-        call System.Exception.#ctor$System.String($tmp10, $string_literal_Invalid$token$format.$Signature$must$not$be$empty_9);
+        call System.Exception.#ctor$System.String($tmp10, $string_literal_Invalid$token$format.$Signature$must$not$be$empty_12);
         assume $DynamicType($tmp10) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp10)) == T$System.Exception;
         $Exception := $tmp10;
@@ -2796,7 +2972,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.SplitToken$System.String($thi
     }
     else
     {
-        assume {:breadcrumb 87} true;
+        assume {:breadcrumb 93} true;
     }
 
     local_1_Ref := local_0_Ref;
@@ -2813,17 +2989,17 @@ procedure {:System.Runtime.CompilerServices.CompilerGenerated} OpenIDConnectName
 
 
 
-const {:value "JWT"} unique $string_literal_JWT_10: Ref;
+const {:value "JWT"} unique $string_literal_JWT_13: Ref;
 
-const {:value "Unsupported token type"} unique $string_literal_Unsupported$token$type_11: Ref;
+const {:value "Unsupported token type"} unique $string_literal_Unsupported$token$type_14: Ref;
 
 procedure {:System.Runtime.CompilerServices.CompilerGenerated} OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_Algorithm($this: Ref) returns ($result: Ref);
 
 
 
-const {:value "HS256"} unique $string_literal_HS256_12: Ref;
+const {:value "HS256"} unique $string_literal_HS256_15: Ref;
 
-const {:value "Unsupported crypto algorithm"} unique $string_literal_Unsupported$crypto$algorithm_13: Ref;
+const {:value "Unsupported crypto algorithm"} unique $string_literal_Unsupported$crypto$algorithm_16: Ref;
 
 implementation OpenIDConnectNameSpace.JsonWebToken.ValidateEnvelope$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope($this: Ref, envelope$in: Ref)
 {
@@ -2838,14 +3014,14 @@ implementation OpenIDConnectNameSpace.JsonWebToken.ValidateEnvelope$OpenIDConnec
   var $label: int;
 
     envelope := envelope$in;
-    assume {:breadcrumb 88} true;
+    assume {:breadcrumb 94} true;
     call $tmp0 := OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_Type(envelope);
-    call $tmp1 := System.String.op_Inequality$System.String$System.String($tmp0, $string_literal_JWT_10);
+    call $tmp1 := System.String.op_Inequality$System.String$System.String($tmp0, $string_literal_JWT_13);
     if ($tmp1)
     {
-        assume {:breadcrumb 89} true;
+        assume {:breadcrumb 95} true;
         call $tmp2 := Alloc();
-        call System.Exception.#ctor$System.String($tmp2, $string_literal_Unsupported$token$type_11);
+        call System.Exception.#ctor$System.String($tmp2, $string_literal_Unsupported$token$type_14);
         assume $DynamicType($tmp2) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp2)) == T$System.Exception;
         $Exception := $tmp2;
@@ -2853,16 +3029,16 @@ implementation OpenIDConnectNameSpace.JsonWebToken.ValidateEnvelope$OpenIDConnec
     }
     else
     {
-        assume {:breadcrumb 90} true;
+        assume {:breadcrumb 96} true;
     }
 
     call $tmp3 := OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_Algorithm(envelope);
-    call $tmp4 := System.String.op_Inequality$System.String$System.String($tmp3, $string_literal_HS256_12);
+    call $tmp4 := System.String.op_Inequality$System.String$System.String($tmp3, $string_literal_HS256_15);
     if ($tmp4)
     {
-        assume {:breadcrumb 91} true;
+        assume {:breadcrumb 97} true;
         call $tmp5 := Alloc();
-        call System.Exception.#ctor$System.String($tmp5, $string_literal_Unsupported$crypto$algorithm_13);
+        call System.Exception.#ctor$System.String($tmp5, $string_literal_Unsupported$crypto$algorithm_16);
         assume $DynamicType($tmp5) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp5)) == T$System.Exception;
         $Exception := $tmp5;
@@ -2870,17 +3046,13 @@ implementation OpenIDConnectNameSpace.JsonWebToken.ValidateEnvelope$OpenIDConnec
     }
     else
     {
-        assume {:breadcrumb 92} true;
+        assume {:breadcrumb 98} true;
     }
 }
 
 
 
-const {:value "JWTSig"} unique $string_literal_JWTSig_14: Ref;
-
-procedure {:extern} System.String.Concat$System.String$System.String(str0$in: Ref, str1$in: Ref) returns ($result: Ref);
-
-
+const {:value "JWTSig"} unique $string_literal_JWTSig_17: Ref;
 
 procedure {:extern} System.Text.Encoding.GetBytes$System.String($this: Ref, s$in: Ref) returns ($result: Ref);
 
@@ -2890,7 +3062,7 @@ procedure {:extern} System.Security.Cryptography.HashAlgorithm.ComputeHash$Syste
 
 
 
-const {:value "."} unique $string_literal_._15: Ref;
+const {:value "."} unique $string_literal_._18: Ref;
 
 procedure {:extern} System.String.Concat$System.String$System.String$System.String(str0$in: Ref, str1$in: Ref, str2$in: Ref) returns ($result: Ref);
 
@@ -2910,7 +3082,7 @@ procedure OpenIDConnectNameSpace.JsonWebToken.Base64UrlEncode$System.Bytearray($
 
 
 
-const {:value "Signature does not match."} unique $string_literal_Signature$does$not$match._16: Ref;
+const {:value "Signature does not match."} unique $string_literal_Signature$does$not$match._19: Ref;
 
 implementation OpenIDConnectNameSpace.JsonWebToken.ValidateSignature$System.String($this: Ref, key$in: Ref)
 {
@@ -2933,14 +3105,14 @@ implementation OpenIDConnectNameSpace.JsonWebToken.ValidateSignature$System.Stri
   var $label: int;
 
     key := key$in;
-    assume {:breadcrumb 93} true;
-    call $tmp0 := System.String.Concat$System.String$System.String(key, $string_literal_JWTSig_14);
+    assume {:breadcrumb 99} true;
+    call $tmp0 := System.String.Concat$System.String$System.String(key, $string_literal_JWTSig_17);
     call $tmp1 := System.Text.Encoding.GetBytes$System.String(F$OpenIDConnectNameSpace.JsonWebToken.UTF8Encoder, $tmp0);
     call $tmp2 := System.Security.Cryptography.HashAlgorithm.ComputeHash$System.Bytearray(F$OpenIDConnectNameSpace.JsonWebToken.SHA256Provider, $tmp1);
     local_1_Ref := $tmp2;
     assume $this != null;
     assume $this != null;
-    call $tmp3 := System.String.Concat$System.String$System.String$System.String(F$OpenIDConnectNameSpace.JsonWebToken.envelopeTokenSegment[$this], $string_literal_._15, F$OpenIDConnectNameSpace.JsonWebToken.claimsTokenSegment[$this]);
+    call $tmp3 := System.String.Concat$System.String$System.String$System.String(F$OpenIDConnectNameSpace.JsonWebToken.envelopeTokenSegment[$this], $string_literal_._18, F$OpenIDConnectNameSpace.JsonWebToken.claimsTokenSegment[$this]);
     call $tmp4 := System.Text.Encoding.GetBytes$System.String(F$OpenIDConnectNameSpace.JsonWebToken.UTF8Encoder, $tmp3);
     local_2_Ref := $tmp4;
     call $tmp5 := Alloc();
@@ -2954,9 +3126,9 @@ implementation OpenIDConnectNameSpace.JsonWebToken.ValidateSignature$System.Stri
     call $tmp9 := System.String.op_Inequality$System.String$System.String($tmp7, $tmp8);
     if ($tmp9)
     {
-        assume {:breadcrumb 94} true;
+        assume {:breadcrumb 100} true;
         call $tmp10 := Alloc();
-        call System.Exception.#ctor$System.String($tmp10, $string_literal_Signature$does$not$match._16);
+        call System.Exception.#ctor$System.String($tmp10, $string_literal_Signature$does$not$match._19);
         assume $DynamicType($tmp10) == T$System.Exception();
         assume $TypeConstructor($DynamicType($tmp10)) == T$System.Exception;
         $Exception := $tmp10;
@@ -2964,7 +3136,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.ValidateSignature$System.Stri
     }
     else
     {
-        assume {:breadcrumb 95} true;
+        assume {:breadcrumb 101} true;
     }
 }
 
@@ -2978,11 +3150,11 @@ procedure {:extern} System.String.get_Length($this: Ref) returns ($result: int);
 
 
 
-const {:value "=="} unique $string_literal_$$_17: Ref;
+const {:value "=="} unique $string_literal_$$_20: Ref;
 
-const {:value "="} unique $string_literal_$_18: Ref;
+const {:value "="} unique $string_literal_$_21: Ref;
 
-const {:value "Illegal base64url string"} unique $string_literal_Illegal$base64url$string_19: Ref;
+const {:value "Illegal base64url string"} unique $string_literal_Illegal$base64url$string_22: Ref;
 
 procedure {:extern} System.Convert.FromBase64String$System.String(s$in: Ref) returns ($result: Ref);
 
@@ -3004,7 +3176,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.Base64UrlDecode$System.String
   var $label: int;
 
     encodedSegment := encodedSegment$in;
-    assume {:breadcrumb 96} true;
+    assume {:breadcrumb 102} true;
     local_0_Ref := encodedSegment;
     call $tmp0 := System.String.Replace$System.Char$System.Char(local_0_Ref, 45, 43);
     local_0_Ref := $tmp0;
@@ -3034,18 +3206,18 @@ implementation OpenIDConnectNameSpace.JsonWebToken.Base64UrlDecode$System.String
     goto IL_0063;
 
   IL_003c:
-    call $tmp3 := System.String.Concat$System.String$System.String(local_0_Ref, $string_literal_$$_17);
+    call $tmp3 := System.String.Concat$System.String$System.String(local_0_Ref, $string_literal_$$_20);
     local_0_Ref := $tmp3;
     goto IL_0063;
 
   IL_004a:
-    call $tmp4 := System.String.Concat$System.String$System.String(local_0_Ref, $string_literal_$_18);
+    call $tmp4 := System.String.Concat$System.String$System.String(local_0_Ref, $string_literal_$_21);
     local_0_Ref := $tmp4;
     goto IL_0063;
 
   IL_0058:
     call $tmp5 := Alloc();
-    call System.Exception.#ctor$System.String($tmp5, $string_literal_Illegal$base64url$string_19);
+    call System.Exception.#ctor$System.String($tmp5, $string_literal_Illegal$base64url$string_22);
     assume $DynamicType($tmp5) == T$System.Exception();
     assume $TypeConstructor($DynamicType($tmp5)) == T$System.Exception;
     $Exception := $tmp5;
@@ -3081,7 +3253,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.Base64UrlEncode$System.Bytear
   var $label: int;
 
     arg := arg$in;
-    assume {:breadcrumb 97} true;
+    assume {:breadcrumb 103} true;
     call $tmp0 := System.Convert.ToBase64String$System.Bytearray(arg);
     call $tmp1 := Alloc();
     assume $ArrayLength($tmp1) == 1 * 1;
@@ -3105,16 +3277,6 @@ implementation OpenIDConnectNameSpace.JsonWebToken.Base64UrlEncode$System.Bytear
 procedure OpenIDConnectNameSpace.JsonWebToken.#cctor();
 
 
-
-procedure {:extern} System.Runtime.Serialization.Json.DataContractJsonSerializer.#ctor$System.Type($this: Ref, type$in: Ref);
-
-
-
-function {:extern} T$System.Runtime.Serialization.Json.DataContractJsonSerializer() : Ref;
-
-const {:extern} unique T$System.Runtime.Serialization.Json.DataContractJsonSerializer: int;
-
-axiom $TypeConstructor(T$System.Runtime.Serialization.Json.DataContractJsonSerializer()) == T$System.Runtime.Serialization.Json.DataContractJsonSerializer;
 
 procedure {:extern} System.Text.UTF8Encoding.#ctor$System.Boolean$System.Boolean($this: Ref, encoderShouldEmitUTF8Identifier$in: bool, throwOnInvalidBytes$in: bool);
 
@@ -3149,7 +3311,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.#cctor()
     F$OpenIDConnectNameSpace.JsonWebToken.EnvelopeJsonSerializer := null;
     F$OpenIDConnectNameSpace.JsonWebToken.UTF8Encoder := null;
     F$OpenIDConnectNameSpace.JsonWebToken.SHA256Provider := null;
-    assume {:breadcrumb 98} true;
+    assume {:breadcrumb 104} true;
     call $tmp0 := Alloc();
     call System.Runtime.Serialization.Json.DataContractJsonSerializer.#ctor$System.Type($tmp0, T$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims());
     assume $DynamicType($tmp0) == T$System.Runtime.Serialization.Json.DataContractJsonSerializer();
@@ -3200,7 +3362,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_expUni
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 99} true;
+    assume {:breadcrumb 105} true;
     assume $this != null;
     local_0_int := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$expUnixTime$k__BackingField[$this];
     goto IL_0009;
@@ -3223,7 +3385,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_expUni
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 100} true;
+    assume {:breadcrumb 106} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$expUnixTime$k__BackingField[$this] := value;
 }
 
@@ -3288,7 +3450,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Expira
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 101} true;
+    assume {:breadcrumb 107} true;
     call $tmp0 := Alloc();
     call System.DateTime.#default_ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.DateTime();
@@ -3299,7 +3461,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Expira
     call $tmp2 := System.Nullable`1.get_HasValue($tmp1);
     if (!$tmp2)
     {
-        assume {:breadcrumb 102} true;
+        assume {:breadcrumb 108} true;
         call $tmp3 := Alloc();
         call $tmp4 := Alloc();
         call System.DateTime.#ctor$System.Int32$System.Int32$System.Int32$System.Int32$System.Int32$System.Int32($tmp4, 1970, 1, 1, 0, 0, 0);
@@ -3317,7 +3479,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Expira
     }
     else
     {
-        assume {:breadcrumb 103} true;
+        assume {:breadcrumb 109} true;
     }
 
     assume $this != null;
@@ -3344,7 +3506,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Issuer
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 104} true;
+    assume {:breadcrumb 110} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Issuer$k__BackingField[$this];
     goto IL_0009;
@@ -3367,7 +3529,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_Issuer
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 105} true;
+    assume {:breadcrumb 111} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Issuer$k__BackingField[$this] := value;
 }
 
@@ -3383,7 +3545,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Audien
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 106} true;
+    assume {:breadcrumb 112} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Audience$k__BackingField[$this];
     goto IL_0009;
@@ -3406,7 +3568,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_Audien
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 107} true;
+    assume {:breadcrumb 113} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Audience$k__BackingField[$this] := value;
 }
 
@@ -3418,7 +3580,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_UserId
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 108} true;
+    assume {:breadcrumb 114} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$UserId$k__BackingField[$this];
     goto IL_0009;
@@ -3441,7 +3603,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_UserId
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 109} true;
+    assume {:breadcrumb 115} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$UserId$k__BackingField[$this] := value;
 }
 
@@ -3457,7 +3619,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Versio
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 110} true;
+    assume {:breadcrumb 116} true;
     assume $this != null;
     local_0_int := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Version$k__BackingField[$this];
     goto IL_0009;
@@ -3480,7 +3642,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_Versio
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 111} true;
+    assume {:breadcrumb 117} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Version$k__BackingField[$this] := value;
 }
 
@@ -3496,7 +3658,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_Client
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 112} true;
+    assume {:breadcrumb 118} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$ClientIdentifier$k__BackingField[$this];
     goto IL_0009;
@@ -3519,7 +3681,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_Client
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 113} true;
+    assume {:breadcrumb 119} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$ClientIdentifier$k__BackingField[$this] := value;
 }
 
@@ -3535,7 +3697,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.get_AppId(
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 114} true;
+    assume {:breadcrumb 120} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$AppId$k__BackingField[$this];
     goto IL_0009;
@@ -3558,7 +3720,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.set_AppId$
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 115} true;
+    assume {:breadcrumb 121} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$AppId$k__BackingField[$this] := value;
 }
 
@@ -3592,7 +3754,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.#ctor($thi
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$Version$k__BackingField[$this] := 0;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$ClientIdentifier$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenClaims.$AppId$k__BackingField[$this] := null;
-    assume {:breadcrumb 116} true;
+    assume {:breadcrumb 122} true;
     call $tmp1 := Alloc();
     call System.Nullable$System.DateTime$.#default_ctor($tmp1);
     assume $DynamicType($tmp1) == T$System.Nullable`1(T$System.DateTime());
@@ -3626,7 +3788,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_Type
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 117} true;
+    assume {:breadcrumb 123} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$Type$k__BackingField[$this];
     goto IL_0009;
@@ -3649,7 +3811,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.set_Type
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 118} true;
+    assume {:breadcrumb 124} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$Type$k__BackingField[$this] := value;
 }
 
@@ -3661,7 +3823,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_Algo
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 119} true;
+    assume {:breadcrumb 125} true;
     assume $this != null;
     local_0_Ref := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$Algorithm$k__BackingField[$this];
     goto IL_0009;
@@ -3684,7 +3846,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.set_Algo
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 120} true;
+    assume {:breadcrumb 126} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$Algorithm$k__BackingField[$this] := value;
 }
 
@@ -3696,7 +3858,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.get_KeyI
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 121} true;
+    assume {:breadcrumb 127} true;
     assume $this != null;
     local_0_int := F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$KeyId$k__BackingField[$this];
     goto IL_0009;
@@ -3719,7 +3881,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.set_KeyI
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 122} true;
+    assume {:breadcrumb 128} true;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$KeyId$k__BackingField[$this] := value;
 }
 
@@ -3737,7 +3899,7 @@ implementation OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.#ctor($t
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$Type$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$Algorithm$k__BackingField[$this] := null;
     F$OpenIDConnectNameSpace.JsonWebToken.JsonWebTokenEnvelope.$KeyId$k__BackingField[$this] := 0;
-    assume {:breadcrumb 123} true;
+    assume {:breadcrumb 129} true;
     call System.Object.#ctor($this);
 }
 
@@ -3821,7 +3983,7 @@ implementation OpenIDConnectNameSpace.AuthenticationRequest.#ctor($this: Ref)
     F$OpenIDConnectNameSpace.AuthenticationRequest.id_token_hint[$this] := null;
     F$OpenIDConnectNameSpace.AuthenticationRequest.login_hint[$this] := null;
     F$OpenIDConnectNameSpace.AuthenticationRequest.acr_values[$this] := null;
-    assume {:breadcrumb 124} true;
+    assume {:breadcrumb 130} true;
     F$OpenIDConnectNameSpace.AuthenticationRequest.response_mode[$this] := null;
     F$OpenIDConnectNameSpace.AuthenticationRequest.nonce[$this] := null;
     F$OpenIDConnectNameSpace.AuthenticationRequest.display[$this] := null;
@@ -3874,7 +4036,7 @@ implementation GenericAuthNameSpace.SignInIdP_Req.#ctor($this: Ref)
   var $label: int;
 
     F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$this] := null;
-    assume {:breadcrumb 125} true;
+    assume {:breadcrumb 131} true;
     call CST.CST_Struct.#ctor($this);
 }
 
@@ -3993,16 +4155,16 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 126} true;
+    assume {:breadcrumb 132} true;
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := req;
     if (req == null)
     {
-        assume {:breadcrumb 127} true;
+        assume {:breadcrumb 133} true;
         local_1_Ref := null;
     }
     else
     {
-        assume {:breadcrumb 128} true;
+        assume {:breadcrumb 134} true;
         if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.LiveID_IdP)
         {
             call $tmp0 := OAuth20NameSpace.AuthorizationServer.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
@@ -4107,12 +4269,12 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
 
         if (!(if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def then $tmp9 else (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def then $tmp15 else $tmp21)))
         {
-            assume {:breadcrumb 129} true;
+            assume {:breadcrumb 135} true;
             local_1_Ref := null;
         }
         else
         {
-            assume {:breadcrumb 130} true;
+            assume {:breadcrumb 136} true;
             if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.LiveID_IdP)
             {
                 if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OAuth20NameSpace.AuthorizationCodeEntry)
@@ -4250,7 +4412,7 @@ implementation GenericAuthNameSpace.IdP.#ctor($this: Ref)
   var $label: int;
 
     F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this] := null;
-    assume {:breadcrumb 131} true;
+    assume {:breadcrumb 137} true;
     call System.Object.#ctor($this);
 }
 
@@ -4323,7 +4485,7 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
   var $label: int;
 
     conclusion := conclusion$in;
-    assume {:breadcrumb 132} true;
+    assume {:breadcrumb 138} true;
     $tmp16 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
     assume $tmp16 != null;
     if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp16])) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def)
@@ -4435,7 +4597,7 @@ implementation GenericAuthNameSpace.GlobalObjects_base.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 133} true;
+    assume {:breadcrumb 139} true;
     call System.Object.#ctor($this);
 }
 
@@ -4467,7 +4629,7 @@ implementation GenericAuthNameSpace.SignInRP_Resp.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 134} true;
+    assume {:breadcrumb 140} true;
     call CST.CST_Struct.#ctor($this);
 }
 
@@ -4500,7 +4662,7 @@ implementation GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req.#ctor($this: Ref
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 135} true;
+    assume {:breadcrumb 141} true;
     call CST.CST_Struct.#ctor($this);
 }
 
@@ -4530,13 +4692,13 @@ procedure {:extern} CST.CST_Ops.Certify$CST.CST_Struct(msg$in: Ref) returns ($re
 
 
 
-const {:value "UserID"} unique $string_literal_UserID_20: Ref;
+const {:value "UserID"} unique $string_literal_UserID_23: Ref;
 
 procedure {:extern} System.Web.HttpSessionStateBase.get_Item$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
 
 
 
-const {:value ""} unique $string_literal__21: Ref;
+const {:value ""} unique $string_literal__24: Ref;
 
 procedure {:extern} System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
 
@@ -4562,15 +4724,15 @@ implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.R
   var $label: int;
 
     conclusion := conclusion$in;
-    assume {:breadcrumb 136} true;
+    assume {:breadcrumb 142} true;
     call $tmp0 := CST.CST_Ops.Certify$CST.CST_Struct(conclusion);
     local_0_bool := $tmp0;
     assume $this != null;
     $tmp1 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
-    call $tmp2 := System.Web.HttpSessionStateBase.get_Item$System.String($tmp1, $string_literal_UserID_20);
+    call $tmp2 := System.Web.HttpSessionStateBase.get_Item$System.String($tmp1, $string_literal_UserID_23);
     if ($tmp2 != null)
     {
-        assume {:breadcrumb 137} true;
+        assume {:breadcrumb 143} true;
         assume $this != null;
         $tmp3 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
         if (local_0_bool)
@@ -4582,11 +4744,11 @@ implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.R
         {
         }
 
-        call System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($tmp3, $string_literal_UserID_20, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp4] else $string_literal__21));
+        call System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($tmp3, $string_literal_UserID_23, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp4] else $string_literal__24));
     }
     else
     {
-        assume {:breadcrumb 138} true;
+        assume {:breadcrumb 144} true;
         assume $this != null;
         $tmp5 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
         if (local_0_bool)
@@ -4598,7 +4760,7 @@ implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.R
         {
         }
 
-        call System.Web.HttpSessionStateBase.Add$System.String$System.Object($tmp5, $string_literal_UserID_20, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp6] else $string_literal__21));
+        call System.Web.HttpSessionStateBase.Add$System.String$System.Object($tmp5, $string_literal_UserID_23, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp6] else $string_literal__24));
     }
 
     local_1_bool := local_0_bool;
@@ -4623,7 +4785,7 @@ implementation GenericAuthNameSpace.RP.#ctor($this: Ref)
     F$GenericAuthNameSpace.RP.CurrentSession[$this] := null;
     F$GenericAuthNameSpace.RP.Domain[$this] := null;
     F$GenericAuthNameSpace.RP.Realm[$this] := null;
-    assume {:breadcrumb 139} true;
+    assume {:breadcrumb 145} true;
     call System.Object.#ctor($this);
 }
 
@@ -4635,7 +4797,7 @@ implementation GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($this: Ref
   var $label: int;
 
     F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$this] := null;
-    assume {:breadcrumb 140} true;
+    assume {:breadcrumb 146} true;
     call CST.CST_Struct.#ctor($this);
 }
 
@@ -4674,7 +4836,7 @@ implementation GenericAuthNameSpace.ID_Claim.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 141} true;
+    assume {:breadcrumb 147} true;
     call System.Object.#ctor($this);
 }
 
@@ -4701,7 +4863,7 @@ implementation LiveIDNameSpace.LiveID_IdP.init($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 142} true;
+    assume {:breadcrumb 148} true;
     assume $this != null;
     assume $this != null;
     call OAuth20NameSpace.AuthorizationServer.init$OAuth20NameSpace.AuthorizationCodeRecs$OAuth20NameSpace.AccessTokenRecs($this, F$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary[$this], F$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary[$this]);
@@ -4726,7 +4888,7 @@ implementation LiveIDNameSpace.LiveID_IdP.createAccessTokenEntry$System.String$S
     redirect_uri := redirect_uri$in;
     scope := scope$in;
     state := state$in;
-    assume {:breadcrumb 143} true;
+    assume {:breadcrumb 149} true;
     call $tmp0 := Alloc();
     call OpenIDConnectNameSpace.IDTokenAndAccessTokenEntry.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenIDConnectNameSpace.IDTokenAndAccessTokenEntry();
@@ -4768,7 +4930,7 @@ implementation LiveIDNameSpace.LiveID_IdP.createAuthorizationCodeEntry$OAuth20Na
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 144} true;
+    assume {:breadcrumb 150} true;
     call $tmp0 := OpenIDConnectNameSpace.NondetOpenIDConnect.AuthorizationCodeEntry(F$LiveIDNameSpace.LiveID_IdP.Nondet);
     local_0_Ref := $tmp0;
     $tmp1 := req;
@@ -4807,7 +4969,7 @@ implementation LiveIDNameSpace.LiveID_IdP.#ctor($this: Ref)
 
     F$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary[$this] := null;
     F$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary[$this] := null;
-    assume {:breadcrumb 145} true;
+    assume {:breadcrumb 151} true;
     call $tmp0 := Alloc();
     call LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def();
@@ -4840,7 +5002,7 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.getEnt
 
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
-    assume {:breadcrumb 146} true;
+    assume {:breadcrumb 152} true;
     assume $this != null;
     $tmp0 := F$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.Dictionary[$this];
     call $tmp2 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp0, IdPSessionSecret);
@@ -4879,16 +5041,16 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.setEnt
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
     Entry := Entry$in;
-    assume {:breadcrumb 147} true;
+    assume {:breadcrumb 153} true;
     local_0_Ref := Entry;
     if (local_0_Ref == null)
     {
-        assume {:breadcrumb 148} true;
+        assume {:breadcrumb 154} true;
         local_1_bool := false;
     }
     else
     {
-        assume {:breadcrumb 149} true;
+        assume {:breadcrumb 155} true;
         assume $this != null;
         $tmp0 := F$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.Dictionary[$this];
         call $tmp1 := Alloc();
@@ -4941,7 +5103,7 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.findIS
 
     client_id := client_id$in;
     authorization_code := authorization_code$in;
-    assume {:breadcrumb 150} true;
+    assume {:breadcrumb 156} true;
     call $tmp0 := CST.Nondet_Base.String(F$LiveIDNameSpace.LiveID_IdP.Nondet);
     local_0_Ref := $tmp0;
     call $tmp1 := LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.getEntry$System.String$System.String($this, local_0_Ref, client_id);
@@ -4953,7 +5115,7 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.findIS
     call $tmp4 := System.String.op_Equality$System.String$System.String(local_0_Ref, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp3]);
     if ($tmp4)
     {
-        assume {:breadcrumb 151} true;
+        assume {:breadcrumb 157} true;
         if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req)) == T$OpenIDConnectNameSpace.AuthenticationRequest)
         {
             call $tmp5 := OAuth20NameSpace.AuthorizationRequest.get_Realm(F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req);
@@ -4973,11 +5135,11 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.findIS
         call $tmp8 := System.String.op_Equality$System.String$System.String(client_id, (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req)) == T$OpenIDConnectNameSpace.AuthenticationRequest then $tmp5 else (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req)) == T$OAuth20NameSpace.AuthorizationRequest then $tmp6 else $tmp7)));
         if ($tmp8)
         {
-            assume {:breadcrumb 153} true;
+            assume {:breadcrumb 159} true;
         }
         else
         {
-            assume {:breadcrumb 154} true;
+            assume {:breadcrumb 160} true;
             goto IL_0062;
         }
 
@@ -4988,7 +5150,7 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.findIS
     }
     else
     {
-        assume {:breadcrumb 152} true;
+        assume {:breadcrumb 158} true;
 
       IL_0062:
         stack_0_System_Boolean_bool := false;
@@ -5012,7 +5174,7 @@ implementation LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.#ctor(
   var $label: int;
 
     F$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def.Dictionary[$this] := null;
-    assume {:breadcrumb 155} true;
+    assume {:breadcrumb 161} true;
     call $tmp0 := Alloc();
     call System.Collections.Generic.Dictionary`2.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OAuth20NameSpace.AuthorizationCodeEntry()));
@@ -5052,7 +5214,7 @@ implementation LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.ge
 
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
-    assume {:breadcrumb 156} true;
+    assume {:breadcrumb 162} true;
     assume $this != null;
     $tmp0 := F$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.Dictionary[$this];
     call $tmp2 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp0, IdPSessionSecret);
@@ -5087,16 +5249,16 @@ implementation LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.se
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
     Entry := Entry$in;
-    assume {:breadcrumb 157} true;
+    assume {:breadcrumb 163} true;
     local_0_Ref := Entry;
     if (local_0_Ref == null)
     {
-        assume {:breadcrumb 158} true;
+        assume {:breadcrumb 164} true;
         local_1_bool := false;
     }
     else
     {
-        assume {:breadcrumb 159} true;
+        assume {:breadcrumb 165} true;
         assume $this != null;
         $tmp0 := F$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.Dictionary[$this];
         call $tmp1 := Alloc();
@@ -5140,7 +5302,7 @@ implementation LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.fi
 
     client_id := client_id$in;
     access_token := access_token$in;
-    assume {:breadcrumb 160} true;
+    assume {:breadcrumb 166} true;
     call $tmp0 := CST.Nondet_Base.String(F$LiveIDNameSpace.LiveID_IdP.Nondet);
     local_0_Ref := $tmp0;
     call $tmp1 := LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.getEntry$System.String$System.String($this, local_0_Ref, client_id);
@@ -5175,7 +5337,7 @@ implementation LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.fi
 
     client_id := client_id$in;
     refresh_token := refresh_token$in;
-    assume {:breadcrumb 161} true;
+    assume {:breadcrumb 167} true;
     call $tmp0 := CST.Nondet_Base.String(F$LiveIDNameSpace.LiveID_IdP.Nondet);
     local_0_Ref := $tmp0;
     call $tmp1 := LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.getEntry$System.String$System.String($this, local_0_Ref, client_id);
@@ -5199,7 +5361,7 @@ implementation LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.#c
   var $label: int;
 
     F$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def.Dictionary[$this] := null;
-    assume {:breadcrumb 162} true;
+    assume {:breadcrumb 168} true;
     call $tmp0 := Alloc();
     call System.Collections.Generic.Dictionary`2.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OpenIDConnectNameSpace.IDTokenAndAccessTokenEntry()));
@@ -5250,27 +5412,27 @@ implementation LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$Syste
     return_uri := return_uri$in;
     client_secret := client_secret$in;
     TokenEndpointUrl := TokenEndpointUrl$in;
-    assume {:breadcrumb 163} true;
+    assume {:breadcrumb 169} true;
     call OpenIDConnectNameSpace.RelyingParty.#ctor$System.String$System.String$System.String$System.String($this, client_id, return_uri, client_secret, TokenEndpointUrl);
 }
 
 
 
-const {:value "000000004C108D95"} unique $string_literal_000000004C108D95_22: Ref;
+const {:value "000000004C108D95"} unique $string_literal_000000004C108D95_25: Ref;
 
-const {:value "http://a.local.host:14022/login.aspx"} unique $string_literal_http$$$a.local.host$14022$login.aspx_23: Ref;
+const {:value "http://a.local.host:14022/login.aspx"} unique $string_literal_http$$$a.local.host$14022$login.aspx_26: Ref;
 
-const {:value "zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1"} unique $string_literal_zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1_24: Ref;
+const {:value "zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1"} unique $string_literal_zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1_27: Ref;
 
-const {:value "https://login.live.com/oauth20_token.srf"} unique $string_literal_https$$$login.live.com$oauth20_token.srf_25: Ref;
+const {:value "https://login.live.com/oauth20_token.srf"} unique $string_literal_https$$$login.live.com$oauth20_token.srf_28: Ref;
 
 implementation LiveIDNameSpace.LiveID_RP.#ctor($this: Ref)
 {
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 164} true;
-    call LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$System.String$System.String($this, $string_literal_000000004C108D95_22, $string_literal_http$$$a.local.host$14022$login.aspx_23, $string_literal_zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1_24, $string_literal_https$$$login.live.com$oauth20_token.srf_25);
+    assume {:breadcrumb 170} true;
+    call LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$System.String$System.String($this, $string_literal_000000004C108D95_25, $string_literal_http$$$a.local.host$14022$login.aspx_26, $string_literal_zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1_27, $string_literal_https$$$login.live.com$oauth20_token.srf_28);
 }
 
 
@@ -5289,7 +5451,7 @@ implementation LiveIDNameSpace.LiveID_RP.SignInRP$GenericAuthNameSpace.SignInIdP
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 165} true;
+    assume {:breadcrumb 171} true;
     call $tmp0 := OpenIDConnectNameSpace.RelyingParty.AuthenticationUsingAuthorizationCodeFlow$OpenIDConnectNameSpace.AuthenticationResponse($this, req);
     local_1_Ref := $tmp0;
     local_2_Ref := null;
@@ -5302,13 +5464,13 @@ implementation LiveIDNameSpace.LiveID_RP.SignInRP$GenericAuthNameSpace.SignInIdP
 
 
 
-const {:value "TokenEndpoint"} unique $string_literal_TokenEndpoint_26: Ref;
+const {:value "TokenEndpoint"} unique $string_literal_TokenEndpoint_29: Ref;
 
 procedure {:extern} System.Type.GetMethod$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
 
 
 
-const {:value "live.com"} unique $string_literal_live.com_27: Ref;
+const {:value "live.com"} unique $string_literal_live.com_30: Ref;
 
 procedure {:extern} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo$System.String$System.Boolean$System.Boolean(o$in: Ref, in_msg$in: Ref, out_msg$in: Ref, mi$in: Ref, partyName$in: Ref, signed$in: bool, server_to_server$in: bool);
 
@@ -5327,7 +5489,7 @@ implementation LiveIDNameSpace.LiveID_RP.callTokenEndpoint$OpenIDConnectNameSpac
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 166} true;
+    assume {:breadcrumb 172} true;
     call $tmp0 := OpenIDConnectNameSpace.RelyingParty.callTokenEndpoint$OpenIDConnectNameSpace.TokenRequest($this, req);
     local_0_Ref := $tmp0;
     call $tmp1 := Alloc();
@@ -5335,8 +5497,8 @@ implementation LiveIDNameSpace.LiveID_RP.callTokenEndpoint$OpenIDConnectNameSpac
     assume $DynamicType($tmp1) == T$LiveIDNameSpace.LiveID_IdP();
     assume $TypeConstructor($DynamicType($tmp1)) == T$LiveIDNameSpace.LiveID_IdP;
     $tmp2 := T$OpenIDConnectNameSpace.OpenIDProvider();
-    call $tmp3 := System.Type.GetMethod$System.String($tmp2, $string_literal_TokenEndpoint_26);
-    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo$System.String$System.Boolean$System.Boolean($tmp1, req, local_0_Ref, $tmp3, $string_literal_live.com_27, false, false);
+    call $tmp3 := System.Type.GetMethod$System.String($tmp2, $string_literal_TokenEndpoint_29);
+    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo$System.String$System.Boolean$System.Boolean($tmp1, req, local_0_Ref, $tmp3, $string_literal_live.com_30, false, false);
     local_1_Ref := local_0_Ref;
     goto IL_0035;
 
@@ -5411,7 +5573,7 @@ implementation login.Page_Load$System.Object$System.EventArgs($this: Ref, sender
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 167} true;
+    assume {:breadcrumb 173} true;
     call $tmp0 := Alloc();
     call $tmp1 := System.Web.UI.Page.get_Session($this);
     call System.Web.HttpSessionStateWrapper.#ctor$System.Web.SessionState.HttpSessionState($tmp0, $tmp1);
@@ -5427,12 +5589,12 @@ implementation login.Page_Load$System.Object$System.EventArgs($this: Ref, sender
     local_1_Ref := $tmp5;
     if (local_1_Ref == null)
     {
-        assume {:breadcrumb 168} true;
+        assume {:breadcrumb 174} true;
         return;
     }
     else
     {
-        assume {:breadcrumb 169} true;
+        assume {:breadcrumb 175} true;
     }
 
     assume $this != null;
@@ -5497,9 +5659,9 @@ implementation login.#ctor($this: Ref)
   var $label: int;
 
     F$login.RP[$this] := null;
-    assume {:breadcrumb 170} true;
+    assume {:breadcrumb 176} true;
     call $tmp0 := Alloc();
-    call LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$System.String$System.String($tmp0, $string_literal_000000004C108D95_22, $string_literal_http$$$a.local.host$14022$login.aspx_23, $string_literal_zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1_24, $string_literal_https$$$login.live.com$oauth20_token.srf_25);
+    call LiveIDNameSpace.LiveID_RP.#ctor$System.String$System.String$System.String$System.String($tmp0, $string_literal_000000004C108D95_25, $string_literal_http$$$a.local.host$14022$login.aspx_26, $string_literal_zMVS1BpoNHwtdTnSzazSt2JgLd1hxRA1_27, $string_literal_https$$$login.live.com$oauth20_token.srf_28);
     assume $DynamicType($tmp0) == T$LiveIDNameSpace.LiveID_RP();
     assume $TypeConstructor($DynamicType($tmp0)) == T$LiveIDNameSpace.LiveID_RP;
     F$login.RP[$this] := $tmp0;
@@ -5529,7 +5691,7 @@ implementation OAuth20NameSpace.AuthorizationResponse.#ctor($this: Ref)
 
     F$OAuth20NameSpace.AuthorizationResponse.code[$this] := null;
     F$OAuth20NameSpace.AuthorizationResponse.state[$this] := null;
-    assume {:breadcrumb 171} true;
+    assume {:breadcrumb 177} true;
     F$OAuth20NameSpace.AuthorizationResponse.state[$this] := null;
     call GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req.#ctor($this);
 }
@@ -5552,7 +5714,7 @@ implementation OAuth20NameSpace.AccessTokenEntry.get_UserID($this: Ref) returns 
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 172} true;
+    assume {:breadcrumb 178} true;
     assume $this != null;
     local_0_Ref := F$OAuth20NameSpace.AccessTokenEntry.access_token[$this];
     goto IL_000a;
@@ -5570,7 +5732,7 @@ implementation OAuth20NameSpace.AccessTokenEntry.get_Redir_dest($this: Ref) retu
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 173} true;
+    assume {:breadcrumb 179} true;
     assume $this != null;
     local_0_Ref := F$OAuth20NameSpace.AccessTokenEntry.redirect_uri[$this];
     goto IL_000a;
@@ -5592,7 +5754,7 @@ implementation OAuth20NameSpace.AccessTokenEntry.#ctor($this: Ref)
     F$OAuth20NameSpace.AccessTokenEntry.scope[$this] := null;
     F$OAuth20NameSpace.AccessTokenEntry.refresh_token[$this] := null;
     F$OAuth20NameSpace.AccessTokenEntry.state[$this] := null;
-    assume {:breadcrumb 174} true;
+    assume {:breadcrumb 180} true;
     call GenericAuthNameSpace.ID_Claim.#ctor($this);
 }
 
@@ -5614,7 +5776,7 @@ implementation OAuth20NameSpace.AuthorizationCodeEntry.get_UserID($this: Ref) re
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 175} true;
+    assume {:breadcrumb 181} true;
     assume $this != null;
     local_0_Ref := F$OAuth20NameSpace.AuthorizationCodeEntry.code[$this];
     goto IL_000a;
@@ -5632,7 +5794,7 @@ implementation OAuth20NameSpace.AuthorizationCodeEntry.get_Redir_dest($this: Ref
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 176} true;
+    assume {:breadcrumb 182} true;
     assume $this != null;
     local_0_Ref := F$OAuth20NameSpace.AuthorizationCodeEntry.redirect_uri[$this];
     goto IL_000a;
@@ -5657,7 +5819,7 @@ implementation OAuth20NameSpace.AuthorizationCodeEntry.#ctor($this: Ref)
     F$OAuth20NameSpace.AuthorizationCodeEntry.redirect_uri[$this] := null;
     F$OAuth20NameSpace.AuthorizationCodeEntry.scope[$this] := null;
     F$OAuth20NameSpace.AuthorizationCodeEntry.state[$this] := null;
-    assume {:breadcrumb 177} true;
+    assume {:breadcrumb 183} true;
     call GenericAuthNameSpace.ID_Claim.#ctor($this);
 }
 
@@ -5673,10 +5835,6 @@ implementation T$OAuth20NameSpace.AuthorizationCodeEntry.#cctor()
 
 
 
-var F$OAuth20NameSpace.Client.client_secret: [Ref]Ref;
-
-var F$OAuth20NameSpace.Client.TokenEndpointUrl: [Ref]Ref;
-
 implementation OAuth20NameSpace.Client.#ctor($this: Ref)
 {
   var $localExc: Ref;
@@ -5684,7 +5842,7 @@ implementation OAuth20NameSpace.Client.#ctor($this: Ref)
 
     F$OAuth20NameSpace.Client.client_secret[$this] := null;
     F$OAuth20NameSpace.Client.TokenEndpointUrl[$this] := null;
-    assume {:breadcrumb 178} true;
+    assume {:breadcrumb 184} true;
     call GenericAuthNameSpace.RP.#ctor($this);
 }
 
@@ -5696,7 +5854,7 @@ implementation OAuth20NameSpace.Client.get_client_id($this: Ref) returns ($resul
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 179} true;
+    assume {:breadcrumb 185} true;
     assume $this != null;
     local_0_Ref := F$GenericAuthNameSpace.RP.Realm[$this];
     goto IL_000a;
@@ -5719,7 +5877,7 @@ implementation OAuth20NameSpace.Client.set_client_id$System.String($this: Ref, v
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 180} true;
+    assume {:breadcrumb 186} true;
     F$GenericAuthNameSpace.RP.Realm[$this] := value;
 }
 
@@ -5731,7 +5889,7 @@ implementation OAuth20NameSpace.Client.get_return_uri($this: Ref) returns ($resu
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 181} true;
+    assume {:breadcrumb 187} true;
     assume $this != null;
     local_0_Ref := F$GenericAuthNameSpace.RP.Domain[$this];
     goto IL_000a;
@@ -5754,7 +5912,7 @@ implementation OAuth20NameSpace.Client.set_return_uri$System.String($this: Ref, 
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 182} true;
+    assume {:breadcrumb 188} true;
     F$GenericAuthNameSpace.RP.Domain[$this] := value;
 }
 
@@ -5775,7 +5933,7 @@ implementation OAuth20NameSpace.Client.#ctor$System.String$System.String$System.
     TokenEndpointUrl1 := TokenEndpointUrl1$in;
     F$OAuth20NameSpace.Client.client_secret[$this] := null;
     F$OAuth20NameSpace.Client.TokenEndpointUrl[$this] := null;
-    assume {:breadcrumb 183} true;
+    assume {:breadcrumb 189} true;
     call GenericAuthNameSpace.RP.#ctor($this);
     call OAuth20NameSpace.Client.set_client_id$System.String($this, client_id1);
     call OAuth20NameSpace.Client.set_return_uri$System.String($this, return_uri1);
@@ -5806,7 +5964,7 @@ implementation OAuth20NameSpace.Client.AuthorizationCodeGrant$OAuth20NameSpace.A
   var $label: int;
 
     codeResp := codeResp$in;
-    assume {:breadcrumb 184} true;
+    assume {:breadcrumb 190} true;
     call $tmp0 := Alloc();
     call OAuth20NameSpace.AccessTokenRequest.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OAuth20NameSpace.AccessTokenRequest();
@@ -5817,7 +5975,7 @@ implementation OAuth20NameSpace.Client.AuthorizationCodeGrant$OAuth20NameSpace.A
     $tmp2 := codeResp;
     assume $tmp2 != null;
     F$OAuth20NameSpace.AccessTokenRequest.code[local_0_prime_Ref] := F$OAuth20NameSpace.AuthorizationResponse.code[$tmp2];
-    F$OAuth20NameSpace.AccessTokenRequest.grant_type[local_0_prime_Ref] := $string_literal_authorization_code_1;
+    F$OAuth20NameSpace.AccessTokenRequest.grant_type[local_0_prime_Ref] := $string_literal_authorization_code_2;
     call $tmp3 := OAuth20NameSpace.Client.get_return_uri($this);
     F$OAuth20NameSpace.AccessTokenRequest.redirect_uri[local_0_prime_Ref] := $tmp3;
     local_1_Ref := local_0_prime_Ref;
@@ -5853,7 +6011,7 @@ implementation OAuth20NameSpace.resource_server.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 185} true;
+    assume {:breadcrumb 191} true;
     call System.Object.#ctor($this);
 }
 
@@ -5894,7 +6052,7 @@ implementation OAuth20NameSpace.AuthorizationErrorResponse.#ctor($this: Ref)
     F$OAuth20NameSpace.AuthorizationErrorResponse.error_description[$this] := null;
     F$OAuth20NameSpace.AuthorizationErrorResponse.error_uri[$this] := null;
     F$OAuth20NameSpace.AuthorizationErrorResponse.state[$this] := null;
-    assume {:breadcrumb 186} true;
+    assume {:breadcrumb 192} true;
     F$OAuth20NameSpace.AuthorizationErrorResponse.error_description[$this] := null;
     F$OAuth20NameSpace.AuthorizationErrorResponse.error_uri[$this] := null;
     F$OAuth20NameSpace.AuthorizationErrorResponse.state[$this] := null;
@@ -5925,7 +6083,7 @@ implementation OAuth20NameSpace.AccessTokenRequest.#ctor($this: Ref)
     F$OAuth20NameSpace.AccessTokenRequest.redirect_uri[$this] := null;
     F$OAuth20NameSpace.AccessTokenRequest.client_id[$this] := null;
     F$OAuth20NameSpace.AccessTokenRequest.refresh_token[$this] := null;
-    assume {:breadcrumb 187} true;
+    assume {:breadcrumb 193} true;
     F$OAuth20NameSpace.AccessTokenRequest.refresh_token[$this] := null;
     call CST.CST_Struct.#ctor($this);
 }
@@ -5956,7 +6114,7 @@ implementation OAuth20NameSpace.AuthorizationRequest.get_Realm($this: Ref) retur
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 188} true;
+    assume {:breadcrumb 194} true;
     assume $this != null;
     local_0_Ref := F$OAuth20NameSpace.AuthorizationRequest.client_id[$this];
     goto IL_000a;
@@ -5979,7 +6137,7 @@ implementation OAuth20NameSpace.AuthorizationRequest.set_Realm$System.String($th
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 189} true;
+    assume {:breadcrumb 195} true;
     F$OAuth20NameSpace.AuthorizationRequest.client_id[$this] := value;
 }
 
@@ -5995,7 +6153,7 @@ implementation OAuth20NameSpace.AuthorizationRequest.#ctor($this: Ref)
     F$OAuth20NameSpace.AuthorizationRequest.redirect_uri[$this] := null;
     F$OAuth20NameSpace.AuthorizationRequest.scope[$this] := null;
     F$OAuth20NameSpace.AuthorizationRequest.state[$this] := null;
-    assume {:breadcrumb 190} true;
+    assume {:breadcrumb 196} true;
     F$OAuth20NameSpace.AuthorizationRequest.redirect_uri[$this] := null;
     F$OAuth20NameSpace.AuthorizationRequest.state[$this] := null;
     call GenericAuthNameSpace.SignInIdP_Req.#ctor($this);
@@ -6019,7 +6177,7 @@ implementation OAuth20NameSpace.AuthorizationServer.get_AccessTokenRecs($this: R
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 191} true;
+    assume {:breadcrumb 197} true;
     assume $this != null;
     local_0_Ref := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
     goto IL_000f;
@@ -6038,7 +6196,7 @@ implementation OAuth20NameSpace.AuthorizationServer.set_AccessTokenRecs$OAuth20N
   var $label: int;
 
     value := value$in;
-    assume {:breadcrumb 192} true;
+    assume {:breadcrumb 198} true;
     F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this] := value;
 }
 
@@ -6053,14 +6211,14 @@ implementation OAuth20NameSpace.AuthorizationServer.init$OAuth20NameSpace.Author
 
     AuthorizationCodeRecs1 := AuthorizationCodeRecs1$in;
     AccessTokenRecs1 := AccessTokenRecs1$in;
-    assume {:breadcrumb 193} true;
+    assume {:breadcrumb 199} true;
     F$OAuth20NameSpace.AuthorizationServer.AuthorizationCodeRecs[$this] := AuthorizationCodeRecs1;
     call OAuth20NameSpace.AuthorizationServer.set_AccessTokenRecs$OAuth20NameSpace.AccessTokenRecs($this, AccessTokenRecs1);
 }
 
 
 
-const {:value "token"} unique $string_literal_token_28: Ref;
+const {:value "token"} unique $string_literal_token_31: Ref;
 
 procedure OAuth20NameSpace.AuthorizationServer.createAuthorizationCodeEntry$OAuth20NameSpace.AuthorizationRequest($this: Ref, req$in: Ref) returns ($result: Ref);
 
@@ -6094,34 +6252,34 @@ implementation OAuth20NameSpace.AuthorizationServer.Process_SignInIdP_req$Generi
   var $label: int;
 
     req1 := req1$in;
-    assume {:breadcrumb 194} true;
+    assume {:breadcrumb 200} true;
     local_0_Ref := req1;
     $tmp0 := local_0_Ref;
     assume $tmp0 != null;
     local_2_Ref := F$OAuth20NameSpace.AuthorizationRequest.response_type[$tmp0];
     if (local_2_Ref != null)
     {
-        assume {:breadcrumb 195} true;
-        call $tmp1 := System.String.op_Equality$System.String$System.String(local_2_Ref, $string_literal_code_2);
+        assume {:breadcrumb 201} true;
+        call $tmp1 := System.String.op_Equality$System.String$System.String(local_2_Ref, $string_literal_code_3);
         if (!$tmp1)
         {
-            assume {:breadcrumb 197} true;
-            call $tmp2 := System.String.op_Equality$System.String$System.String(local_2_Ref, $string_literal_token_28);
+            assume {:breadcrumb 203} true;
+            call $tmp2 := System.String.op_Equality$System.String$System.String(local_2_Ref, $string_literal_token_31);
             if ($tmp2)
             {
-                assume {:breadcrumb 199} true;
+                assume {:breadcrumb 205} true;
                 goto IL_0038;
             }
             else
             {
-                assume {:breadcrumb 200} true;
+                assume {:breadcrumb 206} true;
             }
 
             goto IL_0053;
         }
         else
         {
-            assume {:breadcrumb 198} true;
+            assume {:breadcrumb 204} true;
         }
 
         if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.LiveID_IdP)
@@ -6182,7 +6340,7 @@ implementation OAuth20NameSpace.AuthorizationServer.Process_SignInIdP_req$Generi
     }
     else
     {
-        assume {:breadcrumb 196} true;
+        assume {:breadcrumb 202} true;
 
       IL_0053:
         local_1_Ref := null;
@@ -6209,7 +6367,7 @@ implementation OAuth20NameSpace.AuthorizationServer.AuthorizationEndpoint$OAuth2
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 201} true;
+    assume {:breadcrumb 207} true;
     call $tmp0 := GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this, req);
     local_0_Ref := $tmp0;
     goto IL_0010;
@@ -6225,7 +6383,7 @@ procedure OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpace.Ac
 
 
 
-const {:value "refresh_token"} unique $string_literal_refresh_token_29: Ref;
+const {:value "refresh_token"} unique $string_literal_refresh_token_32: Ref;
 
 function T$OAuth20NameSpace.AccessTokenResponse() : Ref;
 
@@ -6346,41 +6504,41 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 202} true;
+    assume {:breadcrumb 208} true;
     if (req == null)
     {
-        assume {:breadcrumb 203} true;
+        assume {:breadcrumb 209} true;
         local_5_Ref := null;
     }
     else
     {
-        assume {:breadcrumb 204} true;
+        assume {:breadcrumb 210} true;
         $tmp0 := req;
         assume $tmp0 != null;
         local_7_Ref := F$OAuth20NameSpace.AccessTokenRequest.grant_type[$tmp0];
         if (local_7_Ref != null)
         {
-            assume {:breadcrumb 205} true;
-            call $tmp1 := System.String.op_Equality$System.String$System.String(local_7_Ref, $string_literal_authorization_code_1);
+            assume {:breadcrumb 211} true;
+            call $tmp1 := System.String.op_Equality$System.String$System.String(local_7_Ref, $string_literal_authorization_code_2);
             if (!$tmp1)
             {
-                assume {:breadcrumb 207} true;
-                call $tmp2 := System.String.op_Equality$System.String$System.String(local_7_Ref, $string_literal_refresh_token_29);
+                assume {:breadcrumb 213} true;
+                call $tmp2 := System.String.op_Equality$System.String$System.String(local_7_Ref, $string_literal_refresh_token_32);
                 if ($tmp2)
                 {
-                    assume {:breadcrumb 209} true;
+                    assume {:breadcrumb 215} true;
                     goto IL_011c;
                 }
                 else
                 {
-                    assume {:breadcrumb 210} true;
+                    assume {:breadcrumb 216} true;
                 }
 
                 goto IL_01c9;
             }
             else
             {
-                assume {:breadcrumb 208} true;
+                assume {:breadcrumb 214} true;
             }
 
             assume $this != null;
@@ -6408,12 +6566,12 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
             local_2_Ref := (if $TypeConstructor($DynamicType(F$OAuth20NameSpace.AuthorizationServer.AuthorizationCodeRecs[$this])) == T$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def then $tmp6 else $tmp10);
             if (local_2_Ref == null)
             {
-                assume {:breadcrumb 211} true;
+                assume {:breadcrumb 217} true;
                 local_5_Ref := null;
             }
             else
             {
-                assume {:breadcrumb 212} true;
+                assume {:breadcrumb 218} true;
                 assume $this != null;
                 if ($TypeConstructor($DynamicType(F$OAuth20NameSpace.AuthorizationServer.AuthorizationCodeRecs[$this])) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def)
                 {
@@ -6452,12 +6610,12 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
                 call $tmp22 := System.String.op_Inequality$System.String$System.String(F$OAuth20NameSpace.AuthorizationCodeEntry.redirect_uri[$tmp20], F$OAuth20NameSpace.AccessTokenRequest.redirect_uri[$tmp21]);
                 if ($tmp22)
                 {
-                    assume {:breadcrumb 213} true;
+                    assume {:breadcrumb 219} true;
                     local_5_Ref := null;
                 }
                 else
                 {
-                    assume {:breadcrumb 214} true;
+                    assume {:breadcrumb 220} true;
                     if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.LiveID_IdP)
                     {
                         $tmp23 := local_3_Ref;
@@ -6522,12 +6680,12 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
 
                     if (!(if $TypeConstructor($DynamicType($tmp45)) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def then $tmp37 else (if $TypeConstructor($DynamicType($tmp44)) == T$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def then $tmp40 else $tmp43)))
                     {
-                        assume {:breadcrumb 215} true;
+                        assume {:breadcrumb 221} true;
                         local_5_Ref := null;
                     }
                     else
                     {
-                        assume {:breadcrumb 216} true;
+                        assume {:breadcrumb 222} true;
                         call $tmp46 := Alloc();
                         call OAuth20NameSpace.AccessTokenResponse.#ctor($tmp46);
                         assume $DynamicType($tmp46) == T$OAuth20NameSpace.AccessTokenResponse();
@@ -6569,12 +6727,12 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
                         local_2_Ref := (if $TypeConstructor($DynamicType($tmp58)) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def then $tmp53 else $tmp57);
                         if (local_2_Ref == null)
                         {
-                            assume {:breadcrumb 217} true;
+                            assume {:breadcrumb 223} true;
                             local_5_Ref := null;
                         }
                         else
                         {
-                            assume {:breadcrumb 218} true;
+                            assume {:breadcrumb 224} true;
                             call $tmp69 := OAuth20NameSpace.AuthorizationServer.get_AccessTokenRecs($this);
                             if ($TypeConstructor($DynamicType($tmp69)) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def)
                             {
@@ -6667,12 +6825,12 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
 
                             if (!(if $TypeConstructor($DynamicType($tmp92)) == T$LiveIDNameSpace.LiveID_IdP.IDTokenAndAccessTokenDictionary_def then $tmp84 else (if $TypeConstructor($DynamicType($tmp91)) == T$LiveIDNameSpace.LiveID_IdP.AuthorizationCodeDictionary_def then $tmp87 else $tmp90)))
                             {
-                                assume {:breadcrumb 219} true;
+                                assume {:breadcrumb 225} true;
                                 local_5_Ref := null;
                             }
                             else
                             {
-                                assume {:breadcrumb 220} true;
+                                assume {:breadcrumb 226} true;
                                 call $tmp93 := Alloc();
                                 call OAuth20NameSpace.AccessTokenResponse.#ctor($tmp93);
                                 assume $DynamicType($tmp93) == T$OAuth20NameSpace.AccessTokenResponse();
@@ -6696,7 +6854,7 @@ implementation OAuth20NameSpace.AuthorizationServer.TokenEndpoint$OAuth20NameSpa
         }
         else
         {
-            assume {:breadcrumb 206} true;
+            assume {:breadcrumb 212} true;
 
           IL_01c9:
             local_5_Ref := null;
@@ -6717,7 +6875,7 @@ implementation OAuth20NameSpace.AuthorizationServer.#ctor($this: Ref)
   var $label: int;
 
     F$OAuth20NameSpace.AuthorizationServer.AuthorizationCodeRecs[$this] := null;
-    assume {:breadcrumb 221} true;
+    assume {:breadcrumb 227} true;
     call GenericAuthNameSpace.IdP.#ctor($this);
 }
 
@@ -6753,7 +6911,7 @@ implementation OAuth20NameSpace.AccessTokenResponse.#ctor($this: Ref)
     F$OAuth20NameSpace.AccessTokenResponse.expires_in[$this] := null;
     F$OAuth20NameSpace.AccessTokenResponse.refresh_token[$this] := null;
     F$OAuth20NameSpace.AccessTokenResponse.scope[$this] := null;
-    assume {:breadcrumb 222} true;
+    assume {:breadcrumb 228} true;
     F$OAuth20NameSpace.AccessTokenResponse.refresh_token[$this] := null;
     call CST.CST_Struct.#ctor($this);
 }
@@ -6783,7 +6941,7 @@ implementation CST.Debug.reached()
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 223} true;
+    assume {:breadcrumb 229} true;
     assert false;
 }
 
@@ -6798,7 +6956,7 @@ implementation CST.Debug.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 224} true;
+    assume {:breadcrumb 230} true;
     call System.Object.#ctor($this);
 }
 
@@ -6839,9 +6997,9 @@ implementation CST.CST_Struct.#ctor($this: Ref)
 
     F$CST.CST_Struct.SymT[$this] := null;
     F$CST.CST_Struct.SignedBy[$this] := null;
-    assume {:breadcrumb 225} true;
-    F$CST.CST_Struct.SymT[$this] := $string_literal__21;
-    F$CST.CST_Struct.SignedBy[$this] := $string_literal__21;
+    assume {:breadcrumb 231} true;
+    F$CST.CST_Struct.SymT[$this] := $string_literal__24;
+    F$CST.CST_Struct.SignedBy[$this] := $string_literal__24;
     call System.Object.#ctor($this);
 }
 

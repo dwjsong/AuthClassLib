@@ -51,5 +51,4 @@ C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Communication
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Message.dll
-C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\bin\Message.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_A\obj\Debug\Server_A.csprojResolveAssemblyReference.cache

@@ -99,22 +99,22 @@ namespace ProjectBuilder
             return sb.ToString();
         }
 
-        public static List<string> GetReferenceFromCSPROJ(string build_file)
+        public static List<string> GetDLLReference(IEnumerable<XElement> references, string build_file, string mode)
         {
             List<string> refList = new List<string>();
-
-            XDocument projDefinition = XDocument.Load(build_file);
-            IEnumerable<XElement> references = projDefinition
-                .Element(msbuild + "Project")
-                .Elements(msbuild + "ItemGroup")
-                .Elements(msbuild + "Reference");
 
             foreach (XElement reference in references)
             {
                 if (reference.Element(msbuild + "HintPath") != null)
                 {
-                    string dll_name = reference.Element(msbuild + "HintPath").Value;
-                    string dll_path = Path.GetDirectoryName(build_file) + @"\" + dll_name;
+                    //                if (reference.Element(msbuild + "HintPath") != null)
+                    //                {
+                    //                    string dll_name = reference.Element(msbuild + "HintPath").Value;
+                    string refered_prj = "", dll_name = "", dll_path = "";
+
+                    dll_name = reference.Element(msbuild + "HintPath").Value;
+                    dll_path = Path.GetDirectoryName(build_file) + @"\" + dll_name;
+
 
                     if (!File.Exists(dll_path.Substring(0, dll_path.Length - 4) + ".dep"))
                         continue;
@@ -142,11 +142,76 @@ namespace ProjectBuilder
             return refList;
         }
 
-        public static string CreateDepForProj(string build_file, string output_path, string prj_name)
+        public static List<string> GetProjReference(IEnumerable<XElement> references, string build_file, string mode)
+        {
+            List<string> refList = new List<string>();
+
+            foreach (XElement reference in references)
+            {
+                if (reference.Attribute("Include") != null)
+                {
+                    //                if (reference.Element(msbuild + "HintPath") != null)
+                    //                {
+                    //                    string dll_name = reference.Element(msbuild + "HintPath").Value;
+                    string refered_prj = "", dll_name = "", dll_path = "";
+
+                    refered_prj = Path.Combine(Path.GetDirectoryName(build_file), reference.Attribute("Include").Value);
+                    dll_name = GetAssemblyName(refered_prj) + ".dll";
+                    string refered_prj_output = GetBuildPath(refered_prj, mode);
+                    dll_path = Path.Combine(Path.GetDirectoryName(refered_prj), refered_prj_output, dll_name);
+
+                    if (!File.Exists(dll_path.Substring(0, dll_path.Length - 4) + ".dep"))
+                        continue;
+
+
+                    string shaFromDLL = hasher.GetSHAFromDLL(dll_path);
+
+                    if (shaFromDLL != null && shaFromDLL != "0000000000000000000000000000000000000000")
+                    {
+                        string[] folder = dll_name.Split('\\');
+
+                        string dll = folder[folder.Length - 1];
+
+                        string dll_path_in_CST = dllsFolder + dll.Substring(0, dll.Length - 3) + shaFromDLL + @"\" + dll;
+
+                        if (!Directory.Exists(dll_path_in_CST))
+                        {
+                            DLLServerDownloader.downloadDLLandDep(dll.Substring(0, dll.Length - 3) + shaFromDLL);
+                        }
+                        refList.Add(dll_path_in_CST);
+                    }
+                }
+            }
+
+            return refList;
+        }
+
+        public static List<string> GetReferenceFromCSPROJ(string build_file, string mode)
+        {
+            List<string> refList = new List<string>();
+
+            XDocument projDefinition = XDocument.Load(build_file);
+            IEnumerable<XElement> proj_ref = projDefinition
+                .Element(msbuild + "Project")
+                .Elements(msbuild + "ItemGroup")
+                .Elements(msbuild + "ProjectReference");
+
+            IEnumerable<XElement> dll_ref = projDefinition
+                .Element(msbuild + "Project")
+                .Elements(msbuild + "ItemGroup")
+                .Elements(msbuild + "Reference");
+
+            refList.AddRange(GetDLLReference(dll_ref, build_file, mode));
+            refList.AddRange(GetProjReference(proj_ref, build_file, mode));
+
+            return refList;
+        }
+
+        public static string CreateDepForProj(string build_file, string output_path, string prj_name, string mode)
         {
             string[] fileEntries = Directory.GetFiles(output_path, "*.dll");
             string project_dll = "";
-            List<string> depDLLList = GetReferenceFromCSPROJ(build_file);
+            List<string> depDLLList = GetReferenceFromCSPROJ(build_file, mode);
             IEnumerable<string> depPrjList = GetDependentPrjList(build_file);
             string project_path = Path.GetDirectoryName(build_file);
 
@@ -363,7 +428,7 @@ namespace ProjectBuilder
             ReadWebConfig(Path.GetDirectoryName(build_file) + @"\Web.config");
 
             GatherDependentsDep(build_file, mode);
-            string sha = CreateDepForProj(build_file, outputPath, prj_name);
+            string sha = CreateDepForProj(build_file, outputPath, prj_name, mode);
 
             return sha;
         }
@@ -404,9 +469,9 @@ namespace ProjectBuilder
             else
             {
                 //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\Server_A.csproj";
-                string b = @"C:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\Server_A\bin";
-                string c = "Server_A";
+                string a = @"C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\LiveIDExample.csproj";
+                string b = @"C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin";
+                string c = "LiveIDExample";
                 Builder.GenerateDep(a, b, c, "Debug");
 //                string dll = @"C:\CST\CILRepository.dll";
 //                string sha = Builder.GetSHAFromDLL(dll);
@@ -417,3 +482,12 @@ namespace ProjectBuilder
         }
     }
 }
+
+/*
+ * 1669.6
+ * 203.61
+ * 950
+ * 100
+ * 34
+ * 240
+*/

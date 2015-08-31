@@ -48,7 +48,6 @@ C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Message.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Communication.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\CST.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\CST_Ops.pdb
-C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Message.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\bin\Communication.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_C\obj\Debug\Server_C.dll
