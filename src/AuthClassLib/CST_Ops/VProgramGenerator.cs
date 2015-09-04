@@ -225,7 +225,11 @@ namespace CST
         {
             Dictionary<string, string> dllPathDict = new Dictionary<string, string>();
             HashSet<string> dllNameSet = new HashSet<string>();
+            List<string> dllNameToAddToRun = new List<string>();
 
+            /*
+             * Using the method record, generate the DLL list needed to add to the project
+             */
             foreach (MethodRecord mr in methodList)
             {
                 string dllFolder = dllsFolder + mr.SHA_of_DLL;
@@ -248,6 +252,7 @@ namespace CST
                             {
                                 string name = Path.GetFileNameWithoutExtension(dep_filename);
                                 dllNameSet.Add(name);
+                                dllNameToAddToRun.Add(name);
                                 dllPathDict[name] = dep_filename;
                             }
                         }
@@ -255,6 +260,9 @@ namespace CST
                 }
             }
 
+            /*
+             * Add the DLL list to the project
+             */
             string newProjectFile = Path.Combine(newVPath, "VProgram.csproj");
 
             if (!File.Exists(newProjectFile)) return;
@@ -300,6 +308,27 @@ namespace CST
                 }
             }
             projDefinition.Save(newProjectFile);
+
+            /*
+             * Add the DLL list to run.bat
+             */
+            string runbat = Path.Combine(newVPath, "run.bat");
+            string[] runbatFileLines = File.ReadAllLines(runbat);
+            StringBuilder sb = new StringBuilder();
+
+            for (int i = 0; i < runbatFileLines.Length; i++)
+            {
+                string f_n = "%file_name%.exe";
+                int idx = runbatFileLines[i].IndexOf(f_n);
+                if (idx != -1)
+                {
+                    for (int j = 0; j < dllNameToAddToRun.Count; j++)
+                        sb.Append(dllNameToAddToRun[j] + " ");
+
+                    runbatFileLines[i] = runbatFileLines[i].Substring(0, idx + f_n.Length) + " " + sb.ToString();
+                }
+            }
+            File.WriteAllLines(runbat, runbatFileLines);
         }  
 
        

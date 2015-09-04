@@ -211,7 +211,6 @@ namespace CST
         {
             string peeledSymT = msg.SymT;
             int pos = 0, st_of_sym = 0, brk_cnt = 0;
-            bool no_more_symT = false;
             bool signed_symT = true;
 
             for (; pos < msg.SymT.Length && msg.SymT[pos] != ')'; pos++)
@@ -225,7 +224,6 @@ namespace CST
                         if (!trustedParties.Contains(partyN))
                         {
                             peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
-                            no_more_symT = true;
                             break;
                         }
 
@@ -235,7 +233,6 @@ namespace CST
                     else
                     {
                         peeledSymT = peeledSymT.Substring(0, st_of_sym) + new String(')', brk_cnt);
-                        no_more_symT = true;
                         break;
                     }
                 }
