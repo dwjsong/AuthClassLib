@@ -186,19 +186,6 @@ namespace CST
                 bool resultOfVerification = uploader.verify(msg.SymT);
 
                 SymTResultCache[msg.SymT] = resultOfVerification;
-//                VProgramGenerator.
-                /*
-                List<MethodRecord> methodList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
-
-                VProgramGenerator.generateVProgram(methodList);
-
-                VProgramGenerator.EditCSproj(methodList);
-                VProgramGenerator.MakeRunBat();
-
-                bool resultOfVerification = VProgramGenerator.verify();
-
-                SymTResultCache[msg.SymT] = resultOfVerification;
-                 */
             }
 
             return SymTResultCache[msg.SymT];

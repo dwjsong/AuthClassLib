@@ -154,8 +154,26 @@ namespace CST
 
             string url = server_url + verify_page + "?" + "SymT=" + SymT + "&token=" + System.Uri.EscapeDataString(token);
 
-            uploadFile(postParameters, url);
-            return true;
+            HttpWebResponse webResponse = MultipartFormDataPost(url, "Uploader", postParameters);
+
+            var content = webResponse.Headers.GetValues("Content-Disposition");
+
+            if (content != null)
+            {
+                var header_list = content.ToList();
+
+                string filename = "";
+
+                if (header_list.Count > 0)
+                    filename = new ContentDisposition(header_list[0]).FileName;
+
+                if (filename.Equals("verified.txt"))
+                    return true;
+                else if (filename.Equals("not_verified.txt"))
+                    return false;
+            }
+
+            return false;
         }
 
         public void uploadMethodRecord(string filePath, string sha)
@@ -198,7 +216,6 @@ namespace CST
             string url = server_url + dllanddepUp_page + "?" + sha_parameter_name + "=" + sha + "&token=" + System.Uri.EscapeDataString(token);
 
             uploadFile(postParameters, url);
-
         }
 
         private void uploadFile(Dictionary<string, object> postParameters, string url)
@@ -340,7 +357,7 @@ namespace CST
             using (WebResponse response = httpWebRequest.GetResponse())
             {
                 var content = response.Headers.GetValues("Content-Disposition");
-
+                
                 if (content != null)
                 {
                     var header_list = content.ToList();
