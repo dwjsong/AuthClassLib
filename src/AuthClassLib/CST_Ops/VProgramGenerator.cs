@@ -267,8 +267,9 @@ namespace CST
 
             XElement oneRef = null;
 
-            foreach (XElement refEl in referenceList)
+            for (int i = referenceList.Count() - 1; i >= 0; i--) 
             {
+                XElement refEl = referenceList.ElementAt(i);
                 XElement hintRef = refEl.Element(msbuild + "HintPath");
                 if (hintRef != null)
                 {
@@ -286,6 +287,7 @@ namespace CST
                     }
                 }
             }
+
             if (oneRef != null)
             {
                 foreach (string libName in dllNameSet)
