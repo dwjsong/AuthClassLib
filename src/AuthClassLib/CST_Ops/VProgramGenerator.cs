@@ -426,6 +426,7 @@ namespace CST
             startInfo.FileName = @"C:\Windows\System32\cmd.exe";
             startInfo.Arguments = "/c " + build_cmd;
             startInfo.UseShellExecute = false;
+            startInfo.RedirectStandardInput = true;
             startInfo.RedirectStandardOutput = true;
             process.StartInfo = startInfo;
             process.Start();
