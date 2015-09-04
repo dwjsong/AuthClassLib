@@ -190,8 +190,12 @@ namespace CST
         {
             string forSHA = text.Substring(text.IndexOf('\n') + 1);
 
+            byte[] recordBytes = new byte[forSHA.Length * sizeof(char)];
+
+            System.Buffer.BlockCopy(forSHA.ToCharArray(), 0, recordBytes, 0, recordBytes.Length);
+
             SHA1 sha = new SHA1CryptoServiceProvider();
-            byte[] result = sha.ComputeHash(Encoding.UTF8.GetBytes(forSHA));
+            byte[] result = sha.ComputeHash(recordBytes);
 
             string SHA = BitConverter.ToString(result).Replace("-", string.Empty);
 
