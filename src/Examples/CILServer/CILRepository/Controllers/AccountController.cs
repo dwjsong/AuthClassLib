@@ -123,6 +123,9 @@ namespace CILRepository.Controllers
         {
             ViewBag.Message = "";
 
+            if (token == null || user_sha == null)
+                return null;
+
             token = token.Trim();
             var user = UserManager.FindById(token);
 
