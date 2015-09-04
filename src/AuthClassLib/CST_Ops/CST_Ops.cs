@@ -193,18 +193,13 @@ namespace CST
 
         public static bool Certify(string SymT, string vPath)
         {
-            if (!VerificationCache.ContainsKey(SymT))
-            {
-                List<MethodRecord> methodList = MethodHasher.getDehashedRecords(SymT);
+            List<MethodRecord> methodList = MethodHasher.getDehashedRecords(SymT);
 
-                VProgramGenerator.generateVProgram(methodList, vPath);
-                VProgramGenerator.EditCSproj(methodList, vPath);
-                bool resultOfVerification = VProgramGenerator.verify(vPath);
+            VProgramGenerator.generateVProgram(methodList, vPath);
+            VProgramGenerator.EditCSproj(methodList, vPath);
+            bool resultOfVerification = VProgramGenerator.verify(vPath);
 
-                VerificationCache[SymT] = resultOfVerification;
-            }
-
-            return VerificationCache[SymT];
+            return resultOfVerification;
         }
 
         private static void RemoveUntrustedSymTPart(CST_Struct msg)
