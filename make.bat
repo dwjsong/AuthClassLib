@@ -58,7 +58,7 @@ set "vpath=%cd%"
 pushd CILRepository
 set "build_path=%cd%"
 REM C:\Windows\Microsoft.NET\Framework64\v4.0.30319\MSBuild.exe .\CILRepository.csproj /p:SolutionDir="%var%"\
-call :editVP
+REM call :editVP
 popd
 popd
 
