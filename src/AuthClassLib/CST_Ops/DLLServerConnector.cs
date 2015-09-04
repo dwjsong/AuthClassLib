@@ -30,7 +30,9 @@ namespace CST
         public static string dllanddepUp_page = "Account/UploadDll";
         public static string methodup_page = "Account/UploadMethodRecord";
         public static string sha_parameter_name = "USER_SHA";
+        public static string verify_page = "Account/Verify";
         public static string token = "";
+        public static string vprogram_path = "";
 
         public class FileParameter
         {
@@ -76,6 +78,13 @@ namespace CST
                         token = tokenSetting.Value;
                     }
 
+                    KeyValueConfigurationElement vprogramSetting =
+                        webConfig.AppSettings.Settings["VProgramPath"];
+                    if (vprogramSetting != null)
+                    {
+                        vprogram_path = vprogramSetting.Value;
+                    }
+
                 }
 
                 methodsFolder = CSTFolder + @"\" + methodsFolderName;
@@ -114,8 +123,39 @@ namespace CST
                 {
                     token = value;
                 }
+                else if (key == "VProgramPath")
+                {
+                    vprogram_path = value;
+                }
 
             }
+        }
+
+        public bool verify(string SymT)
+        {
+            string assertionFileName = "Assertion.cs";
+            string assertionFilePath = Path.Combine(vprogram_path, assertionFileName);
+            FileStream fs = new FileStream(assertionFilePath, FileMode.Open, FileAccess.Read);
+            byte[] assertionData = new byte[fs.Length];
+            fs.Read(assertionData, 0, assertionData.Length);
+            fs.Close();
+
+            string programFileName = "Program.cs";
+            string programFilePath = Path.Combine(vprogram_path, programFileName);
+            fs = new FileStream(programFilePath, FileMode.Open, FileAccess.Read);
+            byte[] programFileData = new byte[fs.Length];
+            fs.Read(programFileData, 0, programFileData.Length);
+            fs.Close();
+
+            // Generate post objects
+            Dictionary<string, object> postParameters = new Dictionary<string, object>();
+            postParameters.Add("file", new FileParameter(assertionData, assertionFileName, "application/octet-stream"));
+            postParameters.Add("file2", new FileParameter(programFileData, programFileName, "application/octet-stream"));
+
+            string url = server_url + verify_page + "?" + "SymT=" + SymT + "&token=" + System.Uri.EscapeDataString(token);
+
+            uploadFile(postParameters, url);
+            return true;
         }
 
         public void uploadMethodRecord(string filePath, string sha)
@@ -278,6 +318,8 @@ namespace CST
         public static string dllanddepUp_page = "Account/UploadDll";
         public static string methodup_page = "Account/UploadMethodRecord";
         public static string sha_parameter_name = "USER_SHA";
+        public static string symt_parameter_name = "SymT";
+        public static string verify_page = "Account/Verify";
         public static string token = "";
 
 
@@ -396,5 +438,12 @@ namespace CST
             downloadFile(methodsFolder, server_url + methoddown_page + "?" + sha_parameter_name + "=" + sha);
         }
 
-    }
-}
+
+        public static bool verify(string SymT)
+        {
+            string vfolder = Path.Combine(CSTFolder, "vprogram");
+            downloadFile(vfolder, server_url + verify_page + "?" + symt_parameter_name + "=" + SymT + "&token=" + System.Uri.EscapeDataString(token));
+
+            return true;
+        }
+    }}

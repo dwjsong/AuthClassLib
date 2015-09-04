@@ -194,11 +194,22 @@ namespace CST
             return dllSet;
         }
 
-        public static void MakeRunBat()
+        public static void CreateTempVFolder(string path)
         {
-//            Directory.
-        }
+            Directory.CreateDirectory(path);
+            string destPath = Path.Combine(path, Path.GetFileName(vProPath));
+            Directory.CreateDirectory(destPath);
 
+            foreach (string dirPath in Directory.GetDirectories(vProPath, "*",
+                SearchOption.AllDirectories))
+                Directory.CreateDirectory(dirPath.Replace(vProPath, destPath));
+
+            //Copy all the files & Replaces any files with the same name
+            foreach (string newPath in Directory.GetFiles(vProPath, "*.*",
+                SearchOption.AllDirectories))
+                File.Copy(newPath, newPath.Replace(vProPath, destPath), true);
+        }
+        
         public static void EditCSproj(List<MethodRecord> methodList)
         {
             Dictionary<string, string> dllPathDict = new Dictionary<string, string>();

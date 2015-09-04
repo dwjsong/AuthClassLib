@@ -59,6 +59,7 @@
             }
             catch (Exception e)
             {
+                Console.Write(e);
                 return false;
             }
         }

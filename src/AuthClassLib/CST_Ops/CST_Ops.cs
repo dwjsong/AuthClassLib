@@ -20,6 +20,7 @@ namespace CST
         private static ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA = new ConcurrentDictionary<string, MethodRecord>();
         private static ConcurrentDictionary<string, bool> SymTResultCache = new ConcurrentDictionary<string, bool>();
         private static DLLServerUploader uploader = new DLLServerUploader();
+        private static DLLServerDownloader downloader = new DLLServerDownloader();
         static public string myPartyName;
         static public HashSet<string> trustedParties = new HashSet<string>();
 
@@ -181,6 +182,11 @@ namespace CST
 
             if (!SymTResultCache.ContainsKey(msg.SymT))
             {
+                bool resultOfVerification = uploader.verify(msg.SymT);
+
+                SymTResultCache[msg.SymT] = resultOfVerification;
+//                VProgramGenerator.
+                /*
                 List<MethodRecord> methodList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
 
                 VProgramGenerator.generateVProgram(methodList);
@@ -191,6 +197,7 @@ namespace CST
                 bool resultOfVerification = VProgramGenerator.verify();
 
                 SymTResultCache[msg.SymT] = resultOfVerification;
+                 */
             }
 
             return SymTResultCache[msg.SymT];
