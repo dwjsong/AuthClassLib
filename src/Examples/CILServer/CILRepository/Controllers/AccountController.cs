@@ -140,6 +140,78 @@ namespace CILRepository.Controllers
         }
 
         [AllowAnonymous]
+        public FileResult Verify(string SymT, string token)
+        {
+            var user = UserManager.FindById(token);
+
+            if (user != null)
+            {
+                string vfolder = @"C:\CST\vprogram\";
+
+                if (Request.Files.Count > 0)
+                {
+                    HttpPostedFileBase assertionFile = null, programFile = null;
+                    string assertionFileName = "Assertion.cs", programFileName = "Program.cs";
+                    for (int i = 0; i < Request.Files.Count; i++)
+                    {
+                        HttpPostedFileBase file = Request.Files[i];
+
+                        if (file != null && file.ContentLength > 0)
+                        {
+                            var fileName = Path.GetFileName(file.FileName);
+                            if (file.FileName.Equals(assertionFileName))
+                            {
+                                assertionFile = file;
+                            }
+                            else if (file.FileName.Equals(programFileName))
+                            {
+                                programFile = file;
+                            }
+
+                        }
+                    }
+
+                    if (assertionFile != null && programFile != null)
+                    {
+                        byte[] time = BitConverter.GetBytes(DateTime.UtcNow.ToBinary());
+                        byte[] key = Guid.NewGuid().ToByteArray();
+                        string rand_folder = Convert.ToBase64String(time.Concat(key).ToArray());
+
+                        string vpath = Path.Combine(vfolder, rand_folder);
+                        Directory.CreateDirectory(vpath);
+
+                        VProgramGenerator.CreateTempVFolder(vpath);
+                        vpath = Path.Combine(vpath, "VProgram");
+
+                        string assertionPath = Path.Combine(vpath, assertionFileName);
+                        string programPath = Path.Combine(vpath, programFileName);
+
+                        var assertionFileOutStream = System.IO.File.Create(assertionPath);
+                        assertionFile.InputStream.CopyTo(assertionFileOutStream);
+                        assertionFileOutStream.Close();
+
+                        var programFileOutStream = System.IO.File.Create(programPath);
+                        programFile.InputStream.CopyTo(programFileOutStream);
+                        programFileOutStream.Close();
+
+                        bool result = CST_Ops.Certify(SymT, vpath);
+
+                        if (result)
+                        {
+                            return File(new byte[1], "application/octet-stream", "verified.txt");
+                        }
+                        else
+                        {
+                            return File(new byte[1], "application/octet-stream", "not_verified.txt");
+                        }
+
+                    }
+                }
+            }
+            return null;
+        }
+
+        [AllowAnonymous]
         public ActionResult UploadMethodRecord(string user_sha, string token)
         {
             var user = UserManager.FindById(token);
