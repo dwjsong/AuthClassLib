@@ -23,6 +23,7 @@ namespace CST
         private static DLLServerDownloader downloader = new DLLServerDownloader();
         static public string myPartyName;
         static public HashSet<string> trustedParties = new HashSet<string>();
+        private static ConcurrentDictionary<string, bool> VerificationCache = new ConcurrentDictionary<string, bool>();
 
         static CST_Ops()
         {
@@ -201,6 +202,22 @@ namespace CST
             }
 
             return SymTResultCache[msg.SymT];
+        }
+
+        public static bool Certify(string SymT, string vPath)
+        {
+            if (!VerificationCache.ContainsKey(SymT))
+            {
+                List<MethodRecord> methodList = MethodHasher.getDehashedRecords(SymT);
+
+                VProgramGenerator.generateVProgram(methodList, vPath);
+                VProgramGenerator.EditCSproj(methodList, vPath);
+                bool resultOfVerification = VProgramGenerator.verify(vPath);
+
+                VerificationCache[SymT] = resultOfVerification;
+            }
+
+            return VerificationCache[SymT];
         }
 
         private static void RemoveUntrustedSymTPart(CST_Struct msg)

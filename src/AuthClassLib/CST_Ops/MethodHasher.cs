@@ -264,5 +264,27 @@ namespace CST
             return mrList;
         }
 
+        public static List<MethodRecord> getDehashedRecords(string SymT)
+        {
+            List<MethodRecord> mrList = new List<MethodRecord>();
+            string[] sha_methods = SymT.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);
+
+            foreach (string method in sha_methods)
+            {
+                string[] partyNameSplit = method.Split(new char[] { ':' }, StringSplitOptions.RemoveEmptyEntries);
+
+                if (partyNameSplit.Length <= 1) continue;
+
+                string stripped_method = partyNameSplit[1];
+
+                MethodRecord mr = MethodHasher.getMRFromFile(stripped_method);
+
+                mrList.Add(mr);
+            }
+
+            return mrList;
+
+        }
+
     }
 }

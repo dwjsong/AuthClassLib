@@ -13,7 +13,7 @@ using System.Xml.Linq;
 
 namespace CST
 {
-    class VProgramGenerator
+    public class VProgramGenerator
     {
         public static string vProPath = @"C:\CST\vProgram\";
         public static string poirotPath = @"C:\PoirotEnlistment";
@@ -158,6 +158,17 @@ namespace CST
             file.Close();
         }
 
+        public static void generateVProgram(List<MethodRecord> methodList, string newVPath)
+        {
+            string program = generateVP(methodList);
+
+            System.IO.StreamWriter file = new System.IO.StreamWriter(newVPath + @"\" + vSynFile);
+
+            file.Write(program);
+
+            file.Close();
+        }
+
         public static HashSet<string> getDep(HashSet<string> dllSet, string fileName)
         {
             /*
@@ -193,6 +204,97 @@ namespace CST
 
             return dllSet;
         }
+        public static void CreateTempVFolder(string path)
+        {
+            Directory.CreateDirectory(path);
+            string destPath = Path.Combine(path, Path.GetFileName(vProPath));
+            Directory.CreateDirectory(destPath);
+
+            foreach (string dirPath in Directory.GetDirectories(vProPath, "*",
+                SearchOption.AllDirectories))
+                Directory.CreateDirectory(dirPath.Replace(vProPath, destPath));
+
+            //Copy all the files & Replaces any files with the same name
+            foreach (string newPath in Directory.GetFiles(vProPath, "*.*",
+                SearchOption.AllDirectories))
+                File.Copy(newPath, newPath.Replace(vProPath, destPath), true);
+        }
+
+        public static void EditCSproj(List<MethodRecord> methodList, string newVPath)
+        {
+            Dictionary<string, string> dllPathDict = new Dictionary<string, string>();
+            HashSet<string> dllNameSet = new HashSet<string>();
+
+            foreach (MethodRecord mr in methodList)
+            {
+                string dllFolder = dllsFolder + mr.SHA_of_DLL;
+
+                if (Directory.Exists(dllFolder))
+                {
+                    string[] fileES = Directory.GetFiles(dllFolder);
+
+                    foreach (string fileName in fileES)
+                    {
+                        if (fileName.EndsWith(".dll"))
+                        {
+                            string name = Path.GetFileNameWithoutExtension(fileName);
+                            dllNameSet.Add(name);
+                            dllPathDict[name] = fileName;
+                        }
+                        else
+                        {
+                            foreach (string dep_filename in getDep(new HashSet<String>(), fileName))
+                            {
+                                string name = Path.GetFileNameWithoutExtension(dep_filename);
+                                dllNameSet.Add(name);
+                                dllPathDict[name] = dep_filename;
+                            }
+                        }
+                    }
+                }
+            }
+
+            string newProjectFile = Path.Combine(newVPath, "VProgram.csproj");
+
+            if (!File.Exists(newProjectFile)) return;
+
+            XDocument projDefinition = XDocument.Load(newProjectFile);
+            IEnumerable<XElement> referenceList = projDefinition
+                .Element(msbuild + "Project")
+                .Elements(msbuild + "ItemGroup")
+                .Elements(msbuild + "Reference");
+
+            XElement oneRef = null;
+
+            foreach (XElement refEl in referenceList)
+            {
+                XElement hintRef = refEl.Element(msbuild + "HintPath");
+                if (hintRef != null)
+                {
+                    string libName = refEl.Attribute("Include").Value;
+                    if (dllNameSet.Contains(libName))
+                    {
+                        hintRef.SetValue(dllPathDict[libName]);
+                        dllNameSet.Remove(libName);
+                        dllPathDict.Remove(libName);
+                    }
+                }
+                oneRef = refEl;
+            }
+            if (oneRef != null)
+            {
+                foreach (string libName in dllNameSet)
+                {
+                    XElement newRefNode = new XElement(msbuild + "Reference",
+                           new XAttribute("Include", libName),
+                           new XElement(msbuild + "HintPath", dllPathDict[libName]));
+
+                    oneRef.Parent.Add(newRefNode);
+                }
+            }
+            projDefinition.Save(newProjectFile);
+        }  
+
 
         public static void CreateTempVFolder(string path)
         {
@@ -279,13 +381,17 @@ namespace CST
                     oneRef.Parent.Add(newRefNode);
                 }
             }
-            projDefinition.Save(projectFile);
-            
-
-        }        
+            projDefinition.Save(projectFile);         
+        }  
+      
         public static bool verify()
         {
-            string build_cmd = "cd " + vProPath + " & " /*+ vProPath*/ + "run.bat";
+            return verify(vProPath);
+        }
+
+        public static bool verify(string newVPath)
+        {
+            string build_cmd = "cd " + newVPath + " & " /*+ vProPath*/ + "run.bat";
 
             System.Diagnostics.Process process = new System.Diagnostics.Process();
             System.Diagnostics.ProcessStartInfo startInfo = new System.Diagnostics.ProcessStartInfo();
