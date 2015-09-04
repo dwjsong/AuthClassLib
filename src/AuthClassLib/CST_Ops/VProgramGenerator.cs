@@ -284,7 +284,8 @@ namespace CST
                     if (dllNameSet.Contains(libName))
                     {
                         hintRef.SetValue(dllPathDict[libName]);
-                        toAddDLL.Append(@"bin\Debug\" + Path.GetFileName(dllPathDict[libName]) + " ");
+                        if (!dllPathDict[libName].EndsWith("CST_Ops.dll"))
+                            toAddDLL.Append(@"bin\Debug\" + Path.GetFileName(dllPathDict[libName]) + " ");
                         dllNameSet.Remove(libName);
                         dllPathDict.Remove(libName);
                         oneRef = refEl;
@@ -304,12 +305,22 @@ namespace CST
                            new XAttribute("Include", libName),
                            new XElement(msbuild + "HintPath", dllPathDict[libName]));
 
-                    toAddDLL.Append(@"bin\Debug\" + Path.GetFileName(dllPathDict[libName]) + " ");
+                    if (!dllPathDict[libName].EndsWith("CST_Ops.dll"))
+                        toAddDLL.Append(@"bin\Debug\" + Path.GetFileName(dllPathDict[libName]) + " ");
                     oneRef.Parent.Add(newRefNode);
                 }
             }
             projDefinition.Save(newProjectFile);
 
+            /*
+             * delete bin and obj folder
+             */
+
+            string binF = Path.Combine(newVPath, "bin");
+            string objF = Path.Combine(newVPath, "obj");
+
+            Directory.Delete(binF, true);
+            Directory.Delete(objF, true);
             /*
              * Add the DLL list to run.bat
              */
