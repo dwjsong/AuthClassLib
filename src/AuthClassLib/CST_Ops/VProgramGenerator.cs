@@ -279,6 +279,10 @@ namespace CST
                         dllNameSet.Remove(libName);
                         dllPathDict.Remove(libName);
                     }
+                    else
+                    {
+                        refEl.Remove();
+                    }
                 }
                 oneRef = refEl;
             }
