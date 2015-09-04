@@ -278,13 +278,13 @@ namespace CST
                         hintRef.SetValue(dllPathDict[libName]);
                         dllNameSet.Remove(libName);
                         dllPathDict.Remove(libName);
+                        oneRef = refEl;
                     }
                     else
                     {
                         refEl.Remove();
                     }
                 }
-                oneRef = refEl;
             }
             if (oneRef != null)
             {
