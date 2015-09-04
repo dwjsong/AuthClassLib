@@ -225,7 +225,7 @@ namespace CST
         {
             Dictionary<string, string> dllPathDict = new Dictionary<string, string>();
             HashSet<string> dllNameSet = new HashSet<string>();
-            List<string> dllNameToAddToRun = new List<string>();
+            StringBuilder toAddDLL = new StringBuilder();
 
             /*
              * Using the method record, generate the DLL list needed to add to the project
@@ -248,12 +248,11 @@ namespace CST
                         }
                         else
                         {
-                            foreach (string dep_filename in getDep(new HashSet<String>(), fileName))
+                            foreach (string dll_filename in getDep(new HashSet<String>(), fileName))
                             {
-                                string name = Path.GetFileNameWithoutExtension(dep_filename);
+                                string name = Path.GetFileNameWithoutExtension(dll_filename);
                                 dllNameSet.Add(name);
-                                dllNameToAddToRun.Add(name);
-                                dllPathDict[name] = dep_filename;
+                                dllPathDict[name] = dll_filename;
                             }
                         }
                     }
@@ -285,6 +284,7 @@ namespace CST
                     if (dllNameSet.Contains(libName))
                     {
                         hintRef.SetValue(dllPathDict[libName]);
+                        toAddDLL.Append(@"bin\Debug\" + Path.GetFileName(dllPathDict[libName]) + " ");
                         dllNameSet.Remove(libName);
                         dllPathDict.Remove(libName);
                         oneRef = refEl;
@@ -304,6 +304,7 @@ namespace CST
                            new XAttribute("Include", libName),
                            new XElement(msbuild + "HintPath", dllPathDict[libName]));
 
+                    toAddDLL.Append(@"bin\Debug\" + Path.GetFileName(dllPathDict[libName]) + " ");
                     oneRef.Parent.Add(newRefNode);
                 }
             }
@@ -314,7 +315,6 @@ namespace CST
              */
             string runbat = Path.Combine(newVPath, "run.bat");
             string[] runbatFileLines = File.ReadAllLines(runbat);
-            StringBuilder sb = new StringBuilder();
 
             for (int i = 0; i < runbatFileLines.Length; i++)
             {
@@ -322,10 +322,7 @@ namespace CST
                 int idx = runbatFileLines[i].IndexOf(f_n);
                 if (idx != -1)
                 {
-                    for (int j = 0; j < dllNameToAddToRun.Count; j++)
-                        sb.Append(dllNameToAddToRun[j] + " ");
-
-                    runbatFileLines[i] = runbatFileLines[i].Substring(0, idx + f_n.Length) + " " + sb.ToString();
+                    runbatFileLines[i] = runbatFileLines[i].Substring(0, idx + f_n.Length) + " " + toAddDLL.ToString();
                 }
             }
             File.WriteAllLines(runbat, runbatFileLines);
