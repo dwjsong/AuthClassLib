@@ -276,7 +276,7 @@ namespace CILRepository.Controllers
                             else if (file.FileName.EndsWith(".dll"))
                             {
                                 dllFile = file;
-                                depFileName = file.FileName;
+                                dllFileName = file.FileName;
                             }
 
                         }
@@ -301,7 +301,7 @@ namespace CILRepository.Controllers
                             if (!Directory.Exists(sha_folder))
                                 Directory.CreateDirectory(sha_folder);
 
-                            hasher.saveToCSTFolder(depFileName, depFileData, dllFileName, dllFileData, user_sha);
+                            hasher.saveToCSTFolder(depFileName, depFileData, dllFileName, dllFileData, trimmed_sha);
 
                             if (user.isIdP)
                             {
