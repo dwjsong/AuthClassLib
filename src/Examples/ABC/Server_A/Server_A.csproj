@@ -46,9 +46,6 @@
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\..\..\..\lib\CST_Ops.dll</HintPath>
     </Reference>
-    <Reference Include="Message">
-      <HintPath>..\..\..\..\lib\Message.dll</HintPath>
-    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System.Net.Http" />
     <Reference Include="System.Web.DynamicData" />
@@ -90,6 +87,12 @@
       <DependentUpon>A_invoke.aspx</DependentUpon>
     </Compile>
     <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CST_Message\Message.csproj">
+      <Project>{98525f38-1a4b-4831-a549-797443c32ce9}</Project>
+      <Name>Message</Name>
+    </ProjectReference>
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>
