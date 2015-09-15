@@ -7,7 +7,5 @@
 </head>
 <body>
     Session["UserID"]=<%:Session["UserID"]%> <br />
-    <% if (Session["UserID"] != null)
-           Response.Write("<h1>Authenticated!</h1>"); %>
 </body>
 </html>
