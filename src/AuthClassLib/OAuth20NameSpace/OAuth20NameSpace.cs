@@ -148,6 +148,11 @@
             get { return (AccessToken)access_token; }
             set { access_token = (AccessToken)value; }
         }
+        public override Permissions permissions
+        {
+            get { return scope; }
+            set { scope = value; }
+        }
         public Permissions scope;
         public string client_id;
         public override string Realm
@@ -172,6 +177,11 @@
         {
             get { return (AccessToken)access_token; }
             set { access_token = (AccessToken)value; }
+        }
+        public override Permissions permissions
+        {
+            get { return scope; }
+            set { scope = value; }
         }
         public Permissions scope;
         public string client_id;
@@ -391,13 +401,12 @@
 
             AccessTokenEntry tokenEntry = (AccessTokenEntry)AccessTokenRecs.getEntry(req.access_token, req.client_id, req.UserID);
 
-            if (req.client_id != tokenEntry.Realm && req.UserID != tokenEntry.UserID && tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet))
+            if (req.client_id != tokenEntry.Realm && req.UserID != tokenEntry.UserID && tokenEntry.permissions.permissionSet.IsSupersetOf(req.permissions.permissionSet))
                 return null;
 
             /* req.client is RS.Realm */
             /* Also, because of the if statement a line above,  req.client == tokenEntry.Realm == GlobalObjects_base.RS.Realm */
             Contract.Assume(tokenEntry.Realm == GlobalObjects_base.RS.Realm);
-
 
             ValidateTokenResponse resp = new ValidateTokenResponse();
             resp.access_token = req.access_token;

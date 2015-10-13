@@ -157,7 +157,11 @@
             get;
             set;
         }
-
+        public abstract Permissions permissions
+        {
+            get;
+            set;
+        }
     }
 
     public abstract class ValidateTicket_Resp_ValidateTicket_Req : CST_Struct
@@ -178,7 +182,11 @@
             set;
         }
 
-        public Permissions permissions;
+        public abstract Permissions permissions
+        {
+            get;
+            set;
+        }
     }
 
     
