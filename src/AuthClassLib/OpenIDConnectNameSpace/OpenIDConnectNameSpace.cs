@@ -11,6 +11,7 @@
     using OAuth20NameSpace;
     using CST;
     using System.Text;
+    using System.Diagnostics.Contracts;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -42,7 +43,8 @@
         internal JsonWebToken id_token;
         internal bool parseJasonDataStructure(JsonDataStrcuture JsonDataStrcuture, string clientSecret)
         {
-            access_token = JsonDataStrcuture.AccessToken;
+            access_token = new AccessToken();
+            access_token.token = JsonDataStrcuture.AccessToken;
             refresh_token = JsonDataStrcuture.RefreshToken;
             expires_in = JsonDataStrcuture.ExpiresIn;
             //scope needs to be handled
@@ -116,6 +118,7 @@
         public RelyingParty()
         {
         }
+
         public RelyingParty(string client_id1, string return_uri1, string client_secret1, string TokenEndpointUrl1)
             :base(client_id1, return_uri1, client_secret1, TokenEndpointUrl1){}
         public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
@@ -138,18 +141,20 @@
 
             return conclude(tokenResp);
         }
+
         public TokenRequest constructTokenRequest(AuthenticationResponse codeResp)
         {
             TokenRequest tokenReq = new TokenRequest();
             tokenReq.code = codeResp.code;
             tokenReq.grant_type = "authorization_code";
             tokenReq.redirect_uri = return_uri; 
-            tokenReq.client_id =client_id;
+            tokenReq.client_id = client_id;
             tokenReq.SymT = codeResp.SymT;
             CST_Ops.recordme(this, codeResp, tokenReq);
 
             return tokenReq;
         } 
+
         public virtual TokenResponse callTokenEndpoint(TokenRequest req)
         {
             JsonDataStrcuture JsonDataStrcuture = new JsonDataStrcuture();
@@ -179,6 +184,7 @@
             }          
             return null;
         }
+
         public AuthenticationConclusion conclude(TokenResponse tokenResp)
         {
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
@@ -190,25 +196,45 @@
             else
                 return null;
         }
+
+        public override ReqResourceRS_Resp_ReqResourceRS_Req RequestResource(AuthTicketAS_Resp_ReqResourceRS_Req req)
+        {
+            /*
+             * Resource Request: part of Auth
+             */
+
+            return null;
+        }
     }
 
 
     abstract public class OpenIDProvider : AuthorizationServer
     {
+        public AuthorizationCodeRecs AuthorizationCodeRecs
+        {
+            get { return (AuthorizationCodeRecs)IdpAuthRecs; }
+            set { IdpAuthRecs = value; }
+        }
+
         protected IDTokenAndAccessTokenRecs IDTokenAndAccessTokenRecs
         {
             get { return (IDTokenAndAccessTokenRecs)AccessTokenRecs; }
             set { AccessTokenRecs = value; }
         }
+
         internal void init(AuthorizationCodeRecs AuthorizationCodeRecs1, IDTokenAndAccessTokenRecs IDTokenAndAccessTokenRecs1)          
         {
             base.init(AuthorizationCodeRecs1, IDTokenAndAccessTokenRecs1);
         }
+
         protected AuthenticationResponse AuthorizationEndpoint(AuthenticationRequest req)
         {
-            if (!req.scope.Contains("openid"))
+/*            if (!req.scope.Contains("openid"))
                 return null;
-            else
+
+            if (!req.scope.permissionSet.Contains("openid"))
+                return null;
+            else*/
                 return (AuthenticationResponse)SignInIdP(req);
         }
         public override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim claim)
@@ -231,28 +257,31 @@
             switch (req.grant_type)
             {
                 case "authorization_code":
-                    IdPSessionSecret = AuthorizationCodeRecs.findISSByClientIDAndCode(req.client_id, req.code);
+                    IdPSessionSecret = AuthorizationCodeRecs.findISSByClientIDAndCode(req.client_id/*, req.UserID*/, req.code);
                     if (IdPSessionSecret == null)
                         return null;
                     AuthorizationCodeEntry AuthCodeEntry = (AuthorizationCodeEntry)AuthorizationCodeRecs.getEntry(IdPSessionSecret, req.client_id);
-                    if (AuthCodeEntry.redirect_uri != req.redirect_uri )
+                    if (AuthCodeEntry.Redir_dest != req.redirect_uri)
                         return null;
                     IDTokenAndAccessTokenEntry = (IDTokenAndAccessTokenEntry)createAccessTokenEntry(AuthCodeEntry.redirect_uri, AuthCodeEntry.scope, AuthCodeEntry.state);
-                    if (IDTokenAndAccessTokenRecs.setEntry(IdPSessionSecret, req.client_id, IDTokenAndAccessTokenEntry) == false)
+                    if (IDTokenAndAccessTokenRecs.setEntry(req.access_token,  req.client_id, req.UserID, IDTokenAndAccessTokenEntry) == false)
                         return null;
 
-                    resp = new TokenResponse();  //copy other fields from IDTokenAndAccessTokenEntry
+                    resp = new TokenResponse();  
                     resp.access_token = IDTokenAndAccessTokenEntry.access_token;
                     resp.refresh_token = IDTokenAndAccessTokenEntry.refresh_token;
                     resp.scope = IDTokenAndAccessTokenEntry.scope;
                     resp.id_token = IDTokenAndAccessTokenEntry.id_token;
+                    resp.id_token.Claims.UserId = AuthCodeEntry.UserID;
                     return resp;
             }
             return null;
         }
     }
+
     public interface NondetOpenIDConnect : Nondet_Base
     {
+        JsonWebToken.JsonWebTokenClaims JsonWebTokenClaims();
         JsonWebToken JsonWebToken();
         IDTokenAndAccessTokenEntry IDTokenAndAccessTokenEntry();
         AuthorizationCodeEntry AuthorizationCodeEntry();

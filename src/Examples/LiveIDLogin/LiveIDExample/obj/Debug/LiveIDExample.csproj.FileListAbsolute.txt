@@ -38,3 +38,22 @@ C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveIDExample.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveIDExample.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveID_IdP.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\LiveID_IdP.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\Communication.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\CST.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\CST_Ops.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\GenericAuthNameSpace.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\OAuth20NameSpace.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\OpenIDConnectNameSpace.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\obj\Debug\LiveIDExample.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\Communication.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\CST.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\CST_Ops.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\GenericAuthNameSpace.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\OAuth20NameSpace.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin\OpenIDConnectNameSpace.dll

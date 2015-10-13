@@ -69,7 +69,7 @@ namespace OpenIDConnectNameSpace
             public string UserId
             {
                 get;
-                private set;
+                set;
             }
 
             [DataMember(Name = "ver")]
@@ -131,7 +131,7 @@ namespace OpenIDConnectNameSpace
         public JsonWebTokenClaims Claims
         {
             get;
-            private set;
+            set;
         }
 
         private string envelopeTokenSegment;

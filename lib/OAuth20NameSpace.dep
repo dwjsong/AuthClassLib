@@ -1,0 +1,14 @@
+<References>
+	<Reference>
+		C:\CST\dlls\Communication.E3173FB50BE56B9419C2D5B6D93B98EFFBF89109\Communication.dll
+	</Reference>
+	<Reference>
+		C:\CST\dlls\CST.E9CFDEC606A9AFF867014E0ABF01415FABD16F53\CST.dll
+	</Reference>
+	<Reference>
+		C:\CST\dlls\CST_Ops.41B05F409A69544E5C0207FE2DF8F4FFD79A399C\CST_Ops.dll
+	</Reference>
+	<Reference>
+		C:\CST\dlls\GenericAuthNameSpace.39A848FCE52172DB8D845A116D4ABAA39F65DE0C\GenericAuthNameSpace.dll
+	</Reference>
+</References>

@@ -177,7 +177,7 @@ namespace CST
             return type.Name;
         }
 
-        public static bool Certify(CST_Struct msg)        
+        public static bool Certify(CST_Struct msg)
         {
             RemoveUntrustedSymTPart(msg);
 
@@ -185,6 +185,23 @@ namespace CST
             {
                 bool resultOfVerification = uploader.verify(msg.SymT);
 
+                SymTResultCache[msg.SymT] = resultOfVerification;
+            }
+
+            return SymTResultCache[msg.SymT];
+        }
+
+        public static bool CertifyLocally(CST_Struct msg)
+        {
+            RemoveUntrustedSymTPart(msg);
+
+            if (!SymTResultCache.ContainsKey(msg.SymT))
+            {
+                List<MethodRecord> mrList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
+
+                VProgramGenerator.EditCSproj(mrList);
+
+                bool resultOfVerification = VProgramGenerator.verify();
                 SymTResultCache[msg.SymT] = resultOfVerification;
             }
 

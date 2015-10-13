@@ -47,3 +47,12 @@ C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\GenericAuthNameSpace.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\OAuth20NameSpace.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\OpenIDConnectNameSpace.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.exe.config
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.exe
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\VProgram.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\Communication.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\LiveIDExample.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\bin\Debug\LiveID_IdP.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\vProgram.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.exe
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\LiveIDLogin\VProgram\obj\Debug\VProgram.pdb

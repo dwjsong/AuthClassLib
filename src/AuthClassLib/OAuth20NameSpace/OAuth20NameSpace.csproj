@@ -34,6 +34,7 @@
   <ItemGroup>
     <Reference Include="System" />
     <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
     <Reference Include="System.Web" />
     <Reference Include="System.Xml.Linq" />
     <Reference Include="System.Data.DataSetExtensions" />
@@ -46,9 +47,17 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\Communication\Communication.csproj">
+      <Project>{51feeb06-18d9-4c31-9cba-7c50a6ec393b}</Project>
+      <Name>Communication</Name>
+    </ProjectReference>
     <ProjectReference Include="..\CST_Common\CST_Common.csproj">
       <Project>{e871eff5-08c9-464a-9a85-248f2c6a9e94}</Project>
       <Name>CST_Common</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\CST_Ops\CST_Ops.csproj">
+      <Project>{990dbf35-8090-4f83-b05c-6fdb27553929}</Project>
+      <Name>CST_Ops</Name>
     </ProjectReference>
     <ProjectReference Include="..\GenericAuthNameSpace\GenericAuthNameSpace.csproj">
       <Project>{d9cf94c5-ddec-4e97-8d89-3fa01fcbbab4}</Project>

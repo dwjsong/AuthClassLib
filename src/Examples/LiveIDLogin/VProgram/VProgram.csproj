@@ -56,10 +56,10 @@
       <HintPath>C:\CST\dlls\OpenIDConnectNameSpace.047880E39F72E2961AB054D2400F63E8B7E34A9B\OpenIDConnectNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="LiveIDExample">
-      <HintPath>C:\CST\dlls\LiveIDExample.E049202718C7F40D41E82D4F63ACC486967D161C\LiveIDExample.dll</HintPath>
+      <HintPath>C:\CST\dlls\LiveIDExample.3372518158175F2DE40160BCAF58D05FFE90B516\LiveIDExample.dll</HintPath>
     </Reference>
     <Reference Include="LiveID_IdP">
-      <HintPath>C:\CST\dlls\LiveID_IdP.7279DFFE7A9A3F0BC0E6A6B0DC30A52A3316CA56\LiveID_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\LiveID_IdP.5F9A3519093E0F4ED7FD4E9D30EC37EB01F64662\LiveID_IdP.dll</HintPath>
     </Reference>
     <Reference Include="Communication">
       <HintPath>C:\CST\dlls\Communication.00029E8353EE27068855777B20C138504A482EE9\Communication.dll</HintPath>

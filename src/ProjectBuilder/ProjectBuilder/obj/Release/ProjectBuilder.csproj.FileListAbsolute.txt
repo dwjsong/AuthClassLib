@@ -14,3 +14,9 @@ C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Relea
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe.config
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.exe
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\bin\Release\ProjectBuilder.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.exe
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\ProjectBuilder\ProjectBuilder\obj\Release\ProjectBuilder.pdb

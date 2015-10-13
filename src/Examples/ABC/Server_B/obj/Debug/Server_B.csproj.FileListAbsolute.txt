@@ -52,3 +52,16 @@ C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Communication
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Server_B.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Server_B.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\CST.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\CST_Ops.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Message.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Communication.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Message.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\CST.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\CST_Ops.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\bin\Communication.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.csprojResolveAssemblyReference.cache
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\Server_B\obj\Debug\Server_B.pdb

@@ -159,13 +159,22 @@ namespace OpenID20NameSpace
             else
                 return null;
         }
+
+        public override ReqResourceRS_Resp_ReqResourceRS_Req RequestResource(AuthTicketAS_Resp_ReqResourceRS_Req req)
+        {
+            /*
+             * Code for requesting resource
+             */
+
+            return null;
+        }
     }
 
     public interface IDAssertionRecs : IdPAuthRecords_Base
     {
     }
 
-    public abstract class OpenIDProvider : IdP
+    public abstract class OpenIDProvider : AS
     {
         public void init(IDAssertionRecs recs)
         {
@@ -218,6 +227,15 @@ namespace OpenID20NameSpace
              */
 
             return req;
+        }
+
+        public override ValidateTicket_Resp_ValidateTicket_Req ValidateTicket(ValidateTicket_Req req)
+        {
+            /*
+             * Code for validating ticket
+             */
+
+            return null;
         }
     }
 

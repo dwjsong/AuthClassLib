@@ -23,3 +23,7 @@ C:\Users\Daniel\Desktop\AuthClassLib\lib\Communication.pdb
 C:\Users\Daniel\Desktop\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Desktop\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.dll
 C:\Users\Daniel\Desktop\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\lib\Communication.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\lib\Communication.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.dll
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\AuthClassLib\Communication\obj\Debug\Communication.pdb

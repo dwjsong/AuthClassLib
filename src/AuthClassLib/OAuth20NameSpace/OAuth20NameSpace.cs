@@ -3,6 +3,12 @@
     using System.Collections.Generic;
     using CST;
     using GenericAuthNameSpace;
+    using System.Web;
+    using System;
+    using System.Net;
+    using System.Runtime.Serialization.Json;
+    using System.Runtime.Serialization;
+    using System.Diagnostics.Contracts;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -19,7 +25,7 @@
             set { client_id = value; }
         }
         public string redirect_uri = null;
-        public HashSet<string> scope;
+        public Permissions scope;
         public string state = null;
     }
 
@@ -36,22 +42,151 @@
         protected string state = null;
     }
 
-    public class AccessTokenRequest : CST_Struct
+    public class AccessToken : Ticket
     {
+        public string token;
+        public override string ticket
+        {
+            get { return token; }
+            set { token = value; }
+        }
+
+        public override int GetHashCode()
+        {
+            return token.GetHashCode();
+        }
+    }
+
+
+    public class AccessTokenRequest : AuthTicketAS_Req
+    {
+        public AccessToken access_token;
+
+        public override Ticket ticket
+        {
+            get { return (AccessToken)access_token; }
+            set { access_token = (AccessToken)value; }
+        }
+        public string UserID;
         public string grant_type;
         public string code;
         public string redirect_uri;
         public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+            set { client_id = value; }
+        }
         public string refresh_token = null;
     }
 
-    public class AccessTokenResponse : CST_Struct
+    public class AccessTokenResponse : AuthTicketAS_Resp_ReqResourceRS_Req
     {
-        public string access_token;
+        public AccessToken access_token;
+
+        public override Ticket ticket
+        {
+            get { return (AccessToken)access_token; }
+            set { access_token = (AccessToken)value; }
+        }
         public string token_type;
         public string expires_in;
+        public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+            set { client_id = value; }
+        }
         public string refresh_token = null;
-        public HashSet<string> scope;
+        public Permissions scope;
+
+
+    }
+
+    public class ResourceRequest : ReqResourceRS_Req
+    {
+        public AccessToken access_token;
+
+        public override Ticket ticket
+        {
+            get { return (AccessToken)access_token; }
+            set { access_token = (AccessToken)value; }
+        }
+
+        public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+            set { client_id = value; }
+        }
+        public Permissions scope;
+    }
+
+    public class ResourceResponse : ReqResourceRS_Resp_ReqResourceRS_Req
+    {
+        public AccessToken access_token;
+
+        public override Ticket ticket
+        {
+            get { return (AccessToken)access_token; }
+            set { access_token = (AccessToken)value; }
+        }
+        public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+            set { client_id = value; }
+        }
+    }
+
+    public class ValidateTokenRequest : ValidateTicket_Req
+    {
+        public AccessToken access_token;
+
+        public override Ticket ticket
+        {
+            get { return (AccessToken)access_token; }
+            set { access_token = (AccessToken)value; }
+        }
+        public Permissions scope;
+        public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+            set { client_id = value; }
+        }
+        public string user;
+        public override string UserID
+        {
+            get { return user; }
+            set { user = value; }
+        }
+
+    }
+
+    public class ValidateTokenResponse : ValidateTicket_Resp_ValidateTicket_Req
+    {
+        public AccessToken access_token;
+
+        public override Ticket ticket
+        {
+            get { return (AccessToken)access_token; }
+            set { access_token = (AccessToken)value; }
+        }
+        public Permissions scope;
+        public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+            set { client_id = value; }
+        }
+        public string user;
+        public override string UserID
+        {
+            get { return user; }
+            set { user = value; }
+        }
+
     }
 
 
@@ -62,34 +197,45 @@
     public class AuthorizationCodeEntry : ID_Claim
     {
         public string code;
+        public string user;
         public override string UserID
         {
-            get { return code; }
+            get { return user; }
         }
         public string redirect_uri;
         public override string Redir_dest
         {
             get { return redirect_uri; }
         }
-        public HashSet<string> scope;
+        public Permissions scope;
         public string state;
     }
 
-    public class AccessTokenEntry : ID_Claim
+    public class AccessTokenEntry : Permission_Claim
     {
-        public string access_token;
+        public AccessToken access_token;
+        public string user;
         public override string UserID
         {
-            get { return access_token; }
+            get { return user; }
         }
         public string redirect_uri;
         public override string Redir_dest
         {
             get { return redirect_uri; }
         }
-        public HashSet<string> scope;
+        public Permissions scope;
+        public override Permissions permissions
+        {
+            get { return scope; }
+        }
         public string refresh_token;
         public string state;
+        public string client_id;
+        public override string Realm
+        {
+            get { return client_id; }
+        }
     }
 
     public interface AuthorizationCodeRecs : IdPAuthRecords_Base
@@ -97,11 +243,18 @@
         string findISSByClientIDAndCode(string client_id, string authorization_code);
     }
 
-    public interface AccessTokenRecs : IdPAuthRecords_Base
+    public interface AccessTokenRecs : ASAuthTicketRecords_Base
     {
-        string findISSByClientIDAndAccessToken(string client_id, string access_token);
-        string findISSByClientIDAndRefreshToken(string client_id, string refresh_token);
+        string findISSByClientIDAndAccessToken(string client_id, string UserID, string access_token);
+        string findISSByClientIDAndRefreshToken(string client_id, string UserID, string refresh_token);
     }
+
+    public interface ResourceRecs : RSResourceRecords_Base
+    {
+
+    }
+
+
 
 
     /***********************************************************/
@@ -112,6 +265,7 @@
         public Client()
         {
         }
+
         public string client_id
         {
             get { return Realm; }
@@ -131,35 +285,159 @@
             client_secret = client_secret1;
             TokenEndpointUrl = TokenEndpointUrl1;
         }
-        public AccessTokenRequest AuthorizationCodeGrant(AuthorizationResponse codeResp)
+
+    }
+
+    public abstract class ResourceServer: RS
+    {
+        public string TokenEndpointUrl;
+
+        ResourceRecs ResourceRecs
         {
-            AccessTokenRequest tokenReq = new AccessTokenRequest();
-            tokenReq.client_id = client_id;
-            tokenReq.code = codeResp.code;
-            tokenReq.grant_type = "authorization_code";
-            tokenReq.redirect_uri = return_uri;
-            return tokenReq;
+            get { return (ResourceRecs)RSResourceRecs; }
+            set { RSResourceRecs = value;  }
         }
 
-    }
-
-    class resource_server
-    {
-    }
-
-    public abstract class AuthorizationServer: IdP
-    {
-        public AuthorizationCodeRecs AuthorizationCodeRecs;
-        protected AccessTokenRecs AccessTokenRecs
+        public void init(ResourceRecs recs)
         {
-            get { return (AccessTokenRecs)IdpAuthRecs; }
+            ResourceRecs = recs;
+        }
+
+        public ValidateTokenRequest createValidateTokenRequest(ResourceRequest res_req)
+        {
+            ValidateTokenRequest vtreq = new ValidateTokenRequest();
+
+            vtreq.access_token = res_req.access_token;
+            vtreq.scope = res_req.scope;
+            vtreq.UserID = res_req.UserID;
+            vtreq.client_id = this.Realm;
+            CST_Ops.recordme(this, res_req, vtreq);
+
+            return vtreq;
+        }
+
+        public ResourceResponse RequestResource(ResourceRequest req)
+        {
+            ValidateTokenRequest treq = createValidateTokenRequest(req);
+            ValidateTokenResponse tresq = callValidateTokenEndpoint(treq);
+
+            if (conclude(tresq))
+            {
+                Resources recources = new Resources();
+                recources.resourceSet = new HashSet<Resource>();
+
+                foreach (Permission perm in req.scope.permissionSet)
+                {
+                    recources.resourceSet.Add(ResourceRecs.getEntry(tresq.UserID, perm));
+                }
+
+                ResourceResponse rr = new ResourceResponse();
+                rr.client_id = tresq.client_id;
+                rr.access_token = tresq.access_token;
+                rr.resources = recources;
+                rr.SymT = tresq.SymT;
+
+                return rr;
+            }
+
+            return null;
+        }
+
+        public abstract ValidateTokenResponse callValidateTokenEndpoint(ValidateTokenRequest treq);
+
+        public bool conclude(ValidateTokenResponse tresq)
+        {
+            AuthorizationConclusion conclusion = new AuthorizationConclusion();
+            conclusion.UserID = tresq.UserID;
+            conclusion.permissions = tresq.scope;
+            conclusion.Realm = tresq.Realm;
+
+            CST_Ops.recordme(this, tresq, conclusion, false, true);
+
+            return RequestResourceDone(conclusion);
+        }
+    }
+
+    public abstract class AuthorizationServer: AS
+    {
+//        public AuthorizationCodeRecs AuthorizationCodeRecs;
+
+        public AuthorizationCodeRecs AuthorizationCodeRecs
+        {
+            get { return (AuthorizationCodeRecs)IdpAuthRecs;  }
             set { IdpAuthRecs = value; }
         }
+
+        protected AccessTokenRecs AccessTokenRecs
+        {
+            get { return (AccessTokenRecs)ASAuthRecs; }
+            set { ASAuthRecs = value; }
+        }
+
         public void init(AuthorizationCodeRecs AuthorizationCodeRecs1, AccessTokenRecs AccessTokenRecs1)
         {
             AuthorizationCodeRecs = AuthorizationCodeRecs1;
             AccessTokenRecs = AccessTokenRecs1;
         }
+
+        public void init(AccessTokenRecs AccessTokenRecs1)
+        {
+            AccessTokenRecs = AccessTokenRecs1;
+        }
+
+        public ValidateTokenResponse ValidateTicket(ValidateTokenRequest req)
+        {
+            Contract.Assume(req == GlobalObjects_base.ValidateTicket_Req);
+
+            AccessTokenEntry tokenEntry = (AccessTokenEntry)AccessTokenRecs.getEntry(req.access_token, req.client_id, req.UserID);
+
+            if (req.client_id != tokenEntry.Realm && req.UserID != tokenEntry.UserID && tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet))
+                return null;
+
+            /* req.client is RS.Realm */
+            /* Also, because of the if statement a line above,  req.client == tokenEntry.Realm == GlobalObjects_base.RS.Realm */
+            Contract.Assume(tokenEntry.Realm == GlobalObjects_base.RS.Realm);
+
+
+            ValidateTokenResponse resp = new ValidateTokenResponse();
+            resp.access_token = req.access_token;
+            resp.client_id = tokenEntry.Realm;
+            resp.scope = tokenEntry.permissions;
+            resp.UserID = tokenEntry.UserID;
+            resp.Realm = tokenEntry.Realm;
+
+            return resp;
+        }
+
+        public override SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req)
+        {
+            GlobalObjects_base.SignInIdP_Req = req;
+
+            if (req == null) return null;
+//            ID_Claim _ID_Claim = Process_SignInIdP_req(req);
+            AuthorizationRequest req1 = (AuthorizationRequest)req;
+            ID_Claim _ID_Claim;
+            Permission_Claim _Permission_Claim;
+
+            switch (req1.response_type)
+            {
+                case "code":
+                    _ID_Claim = createAuthorizationCodeEntry(req1);
+                    if (IdpAuthRecs.setEntry(req1.IdPSessionSecret, req1.Realm, _ID_Claim) == false)
+                        return null;
+                    break;
+                case "token":
+                    _Permission_Claim = createAccessTokenEntry(req1.redirect_uri, req1.scope, req1.state);
+                    _ID_Claim = IdpAuthRecs.getEntry(req1.IdPSessionSecret, req1.Realm);
+//                    AccessTokenRecs.setEntry(, req1.scope, req1.Realm, _ID_Claim.UserID, _Permission_Claim);
+                    break;
+                default:
+                    return null;
+            }
+
+            return Redir(_ID_Claim.Redir_dest, _ID_Claim);
+        }
+
         public override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
         {
             AuthorizationRequest req = (AuthorizationRequest)req1;
@@ -168,15 +446,24 @@
                 case "code":
                     return createAuthorizationCodeEntry(req);                   
                 case "token":
-                    return createAccessTokenEntry(req.redirect_uri,req.scope,req.state);
+//                    return createAccessTokenEntry(req.redirect_uri, req.scope, req.state);
                 default:
                     return null;
             }
         }
+
         protected AuthorizationResponse AuthorizationEndpoint(AuthorizationRequest req)
         {
-            return (AuthorizationResponse)SignInIdP(req);
+            AuthorizationResponse resp = (AuthorizationResponse)SignInIdP(req);
+
+            return resp;
         }
+
+        protected void AuthorizationGrant(AuthorizationResponse resp)
+        {
+
+        }
+
         protected AccessTokenResponse TokenEndpoint(AccessTokenRequest req)
         {
             AccessTokenEntry AccessTokenEntry;
@@ -186,14 +473,14 @@
             switch (req.grant_type)
             {
                 case "authorization_code":
-                    IdPSessionSecret = AuthorizationCodeRecs.findISSByClientIDAndCode(req.client_id, req.code);
+                    IdPSessionSecret = AuthorizationCodeRecs.findISSByClientIDAndCode(req.client_id/*, req.UserID*/, req.code);
                     if (IdPSessionSecret == null)
                         return null;
-                    AuthorizationCodeEntry AuthCodeEntry =(AuthorizationCodeEntry)AuthorizationCodeRecs.getEntry(IdPSessionSecret,req.client_id);
+                    AuthorizationCodeEntry AuthCodeEntry =(AuthorizationCodeEntry)AuthorizationCodeRecs.getEntry(IdPSessionSecret, req.client_id);
                     if (AuthCodeEntry.redirect_uri != req.redirect_uri)
                         return null;
                     AccessTokenEntry = createAccessTokenEntry(AuthCodeEntry.redirect_uri, AuthCodeEntry.scope, AuthCodeEntry.state);
-                    if (AccessTokenRecs.setEntry(IdPSessionSecret,req.client_id, AccessTokenEntry)==false)
+                    if (AccessTokenRecs.setEntry(AccessTokenEntry.access_token, req.client_id, req.UserID, AccessTokenEntry) == false)
                         return null;
                     resp = new AccessTokenResponse();
                     resp.access_token = AccessTokenEntry.access_token;
@@ -201,12 +488,12 @@
                     resp.scope = AccessTokenEntry.scope;
                     return resp;
                 case "refresh_token":
-                    IdPSessionSecret = AccessTokenRecs.findISSByClientIDAndRefreshToken(req.client_id, req.code);
+                    IdPSessionSecret = AccessTokenRecs.findISSByClientIDAndRefreshToken(req.client_id, req.UserID, req.code);
                     if (IdPSessionSecret == null)
                         return null;
-                    AccessTokenEntry = (AccessTokenEntry)AccessTokenRecs.getEntry(IdPSessionSecret, req.client_id);
+                    AccessTokenEntry = (AccessTokenEntry)AccessTokenRecs.getEntry(req.access_token, req.client_id, req.UserID);
                     AccessTokenEntry newAccessTokenEntry = createAccessTokenEntry(AccessTokenEntry.redirect_uri, AccessTokenEntry.scope, AccessTokenEntry.state);
-                    if (AccessTokenRecs.setEntry(IdPSessionSecret, req.client_id, newAccessTokenEntry) == false)
+                    if (AccessTokenRecs.setEntry(newAccessTokenEntry.access_token, req.client_id, req.UserID, newAccessTokenEntry) == false)
                         return null;
                     resp = new AccessTokenResponse();
                     resp.access_token = AccessTokenEntry.access_token;
@@ -217,7 +504,18 @@
                     return null;
             }
         }
+
         public abstract AuthorizationCodeEntry createAuthorizationCodeEntry(AuthorizationRequest req);
-        public abstract AccessTokenEntry createAccessTokenEntry(string redirect_uri, HashSet<string> scope, string state);
+        public abstract AccessTokenEntry createAccessTokenEntry(string redirect_uri, Permissions scope, string state);
+    }
+
+    public interface NondetOAuth20 : Nondet_Base
+    {
+        ValidateTicket_Req ValidateTicket_Req();
+        ValidateTokenRequest ValidateTokenRequest();
+        ResourceRequest ResourceRequest();
+        ResourceResponse ResourceResponse();
+        Dictionary<string, Dictionary<string, Dictionary<string, AccessTokenEntry>>> AccessTokenDictionary();
+        AccessTokenEntry AccessTokenEntry();
     }
 }
