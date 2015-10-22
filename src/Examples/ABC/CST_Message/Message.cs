@@ -6,14 +6,29 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Web;
 using System.Xml;
+using CST;
 
-namespace CST
+namespace CST_Message
 {
     public class Message : CST_Struct
     {
         public int value;
         public string largestParty;
         public bool certified;
+
+        public Message()
+        {
+//            VProgramGenerator.Assertion_cs = Message.Properties
+//            VProgramGenerator.Assertion_cs = Properties.Resources.Assertion;
+//            Message.
+//            Prop
+        }
+
+        public void init()
+        {
+            VProgramGenerator.Assertion_cs = Properties.Resources.Assertion;
+            VProgramGenerator.Program_cs = Properties.Resources.Program;
+        }
 
         public static bool parse(Message msg, HttpRequest request)
         {

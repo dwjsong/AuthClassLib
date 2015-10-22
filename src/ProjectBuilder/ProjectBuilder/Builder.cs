@@ -9,6 +9,7 @@ using System.Xml;
 using System.Xml.Linq;
 using System.Text.RegularExpressions;
 using System.Reflection;
+using System.Diagnostics;
 
 namespace ProjectBuilder
 {
@@ -435,6 +436,8 @@ namespace ProjectBuilder
 
         static void Main(string[] args)
         {
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
             if (args.Length == 1)
             {
                 Console.WriteLine("Not enough Arguments!");
@@ -465,6 +468,52 @@ namespace ProjectBuilder
                     case "-g":
                         break;
                 }
+
+                if (args.Length == 2)
+                {
+                    stopWatch.Stop();
+
+                    String name = Path.GetFileName(args[1]);
+                    string path = @"C:\Users\Daniel Song\Desktop\" + name + "_pre.txt";
+                    if (!File.Exists(path))
+                    {
+                        using (StreamWriter sw = File.CreateText(path))
+                        {
+                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = File.AppendText(path))
+                        {
+                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                        }
+
+                    }
+                }
+
+                if (args.Length > 3)
+                {
+                    stopWatch.Stop();
+
+                    string path = @"C:\Users\Daniel Song\Desktop\" + args[3] + "_post.txt";
+                    if (!File.Exists(path))
+                    {
+                        using (StreamWriter sw = File.CreateText(path))
+                        {
+                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                        }
+                    }
+                    else
+                    {
+                        using (StreamWriter sw = File.AppendText(path))
+                        {
+                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                        }
+
+                    }
+                }
+
             }
             else
             {
@@ -479,6 +528,7 @@ namespace ProjectBuilder
                 Console.ReadKey();
 
             }
+
         }
     }
 }

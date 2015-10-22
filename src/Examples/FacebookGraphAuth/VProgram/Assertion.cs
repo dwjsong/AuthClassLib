@@ -1,10 +1,10 @@
-﻿namespace FBNameSpace
+namespace OAuth20NameSpace
 {
     using GenericAuthNameSpace;
     using OAuth20NameSpace;
     using System.Diagnostics.Contracts;
 
-    public class Facebook_RS_For_vProgram : Facebook_RS
+    public class For_vProgram : ResourceServerImpl
     {
         public override bool RequestResourceDone(AuthorizationConclusion conclusion)
         {

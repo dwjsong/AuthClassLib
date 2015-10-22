@@ -9,7 +9,6 @@ using System.Net;
 using System.Runtime.Serialization.Json;
 using System.Runtime.Serialization;
 using GenericAuthNameSpace;
-using FBNameSpace;
 
 namespace FacebookGraphApiExample
 {
@@ -20,7 +19,7 @@ namespace FacebookGraphApiExample
         static string client_secret = "4e6b2f4926d0ed9fc199d30fd6efc95c";
         static string realm = "localhost";
         static string redirect_uri = "http://localhost:57999/Facebook_GraphAuth.aspx";
-        Facebook_RS RS = new Facebook_RS(realm, client_id, client_secret, redirect_uri);
+        ResourceServerImpl RS = new ResourceServerImpl(realm, client_id, client_secret, redirect_uri);
 
         [DataContract]
         public class JsonDataStrcuture
@@ -61,7 +60,7 @@ namespace FacebookGraphApiExample
                 req.UserID = user_id;
                 req.scope = new GenericAuthNameSpace.Permissions();
                 req.scope.permissionSet = new HashSet<GenericAuthNameSpace.Permission>();
-                req.scope.permissionSet.Add(new Facebook_RS.EmailPermission());
+                req.scope.permissionSet.Add(new ResourceServerImpl.EmailPermission());
 
                 ResourceResponse resp = (ResourceResponse)RS.RequestResource(req);
                 if (resp == null)

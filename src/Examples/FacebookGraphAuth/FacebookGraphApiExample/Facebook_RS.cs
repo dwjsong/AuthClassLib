@@ -8,11 +8,13 @@ using GenericAuthNameSpace;
 using System.Runtime.Serialization;
 using System.Net;
 using System.Runtime.Serialization.Json;
+using System.Diagnostics;
+using System.IO;
 
-namespace FBNameSpace
+namespace OAuth20NameSpace
 {
 
-    public class Facebook_RS : ResourceServer
+    public class ResourceServerImpl : ResourceServer
     {
         public string _client_id, _client_secret;
         public string get_token_url = "https://graph.facebook.com/v2.3/oauth/access_token?";
@@ -83,12 +85,12 @@ namespace FBNameSpace
         static string redirect_uri_ = "http://localhost:57999/Facebook_GraphAuth.aspx";
         static string rl = "localhost";
 
-        public Facebook_RS()
+        public ResourceServerImpl()
             : this(rl, client_id_, client_secret_, redirect_uri_)
         {
         }
 
-        public Facebook_RS(string rl, string client_id, string client_secret, string redirect_uri)
+        public ResourceServerImpl(string rl, string client_id, string client_secret, string redirect_uri)
         {
             this.Realm = rl;
             this._client_id = client_id;
@@ -106,7 +108,6 @@ namespace FBNameSpace
         public void setToken(string access_token)
         {
             this.access_token = access_token;
-//            TokenEndpointUrl = "https://graph.facebook.com/v2.3/oauth/access_token";
         }
 
         public void setCode(string code)
@@ -144,8 +145,8 @@ namespace FBNameSpace
             HttpWebResponse response = (HttpWebResponse)request.GetResponse();
             DataContractJsonSerializer serializer = new DataContractJsonSerializer(typeof(FBPermssionData));
             fbPermssionData = serializer.ReadObject(response.GetResponseStream()) as FBPermssionData;
-            
-            CST_Ops.recordme(new FBNameSpace.Facebook_AP(), treq, vtr, typeof(AuthorizationServer).GetMethod("ValidateTicket"), "facebook.com", false, false);
+
+            CST_Ops.recordme(new OAuth20NameSpace.AuthorizationServerImpl(), treq, vtr, typeof(AuthorizationServer).GetMethod("ValidateTicket"), "facebook.com", false, false);
             vtr.UserID = treq.UserID;
             vtr.scope = treq.scope;
             vtr.access_token = treq.access_token;

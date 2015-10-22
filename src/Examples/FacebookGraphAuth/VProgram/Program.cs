@@ -1,6 +1,5 @@
-﻿using System.Diagnostics.Contracts;
+using System.Diagnostics.Contracts;
 using GenericAuthNameSpace;
-using FBNameSpace;
 using OAuth20NameSpace;
 using CST;
 
@@ -9,8 +8,8 @@ class GlobalObjectsForCST : GlobalObjects_base
     static public void init()
     {
         ValidateTicket_Req = PoirotMain.Nondet.ValidateTicket_Req();
-        AS = new Facebook_AP(); ((Facebook_AP)AS).init();
-        RS = new Facebook_RS_For_vProgram();
+        AS = new AuthorizationServerImpl(); ((AuthorizationServerImpl)AS).init();
+        RS = new For_vProgram();
     }
 }
 class PoirotMain

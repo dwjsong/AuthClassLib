@@ -6,11 +6,12 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ABC;
 using CST;
+using CST_Message;
 
 namespace Server_C
 {
     public partial class C_invoke : System.Web.UI.Page
-    {
+    {        
         C server_c = new C(50);
         protected void Page_Load(object sender, EventArgs e)
         {

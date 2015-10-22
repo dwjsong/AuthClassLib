@@ -31,3 +31,5 @@ C:\Users\Daniel Song\Desktop\AuthClassLib\src\AuthClassLib\OAuth20NameSpace\obj\
 C:\Users\Daniel Song\Desktop\AuthClassLib\src\AuthClassLib\OAuth20NameSpace\obj\Debug\OAuth20NameSpace.pdb
 C:\Users\Daniel Song\Desktop\AuthClassLib\lib\OAuth20NameSpace.dll
 C:\Users\Daniel Song\Desktop\AuthClassLib\lib\OAuth20NameSpace.pdb
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\AuthClassLib\OAuth20NameSpace\obj\Debug\OAuth20NameSpace.Properties.Resources.resources
+C:\Users\Daniel Song\Desktop\AuthClassLib\src\AuthClassLib\OAuth20NameSpace\obj\Debug\OAuth20NameSpace.csproj.GenerateResource.Cache

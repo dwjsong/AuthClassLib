@@ -10,7 +10,6 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.Owin.Security;
 using CILRepository.Models;
-using LiveIDNameSpace;
 using OpenIDConnectNameSpace;
 using System.Collections;
 using System.Data.Entity.Validation;
@@ -331,7 +330,7 @@ namespace CILRepository.Controllers
             return View();
         }
 
-        private LiveID_RP RP = new LiveID_RP();
+        private RelyingPartyImpl RP = new RelyingPartyImpl();
 
         // POST: /Account/MSLogin
         [HttpPost]

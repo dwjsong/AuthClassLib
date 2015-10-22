@@ -135,17 +135,21 @@ namespace CST
         {
             string assertionFileName = "Assertion.cs";
             string assertionFilePath = Path.Combine(vprogram_path, assertionFileName);
-            FileStream fs = new FileStream(assertionFilePath, FileMode.Open, FileAccess.Read);
-            byte[] assertionData = new byte[fs.Length];
-            fs.Read(assertionData, 0, assertionData.Length);
-            fs.Close();
+//            FileStream fs = new FileStream(assertionFilePath, FileMode.Open, FileAccess.Read);
+//            byte[] assertionData = new byte[fs.Length];
+            byte[] assertionData = Encoding.UTF8.GetBytes(VProgramGenerator.Assertion_cs);
+            //VProgramGenerator.Assertion_cs.
+            
+//            fs.Read(assertionData, 0, assertionData.Length);
+//            fs.Close();
 
             string programFileName = "Program.cs";
             string programFilePath = Path.Combine(vprogram_path, programFileName);
-            fs = new FileStream(programFilePath, FileMode.Open, FileAccess.Read);
-            byte[] programFileData = new byte[fs.Length];
-            fs.Read(programFileData, 0, programFileData.Length);
-            fs.Close();
+//            fs = new FileStream(programFilePath, FileMode.Open, FileAccess.Read);
+//            byte[] programFileData = new byte[fs.Length];
+            byte[] programFileData = Encoding.UTF8.GetBytes(VProgramGenerator.Program_cs);
+//            fs.Read(programFileData, 0, programFileData.Length);
+//            fs.Close();
 
             // Generate post objects
             Dictionary<string, object> postParameters = new Dictionary<string, object>();

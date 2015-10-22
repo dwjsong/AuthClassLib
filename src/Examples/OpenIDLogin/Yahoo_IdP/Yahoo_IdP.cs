@@ -8,7 +8,7 @@ using System.Diagnostics.Contracts;
 
 namespace OpenID20NameSpace
 {
-    public class Yahoo_IdP : OpenIDProvider
+    public class AuthorizationServerImpl : OpenIDProvider
     {
         public void init()
         {

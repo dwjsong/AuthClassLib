@@ -14,8 +14,8 @@ class GlobalObjectsForCST : GlobalObjects_base
         ((AuthenticationRequest)SignInIdP_Req).SymT = PoirotMain.Nondet.String();
         ((AuthenticationRequest)SignInIdP_Req).identity = PoirotMain.Nondet.String();
         ((AuthenticationRequest)SignInIdP_Req).realm = PoirotMain.Nondet.String();
-        AS = new Yahoo_IdP(); ((Yahoo_IdP)AS).init();
-        RP = new Yahoo_RP_For_vProgram();
+        AS = new AuthorizationServerImpl(); ((AuthorizationServerImpl)AS).init();
+        RP = new For_vProgram();
     }
 }
 class PoirotMain

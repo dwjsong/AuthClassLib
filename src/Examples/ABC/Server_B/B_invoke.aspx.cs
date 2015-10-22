@@ -6,6 +6,7 @@ using System.Web.UI;
 using System.Web.UI.WebControls;
 using ABC;
 using CST;
+using CST_Message;
 
 namespace Server_B
 {

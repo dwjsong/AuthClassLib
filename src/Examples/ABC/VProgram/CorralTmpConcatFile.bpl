@@ -541,32 +541,32 @@ implementation GlobalObjectsForCST.#cctor()
     F$GlobalObjectsForCST.B := null;
     F$GlobalObjectsForCST.C := null;
     assume {:breadcrumb 1} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 14} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 14} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 14} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 14} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 14} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 14} true;
     call $tmp1 := CST.Nondet_Base.Int(F$PoirotMain.Nondet);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 14} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 14} true;
     call ABC.A.#ctor$System.Int32($tmp0, $tmp1);
     assume $DynamicType($tmp0) == T$ABC.A();
     assume $TypeConstructor($DynamicType($tmp0)) == T$ABC.A;
     F$GlobalObjectsForCST.A := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 15} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 15} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 15} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 15} true;
     call $tmp2 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 15} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 15} true;
     call $tmp3 := CST.Nondet_Base.Int(F$PoirotMain.Nondet);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 15} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 15} true;
     call ABC.B.#ctor$System.Int32($tmp2, $tmp3);
     assume $DynamicType($tmp2) == T$ABC.B();
     assume $TypeConstructor($DynamicType($tmp2)) == T$ABC.B;
     F$GlobalObjectsForCST.B := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 16} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 16} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 16} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 16} true;
     call $tmp4 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 16} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 16} true;
     call $tmp5 := CST.Nondet_Base.Int(F$PoirotMain.Nondet);
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 16} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 16} true;
     call ABC.C.#ctor$System.Int32($tmp4, $tmp5);
     assume $DynamicType($tmp4) == T$ABC.C();
     assume $TypeConstructor($DynamicType($tmp4)) == T$ABC.C;
@@ -613,20 +613,20 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $label: int;
 
     assume {:breadcrumb 2} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
     call $tmp0 := NondetVProgram.Message(F$PoirotMain.Nondet);
     C1_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
     call $tmp1 := ABC.A.invoke$CST.Message(F$GlobalObjectsForCST.A, C1_Ref);
     C2_Ref := $tmp1;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
     call $tmp2 := ABC.B.invoke$CST.Message(F$GlobalObjectsForCST.B, C2_Ref);
     C3_Ref := $tmp2;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\SynthesizedPortion.cs"} {:sourceLine 8} true;
     call $tmp3 := ABC.C.invoke$CST.Message(F$GlobalObjectsForCST.C, C3_Ref);
     C4_Ref := $tmp3;
 }
@@ -695,12 +695,12 @@ implementation PoirotMain.check_Assertion()
   var $label: int;
 
     assume {:breadcrumb 4} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\Assertion.cs"} {:sourceLine 7} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Assertion.cs"} {:sourceLine 7} true;
     $tmp4 := F$GlobalObjectsForCST.C;
     assume $tmp4 != null;
     $tmp5 := F$ABC.C.conclusion[$tmp4];
     assume $tmp5 != null;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\Assertion.cs"} {:sourceLine 7} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Assertion.cs"} {:sourceLine 7} true;
     call $tmp6 := System.String.op_Equality$System.String$System.String(F$CST.Message.largestParty[$tmp5], $string_literal_Alice_0);
     if (!$tmp6)
     {
@@ -738,11 +738,11 @@ implementation PoirotMain.Main()
   var $label: int;
 
     assume {:breadcrumb 5} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 25} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 25} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 25} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 25} true;
     call SynthesizedPortion.SynthesizedSequence();
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 26} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\ABC\VProgram\VProgram.cs"} {:sourceLine 26} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 26} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\ABC\VProgram\Program.cs"} {:sourceLine 26} true;
     call PoirotMain.check_Assertion();
 }
 
@@ -815,7 +815,47 @@ const {:extern} unique T$CST.Message: int;
 
 axiom $TypeConstructor(T$CST.Message()) == T$CST.Message;
 
+procedure {:extern} System.Diagnostics.Stopwatch.#ctor($this: Ref);
+
+
+
+function {:extern} T$System.Diagnostics.Stopwatch() : Ref;
+
+const {:extern} unique T$System.Diagnostics.Stopwatch: int;
+
+axiom $TypeConstructor(T$System.Diagnostics.Stopwatch()) == T$System.Diagnostics.Stopwatch;
+
+procedure {:extern} System.Diagnostics.Stopwatch.Start($this: Ref);
+
+
+
 procedure {:extern} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct(o$in: Ref, in_msg$in: Ref, out_msg$in: Ref);
+
+
+
+procedure {:extern} System.Diagnostics.Stopwatch.Stop($this: Ref);
+
+
+
+const {:value "C:\Users\Daniel Song\Desktop\Alice.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$Alice.txt_1: Ref;
+
+procedure {:extern} System.IO.File.Exists$System.String(path$in: Ref) returns ($result: bool);
+
+
+
+procedure {:extern} System.IO.File.CreateText$System.String(path$in: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} System.Diagnostics.Stopwatch.get_ElapsedMilliseconds($this: Ref) returns ($result: int);
+
+
+
+procedure {:extern} System.IO.TextWriter.WriteLine$System.Int64($this: Ref, value$in: int);
+
+
+
+procedure {:extern} System.IO.File.AppendText$System.String(path$in: Ref) returns ($result: Ref);
 
 
 
@@ -829,6 +869,15 @@ implementation ABC.A.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($re
   var local_0_Ref: Ref;
   var $tmp0: Ref;
   var local_1_Ref: Ref;
+  var $tmp1: Ref;
+  var local_2_Ref: Ref;
+  var $tmp2: bool;
+  var $tmp3: Ref;
+  var local_3_Ref: Ref;
+  var $tmp4: int;
+  var $tmp5: Ref;
+  var $tmp6: int;
+  var local_4_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
@@ -839,16 +888,42 @@ implementation ABC.A.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($re
     assume $DynamicType($tmp0) == T$CST.Message();
     assume $TypeConstructor($DynamicType($tmp0)) == T$CST.Message;
     local_0_Ref := $tmp0;
+    call $tmp1 := Alloc();
+    call System.Diagnostics.Stopwatch.#ctor($tmp1);
+    assume $DynamicType($tmp1) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp1)) == T$System.Diagnostics.Stopwatch;
+    local_1_Ref := $tmp1;
+    call System.Diagnostics.Stopwatch.Start(local_1_Ref);
     call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, in_msg, local_0_Ref);
+    call System.Diagnostics.Stopwatch.Stop(local_1_Ref);
+    local_2_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$Alice.txt_1;
+    call $tmp2 := System.IO.File.Exists$System.String(local_2_Ref);
+    if (!$tmp2)
+    {
+        assume {:breadcrumb 10} true;
+        call $tmp3 := System.IO.File.CreateText$System.String(local_2_Ref);
+        local_3_Ref := $tmp3;
+        call $tmp4 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_1_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp4);
+    }
+    else
+    {
+        assume {:breadcrumb 11} true;
+        call $tmp5 := System.IO.File.AppendText$System.String(local_2_Ref);
+        local_3_Ref := $tmp5;
+        call $tmp6 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_1_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp6);
+    }
+
     assume $this != null;
     F$CST.Message.value[local_0_Ref] := F$ABC.A.data[$this];
     F$CST.Message.largestParty[local_0_Ref] := $string_literal_Alice_0;
     F$CST.CST_Struct.SignedBy[local_0_Ref] := $string_literal_Alice_0;
-    local_1_Ref := local_0_Ref;
-    goto IL_0036;
+    local_4_Ref := local_0_Ref;
+    goto IL_00b9;
 
-  IL_0036:
-    $result := local_1_Ref;
+  IL_00b9:
+    $result := local_4_Ref;
     return;
 }
 
@@ -906,7 +981,7 @@ implementation Server_A.A_invoke.Page_Load$System.Object$System.EventArgs($this:
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 10} true;
+    assume {:breadcrumb 12} true;
     call $tmp0 := Alloc();
     call CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
@@ -916,7 +991,7 @@ implementation Server_A.A_invoke.Page_Load$System.Object$System.EventArgs($this:
     call $tmp2 := CST.Message.parse$CST.Message$System.Web.HttpRequest(local_0_Ref, $tmp1);
     if ($tmp2)
     {
-        assume {:breadcrumb 11} true;
+        assume {:breadcrumb 13} true;
         assume $this != null;
         $tmp3 := F$Server_A.A_invoke.server_a[$this];
         call $tmp4 := ABC.A.invoke$CST.Message($tmp3, local_0_Ref);
@@ -925,7 +1000,7 @@ implementation Server_A.A_invoke.Page_Load$System.Object$System.EventArgs($this:
     }
     else
     {
-        assume {:breadcrumb 12} true;
+        assume {:breadcrumb 14} true;
     }
 }
 
@@ -946,7 +1021,7 @@ implementation Server_A.A_invoke.#ctor($this: Ref)
   var $label: int;
 
     F$Server_A.A_invoke.server_a[$this] := null;
-    assume {:breadcrumb 13} true;
+    assume {:breadcrumb 15} true;
     call $tmp0 := Alloc();
     call ABC.A.#ctor$System.Int32($tmp0, 40);
     assume $DynamicType($tmp0) == T$ABC.A();
@@ -977,7 +1052,7 @@ implementation ABC.B.#ctor($this: Ref)
   var $label: int;
 
     F$ABC.B.data[$this] := 0;
-    assume {:breadcrumb 14} true;
+    assume {:breadcrumb 16} true;
     call System.Object.#ctor($this);
 }
 
@@ -991,62 +1066,99 @@ implementation ABC.B.#ctor$System.Int32($this: Ref, i1$in: int)
 
     i1 := i1$in;
     F$ABC.B.data[$this] := 0;
-    assume {:breadcrumb 15} true;
+    assume {:breadcrumb 17} true;
     call System.Object.#ctor($this);
     F$ABC.B.data[$this] := i1;
 }
 
 
 
-const {:value "Bob"} unique $string_literal_Bob_1: Ref;
+const {:value "C:\Users\Daniel Song\Desktop\Bob.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$Bob.txt_2: Ref;
+
+const {:value "Bob"} unique $string_literal_Bob_3: Ref;
 
 implementation ABC.B.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref)
 {
   var in_msg: Ref;
   var local_0_Ref: Ref;
   var $tmp0: Ref;
-  var $tmp1: Ref;
-  var $tmp2: Ref;
-  var $tmp3: Ref;
   var local_1_Ref: Ref;
+  var $tmp1: Ref;
+  var local_2_Ref: Ref;
+  var $tmp2: bool;
+  var $tmp3: Ref;
+  var local_3_Ref: Ref;
+  var $tmp4: int;
+  var $tmp5: Ref;
+  var $tmp6: int;
+  var $tmp7: Ref;
+  var $tmp8: Ref;
+  var $tmp9: Ref;
+  var local_4_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     in_msg := in_msg$in;
-    assume {:breadcrumb 16} true;
+    assume {:breadcrumb 18} true;
     call $tmp0 := Alloc();
     call CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
     assume $TypeConstructor($DynamicType($tmp0)) == T$CST.Message;
     local_0_Ref := $tmp0;
+    call $tmp1 := Alloc();
+    call System.Diagnostics.Stopwatch.#ctor($tmp1);
+    assume $DynamicType($tmp1) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp1)) == T$System.Diagnostics.Stopwatch;
+    local_1_Ref := $tmp1;
+    call System.Diagnostics.Stopwatch.Start(local_1_Ref);
     call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, in_msg, local_0_Ref);
-    $tmp1 := in_msg;
-    assume $tmp1 != null;
-    F$CST.Message.value[local_0_Ref] := F$CST.Message.value[$tmp1];
-    $tmp2 := in_msg;
-    assume $tmp2 != null;
-    F$CST.Message.largestParty[local_0_Ref] := F$CST.Message.largestParty[$tmp2];
-    $tmp3 := local_0_Ref;
-    assume $tmp3 != null;
-    assume $this != null;
-    if (F$CST.Message.value[$tmp3] < F$ABC.B.data[$this])
+    call System.Diagnostics.Stopwatch.Stop(local_1_Ref);
+    local_2_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$Bob.txt_2;
+    call $tmp2 := System.IO.File.Exists$System.String(local_2_Ref);
+    if (!$tmp2)
     {
-        assume {:breadcrumb 17} true;
-        assume $this != null;
-        F$CST.Message.value[local_0_Ref] := F$ABC.B.data[$this];
-        F$CST.Message.largestParty[local_0_Ref] := $string_literal_Bob_1;
+        assume {:breadcrumb 19} true;
+        call $tmp3 := System.IO.File.CreateText$System.String(local_2_Ref);
+        local_3_Ref := $tmp3;
+        call $tmp4 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_1_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp4);
     }
     else
     {
-        assume {:breadcrumb 18} true;
+        assume {:breadcrumb 20} true;
+        call $tmp5 := System.IO.File.AppendText$System.String(local_2_Ref);
+        local_3_Ref := $tmp5;
+        call $tmp6 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_1_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp6);
     }
 
-    F$CST.CST_Struct.SignedBy[local_0_Ref] := $string_literal_Bob_1;
-    local_1_Ref := local_0_Ref;
-    goto IL_0065;
+    $tmp7 := in_msg;
+    assume $tmp7 != null;
+    F$CST.Message.value[local_0_Ref] := F$CST.Message.value[$tmp7];
+    $tmp8 := in_msg;
+    assume $tmp8 != null;
+    F$CST.Message.largestParty[local_0_Ref] := F$CST.Message.largestParty[$tmp8];
+    $tmp9 := local_0_Ref;
+    assume $tmp9 != null;
+    assume $this != null;
+    if (F$CST.Message.value[$tmp9] < F$ABC.B.data[$this])
+    {
+        assume {:breadcrumb 21} true;
+        assume $this != null;
+        F$CST.Message.value[local_0_Ref] := F$ABC.B.data[$this];
+        F$CST.Message.largestParty[local_0_Ref] := $string_literal_Bob_3;
+    }
+    else
+    {
+        assume {:breadcrumb 22} true;
+    }
 
-  IL_0065:
-    $result := local_1_Ref;
+    F$CST.CST_Struct.SignedBy[local_0_Ref] := $string_literal_Bob_3;
+    local_4_Ref := local_0_Ref;
+    goto IL_00ea;
+
+  IL_00ea:
+    $result := local_4_Ref;
     return;
 }
 
@@ -1088,7 +1200,7 @@ implementation Server_B.B_invoke.Page_Load$System.Object$System.EventArgs($this:
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 19} true;
+    assume {:breadcrumb 23} true;
     call $tmp0 := Alloc();
     call CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
@@ -1098,7 +1210,7 @@ implementation Server_B.B_invoke.Page_Load$System.Object$System.EventArgs($this:
     call $tmp2 := CST.Message.parse$CST.Message$System.Web.HttpRequest(local_0_Ref, $tmp1);
     if ($tmp2)
     {
-        assume {:breadcrumb 20} true;
+        assume {:breadcrumb 24} true;
         assume $this != null;
         $tmp3 := F$Server_B.B_invoke.server_b[$this];
         call $tmp4 := ABC.B.invoke$CST.Message($tmp3, local_0_Ref);
@@ -1107,7 +1219,7 @@ implementation Server_B.B_invoke.Page_Load$System.Object$System.EventArgs($this:
     }
     else
     {
-        assume {:breadcrumb 21} true;
+        assume {:breadcrumb 25} true;
     }
 }
 
@@ -1124,7 +1236,7 @@ implementation Server_B.B_invoke.#ctor($this: Ref)
   var $label: int;
 
     F$Server_B.B_invoke.server_b[$this] := null;
-    assume {:breadcrumb 22} true;
+    assume {:breadcrumb 26} true;
     call $tmp0 := Alloc();
     call ABC.B.#ctor$System.Int32($tmp0, 45);
     assume $DynamicType($tmp0) == T$ABC.B();
@@ -1171,7 +1283,7 @@ implementation Server_C.C_invoke.Page_Load$System.Object$System.EventArgs($this:
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 23} true;
+    assume {:breadcrumb 27} true;
     call $tmp0 := Alloc();
     call CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
@@ -1181,7 +1293,7 @@ implementation Server_C.C_invoke.Page_Load$System.Object$System.EventArgs($this:
     call $tmp2 := CST.Message.parse$CST.Message$System.Web.HttpRequest(local_0_Ref, $tmp1);
     if ($tmp2)
     {
-        assume {:breadcrumb 24} true;
+        assume {:breadcrumb 28} true;
         assume $this != null;
         $tmp3 := F$Server_C.C_invoke.server_c[$this];
         call $tmp4 := ABC.C.invoke$CST.Message($tmp3, local_0_Ref);
@@ -1190,7 +1302,7 @@ implementation Server_C.C_invoke.Page_Load$System.Object$System.EventArgs($this:
     }
     else
     {
-        assume {:breadcrumb 25} true;
+        assume {:breadcrumb 29} true;
     }
 }
 
@@ -1207,7 +1319,7 @@ implementation Server_C.C_invoke.#ctor($this: Ref)
   var $label: int;
 
     F$Server_C.C_invoke.server_c[$this] := null;
-    assume {:breadcrumb 26} true;
+    assume {:breadcrumb 30} true;
     call $tmp0 := Alloc();
     call ABC.C.#ctor$System.Int32($tmp0, 50);
     assume $DynamicType($tmp0) == T$ABC.C();
@@ -1240,7 +1352,7 @@ implementation ABC.C.#ctor($this: Ref)
 
     F$ABC.C.data[$this] := 0;
     F$ABC.C.conclusion[$this] := null;
-    assume {:breadcrumb 27} true;
+    assume {:breadcrumb 31} true;
     call $tmp0 := Alloc();
     call CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
@@ -1261,7 +1373,7 @@ implementation ABC.C.#ctor$System.Int32($this: Ref, i1$in: int)
     i1 := i1$in;
     F$ABC.C.data[$this] := 0;
     F$ABC.C.conclusion[$this] := null;
-    assume {:breadcrumb 28} true;
+    assume {:breadcrumb 32} true;
     call $tmp0 := Alloc();
     call CST.Message.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$CST.Message();
@@ -1273,7 +1385,9 @@ implementation ABC.C.#ctor$System.Int32($this: Ref, i1$in: int)
 
 
 
-const {:value "Charles"} unique $string_literal_Charles_2: Ref;
+const {:value "C:\Users\Daniel Song\Desktop\Charlie.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$Charlie.txt_4: Ref;
+
+const {:value "Charles"} unique $string_literal_Charles_5: Ref;
 
 procedure ABC.C.conclude$CST.Message($this: Ref, msg$in: Ref) returns ($result: bool);
 
@@ -1281,9 +1395,9 @@ procedure ABC.C.conclude$CST.Message($this: Ref, msg$in: Ref) returns ($result: 
 
 var {:extern} F$CST.Message.certified: [Ref]bool;
 
-const {:value "The largest party is "} unique $string_literal_The$largest$party$is$_3: Ref;
+const {:value "The largest party is "} unique $string_literal_The$largest$party$is$_6: Ref;
 
-const {:value "."} unique $string_literal_._4: Ref;
+const {:value "."} unique $string_literal_._7: Ref;
 
 procedure {:extern} System.String.Concat$System.String$System.String$System.String(str0$in: Ref, str1$in: Ref, str2$in: Ref) returns ($result: Ref);
 
@@ -1293,110 +1407,183 @@ procedure {:extern} System.Console.WriteLine$System.String(value$in: Ref);
 
 
 
-const {:value "Not verified."} unique $string_literal_Not$verified._5: Ref;
+const {:value "Not verified."} unique $string_literal_Not$verified._8: Ref;
 
 implementation ABC.C.invoke$CST.Message($this: Ref, in_msg$in: Ref) returns ($result: Ref)
 {
   var in_msg: Ref;
-  var $tmp0: Ref;
-  var $tmp1: Ref;
-  var $tmp2: Ref;
-  var $tmp3: Ref;
-  var $tmp4: bool;
-  var $tmp5: Ref;
-  var $tmp6: Ref;
   var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var local_1_Ref: Ref;
+  var $tmp1: bool;
+  var $tmp2: Ref;
+  var local_2_Ref: Ref;
+  var $tmp3: int;
+  var $tmp4: Ref;
+  var $tmp5: int;
+  var $tmp6: Ref;
+  var $tmp7: Ref;
+  var $tmp8: Ref;
+  var $tmp9: Ref;
+  var $tmp10: bool;
+  var $tmp11: Ref;
+  var $tmp12: Ref;
+  var local_3_Ref: Ref;
   var $localExc: Ref;
   var $label: int;
 
     in_msg := in_msg$in;
-    assume {:breadcrumb 29} true;
+    assume {:breadcrumb 33} true;
+    call $tmp0 := Alloc();
+    call System.Diagnostics.Stopwatch.#ctor($tmp0);
+    assume $DynamicType($tmp0) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$System.Diagnostics.Stopwatch;
+    local_0_Ref := $tmp0;
+    call System.Diagnostics.Stopwatch.Start(local_0_Ref);
     assume $this != null;
     call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct($this, in_msg, F$ABC.C.conclusion[$this]);
-    $tmp0 := in_msg;
-    assume $tmp0 != null;
-    assume $this != null;
-    F$CST.Message.value[F$ABC.C.conclusion[$this]] := F$CST.Message.value[$tmp0];
-    $tmp1 := in_msg;
-    assume $tmp1 != null;
-    assume $this != null;
-    F$CST.Message.largestParty[F$ABC.C.conclusion[$this]] := F$CST.Message.largestParty[$tmp1];
-    $tmp2 := in_msg;
-    assume $tmp2 != null;
-    assume $this != null;
-    F$CST.CST_Struct.SignedBy[F$ABC.C.conclusion[$this]] := F$CST.CST_Struct.SignedBy[$tmp2];
-    assume $this != null;
-    $tmp3 := F$ABC.C.conclusion[$this];
-    assume $tmp3 != null;
-    assume $this != null;
-    if (F$CST.Message.value[$tmp3] < F$ABC.C.data[$this])
+    call System.Diagnostics.Stopwatch.Stop(local_0_Ref);
+    local_1_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$Charlie.txt_4;
+    call $tmp1 := System.IO.File.Exists$System.String(local_1_Ref);
+    if (!$tmp1)
     {
-        assume {:breadcrumb 30} true;
+        assume {:breadcrumb 34} true;
+        call $tmp2 := System.IO.File.CreateText$System.String(local_1_Ref);
+        local_2_Ref := $tmp2;
+        call $tmp3 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_2_Ref, $tmp3);
+    }
+    else
+    {
+        assume {:breadcrumb 35} true;
+        call $tmp4 := System.IO.File.AppendText$System.String(local_1_Ref);
+        local_2_Ref := $tmp4;
+        call $tmp5 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_2_Ref, $tmp5);
+    }
+
+    $tmp6 := in_msg;
+    assume $tmp6 != null;
+    assume $this != null;
+    F$CST.Message.value[F$ABC.C.conclusion[$this]] := F$CST.Message.value[$tmp6];
+    $tmp7 := in_msg;
+    assume $tmp7 != null;
+    assume $this != null;
+    F$CST.Message.largestParty[F$ABC.C.conclusion[$this]] := F$CST.Message.largestParty[$tmp7];
+    $tmp8 := in_msg;
+    assume $tmp8 != null;
+    assume $this != null;
+    F$CST.CST_Struct.SignedBy[F$ABC.C.conclusion[$this]] := F$CST.CST_Struct.SignedBy[$tmp8];
+    assume $this != null;
+    $tmp9 := F$ABC.C.conclusion[$this];
+    assume $tmp9 != null;
+    assume $this != null;
+    if (F$CST.Message.value[$tmp9] < F$ABC.C.data[$this])
+    {
+        assume {:breadcrumb 36} true;
         assume $this != null;
-        F$CST.Message.largestParty[F$ABC.C.conclusion[$this]] := $string_literal_Charles_2;
+        F$CST.Message.largestParty[F$ABC.C.conclusion[$this]] := $string_literal_Charles_5;
         assume $this != null;
         assume $this != null;
         F$CST.Message.value[F$ABC.C.conclusion[$this]] := F$ABC.C.data[$this];
     }
     else
     {
-        assume {:breadcrumb 31} true;
+        assume {:breadcrumb 37} true;
     }
 
     assume $this != null;
-    F$CST.CST_Struct.SignedBy[F$ABC.C.conclusion[$this]] := $string_literal_Charles_2;
+    F$CST.CST_Struct.SignedBy[F$ABC.C.conclusion[$this]] := $string_literal_Charles_5;
     assume $this != null;
-    call $tmp4 := ABC.C.conclude$CST.Message($this, F$ABC.C.conclusion[$this]);
-    if ($tmp4)
+    call $tmp10 := ABC.C.conclude$CST.Message($this, F$ABC.C.conclusion[$this]);
+    if ($tmp10)
     {
-        assume {:breadcrumb 32} true;
+        assume {:breadcrumb 38} true;
         assume $this != null;
         F$CST.Message.certified[F$ABC.C.conclusion[$this]] := true;
         assume $this != null;
-        $tmp5 := F$ABC.C.conclusion[$this];
-        assume $tmp5 != null;
-        call $tmp6 := System.String.Concat$System.String$System.String$System.String($string_literal_The$largest$party$is$_3, F$CST.Message.largestParty[$tmp5], $string_literal_._4);
-        call System.Console.WriteLine$System.String($tmp6);
+        $tmp11 := F$ABC.C.conclusion[$this];
+        assume $tmp11 != null;
+        call $tmp12 := System.String.Concat$System.String$System.String$System.String($string_literal_The$largest$party$is$_6, F$CST.Message.largestParty[$tmp11], $string_literal_._7);
+        call System.Console.WriteLine$System.String($tmp12);
     }
     else
     {
-        assume {:breadcrumb 33} true;
+        assume {:breadcrumb 39} true;
         assume $this != null;
         F$CST.Message.certified[F$ABC.C.conclusion[$this]] := false;
-        call System.Console.WriteLine$System.String($string_literal_Not$verified._5);
+        call System.Console.WriteLine$System.String($string_literal_Not$verified._8);
     }
 
     assume $this != null;
-    local_0_Ref := F$ABC.C.conclusion[$this];
-    goto IL_00f4;
+    local_3_Ref := F$ABC.C.conclusion[$this];
+    goto IL_017a;
 
-  IL_00f4:
-    $result := local_0_Ref;
+  IL_017a:
+    $result := local_3_Ref;
     return;
 }
 
 
 
-procedure {:extern} CST.CST_Ops.Certify$CST.CST_Struct(msg$in: Ref) returns ($result: bool);
+procedure {:extern} CST.CST_Ops.CertifyLocally$CST.CST_Struct(msg$in: Ref) returns ($result: bool);
 
 
+
+const {:value "C:\Users\Daniel Song\Desktop\ABC_Certify.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$ABC_Certify.txt_9: Ref;
 
 implementation ABC.C.conclude$CST.Message($this: Ref, msg$in: Ref) returns ($result: bool)
 {
   var msg: Ref;
-  var local_0_bool: bool;
-  var $tmp0: bool;
+  var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var local_1_bool: bool;
+  var $tmp1: bool;
+  var local_2_Ref: Ref;
+  var $tmp2: bool;
+  var $tmp3: Ref;
+  var local_3_Ref: Ref;
+  var $tmp4: int;
+  var $tmp5: Ref;
+  var $tmp6: int;
+  var local_4_bool: bool;
   var $localExc: Ref;
   var $label: int;
 
     msg := msg$in;
-    assume {:breadcrumb 34} true;
-    call $tmp0 := CST.CST_Ops.Certify$CST.CST_Struct(msg);
-    local_0_bool := $tmp0;
-    goto IL_000a;
+    assume {:breadcrumb 40} true;
+    call $tmp0 := Alloc();
+    call System.Diagnostics.Stopwatch.#ctor($tmp0);
+    assume $DynamicType($tmp0) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$System.Diagnostics.Stopwatch;
+    local_0_Ref := $tmp0;
+    call System.Diagnostics.Stopwatch.Start(local_0_Ref);
+    call $tmp1 := CST.CST_Ops.CertifyLocally$CST.CST_Struct(msg);
+    local_1_bool := $tmp1;
+    local_2_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$ABC_Certify.txt_9;
+    call $tmp2 := System.IO.File.Exists$System.String(local_2_Ref);
+    if (!$tmp2)
+    {
+        assume {:breadcrumb 41} true;
+        call $tmp3 := System.IO.File.CreateText$System.String(local_2_Ref);
+        local_3_Ref := $tmp3;
+        call $tmp4 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp4);
+    }
+    else
+    {
+        assume {:breadcrumb 42} true;
+        call $tmp5 := System.IO.File.AppendText$System.String(local_2_Ref);
+        local_3_Ref := $tmp5;
+        call $tmp6 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp6);
+    }
 
-  IL_000a:
-    $result := local_0_bool;
+    local_4_bool := local_1_bool;
+    goto IL_0088;
+
+  IL_0088:
+    $result := local_4_bool;
     return;
 }
 
@@ -1416,7 +1603,7 @@ procedure {:extern} System.Web.HttpRequest.get_QueryString($this: Ref) returns (
 
 
 
-const {:value "SymT"} unique $string_literal_SymT_6: Ref;
+const {:value "SymT"} unique $string_literal_SymT_10: Ref;
 
 procedure {:extern} System.Collections.Specialized.NameValueCollection.get_Item$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
 
@@ -1424,17 +1611,17 @@ procedure {:extern} System.Collections.Specialized.NameValueCollection.get_Item$
 
 var {:extern} F$CST.CST_Struct.SymT: [Ref]Ref;
 
-const {:value "SignedBy"} unique $string_literal_SignedBy_7: Ref;
+const {:value "SignedBy"} unique $string_literal_SignedBy_11: Ref;
 
-const {:value "value"} unique $string_literal_value_8: Ref;
+const {:value "value"} unique $string_literal_value_12: Ref;
 
-const {:value "Value"} unique $string_literal_Value_9: Ref;
+const {:value "Value"} unique $string_literal_Value_13: Ref;
 
 procedure {:extern} System.Int32.Parse$System.String(s$in: Ref) returns ($result: int);
 
 
 
-const {:value "LargestParty"} unique $string_literal_LargestParty_10: Ref;
+const {:value "LargestParty"} unique $string_literal_LargestParty_14: Ref;
 
 procedure CST.Message.SignatureValid$System.Web.HttpRequest(request$in: Ref) returns ($result: bool);
 
@@ -1474,30 +1661,30 @@ implementation CST.Message.parse$CST.Message$System.Web.HttpRequest(msg$in: Ref,
 
     msg := msg$in;
     request := request$in;
-    assume {:breadcrumb 35} true;
+    assume {:breadcrumb 43} true;
     call $tmp0 := System.Web.HttpRequest.get_QueryString(request);
-    call $tmp1 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp0, $string_literal_SymT_6);
+    call $tmp1 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp0, $string_literal_SymT_10);
     F$CST.CST_Struct.SymT[msg] := $tmp1;
     call $tmp2 := System.Web.HttpRequest.get_QueryString(request);
-    call $tmp3 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp2, $string_literal_SignedBy_7);
+    call $tmp3 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp2, $string_literal_SignedBy_11);
     F$CST.CST_Struct.SignedBy[msg] := $tmp3;
     call $tmp4 := System.Web.HttpRequest.get_QueryString(request);
-    call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_value_8);
+    call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_value_12);
     if ($tmp5 != null)
     {
-        assume {:breadcrumb 36} true;
+        assume {:breadcrumb 44} true;
         call $tmp6 := System.Web.HttpRequest.get_QueryString(request);
-        call $tmp7 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp6, $string_literal_Value_9);
+        call $tmp7 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp6, $string_literal_Value_13);
         call $tmp8 := System.Int32.Parse$System.String($tmp7);
         F$CST.Message.value[msg] := $tmp8;
     }
     else
     {
-        assume {:breadcrumb 37} true;
+        assume {:breadcrumb 45} true;
     }
 
     call $tmp9 := System.Web.HttpRequest.get_QueryString(request);
-    call $tmp10 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp9, $string_literal_LargestParty_10);
+    call $tmp10 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp9, $string_literal_LargestParty_14);
     F$CST.Message.largestParty[msg] := $tmp10;
     $tmp15 := msg;
     assume $tmp15 != null;
@@ -1522,13 +1709,13 @@ implementation CST.Message.parse$CST.Message$System.Web.HttpRequest(msg$in: Ref,
 
     if ((if (if F$CST.CST_Struct.SignedBy[$tmp15] == null then true else $tmp14 == 0) then !$tmp11 else false))
     {
-        assume {:breadcrumb 38} true;
+        assume {:breadcrumb 46} true;
         call CST.Message.generateErrorResponse();
         local_0_bool := false;
     }
     else
     {
-        assume {:breadcrumb 39} true;
+        assume {:breadcrumb 47} true;
         local_0_bool := true;
         goto IL_00a7;
     }
@@ -1566,7 +1753,7 @@ procedure {:extern} System.Int32.ToString($this: int) returns ($result: Ref);
 
 
 
-const {:value "Certified"} unique $string_literal_Certified_11: Ref;
+const {:value "Certified"} unique $string_literal_Certified_15: Ref;
 
 procedure {:extern} System.Boolean.ToString($this: bool) returns ($result: Ref);
 
@@ -1580,7 +1767,7 @@ procedure {:extern} System.Web.HttpResponse.set_StatusCode$System.Int32($this: R
 
 
 
-const {:value "text/xml"} unique $string_literal_text$xml_12: Ref;
+const {:value "text/xml"} unique $string_literal_text$xml_16: Ref;
 
 procedure {:extern} System.Web.HttpResponse.set_ContentType$System.String($this: Ref, value$in: Ref);
 
@@ -1624,7 +1811,7 @@ implementation CST.Message.respond$CST.Message$System.Web.HttpResponse(msg$in: R
 
     msg := msg$in;
     response := response$in;
-    assume {:breadcrumb 40} true;
+    assume {:breadcrumb 48} true;
     call $tmp0 := Alloc();
     call System.Collections.Generic.Dictionary`2.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$System.String());
@@ -1634,25 +1821,25 @@ implementation CST.Message.respond$CST.Message$System.Web.HttpResponse(msg$in: R
     local_0_Ref := $tmp0;
     $tmp1 := msg;
     assume $tmp1 != null;
-    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_SymT_6, F$CST.CST_Struct.SymT[$tmp1]);
+    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_SymT_10, F$CST.CST_Struct.SymT[$tmp1]);
     $tmp2 := msg;
     assume $tmp2 != null;
-    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_SignedBy_7, F$CST.CST_Struct.SignedBy[$tmp2]);
+    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_SignedBy_11, F$CST.CST_Struct.SignedBy[$tmp2]);
     $tmp3 := msg;
     assume $tmp3 != null;
-    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_LargestParty_10, F$CST.Message.largestParty[$tmp3]);
+    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_LargestParty_14, F$CST.Message.largestParty[$tmp3]);
     assume msg != null;
     $tmp4 := F$CST.Message.value[msg];
     call $tmp5 := System.Int32.ToString($tmp4);
-    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_Value_9, $tmp5);
+    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_Value_13, $tmp5);
     assume msg != null;
     $tmp6 := F$CST.Message.certified[msg];
     call $tmp7 := System.Boolean.ToString($tmp6);
-    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_Certified_11, $tmp7);
+    call System.Collections.Generic.Dictionary`2.Add$`0$`1(local_0_Ref, $string_literal_Certified_15, $tmp7);
     call $tmp8 := HTTP.HTTPComm.GenerateXML$System.Collections.Generic.Dictionary$System.String$System.String$(local_0_Ref);
     local_1_Ref := $tmp8;
     call System.Web.HttpResponse.set_StatusCode$System.Int32(response, 200);
-    call System.Web.HttpResponse.set_ContentType$System.String(response, $string_literal_text$xml_12);
+    call System.Web.HttpResponse.set_ContentType$System.String(response, $string_literal_text$xml_16);
     call $tmp9 := System.Text.Encoding.get_UTF8();
     call System.Web.HttpResponse.set_ContentEncoding$System.Text.Encoding(response, $tmp9);
     call $tmp10 := System.Web.HttpResponse.get_Output(response);
@@ -1666,7 +1853,7 @@ implementation CST.Message.generateErrorResponse()
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 41} true;
+    assume {:breadcrumb 49} true;
 }
 
 
@@ -1679,7 +1866,7 @@ implementation CST.Message.SignatureValid$System.Web.HttpRequest(request$in: Ref
   var $label: int;
 
     request := request$in;
-    assume {:breadcrumb 42} true;
+    assume {:breadcrumb 50} true;
     local_0_bool := true;
     goto IL_0005;
 
@@ -1702,7 +1889,7 @@ implementation CST.Message.#ctor($this: Ref)
     F$CST.Message.value[$this] := 0;
     F$CST.Message.largestParty[$this] := null;
     F$CST.Message.certified[$this] := false;
-    assume {:breadcrumb 43} true;
+    assume {:breadcrumb 51} true;
     call CST.CST_Struct.#ctor($this);
 }
 
@@ -1734,7 +1921,7 @@ function T$CST.CST_Struct() : Ref;
 
 const unique T$CST.CST_Struct: int;
 
-const {:value ""} unique $string_literal__13: Ref;
+const {:value ""} unique $string_literal__17: Ref;
 
 implementation CST.CST_Struct.#ctor($this: Ref)
 {
@@ -1743,9 +1930,9 @@ implementation CST.CST_Struct.#ctor($this: Ref)
 
     F$CST.CST_Struct.SymT[$this] := null;
     F$CST.CST_Struct.SignedBy[$this] := null;
-    assume {:breadcrumb 44} true;
-    F$CST.CST_Struct.SymT[$this] := $string_literal__13;
-    F$CST.CST_Struct.SignedBy[$this] := $string_literal__13;
+    assume {:breadcrumb 52} true;
+    F$CST.CST_Struct.SymT[$this] := $string_literal__17;
+    F$CST.CST_Struct.SignedBy[$this] := $string_literal__17;
     call System.Object.#ctor($this);
 }
 
@@ -1774,7 +1961,7 @@ implementation CST.Debug.reached()
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 45} true;
+    assume {:breadcrumb 53} true;
     assert false;
 }
 
@@ -1789,7 +1976,7 @@ implementation CST.Debug.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 46} true;
+    assume {:breadcrumb 54} true;
     call System.Object.#ctor($this);
 }
 

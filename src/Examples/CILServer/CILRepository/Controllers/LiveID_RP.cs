@@ -1,11 +1,12 @@
-﻿namespace LiveIDNameSpace
+﻿namespace OpenIDConnectNameSpace
 {
     using System;
     using System.Web;
     using System.Web.SessionState;
     using CST;
     using GenericAuthNameSpace;
-    using OpenIDConnectNameSpace;
+    using System.Diagnostics;
+    using System.IO;
 
 
     /***********************************************************/
@@ -20,13 +21,13 @@
     /*                          Parties                        */
     /***********************************************************/
 
-    public class LiveID_RP: RelyingParty 
+    public class RelyingPartyImpl: RelyingParty 
     {
-        public LiveID_RP( string client_id, string return_uri, string client_secret, string TokenEndpointUrl)
+        public RelyingPartyImpl( string client_id, string return_uri, string client_secret, string TokenEndpointUrl)
             :base(client_id, return_uri, client_secret, TokenEndpointUrl) 
         {
         }
-        public LiveID_RP()
+        public RelyingPartyImpl()
             : this(
                 "0000000044159E9D",
 //                "0000000044114C32",
@@ -49,7 +50,27 @@
         {
             TokenResponse tr = base.callTokenEndpoint(req);
 
-            CST_Ops.recordme(new LiveIDNameSpace.LiveID_IdP(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"), "live.com", false, false);
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            CST_Ops.recordme(new OpenIDConnectNameSpace.AuthorizationServerImpl(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"), "live.com", false, false);
+            stopWatch.Stop();
+            string path = @"C:\Users\Daniel Song\Desktop\IdP_TokenRequest.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+
+            }
 
             return tr;
         }

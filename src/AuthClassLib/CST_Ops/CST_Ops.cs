@@ -200,6 +200,7 @@ namespace CST
                 List<MethodRecord> mrList = MethodHasher.getDehashedRecords(methodSHADictKEYSHA, msg);
 
                 VProgramGenerator.EditCSproj(mrList);
+                VProgramGenerator.generateVProgram(mrList);
 
                 bool resultOfVerification = VProgramGenerator.verify();
                 SymTResultCache[msg.SymT] = resultOfVerification;

@@ -12,6 +12,7 @@
     using CST;
     using System.Text;
     using System.Diagnostics.Contracts;
+    using System.Diagnostics;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -119,6 +120,12 @@
         {
         }
 
+        public void init()
+        {
+            VProgramGenerator.Assertion_cs = Properties.Resources.Assertion;
+            VProgramGenerator.Program_cs = Properties.Resources.Program;
+        }
+
         public RelyingParty(string client_id1, string return_uri1, string client_secret1, string TokenEndpointUrl1)
             :base(client_id1, return_uri1, client_secret1, TokenEndpointUrl1){}
         public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
@@ -150,7 +157,29 @@
             tokenReq.redirect_uri = return_uri; 
             tokenReq.client_id = client_id;
             tokenReq.SymT = codeResp.SymT;
+
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             CST_Ops.recordme(this, codeResp, tokenReq);
+            stopWatch.Stop();
+            string path = @"C:\Users\Daniel Song\Desktop\RP_constructTokenRequest.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+
+            }
+
 
             return tokenReq;
         } 
@@ -189,7 +218,29 @@
         {
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
             conclusion.SessionUID = tokenResp.id_token.Claims.UserId;
+
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
             CST_Ops.recordme(this, tokenResp, conclusion, false, true);
+            stopWatch.Stop();
+            string path = @"C:\Users\Daniel Song\Desktop\RP_conclude.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+
+            }
+
 
             if (AuthenticationDone(conclusion))
                 return conclusion;
@@ -197,14 +248,6 @@
                 return null;
         }
 
-        public override ReqResourceRS_Resp_ReqResourceRS_Req RequestResource(AuthTicketAS_Resp_ReqResourceRS_Req req)
-        {
-            /*
-             * Resource Request: part of Auth
-             */
-
-            return null;
-        }
     }
 
 

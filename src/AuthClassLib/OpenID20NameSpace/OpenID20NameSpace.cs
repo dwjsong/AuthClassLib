@@ -9,6 +9,8 @@ using CST;
 using System.Web;
 using System.Diagnostics.Contracts;
 using HTTP;
+using System.Diagnostics;
+using System.IO;
 
 namespace OpenID20NameSpace
 {
@@ -82,6 +84,12 @@ namespace OpenID20NameSpace
         public string assoc_handle;
         public string endpointUrl;
 
+        public void init()
+        {
+            VProgramGenerator.Assertion_cs = Properties.Resources.Assertion;
+            VProgramGenerator.Program_cs = Properties.Resources.Program;
+        }
+
         public AuthenticationRequest RequestAuthentication(AuthenticationResponse resp)
         {
             var req = new AuthenticationRequest();
@@ -152,6 +160,7 @@ namespace OpenID20NameSpace
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
 
             conclusion.SessionUID = req.claimed_id;
+
             CST_Ops.recordme(this, req, conclusion, true);
 
             if (AuthenticationDone(conclusion))
@@ -160,14 +169,6 @@ namespace OpenID20NameSpace
                 return null;
         }
 
-        public override ReqResourceRS_Resp_ReqResourceRS_Req RequestResource(AuthTicketAS_Resp_ReqResourceRS_Req req)
-        {
-            /*
-             * Code for requesting resource
-             */
-
-            return null;
-        }
     }
 
     public interface IDAssertionRecs : IdPAuthRecords_Base
@@ -229,14 +230,6 @@ namespace OpenID20NameSpace
             return req;
         }
 
-        public override ValidateTicket_Resp_ValidateTicket_Req ValidateTicket(ValidateTicket_Req req)
-        {
-            /*
-             * Code for validating ticket
-             */
-
-            return null;
-        }
     }
 
     public interface NondetOpenID20 : Nondet_Base

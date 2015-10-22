@@ -1,7 +1,6 @@
-﻿namespace LiveIDNameSpace
+﻿namespace OpenIDConnectNameSpace
 {
     using System.Collections.Generic;
-    using OpenIDConnectNameSpace;
     using GenericAuthNameSpace;
     using OAuth20NameSpace;
     using CST;
@@ -22,7 +21,7 @@
     /*                          Parties                        */
     /***********************************************************/
 
-    public class LiveID_IdP : OpenIDProvider
+    public class AuthorizationServerImpl : OpenIDProvider
     {
         public void init()
         {
@@ -72,7 +71,6 @@
         }
         class IDTokenAndAccessTokenDictionary_def : IDTokenAndAccessTokenRecs
         {
-            //Dictionary<string, Dictionary<string, IDTokenAndAccessTokenEntry>> Dictionary = new Dictionary<string,Dictionary<string,IDTokenAndAccessTokenEntry>>();
             Dictionary<AccessToken, Dictionary<string, Dictionary<string, AccessTokenEntry>>> Dictionary = new Dictionary<AccessToken, Dictionary<string, Dictionary<string, AccessTokenEntry>>>();
 
             public Permission_Claim getEntry(Ticket ticket, string Realm, string UserID)
@@ -128,7 +126,6 @@
             entry.scope = scope;
             entry.state = state;
             entry.id_token = Nondet.JsonWebToken();
-//            entry.id_token.Claims = Nondet.JsonWebTokenClaims();
  
             return entry;
         }

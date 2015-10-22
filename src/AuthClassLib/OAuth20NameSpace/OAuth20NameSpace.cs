@@ -9,6 +9,8 @@
     using System.Runtime.Serialization.Json;
     using System.Runtime.Serialization;
     using System.Diagnostics.Contracts;
+    using System.Diagnostics;
+    using System.IO;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -311,6 +313,8 @@
         public void init(ResourceRecs recs)
         {
             ResourceRecs = recs;
+            VProgramGenerator.Assertion_cs = Properties.Resources.Assertion;
+            VProgramGenerator.Program_cs = Properties.Resources.Program;
         }
 
         public ValidateTokenRequest createValidateTokenRequest(ResourceRequest res_req)
@@ -321,6 +325,7 @@
             vtreq.scope = res_req.scope;
             vtreq.UserID = res_req.UserID;
             vtreq.client_id = this.Realm;
+
             CST_Ops.recordme(this, res_req, vtreq);
 
             return vtreq;
@@ -370,8 +375,6 @@
 
     public abstract class AuthorizationServer: AS
     {
-//        public AuthorizationCodeRecs AuthorizationCodeRecs;
-
         public AuthorizationCodeRecs AuthorizationCodeRecs
         {
             get { return (AuthorizationCodeRecs)IdpAuthRecs;  }
@@ -423,7 +426,6 @@
             GlobalObjects_base.SignInIdP_Req = req;
 
             if (req == null) return null;
-//            ID_Claim _ID_Claim = Process_SignInIdP_req(req);
             AuthorizationRequest req1 = (AuthorizationRequest)req;
             ID_Claim _ID_Claim;
             Permission_Claim _Permission_Claim;
@@ -438,7 +440,6 @@
                 case "token":
                     _Permission_Claim = createAccessTokenEntry(req1.redirect_uri, req1.scope, req1.state);
                     _ID_Claim = IdpAuthRecs.getEntry(req1.IdPSessionSecret, req1.Realm);
-//                    AccessTokenRecs.setEntry(, req1.scope, req1.Realm, _ID_Claim.UserID, _Permission_Claim);
                     break;
                 default:
                     return null;
@@ -476,9 +477,10 @@
         protected AccessTokenResponse TokenEndpoint(AccessTokenRequest req)
         {
             AccessTokenEntry AccessTokenEntry;
-            AccessTokenResponse resp;
             string IdPSessionSecret;
             if (req == null) return null;
+            AccessTokenResponse resp = new AccessTokenResponse();
+            CST_Ops.recordme(this, req, resp);
             switch (req.grant_type)
             {
                 case "authorization_code":
@@ -491,7 +493,7 @@
                     AccessTokenEntry = createAccessTokenEntry(AuthCodeEntry.redirect_uri, AuthCodeEntry.scope, AuthCodeEntry.state);
                     if (AccessTokenRecs.setEntry(AccessTokenEntry.access_token, req.client_id, req.UserID, AccessTokenEntry) == false)
                         return null;
-                    resp = new AccessTokenResponse();
+                    
                     resp.access_token = AccessTokenEntry.access_token;
                     resp.refresh_token = AccessTokenEntry.refresh_token;
                     resp.scope = AccessTokenEntry.scope;
@@ -504,7 +506,6 @@
                     AccessTokenEntry newAccessTokenEntry = createAccessTokenEntry(AccessTokenEntry.redirect_uri, AccessTokenEntry.scope, AccessTokenEntry.state);
                     if (AccessTokenRecs.setEntry(newAccessTokenEntry.access_token, req.client_id, req.UserID, newAccessTokenEntry) == false)
                         return null;
-                    resp = new AccessTokenResponse();
                     resp.access_token = AccessTokenEntry.access_token;
                     resp.refresh_token = AccessTokenEntry.refresh_token;
                     resp.scope = AccessTokenEntry.scope;

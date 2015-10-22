@@ -349,7 +349,7 @@ const {:extern} unique T$OpenID20NameSpace.Yahoo_IdP: int;
 
 axiom $TypeConstructor(T$OpenID20NameSpace.Yahoo_IdP()) == T$OpenID20NameSpace.Yahoo_IdP;
 
-var {:extern} F$GenericAuthNameSpace.GlobalObjects_base.IdP: Ref;
+var {:extern} F$GenericAuthNameSpace.GlobalObjects_base.AS: Ref;
 
 procedure {:extern} OpenID20NameSpace.Yahoo_IdP.init($this: Ref);
 
@@ -381,15 +381,15 @@ implementation GlobalObjectsForCST.init()
   var $label: int;
 
     assume {:breadcrumb 0} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
     call $tmp0 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 10} true;
     call OpenID20NameSpace.AuthenticationRequest.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.AuthenticationRequest();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.AuthenticationRequest;
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 11} true;
     if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req)) == T$OpenID20NameSpace.AuthenticationRequest)
     {
         assume {:breadcrumb 1} true;
@@ -403,46 +403,46 @@ implementation GlobalObjectsForCST.init()
         call GenericAuthNameSpace.SignInIdP_Req.set_Realm$System.String(F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req, $tmp2);
     }
 
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 12} true;
     call $tmp3 := CST.Nondet_Base.String(F$PoirotMain.Nondet);
     F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req] := $tmp3;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 13} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 13} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 13} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 13} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 13} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 13} true;
     call $tmp4 := CST.Nondet_Base.String(F$PoirotMain.Nondet);
     F$OpenID20NameSpace.AuthenticationRequest.return_to[F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req] := $tmp4;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 14} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 14} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 14} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 14} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 14} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 14} true;
     call $tmp5 := CST.Nondet_Base.String(F$PoirotMain.Nondet);
     F$CST.CST_Struct.SymT[F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req] := $tmp5;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 15} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 15} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 15} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 15} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 15} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 15} true;
     call $tmp6 := CST.Nondet_Base.String(F$PoirotMain.Nondet);
     F$OpenID20NameSpace.AuthenticationRequest.identity[F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req] := $tmp6;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 16} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 16} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 16} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 16} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 16} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 16} true;
     call $tmp7 := CST.Nondet_Base.String(F$PoirotMain.Nondet);
     F$OpenID20NameSpace.AuthenticationRequest.realm[F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req] := $tmp7;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
     call $tmp8 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
     call OpenID20NameSpace.Yahoo_IdP.#ctor($tmp8);
     assume $DynamicType($tmp8) == T$OpenID20NameSpace.Yahoo_IdP();
     assume $TypeConstructor($DynamicType($tmp8)) == T$OpenID20NameSpace.Yahoo_IdP;
-    F$GenericAuthNameSpace.GlobalObjects_base.IdP := $tmp8;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
-    call OpenID20NameSpace.Yahoo_IdP.init(F$GenericAuthNameSpace.GlobalObjects_base.IdP);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 18} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 18} true;
+    F$GenericAuthNameSpace.GlobalObjects_base.AS := $tmp8;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 17} true;
+    call OpenID20NameSpace.Yahoo_IdP.init(F$GenericAuthNameSpace.GlobalObjects_base.AS);
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 18} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 18} true;
     call $tmp9 := Alloc();
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 18} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 18} true;
     call LiveIDNameSpace.Yahoo_RP_For_vProgram.#ctor($tmp9);
     assume $DynamicType($tmp9) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram();
     assume $TypeConstructor($DynamicType($tmp9)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram;
@@ -498,11 +498,11 @@ implementation PoirotMain.Main()
   var $label: int;
 
     assume {:breadcrumb 4} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 27} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 27} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 27} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 27} true;
     call GlobalObjectsForCST.init();
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 28} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 28} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 28} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Program.cs"} {:sourceLine 28} true;
     call SynthesizedPortion.SynthesizedSequence();
 }
 
@@ -550,7 +550,7 @@ procedure {:extern} OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSp
 
 
 
-procedure {:extern} GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref);
+procedure {:extern} GenericAuthNameSpace.AS.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref);
 
 
 
@@ -597,29 +597,29 @@ implementation SynthesizedPortion.SynthesizedSequence()
   var $label: int;
 
     assume {:breadcrumb 6} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 5} true;
     call $tmp0 := OpenID20NameSpace.NondetOpenID20.SignInIdP_Req(F$PoirotMain.Nondet);
     G1_Ref := $tmp0;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
-    if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.Yahoo_IdP)
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 6} true;
+    if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.AS)) == T$OpenID20NameSpace.Yahoo_IdP)
     {
-        call $tmp1 := OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.IdP, G1_Ref);
+        call $tmp1 := OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.AS, G1_Ref);
     }
     else
     {
-        if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.OpenIDProvider)
+        if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.AS)) == T$OpenID20NameSpace.OpenIDProvider)
         {
-            call $tmp2 := OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.IdP, G1_Ref);
+            call $tmp2 := OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.AS, G1_Ref);
         }
         else
         {
-            call $tmp3 := GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.IdP, G1_Ref);
+            call $tmp3 := GenericAuthNameSpace.AS.SignInIdP$GenericAuthNameSpace.SignInIdP_Req(F$GenericAuthNameSpace.GlobalObjects_base.AS, G1_Ref);
         }
     }
 
-    G2_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp1 else (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.IdP)) == T$OpenID20NameSpace.OpenIDProvider then $tmp2 else $tmp3));
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
+    G2_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.AS)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp1 else (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.AS)) == T$OpenID20NameSpace.OpenIDProvider then $tmp2 else $tmp3));
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\SynthesizedPortion.cs"} {:sourceLine 7} true;
     if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.GlobalObjects_base.RP)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram)
     {
         call $tmp4 := OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req(F$GenericAuthNameSpace.GlobalObjects_base.RP, G2_Ref);
@@ -689,10 +689,10 @@ implementation LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericA
 
     conclusion := conclusion$in;
     assume {:breadcrumb 8} true;
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 11} true;
-    assert {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 11} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 11} true;
+    assert {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 11} true;
     call GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion);
-    assert {:first} {:sourceFile "c:\Users\t-das\Documents\Visual Studio 2013\Projects\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 13} true;
+    assert {:first} {:sourceFile "c:\Users\Daniel Song\Desktop\AuthClassLib\src\Examples\OpenIDLogin\VProgram\Assertion.cs"} {:sourceLine 13} true;
     $result := true;
     return;
 }
@@ -833,7 +833,7 @@ procedure OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this: Ref) retur
 
 
 
-var {:extern} F$GenericAuthNameSpace.IdP.IdpAuthRecs: [Ref]Ref;
+var {:extern} F$GenericAuthNameSpace.AS.IdpAuthRecs: [Ref]Ref;
 
 implementation OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this: Ref) returns ($result: Ref)
 {
@@ -843,7 +843,7 @@ implementation OpenID20NameSpace.OpenIDProvider.get_IDAssertionRecs($this: Ref) 
 
     assume {:breadcrumb 12} true;
     assume $this != null;
-    local_0_Ref := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+    local_0_Ref := F$GenericAuthNameSpace.AS.IdpAuthRecs[$this];
     goto IL_000f;
 
   IL_000f:
@@ -861,7 +861,7 @@ implementation OpenID20NameSpace.OpenIDProvider.set_IDAssertionRecs$OpenID20Name
 
     value := value$in;
     assume {:breadcrumb 13} true;
-    F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this] := value;
+    F$GenericAuthNameSpace.AS.IdpAuthRecs[$this] := value;
 }
 
 
@@ -870,7 +870,7 @@ procedure OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthName
 
 
 
-procedure {:extern} GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref);
+procedure {:extern} GenericAuthNameSpace.AS.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref);
 
 
 
@@ -890,7 +890,7 @@ procedure OpenID20NameSpace.OpenIDProvider.Redir$System.String$GenericAuthNameSp
 
 
 
-procedure {:extern} GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this: Ref, dest$in: Ref, _ID_Claim$in: Ref) returns ($result: Ref);
+procedure {:extern} GenericAuthNameSpace.AS.Redir$System.String$GenericAuthNameSpace.ID_Claim($this: Ref, dest$in: Ref, _ID_Claim$in: Ref) returns ($result: Ref);
 
 
 
@@ -947,7 +947,7 @@ implementation OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.S
             }
             else
             {
-                call $tmp5 := GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, local_0_Ref);
+                call $tmp5 := GenericAuthNameSpace.AS.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, local_0_Ref);
             }
         }
 
@@ -999,7 +999,7 @@ implementation OpenID20NameSpace.OpenIDProvider.SignInIdP$GenericAuthNameSpace.S
                         call $tmp13 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_1_Ref);
                     }
 
-                    call $tmp14 := GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp12 else $tmp13), local_1_Ref);
+                    call $tmp14 := GenericAuthNameSpace.AS.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_1_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp12 else $tmp13), local_1_Ref);
                 }
             }
 
@@ -1202,7 +1202,7 @@ procedure OpenID20NameSpace.OpenIDProvider.#ctor($this: Ref);
 
 
 
-procedure {:extern} GenericAuthNameSpace.IdP.#ctor($this: Ref);
+procedure {:extern} GenericAuthNameSpace.AS.#ctor($this: Ref);
 
 
 
@@ -1212,7 +1212,7 @@ implementation OpenID20NameSpace.OpenIDProvider.#ctor($this: Ref)
   var $label: int;
 
     assume {:breadcrumb 27} true;
-    call GenericAuthNameSpace.IdP.#ctor($this);
+    call GenericAuthNameSpace.AS.#ctor($this);
 }
 
 
@@ -1829,7 +1829,47 @@ axiom $TypeConstructor(T$GenericAuthNameSpace.RP.AuthenticationConclusion()) == 
 
 var {:extern} F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID: [Ref]Ref;
 
+procedure {:extern} System.Diagnostics.Stopwatch.#ctor($this: Ref);
+
+
+
+function {:extern} T$System.Diagnostics.Stopwatch() : Ref;
+
+const {:extern} unique T$System.Diagnostics.Stopwatch: int;
+
+axiom $TypeConstructor(T$System.Diagnostics.Stopwatch()) == T$System.Diagnostics.Stopwatch;
+
+procedure {:extern} System.Diagnostics.Stopwatch.Start($this: Ref);
+
+
+
 procedure {:extern} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Boolean(o$in: Ref, in_msg$in: Ref, out_msg$in: Ref, signed$in: bool);
+
+
+
+procedure {:extern} System.Diagnostics.Stopwatch.Stop($this: Ref);
+
+
+
+const {:value "C:\Users\Daniel Song\Desktop\YahooRP_SignInIdP.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$YahooRP_SignInIdP.txt_13: Ref;
+
+procedure {:extern} System.IO.File.Exists$System.String(path$in: Ref) returns ($result: bool);
+
+
+
+procedure {:extern} System.IO.File.CreateText$System.String(path$in: Ref) returns ($result: Ref);
+
+
+
+procedure {:extern} System.Diagnostics.Stopwatch.get_ElapsedMilliseconds($this: Ref) returns ($result: int);
+
+
+
+procedure {:extern} System.IO.TextWriter.WriteLine$System.Int64($this: Ref, value$in: int);
+
+
+
+procedure {:extern} System.IO.File.AppendText$System.String(path$in: Ref) returns ($result: Ref);
 
 
 
@@ -1851,17 +1891,26 @@ implementation OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.Sign
 {
   var req1: Ref;
   var local_0_Ref: Ref;
-  var local_2_Ref: Ref;
+  var local_5_Ref: Ref;
   var $tmp0: Ref;
   var $tmp1: bool;
   var $tmp2: Ref;
   var local_1_Ref: Ref;
   var $tmp3: Ref;
-  var $tmp4: bool;
+  var $tmp4: Ref;
+  var local_2_Ref: Ref;
+  var local_3_Ref: Ref;
   var $tmp5: bool;
-  var $tmp6: bool;
-  var $tmp7: bool;
+  var $tmp6: Ref;
+  var local_4_Ref: Ref;
+  var $tmp7: int;
   var $tmp8: Ref;
+  var $tmp9: int;
+  var $tmp10: bool;
+  var $tmp11: bool;
+  var $tmp12: bool;
+  var $tmp13: bool;
+  var $tmp14: Ref;
   var $localExc: Ref;
   var $label: int;
 
@@ -1871,7 +1920,7 @@ implementation OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.Sign
     if (local_0_Ref == null)
     {
         assume {:breadcrumb 55} true;
-        local_2_Ref := null;
+        local_5_Ref := null;
     }
     else
     {
@@ -1883,7 +1932,7 @@ implementation OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.Sign
         if ($tmp1)
         {
             assume {:breadcrumb 57} true;
-            local_2_Ref := null;
+            local_5_Ref := null;
         }
         else
         {
@@ -1896,50 +1945,76 @@ implementation OpenID20NameSpace.RelyingParty.SignInRP$GenericAuthNameSpace.Sign
             $tmp3 := local_0_Ref;
             assume $tmp3 != null;
             F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[local_1_Ref] := F$OpenID20NameSpace.AuthenticationResponse.claimed_id[$tmp3];
+            call $tmp4 := Alloc();
+            call System.Diagnostics.Stopwatch.#ctor($tmp4);
+            assume $DynamicType($tmp4) == T$System.Diagnostics.Stopwatch();
+            assume $TypeConstructor($DynamicType($tmp4)) == T$System.Diagnostics.Stopwatch;
+            local_2_Ref := $tmp4;
+            call System.Diagnostics.Stopwatch.Start(local_2_Ref);
             call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Boolean($this, local_0_Ref, local_1_Ref, true);
+            call System.Diagnostics.Stopwatch.Stop(local_2_Ref);
+            local_3_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$YahooRP_SignInIdP.txt_13;
+            call $tmp5 := System.IO.File.Exists$System.String(local_3_Ref);
+            if (!$tmp5)
+            {
+                assume {:breadcrumb 59} true;
+                call $tmp6 := System.IO.File.CreateText$System.String(local_3_Ref);
+                local_4_Ref := $tmp6;
+                call $tmp7 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_2_Ref);
+                call System.IO.TextWriter.WriteLine$System.Int64(local_4_Ref, $tmp7);
+            }
+            else
+            {
+                assume {:breadcrumb 60} true;
+                call $tmp8 := System.IO.File.AppendText$System.String(local_3_Ref);
+                local_4_Ref := $tmp8;
+                call $tmp9 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_2_Ref);
+                call System.IO.TextWriter.WriteLine$System.Int64(local_4_Ref, $tmp9);
+            }
+
             if ($TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram)
             {
-                call $tmp4 := LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                call $tmp10 := LiveIDNameSpace.Yahoo_RP_For_vProgram.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
             }
             else
             {
                 if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP)
                 {
-                    call $tmp5 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                    call $tmp11 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
                 }
                 else
                 {
                     if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty)
                     {
-                        call $tmp6 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                        call $tmp12 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
                     }
                     else
                     {
-                        call $tmp7 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
+                        call $tmp13 := GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this, local_1_Ref);
                     }
                 }
             }
 
-            if ((if $TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram then $tmp4 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP then $tmp5 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty then $tmp6 else $tmp7))))
+            if ((if $TypeConstructor($DynamicType($this)) == T$LiveIDNameSpace.Yahoo_RP_For_vProgram then $tmp10 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_RP then $tmp11 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.RelyingParty then $tmp12 else $tmp13))))
             {
-                assume {:breadcrumb 59} true;
-                call $tmp8 := Alloc();
-                call GenericAuthNameSpace.SignInRP_Resp.#ctor($tmp8);
-                assume $DynamicType($tmp8) == T$GenericAuthNameSpace.SignInRP_Resp();
-                assume $TypeConstructor($DynamicType($tmp8)) == T$GenericAuthNameSpace.SignInRP_Resp;
-                local_2_Ref := $tmp8;
+                assume {:breadcrumb 61} true;
+                call $tmp14 := Alloc();
+                call GenericAuthNameSpace.SignInRP_Resp.#ctor($tmp14);
+                assume $DynamicType($tmp14) == T$GenericAuthNameSpace.SignInRP_Resp();
+                assume $TypeConstructor($DynamicType($tmp14)) == T$GenericAuthNameSpace.SignInRP_Resp;
+                local_5_Ref := $tmp14;
             }
             else
             {
-                assume {:breadcrumb 60} true;
-                local_2_Ref := null;
-                goto IL_0069;
+                assume {:breadcrumb 62} true;
+                local_5_Ref := null;
+                goto IL_0103;
             }
         }
     }
 
-  IL_0069:
-    $result := local_2_Ref;
+  IL_0103:
+    $result := local_5_Ref;
     return;
 }
 
@@ -1960,7 +2035,7 @@ implementation OpenID20NameSpace.RelyingParty.#ctor($this: Ref)
 
     F$OpenID20NameSpace.RelyingParty.assoc_handle[$this] := null;
     F$OpenID20NameSpace.RelyingParty.endpointUrl[$this] := null;
-    assume {:breadcrumb 61} true;
+    assume {:breadcrumb 63} true;
     call GenericAuthNameSpace.RP.#ctor($this);
 }
 
@@ -1980,110 +2055,27 @@ function T$OpenID20NameSpace.IDAssertionRecs() : Ref;
 
 const unique T$OpenID20NameSpace.IDAssertionRecs: int;
 
-function T$GenericAuthNameSpace.RP() : Ref;
+function T$GenericAuthNameSpace.AuthTicketAS_Req() : Ref;
 
-const unique T$GenericAuthNameSpace.RP: int;
+const unique T$GenericAuthNameSpace.AuthTicketAS_Req: int;
 
-var F$GenericAuthNameSpace.RP.CurrentSession: [Ref]Ref;
-
-var F$GenericAuthNameSpace.RP.Realm: [Ref]Ref;
-
-procedure {:extern} CST.CST_Ops.Certify$CST.CST_Struct(msg$in: Ref) returns ($result: bool);
+procedure GenericAuthNameSpace.AuthTicketAS_Req.get_ticket($this: Ref) returns ($result: Ref);
 
 
 
-const {:value "UserID"} unique $string_literal_UserID_13: Ref;
-
-procedure {:extern} System.Web.HttpSessionStateBase.get_Item$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
+procedure GenericAuthNameSpace.AuthTicketAS_Req.set_ticket$GenericAuthNameSpace.Ticket($this: Ref, value$in: Ref);
 
 
 
-const {:value ""} unique $string_literal__14: Ref;
-
-procedure {:extern} System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
+procedure GenericAuthNameSpace.AuthTicketAS_Req.get_Realm($this: Ref) returns ($result: Ref);
 
 
 
-procedure {:extern} System.Web.HttpSessionStateBase.Add$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
+procedure GenericAuthNameSpace.AuthTicketAS_Req.set_Realm$System.String($this: Ref, value$in: Ref);
 
 
 
-implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this: Ref, conclusion$in: Ref) returns ($result: bool)
-{
-  var conclusion: Ref;
-  var local_0_bool: bool;
-  var $tmp0: bool;
-  var $tmp1: Ref;
-  var $tmp2: Ref;
-  var $tmp3: Ref;
-  var $tmp4: Ref;
-  var $tmp5: Ref;
-  var $tmp6: Ref;
-  var local_1_bool: bool;
-  var $localExc: Ref;
-  var $label: int;
-
-    conclusion := conclusion$in;
-    assume {:breadcrumb 62} true;
-    call $tmp0 := CST.CST_Ops.Certify$CST.CST_Struct(conclusion);
-    local_0_bool := $tmp0;
-    assume $this != null;
-    $tmp1 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
-    call $tmp2 := System.Web.HttpSessionStateBase.get_Item$System.String($tmp1, $string_literal_UserID_13);
-    if ($tmp2 != null)
-    {
-        assume {:breadcrumb 63} true;
-        assume $this != null;
-        $tmp3 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
-        if (local_0_bool)
-        {
-            $tmp4 := conclusion;
-            assume $tmp4 != null;
-        }
-        else
-        {
-        }
-
-        call System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($tmp3, $string_literal_UserID_13, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp4] else $string_literal__14));
-    }
-    else
-    {
-        assume {:breadcrumb 64} true;
-        assume $this != null;
-        $tmp5 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
-        if (local_0_bool)
-        {
-            $tmp6 := conclusion;
-            assume $tmp6 != null;
-        }
-        else
-        {
-        }
-
-        call System.Web.HttpSessionStateBase.Add$System.String$System.Object($tmp5, $string_literal_UserID_13, (if local_0_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp6] else $string_literal__14));
-    }
-
-    local_1_bool := local_0_bool;
-    goto IL_0069;
-
-  IL_0069:
-    $result := local_1_bool;
-    return;
-}
-
-
-
-implementation GenericAuthNameSpace.RP.#ctor($this: Ref)
-{
-  var $localExc: Ref;
-  var $label: int;
-
-    F$GenericAuthNameSpace.RP.CurrentSession[$this] := null;
-    F$GenericAuthNameSpace.RP.Domain[$this] := null;
-    F$GenericAuthNameSpace.RP.Realm[$this] := null;
-    assume {:breadcrumb 65} true;
-    call System.Object.#ctor($this);
-}
+procedure GenericAuthNameSpace.AuthTicketAS_Req.#ctor($this: Ref);
 
 
 
@@ -2091,35 +2083,127 @@ procedure {:extern} CST.CST_Struct.#ctor($this: Ref);
 
 
 
-implementation GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($this: Ref)
+implementation GenericAuthNameSpace.AuthTicketAS_Req.#ctor($this: Ref)
 {
   var $localExc: Ref;
   var $label: int;
 
-    F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$this] := null;
+    assume {:breadcrumb 64} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.AuthTicketAS_Req.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.AuthTicketAS_Req.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req() : Ref;
+
+const unique T$GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req: int;
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.get_ticket($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.set_ticket$GenericAuthNameSpace.Ticket($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.set_Realm$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.get_UserID($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.set_UserID$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.get_permissions($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.set_permissions$GenericAuthNameSpace.Permissions($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    assume {:breadcrumb 65} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.ValidateTicket_Resp_ValidateTicket_Req.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.SignInIdP_Req() : Ref;
+
+const unique T$GenericAuthNameSpace.SignInIdP_Req: int;
+
+procedure GenericAuthNameSpace.SignInIdP_Req.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+implementation GenericAuthNameSpace.SignInIdP_Req.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$this] := null;
     assume {:breadcrumb 66} true;
     call CST.CST_Struct.#ctor($this);
 }
 
 
 
-procedure T$GenericAuthNameSpace.RP.AuthenticationConclusion.#cctor();
+procedure T$GenericAuthNameSpace.SignInIdP_Req.#cctor();
 
 
 
-implementation T$GenericAuthNameSpace.RP.AuthenticationConclusion.#cctor()
+implementation T$GenericAuthNameSpace.SignInIdP_Req.#cctor()
 {
 }
 
 
 
-procedure T$GenericAuthNameSpace.RP.#cctor();
+function T$GenericAuthNameSpace.RSResourceRecords_Base() : Ref;
+
+const unique T$GenericAuthNameSpace.RSResourceRecords_Base: int;
+
+procedure GenericAuthNameSpace.RSResourceRecords_Base.setEntry$System.String$GenericAuthNameSpace.Permission$GenericAuthNameSpace.Resource($this: Ref, UserID$in: Ref, permission$in: Ref, resource$in: Ref) returns ($result: bool);
 
 
 
-implementation T$GenericAuthNameSpace.RP.#cctor()
-{
-}
+procedure GenericAuthNameSpace.RSResourceRecords_Base.getEntry$System.String$GenericAuthNameSpace.Permission($this: Ref, UserID$in: Ref, permission$in: Ref) returns ($result: Ref);
 
 
 
@@ -2148,12 +2232,247 @@ implementation T$GenericAuthNameSpace.SignInIdP_Resp_SignInRP_Req.#cctor()
 
 
 
+function T$GenericAuthNameSpace.IdPAuthRecords_Base() : Ref;
+
+const unique T$GenericAuthNameSpace.IdPAuthRecords_Base: int;
+
+procedure GenericAuthNameSpace.IdPAuthRecords_Base.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($this: Ref, IdPSessionSecret$in: Ref, Realm$in: Ref, _ID_Claim$in: Ref) returns ($result: bool);
+
+
+
+function T$GenericAuthNameSpace.ReqResourceRS_Req() : Ref;
+
+const unique T$GenericAuthNameSpace.ReqResourceRS_Req: int;
+
+var F$GenericAuthNameSpace.ReqResourceRS_Req.resource: [Ref]Ref;
+
+var F$GenericAuthNameSpace.ReqResourceRS_Req.UserID: [Ref]Ref;
+
+procedure GenericAuthNameSpace.ReqResourceRS_Req.get_ticket($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Req.set_ticket$GenericAuthNameSpace.Ticket($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Req.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Req.set_Realm$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Req.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.ReqResourceRS_Req.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.ReqResourceRS_Req.resource[$this] := null;
+    F$GenericAuthNameSpace.ReqResourceRS_Req.UserID[$this] := null;
+    assume {:breadcrumb 68} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.ReqResourceRS_Req.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.ReqResourceRS_Req.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.RP() : Ref;
+
+const unique T$GenericAuthNameSpace.RP: int;
+
+var F$GenericAuthNameSpace.RP.CurrentSession: [Ref]Ref;
+
+var F$GenericAuthNameSpace.RP.Realm: [Ref]Ref;
+
+procedure {:extern} CST.CST_Ops.CertifyLocally$CST.CST_Struct(msg$in: Ref) returns ($result: bool);
+
+
+
+const {:value "C:\Users\Daniel Song\Desktop\Certify.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$Certify.txt_14: Ref;
+
+const {:value "UserID"} unique $string_literal_UserID_15: Ref;
+
+procedure {:extern} System.Web.HttpSessionStateBase.get_Item$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
+
+
+
+const {:value ""} unique $string_literal__16: Ref;
+
+procedure {:extern} System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
+
+
+
+procedure {:extern} System.Web.HttpSessionStateBase.Add$System.String$System.Object($this: Ref, name$in: Ref, value$in: Ref);
+
+
+
+implementation GenericAuthNameSpace.RP.AuthenticationDone$GenericAuthNameSpace.RP.AuthenticationConclusion($this: Ref, conclusion$in: Ref) returns ($result: bool)
+{
+  var conclusion: Ref;
+  var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var local_1_bool: bool;
+  var $tmp1: bool;
+  var local_2_Ref: Ref;
+  var $tmp2: bool;
+  var $tmp3: Ref;
+  var local_3_Ref: Ref;
+  var $tmp4: int;
+  var $tmp5: Ref;
+  var $tmp6: int;
+  var $tmp7: Ref;
+  var $tmp8: Ref;
+  var $tmp9: Ref;
+  var $tmp10: Ref;
+  var $tmp11: Ref;
+  var $tmp12: Ref;
+  var local_4_bool: bool;
+  var $localExc: Ref;
+  var $label: int;
+
+    conclusion := conclusion$in;
+    assume {:breadcrumb 69} true;
+    call $tmp0 := Alloc();
+    call System.Diagnostics.Stopwatch.#ctor($tmp0);
+    assume $DynamicType($tmp0) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$System.Diagnostics.Stopwatch;
+    local_0_Ref := $tmp0;
+    call System.Diagnostics.Stopwatch.Start(local_0_Ref);
+    call $tmp1 := CST.CST_Ops.CertifyLocally$CST.CST_Struct(conclusion);
+    local_1_bool := $tmp1;
+    call System.Diagnostics.Stopwatch.Stop(local_0_Ref);
+    local_2_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$Certify.txt_14;
+    call $tmp2 := System.IO.File.Exists$System.String(local_2_Ref);
+    if (!$tmp2)
+    {
+        assume {:breadcrumb 70} true;
+        call $tmp3 := System.IO.File.CreateText$System.String(local_2_Ref);
+        local_3_Ref := $tmp3;
+        call $tmp4 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp4);
+    }
+    else
+    {
+        assume {:breadcrumb 71} true;
+        call $tmp5 := System.IO.File.AppendText$System.String(local_2_Ref);
+        local_3_Ref := $tmp5;
+        call $tmp6 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp6);
+    }
+
+    assume $this != null;
+    $tmp7 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
+    call $tmp8 := System.Web.HttpSessionStateBase.get_Item$System.String($tmp7, $string_literal_UserID_15);
+    if ($tmp8 != null)
+    {
+        assume {:breadcrumb 72} true;
+        assume $this != null;
+        $tmp9 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
+        if (local_1_bool)
+        {
+            $tmp10 := conclusion;
+            assume $tmp10 != null;
+        }
+        else
+        {
+        }
+
+        call System.Web.HttpSessionStateBase.set_Item$System.String$System.Object($tmp9, $string_literal_UserID_15, (if local_1_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp10] else $string_literal__16));
+    }
+    else
+    {
+        assume {:breadcrumb 73} true;
+        assume $this != null;
+        $tmp11 := F$GenericAuthNameSpace.RP.CurrentSession[$this];
+        if (local_1_bool)
+        {
+            $tmp12 := conclusion;
+            assume $tmp12 != null;
+        }
+        else
+        {
+        }
+
+        call System.Web.HttpSessionStateBase.Add$System.String$System.Object($tmp11, $string_literal_UserID_15, (if local_1_bool then F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$tmp12] else $string_literal__16));
+    }
+
+    local_4_bool := local_1_bool;
+    goto IL_00ee;
+
+  IL_00ee:
+    $result := local_4_bool;
+    return;
+}
+
+
+
+implementation GenericAuthNameSpace.RP.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.RP.CurrentSession[$this] := null;
+    F$GenericAuthNameSpace.RP.Domain[$this] := null;
+    F$GenericAuthNameSpace.RP.Realm[$this] := null;
+    assume {:breadcrumb 74} true;
+    call System.Object.#ctor($this);
+}
+
+
+
+implementation GenericAuthNameSpace.RP.AuthenticationConclusion.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.RP.AuthenticationConclusion.SessionUID[$this] := null;
+    assume {:breadcrumb 75} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.RP.AuthenticationConclusion.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.RP.AuthenticationConclusion.#cctor()
+{
+}
+
+
+
+procedure T$GenericAuthNameSpace.RP.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.RP.#cctor()
+{
+}
+
+
+
 implementation GenericAuthNameSpace.SignInRP_Resp.#ctor($this: Ref)
 {
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 68} true;
+    assume {:breadcrumb 76} true;
     call CST.CST_Struct.#ctor($this);
 }
 
@@ -2169,6 +2488,79 @@ implementation T$GenericAuthNameSpace.SignInRP_Resp.#cctor()
 
 
 
+function T$GenericAuthNameSpace.ValidateTicket_Req() : Ref;
+
+const unique T$GenericAuthNameSpace.ValidateTicket_Req: int;
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.get_ticket($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.set_ticket$GenericAuthNameSpace.Ticket($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.set_Realm$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.get_UserID($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.set_UserID$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.get_permissions($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.set_permissions$GenericAuthNameSpace.Permissions($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ValidateTicket_Req.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.ValidateTicket_Req.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    assume {:breadcrumb 77} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.ValidateTicket_Req.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.ValidateTicket_Req.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.ASAuthTicketRecords_Base() : Ref;
+
+const unique T$GenericAuthNameSpace.ASAuthTicketRecords_Base: int;
+
+procedure GenericAuthNameSpace.ASAuthTicketRecords_Base.setEntry$GenericAuthNameSpace.Ticket$System.String$System.String$GenericAuthNameSpace.Permission_Claim($this: Ref, ticket$in: Ref, Realm$in: Ref, UserID$in: Ref, claim$in: Ref) returns ($result: bool);
+
+
+
+procedure GenericAuthNameSpace.ASAuthTicketRecords_Base.getEntry$GenericAuthNameSpace.Ticket$System.String$System.String($this: Ref, ticket$in: Ref, Realm$in: Ref, UserID$in: Ref) returns ($result: Ref);
+
+
+
 function T$GenericAuthNameSpace.ID_Claim() : Ref;
 
 const unique T$GenericAuthNameSpace.ID_Claim: int;
@@ -2178,7 +2570,7 @@ implementation GenericAuthNameSpace.ID_Claim.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 69} true;
+    assume {:breadcrumb 78} true;
     call System.Object.#ctor($this);
 }
 
@@ -2194,9 +2586,237 @@ implementation T$GenericAuthNameSpace.ID_Claim.#cctor()
 
 
 
+function T$GenericAuthNameSpace.RS() : Ref;
+
+const unique T$GenericAuthNameSpace.RS: int;
+
+var F$GenericAuthNameSpace.RS.RSResourceRecs: [Ref]Ref;
+
+var F$GenericAuthNameSpace.RS.Domain: [Ref]Ref;
+
+var F$GenericAuthNameSpace.RS.Realm: [Ref]Ref;
+
+procedure GenericAuthNameSpace.RS.RequestResourceDone$GenericAuthNameSpace.RS.AuthorizationConclusion($this: Ref, conclusion$in: Ref) returns ($result: bool);
+
+
+
+implementation GenericAuthNameSpace.RS.RequestResourceDone$GenericAuthNameSpace.RS.AuthorizationConclusion($this: Ref, conclusion$in: Ref) returns ($result: bool)
+{
+  var conclusion: Ref;
+  var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var local_1_bool: bool;
+  var $tmp1: bool;
+  var local_2_Ref: Ref;
+  var $tmp2: bool;
+  var $tmp3: Ref;
+  var local_3_Ref: Ref;
+  var $tmp4: int;
+  var $tmp5: Ref;
+  var $tmp6: int;
+  var local_4_bool: bool;
+  var $localExc: Ref;
+  var $label: int;
+
+    conclusion := conclusion$in;
+    assume {:breadcrumb 79} true;
+    call $tmp0 := Alloc();
+    call System.Diagnostics.Stopwatch.#ctor($tmp0);
+    assume $DynamicType($tmp0) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp0)) == T$System.Diagnostics.Stopwatch;
+    local_0_Ref := $tmp0;
+    call System.Diagnostics.Stopwatch.Start(local_0_Ref);
+    call $tmp1 := CST.CST_Ops.CertifyLocally$CST.CST_Struct(conclusion);
+    local_1_bool := $tmp1;
+    call System.Diagnostics.Stopwatch.Stop(local_0_Ref);
+    local_2_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$Certify.txt_14;
+    call $tmp2 := System.IO.File.Exists$System.String(local_2_Ref);
+    if (!$tmp2)
+    {
+        assume {:breadcrumb 80} true;
+        call $tmp3 := System.IO.File.CreateText$System.String(local_2_Ref);
+        local_3_Ref := $tmp3;
+        call $tmp4 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp4);
+    }
+    else
+    {
+        assume {:breadcrumb 81} true;
+        call $tmp5 := System.IO.File.AppendText$System.String(local_2_Ref);
+        local_3_Ref := $tmp5;
+        call $tmp6 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_0_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_3_Ref, $tmp6);
+    }
+
+    local_4_bool := local_1_bool;
+    goto IL_008f;
+
+  IL_008f:
+    $result := local_4_bool;
+    return;
+}
+
+
+
+procedure GenericAuthNameSpace.RS.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.RS.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.RS.RSResourceRecs[$this] := null;
+    F$GenericAuthNameSpace.RS.Domain[$this] := null;
+    F$GenericAuthNameSpace.RS.Realm[$this] := null;
+    assume {:breadcrumb 82} true;
+    call System.Object.#ctor($this);
+}
+
+
+
+function T$GenericAuthNameSpace.RS.AuthorizationConclusion() : Ref;
+
+const unique T$GenericAuthNameSpace.RS.AuthorizationConclusion: int;
+
+var F$GenericAuthNameSpace.RS.AuthorizationConclusion.ticket: [Ref]Ref;
+
+var F$GenericAuthNameSpace.RS.AuthorizationConclusion.permissions: [Ref]Ref;
+
+var F$GenericAuthNameSpace.RS.AuthorizationConclusion.Realm: [Ref]Ref;
+
+var F$GenericAuthNameSpace.RS.AuthorizationConclusion.UserID: [Ref]Ref;
+
+procedure GenericAuthNameSpace.RS.AuthorizationConclusion.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.RS.AuthorizationConclusion.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.RS.AuthorizationConclusion.ticket[$this] := null;
+    F$GenericAuthNameSpace.RS.AuthorizationConclusion.permissions[$this] := null;
+    F$GenericAuthNameSpace.RS.AuthorizationConclusion.Realm[$this] := null;
+    F$GenericAuthNameSpace.RS.AuthorizationConclusion.UserID[$this] := null;
+    assume {:breadcrumb 83} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.RS.AuthorizationConclusion.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.RS.AuthorizationConclusion.#cctor()
+{
+}
+
+
+
+procedure T$GenericAuthNameSpace.RS.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.RS.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req() : Ref;
+
+const unique T$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req: int;
+
+var F$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.resources: [Ref]Ref;
+
+var F$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.UserID: [Ref]Ref;
+
+procedure GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.get_ticket($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.set_ticket$GenericAuthNameSpace.Ticket($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.set_Realm$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.resources[$this] := null;
+    F$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.UserID[$this] := null;
+    assume {:breadcrumb 84} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.ReqResourceRS_Resp_ReqResourceRS_Req.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.Permissions() : Ref;
+
+const unique T$GenericAuthNameSpace.Permissions: int;
+
+var F$GenericAuthNameSpace.Permissions.permissionSet: [Ref]Ref;
+
+procedure GenericAuthNameSpace.Permissions.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.Permissions.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.Permissions.permissionSet[$this] := null;
+    assume {:breadcrumb 85} true;
+    call System.Object.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.Permissions.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.Permissions.#cctor()
+{
+}
+
+
+
 function T$GenericAuthNameSpace.GlobalObjects_base() : Ref;
 
 const unique T$GenericAuthNameSpace.GlobalObjects_base: int;
+
+var F$GenericAuthNameSpace.GlobalObjects_base.ValidateTicket_Req: Ref;
+
+var F$GenericAuthNameSpace.GlobalObjects_base.RS: Ref;
 
 implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson$GenericAuthNameSpace.RP.AuthenticationConclusion(conclusion$in: Ref)
 {
@@ -2225,14 +2845,14 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
   var $label: int;
 
     conclusion := conclusion$in;
-    assume {:breadcrumb 70} true;
-    $tmp10 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
+    assume {:breadcrumb 86} true;
+    $tmp10 := F$GenericAuthNameSpace.GlobalObjects_base.AS;
     assume $tmp10 != null;
-    if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
+    if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.AS.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
     {
-        $tmp0 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
+        $tmp0 := F$GenericAuthNameSpace.GlobalObjects_base.AS;
         assume $tmp0 != null;
-        $tmp1 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp0];
+        $tmp1 := F$GenericAuthNameSpace.AS.IdpAuthRecs[$tmp0];
         $tmp2 := F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req;
         assume $tmp2 != null;
         $tmp3 := F$GenericAuthNameSpace.GlobalObjects_base.RP;
@@ -2241,9 +2861,9 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
     }
     else
     {
-        $tmp5 := F$GenericAuthNameSpace.GlobalObjects_base.IdP;
+        $tmp5 := F$GenericAuthNameSpace.GlobalObjects_base.AS;
         assume $tmp5 != null;
-        $tmp6 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp5];
+        $tmp6 := F$GenericAuthNameSpace.AS.IdpAuthRecs[$tmp5];
         $tmp7 := F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req;
         assume $tmp7 != null;
         $tmp8 := F$GenericAuthNameSpace.GlobalObjects_base.RP;
@@ -2251,7 +2871,7 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
         call $tmp9 := GenericAuthNameSpace.IdPAuthRecords_Base.getEntry$System.String$System.String($tmp6, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp7], F$GenericAuthNameSpace.RP.Realm[$tmp8]);
     }
 
-    local_0_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp4 else $tmp9);
+    local_0_Ref := (if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.AS.IdpAuthRecs[$tmp10])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp4 else $tmp9);
     if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
     {
         call $tmp15 := OpenID20NameSpace.IDAssertionEntry.get_Redir_dest(local_0_Ref);
@@ -2288,12 +2908,96 @@ implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotSig
 
 
 
+procedure GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotAccessGoodPersonsResource$GenericAuthNameSpace.RS.AuthorizationConclusion(conclusion$in: Ref);
+
+
+
+var F$GenericAuthNameSpace.AS.ASAuthRecs: [Ref]Ref;
+
+procedure GenericAuthNameSpace.Permission_Claim.get_UserID($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.Permission_Claim.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.Permission_Claim.get_permissions($this: Ref) returns ($result: Ref);
+
+
+
+implementation GenericAuthNameSpace.GlobalObjects_base.Assert_BadPersonCannotAccessGoodPersonsResource$GenericAuthNameSpace.RS.AuthorizationConclusion(conclusion$in: Ref)
+{
+  var conclusion: Ref;
+  var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var $tmp1: Ref;
+  var $tmp2: Ref;
+  var $tmp3: Ref;
+  var $tmp4: Ref;
+  var $tmp5: Ref;
+  var $tmp6: Ref;
+  var $tmp7: Ref;
+  var $tmp8: bool;
+  var $tmp9: Ref;
+  var $tmp10: Ref;
+  var $tmp11: bool;
+  var $tmp12: Ref;
+  var $tmp13: Ref;
+  var $tmp14: Ref;
+  var $localExc: Ref;
+  var $label: int;
+
+    conclusion := conclusion$in;
+    assume {:breadcrumb 87} true;
+    $tmp0 := F$GenericAuthNameSpace.GlobalObjects_base.AS;
+    assume $tmp0 != null;
+    $tmp1 := F$GenericAuthNameSpace.AS.ASAuthRecs[$tmp0];
+    call $tmp2 := GenericAuthNameSpace.ValidateTicket_Req.get_ticket(F$GenericAuthNameSpace.GlobalObjects_base.ValidateTicket_Req);
+    $tmp3 := F$GenericAuthNameSpace.GlobalObjects_base.RS;
+    assume $tmp3 != null;
+    call $tmp4 := GenericAuthNameSpace.ValidateTicket_Req.get_UserID(F$GenericAuthNameSpace.GlobalObjects_base.ValidateTicket_Req);
+    call $tmp5 := GenericAuthNameSpace.ASAuthTicketRecords_Base.getEntry$GenericAuthNameSpace.Ticket$System.String$System.String($tmp1, $tmp2, F$GenericAuthNameSpace.RS.Realm[$tmp3], $tmp4);
+    local_0_Ref := $tmp5;
+    call $tmp12 := GenericAuthNameSpace.Permission_Claim.get_permissions(local_0_Ref);
+    assume $tmp12 != null;
+    $tmp13 := conclusion;
+    assume $tmp13 != null;
+    $tmp14 := F$GenericAuthNameSpace.RS.AuthorizationConclusion.permissions[$tmp13];
+    assume $tmp14 != null;
+    if (!(F$GenericAuthNameSpace.Permissions.permissionSet[$tmp12] != F$GenericAuthNameSpace.Permissions.permissionSet[$tmp14]))
+    {
+        call $tmp9 := GenericAuthNameSpace.Permission_Claim.get_Realm(local_0_Ref);
+        $tmp10 := F$GenericAuthNameSpace.GlobalObjects_base.RS;
+        assume $tmp10 != null;
+        call $tmp11 := System.String.op_Equality$System.String$System.String($tmp9, F$GenericAuthNameSpace.RS.Realm[$tmp10]);
+    }
+    else
+    {
+    }
+
+    if ((if !(F$GenericAuthNameSpace.Permissions.permissionSet[$tmp12] != F$GenericAuthNameSpace.Permissions.permissionSet[$tmp14]) then $tmp11 else false))
+    {
+        call $tmp6 := GenericAuthNameSpace.Permission_Claim.get_UserID(local_0_Ref);
+        $tmp7 := conclusion;
+        assume $tmp7 != null;
+        call $tmp8 := System.String.op_Equality$System.String$System.String($tmp6, F$GenericAuthNameSpace.RS.AuthorizationConclusion.UserID[$tmp7]);
+    }
+    else
+    {
+    }
+
+    assert (if (if !(F$GenericAuthNameSpace.Permissions.permissionSet[$tmp12] != F$GenericAuthNameSpace.Permissions.permissionSet[$tmp14]) then $tmp11 else false) then $tmp8 else false);
+}
+
+
+
 implementation GenericAuthNameSpace.GlobalObjects_base.#ctor($this: Ref)
 {
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 71} true;
+    assume {:breadcrumb 88} true;
     call System.Object.#ctor($this);
 }
 
@@ -2306,55 +3010,60 @@ procedure T$GenericAuthNameSpace.GlobalObjects_base.#cctor();
 implementation T$GenericAuthNameSpace.GlobalObjects_base.#cctor()
 {
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := null;
-    F$GenericAuthNameSpace.GlobalObjects_base.IdP := null;
+    F$GenericAuthNameSpace.GlobalObjects_base.ValidateTicket_Req := null;
+    F$GenericAuthNameSpace.GlobalObjects_base.AS := null;
     F$GenericAuthNameSpace.GlobalObjects_base.RP := null;
+    F$GenericAuthNameSpace.GlobalObjects_base.RS := null;
 }
 
 
 
-function T$GenericAuthNameSpace.SignInIdP_Req() : Ref;
+function T$GenericAuthNameSpace.Ticket() : Ref;
 
-const unique T$GenericAuthNameSpace.SignInIdP_Req: int;
+const unique T$GenericAuthNameSpace.Ticket: int;
 
-procedure GenericAuthNameSpace.SignInIdP_Req.get_Realm($this: Ref) returns ($result: Ref);
+procedure GenericAuthNameSpace.Ticket.get_ticket($this: Ref) returns ($result: Ref);
 
 
 
-implementation GenericAuthNameSpace.SignInIdP_Req.#ctor($this: Ref)
+procedure GenericAuthNameSpace.Ticket.set_ticket$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.Ticket.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.Ticket.#ctor($this: Ref)
 {
   var $localExc: Ref;
   var $label: int;
 
-    F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$this] := null;
-    assume {:breadcrumb 72} true;
+    assume {:breadcrumb 89} true;
     call CST.CST_Struct.#ctor($this);
 }
 
 
 
-procedure T$GenericAuthNameSpace.SignInIdP_Req.#cctor();
+procedure T$GenericAuthNameSpace.Ticket.#cctor();
 
 
 
-implementation T$GenericAuthNameSpace.SignInIdP_Req.#cctor()
+implementation T$GenericAuthNameSpace.Ticket.#cctor()
 {
 }
 
 
 
-function T$GenericAuthNameSpace.IdP() : Ref;
+function T$GenericAuthNameSpace.AS() : Ref;
 
-const unique T$GenericAuthNameSpace.IdP: int;
+const unique T$GenericAuthNameSpace.AS: int;
 
 procedure {:extern} OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($this: Ref, IdPSessionSecret$in: Ref, client_id$in: Ref, Entry$in: Ref) returns ($result: bool);
 
 
 
-procedure GenericAuthNameSpace.IdPAuthRecords_Base.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($this: Ref, IdPSessionSecret$in: Ref, Realm$in: Ref, _ID_Claim$in: Ref) returns ($result: bool);
-
-
-
-implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref)
+implementation GenericAuthNameSpace.AS.SignInIdP$GenericAuthNameSpace.SignInIdP_Req($this: Ref, req$in: Ref) returns ($result: Ref)
 {
   var req: Ref;
   var local_1_Ref: Ref;
@@ -2385,16 +3094,16 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 73} true;
+    assume {:breadcrumb 90} true;
     F$GenericAuthNameSpace.GlobalObjects_base.SignInIdP_Req := req;
     if (req == null)
     {
-        assume {:breadcrumb 74} true;
+        assume {:breadcrumb 91} true;
         local_1_Ref := null;
     }
     else
     {
-        assume {:breadcrumb 75} true;
+        assume {:breadcrumb 92} true;
         if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
         {
             call $tmp0 := OpenID20NameSpace.OpenIDProvider.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
@@ -2407,16 +3116,16 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
             }
             else
             {
-                call $tmp2 := GenericAuthNameSpace.IdP.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
+                call $tmp2 := GenericAuthNameSpace.AS.Process_SignInIdP_req$GenericAuthNameSpace.SignInIdP_Req($this, req);
             }
         }
 
         local_0_Ref := (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP then $tmp0 else (if $TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.OpenIDProvider then $tmp1 else $tmp2));
         assume $this != null;
-        if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
+        if ($TypeConstructor($DynamicType(F$GenericAuthNameSpace.AS.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def)
         {
             assume $this != null;
-            $tmp3 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+            $tmp3 := F$GenericAuthNameSpace.AS.IdpAuthRecs[$this];
             $tmp4 := req;
             assume $tmp4 != null;
             if ($TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest)
@@ -2433,7 +3142,7 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
         else
         {
             assume $this != null;
-            $tmp8 := F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this];
+            $tmp8 := F$GenericAuthNameSpace.AS.IdpAuthRecs[$this];
             $tmp9 := req;
             assume $tmp9 != null;
             if ($TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest)
@@ -2448,14 +3157,14 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
             call $tmp12 := GenericAuthNameSpace.IdPAuthRecords_Base.setEntry$System.String$System.String$GenericAuthNameSpace.ID_Claim($tmp8, F$GenericAuthNameSpace.SignInIdP_Req.IdPSessionSecret[$tmp9], (if $TypeConstructor($DynamicType(req)) == T$OpenID20NameSpace.AuthenticationRequest then $tmp10 else $tmp11), local_0_Ref);
         }
 
-        if (!(if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp7 else $tmp12))
+        if (!(if $TypeConstructor($DynamicType(F$GenericAuthNameSpace.AS.IdpAuthRecs[$this])) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def then $tmp7 else $tmp12))
         {
-            assume {:breadcrumb 76} true;
+            assume {:breadcrumb 93} true;
             local_1_Ref := null;
         }
         else
         {
-            assume {:breadcrumb 77} true;
+            assume {:breadcrumb 94} true;
             if ($TypeConstructor($DynamicType($this)) == T$OpenID20NameSpace.Yahoo_IdP)
             {
                 if ($TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry)
@@ -2495,7 +3204,7 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
                         call $tmp20 := GenericAuthNameSpace.ID_Claim.get_Redir_dest(local_0_Ref);
                     }
 
-                    call $tmp21 := GenericAuthNameSpace.IdP.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp19 else $tmp20), local_0_Ref);
+                    call $tmp21 := GenericAuthNameSpace.AS.Redir$System.String$GenericAuthNameSpace.ID_Claim($this, (if $TypeConstructor($DynamicType(local_0_Ref)) == T$OpenID20NameSpace.IDAssertionEntry then $tmp19 else $tmp20), local_0_Ref);
                 }
             }
 
@@ -2511,31 +3220,289 @@ implementation GenericAuthNameSpace.IdP.SignInIdP$GenericAuthNameSpace.SignInIdP
 
 
 
-implementation GenericAuthNameSpace.IdP.#ctor($this: Ref)
+implementation GenericAuthNameSpace.AS.#ctor($this: Ref)
 {
   var $localExc: Ref;
   var $label: int;
 
-    F$GenericAuthNameSpace.IdP.IdpAuthRecs[$this] := null;
-    assume {:breadcrumb 78} true;
+    F$GenericAuthNameSpace.AS.IdpAuthRecs[$this] := null;
+    F$GenericAuthNameSpace.AS.ASAuthRecs[$this] := null;
+    assume {:breadcrumb 95} true;
     call System.Object.#ctor($this);
 }
 
 
 
-procedure T$GenericAuthNameSpace.IdP.#cctor();
+procedure T$GenericAuthNameSpace.AS.#cctor();
 
 
 
-implementation T$GenericAuthNameSpace.IdP.#cctor()
+implementation T$GenericAuthNameSpace.AS.#cctor()
 {
 }
 
 
 
-function T$GenericAuthNameSpace.IdPAuthRecords_Base() : Ref;
+function T$GenericAuthNameSpace.Permission_Claim() : Ref;
 
-const unique T$GenericAuthNameSpace.IdPAuthRecords_Base: int;
+const unique T$GenericAuthNameSpace.Permission_Claim: int;
+
+procedure GenericAuthNameSpace.Permission_Claim.get_Redir_dest($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.Permission_Claim.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.Permission_Claim.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    assume {:breadcrumb 96} true;
+    call System.Object.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.Permission_Claim.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.Permission_Claim.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.Resource() : Ref;
+
+const unique T$GenericAuthNameSpace.Resource: int;
+
+var F$GenericAuthNameSpace.Resource.name: [Ref]Ref;
+
+procedure GenericAuthNameSpace.Resource.get_value($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.Resource.set_value$System.Object($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.Resource.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.Resource.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.Resource.name[$this] := null;
+    assume {:breadcrumb 97} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.Resource.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.Resource.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req() : Ref;
+
+const unique T$GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req: int;
+
+procedure GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.get_ticket($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.set_ticket$GenericAuthNameSpace.Ticket($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.get_Realm($this: Ref) returns ($result: Ref);
+
+
+
+procedure GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.set_Realm$System.String($this: Ref, value$in: Ref);
+
+
+
+procedure GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    assume {:breadcrumb 98} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.AuthTicketAS_Resp_ReqResourceRS_Req.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.Permission() : Ref;
+
+const unique T$GenericAuthNameSpace.Permission: int;
+
+var F$GenericAuthNameSpace.Permission.name: [Ref]Ref;
+
+procedure GenericAuthNameSpace.Permission.Equals$System.Object($this: Ref, obj$in: Ref) returns ($result: bool);
+
+
+
+implementation GenericAuthNameSpace.Permission.Equals$System.Object($this: Ref, obj$in: Ref) returns ($result: bool)
+{
+  var obj: Ref;
+  var local_1_bool: bool;
+  var local_0_Ref: Ref;
+  var $tmp0: Ref;
+  var $tmp1: bool;
+  var $localExc: Ref;
+  var $label: int;
+
+    obj := obj$in;
+    assume {:breadcrumb 99} true;
+    if (obj == null)
+    {
+        assume {:breadcrumb 100} true;
+        local_1_bool := false;
+    }
+    else
+    {
+        assume {:breadcrumb 101} true;
+        local_0_Ref := $As(obj, T$GenericAuthNameSpace.Permission());
+        if (local_0_Ref == null)
+        {
+            assume {:breadcrumb 102} true;
+            local_1_bool := false;
+        }
+        else
+        {
+            assume {:breadcrumb 103} true;
+            assume $this != null;
+            $tmp0 := local_0_Ref;
+            assume $tmp0 != null;
+            call $tmp1 := System.String.op_Equality$System.String$System.String(F$GenericAuthNameSpace.Permission.name[$this], F$GenericAuthNameSpace.Permission.name[$tmp0]);
+            local_1_bool := $tmp1;
+            goto IL_003a;
+        }
+    }
+
+  IL_003a:
+    $result := local_1_bool;
+    return;
+}
+
+
+
+procedure GenericAuthNameSpace.Permission.GetHashCode($this: Ref) returns ($result: int);
+
+
+
+procedure {:extern} System.Object.GetHashCode($this: Ref) returns ($result: int);
+
+
+
+implementation GenericAuthNameSpace.Permission.GetHashCode($this: Ref) returns ($result: int)
+{
+  var local_0_int: int;
+  var $tmp0: Ref;
+  var $tmp1: int;
+  var $localExc: Ref;
+  var $label: int;
+
+    assume {:breadcrumb 104} true;
+    assume $this != null;
+    $tmp0 := F$GenericAuthNameSpace.Permission.name[$this];
+    call $tmp1 := System.Object.GetHashCode($tmp0);
+    local_0_int := $tmp1;
+    goto IL_000f;
+
+  IL_000f:
+    $result := local_0_int;
+    return;
+}
+
+
+
+procedure GenericAuthNameSpace.Permission.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.Permission.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.Permission.name[$this] := null;
+    assume {:breadcrumb 105} true;
+    call CST.CST_Struct.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.Permission.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.Permission.#cctor()
+{
+}
+
+
+
+function T$GenericAuthNameSpace.Resources() : Ref;
+
+const unique T$GenericAuthNameSpace.Resources: int;
+
+var F$GenericAuthNameSpace.Resources.resourceSet: [Ref]Ref;
+
+procedure GenericAuthNameSpace.Resources.#ctor($this: Ref);
+
+
+
+implementation GenericAuthNameSpace.Resources.#ctor($this: Ref)
+{
+  var $localExc: Ref;
+  var $label: int;
+
+    F$GenericAuthNameSpace.Resources.resourceSet[$this] := null;
+    assume {:breadcrumb 106} true;
+    call System.Object.#ctor($this);
+}
+
+
+
+procedure T$GenericAuthNameSpace.Resources.#cctor();
+
+
+
+implementation T$GenericAuthNameSpace.Resources.#cctor()
+{
+}
+
+
 
 function T$OpenIDExample.LogIn() : Ref;
 
@@ -2601,9 +3568,9 @@ procedure {:extern} System.Web.UI.Control.set_Visible$System.Boolean($this: Ref,
 
 
 
-const {:value "Your ID is {0}"} unique $string_literal_Your$ID$is$$0$_15: Ref;
+const {:value "Your ID is {0}"} unique $string_literal_Your$ID$is$$0$_17: Ref;
 
-const {:value "openid.identity"} unique $string_literal_openid.identity_16: Ref;
+const {:value "openid.identity"} unique $string_literal_openid.identity_18: Ref;
 
 procedure {:extern} System.String.Format$System.String$System.Object(format$in: Ref, arg0$in: Ref) returns ($result: Ref);
 
@@ -2672,7 +3639,7 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 79} true;
+    assume {:breadcrumb 107} true;
     call $tmp3 := System.Web.UI.Page.get_Request($this);
     call $tmp4 := System.Web.HttpRequest.get_Params($tmp3);
     call $tmp5 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp4, $string_literal_openid.mode_5);
@@ -2690,15 +3657,15 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
 
     if ((if !$tmp6 then $tmp2 else false))
     {
-        assume {:breadcrumb 80} true;
+        assume {:breadcrumb 108} true;
         if (!F$OpenIDExample.LogIn.expecting_redir)
         {
-            assume {:breadcrumb 82} true;
+            assume {:breadcrumb 110} true;
             return;
         }
         else
         {
-            assume {:breadcrumb 83} true;
+            assume {:breadcrumb 111} true;
         }
 
         F$OpenIDExample.LogIn.expecting_redir := false;
@@ -2762,36 +3729,36 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn)
         {
-            assume {:breadcrumb 84} true;
+            assume {:breadcrumb 112} true;
             assume $this != null;
             $tmp29 := F$OpenIDExample.LogIn.notLoggedIn[$this];
             call System.Web.UI.Page.set_Visible$System.Boolean($tmp29, false);
         }
         else
         {
-            assume {:breadcrumb 85} true;
+            assume {:breadcrumb 113} true;
             assume $this != null;
             if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page)
             {
-                assume {:breadcrumb 86} true;
+                assume {:breadcrumb 114} true;
                 assume $this != null;
                 $tmp30 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                 call System.Web.UI.Page.set_Visible$System.Boolean($tmp30, false);
             }
             else
             {
-                assume {:breadcrumb 87} true;
+                assume {:breadcrumb 115} true;
                 assume $this != null;
                 if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.TemplateControl)
                 {
-                    assume {:breadcrumb 88} true;
+                    assume {:breadcrumb 116} true;
                     assume $this != null;
                     $tmp31 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                     call System.Web.UI.Control.set_Visible$System.Boolean($tmp31, false);
                 }
                 else
                 {
-                    assume {:breadcrumb 89} true;
+                    assume {:breadcrumb 117} true;
                     assume $this != null;
                     $tmp32 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                     call System.Web.UI.Control.set_Visible$System.Boolean($tmp32, false);
@@ -2802,36 +3769,36 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn)
         {
-            assume {:breadcrumb 90} true;
+            assume {:breadcrumb 118} true;
             assume $this != null;
             $tmp33 := F$OpenIDExample.LogIn.LoggedIn[$this];
             call System.Web.UI.Page.set_Visible$System.Boolean($tmp33, true);
         }
         else
         {
-            assume {:breadcrumb 91} true;
+            assume {:breadcrumb 119} true;
             assume $this != null;
             if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page)
             {
-                assume {:breadcrumb 92} true;
+                assume {:breadcrumb 120} true;
                 assume $this != null;
                 $tmp34 := F$OpenIDExample.LogIn.LoggedIn[$this];
                 call System.Web.UI.Page.set_Visible$System.Boolean($tmp34, true);
             }
             else
             {
-                assume {:breadcrumb 93} true;
+                assume {:breadcrumb 121} true;
                 assume $this != null;
                 if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.TemplateControl)
                 {
-                    assume {:breadcrumb 94} true;
+                    assume {:breadcrumb 122} true;
                     assume $this != null;
                     $tmp35 := F$OpenIDExample.LogIn.LoggedIn[$this];
                     call System.Web.UI.Control.set_Visible$System.Boolean($tmp35, true);
                 }
                 else
                 {
-                    assume {:breadcrumb 95} true;
+                    assume {:breadcrumb 123} true;
                     assume $this != null;
                     $tmp36 := F$OpenIDExample.LogIn.LoggedIn[$this];
                     call System.Web.UI.Control.set_Visible$System.Boolean($tmp36, true);
@@ -2843,49 +3810,49 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
         $tmp37 := F$OpenIDExample.LogIn.logged_id[$this];
         call $tmp38 := System.Web.UI.Page.get_Request($this);
         call $tmp39 := System.Web.HttpRequest.get_Params($tmp38);
-        call $tmp40 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp39, $string_literal_openid.identity_16);
-        call $tmp41 := System.String.Format$System.String$System.Object($string_literal_Your$ID$is$$0$_15, $tmp40);
+        call $tmp40 := System.Collections.Specialized.NameValueCollection.get_Item$System.String($tmp39, $string_literal_openid.identity_18);
+        call $tmp41 := System.String.Format$System.String$System.Object($string_literal_Your$ID$is$$0$_17, $tmp40);
         call System.Web.UI.HtmlControls.HtmlContainerControl.set_InnerHtml$System.String($tmp37, $tmp41);
         return;
     }
     else
     {
-        assume {:breadcrumb 81} true;
+        assume {:breadcrumb 109} true;
     }
 
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
-        assume {:breadcrumb 96} true;
+        assume {:breadcrumb 124} true;
         assume $this != null;
         $tmp42 := F$OpenIDExample.LogIn.notLoggedIn[$this];
         call System.Web.UI.Page.set_Visible$System.Boolean($tmp42, true);
     }
     else
     {
-        assume {:breadcrumb 97} true;
+        assume {:breadcrumb 125} true;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page)
         {
-            assume {:breadcrumb 98} true;
+            assume {:breadcrumb 126} true;
             assume $this != null;
             $tmp43 := F$OpenIDExample.LogIn.notLoggedIn[$this];
             call System.Web.UI.Page.set_Visible$System.Boolean($tmp43, true);
         }
         else
         {
-            assume {:breadcrumb 99} true;
+            assume {:breadcrumb 127} true;
             assume $this != null;
             if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.TemplateControl)
             {
-                assume {:breadcrumb 100} true;
+                assume {:breadcrumb 128} true;
                 assume $this != null;
                 $tmp44 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp44, true);
             }
             else
             {
-                assume {:breadcrumb 101} true;
+                assume {:breadcrumb 129} true;
                 assume $this != null;
                 $tmp45 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp45, true);
@@ -2896,36 +3863,36 @@ implementation OpenIDExample.LogIn.Page_Load$System.Object$System.EventArgs($thi
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
-        assume {:breadcrumb 102} true;
+        assume {:breadcrumb 130} true;
         assume $this != null;
         $tmp46 := F$OpenIDExample.LogIn.LoggedIn[$this];
         call System.Web.UI.Page.set_Visible$System.Boolean($tmp46, false);
     }
     else
     {
-        assume {:breadcrumb 103} true;
+        assume {:breadcrumb 131} true;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page)
         {
-            assume {:breadcrumb 104} true;
+            assume {:breadcrumb 132} true;
             assume $this != null;
             $tmp47 := F$OpenIDExample.LogIn.LoggedIn[$this];
             call System.Web.UI.Page.set_Visible$System.Boolean($tmp47, false);
         }
         else
         {
-            assume {:breadcrumb 105} true;
+            assume {:breadcrumb 133} true;
             assume $this != null;
             if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.TemplateControl)
             {
-                assume {:breadcrumb 106} true;
+                assume {:breadcrumb 134} true;
                 assume $this != null;
                 $tmp48 := F$OpenIDExample.LogIn.LoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp48, false);
             }
             else
             {
-                assume {:breadcrumb 107} true;
+                assume {:breadcrumb 135} true;
                 assume $this != null;
                 $tmp49 := F$OpenIDExample.LogIn.LoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp49, false);
@@ -2940,17 +3907,19 @@ procedure OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs($thi
 
 
 
-const {:value "SignInIdP"} unique $string_literal_SignInIdP_17: Ref;
+const {:value "SignInIdP"} unique $string_literal_SignInIdP_19: Ref;
 
 procedure {:extern} System.Type.GetMethod$System.String($this: Ref, name$in: Ref) returns ($result: Ref);
 
 
 
-const {:value "yahoo.com"} unique $string_literal_yahoo.com_18: Ref;
+const {:value "yahoo.com"} unique $string_literal_yahoo.com_20: Ref;
 
 procedure {:extern} CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo$System.String$System.Boolean$System.Boolean(o$in: Ref, in_msg$in: Ref, out_msg$in: Ref, mi$in: Ref, partyName$in: Ref, signed$in: bool, server_to_server$in: bool);
 
 
+
+const {:value "C:\Users\Daniel Song\Desktop\YahooIdP_SignInIdP.txt"} unique $string_literal_C$$Users$Daniel$Song$Desktop$YahooIdP_SignInIdP.txt_21: Ref;
 
 procedure OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationRequest($this: Ref, req$in: Ref) returns ($result: Ref);
 
@@ -2980,19 +3949,28 @@ implementation OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs
   var $tmp7: Ref;
   var $tmp8: Ref;
   var $tmp9: Ref;
+  var local_3_Ref: Ref;
   var $tmp10: Ref;
   var $tmp11: Ref;
   var $tmp12: Ref;
-  var local_3_Ref: Ref;
   var $tmp13: Ref;
-  var $tmp14: Ref;
+  var local_4_Ref: Ref;
+  var $tmp14: bool;
   var $tmp15: Ref;
+  var local_5_Ref: Ref;
+  var $tmp16: int;
+  var $tmp17: Ref;
+  var $tmp18: int;
+  var $tmp19: Ref;
+  var $tmp20: Ref;
+  var local_6_Ref: Ref;
+  var $tmp21: Ref;
   var $localExc: Ref;
   var $label: int;
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 108} true;
+    assume {:breadcrumb 136} true;
     F$OpenIDExample.LogIn.expecting_redir := true;
     assume $this != null;
     $tmp0 := F$OpenIDExample.LogIn.RP[$this];
@@ -3026,18 +4004,44 @@ implementation OpenIDExample.LogIn.LoginBtn_Click$System.Object$System.EventArgs
     assume $tmp9 != null;
     F$OpenID20NameSpace.AuthenticationRequest.mode[local_2_Ref] := F$OpenID20NameSpace.AuthenticationRequest.mode[$tmp9];
     call $tmp10 := Alloc();
-    call OpenID20NameSpace.Yahoo_IdP.#ctor($tmp10);
-    assume $DynamicType($tmp10) == T$OpenID20NameSpace.Yahoo_IdP();
-    assume $TypeConstructor($DynamicType($tmp10)) == T$OpenID20NameSpace.Yahoo_IdP;
-    $tmp11 := T$OpenID20NameSpace.Yahoo_IdP();
-    call $tmp12 := System.Type.GetMethod$System.String($tmp11, $string_literal_SignInIdP_17);
-    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo$System.String$System.Boolean$System.Boolean($tmp10, local_1_Ref, local_2_Ref, $tmp12, $string_literal_yahoo.com_18, true, false);
+    call System.Diagnostics.Stopwatch.#ctor($tmp10);
+    assume $DynamicType($tmp10) == T$System.Diagnostics.Stopwatch();
+    assume $TypeConstructor($DynamicType($tmp10)) == T$System.Diagnostics.Stopwatch;
+    local_3_Ref := $tmp10;
+    call System.Diagnostics.Stopwatch.Start(local_3_Ref);
+    call $tmp11 := Alloc();
+    call OpenID20NameSpace.Yahoo_IdP.#ctor($tmp11);
+    assume $DynamicType($tmp11) == T$OpenID20NameSpace.Yahoo_IdP();
+    assume $TypeConstructor($DynamicType($tmp11)) == T$OpenID20NameSpace.Yahoo_IdP;
+    $tmp12 := T$OpenID20NameSpace.Yahoo_IdP();
+    call $tmp13 := System.Type.GetMethod$System.String($tmp12, $string_literal_SignInIdP_19);
+    call CST.CST_Ops.recordme$System.Object$CST.CST_Struct$CST.CST_Struct$System.Reflection.MethodInfo$System.String$System.Boolean$System.Boolean($tmp11, local_1_Ref, local_2_Ref, $tmp13, $string_literal_yahoo.com_20, true, false);
+    call System.Diagnostics.Stopwatch.Stop(local_3_Ref);
+    local_4_Ref := $string_literal_C$$Users$Daniel$Song$Desktop$YahooIdP_SignInIdP.txt_21;
+    call $tmp14 := System.IO.File.Exists$System.String(local_4_Ref);
+    if (!$tmp14)
+    {
+        assume {:breadcrumb 137} true;
+        call $tmp15 := System.IO.File.CreateText$System.String(local_4_Ref);
+        local_5_Ref := $tmp15;
+        call $tmp16 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_3_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_5_Ref, $tmp16);
+    }
+    else
+    {
+        assume {:breadcrumb 138} true;
+        call $tmp17 := System.IO.File.AppendText$System.String(local_4_Ref);
+        local_5_Ref := $tmp17;
+        call $tmp18 := System.Diagnostics.Stopwatch.get_ElapsedMilliseconds(local_3_Ref);
+        call System.IO.TextWriter.WriteLine$System.Int64(local_5_Ref, $tmp18);
+    }
+
     assume $this != null;
-    $tmp13 := F$OpenIDExample.LogIn.RP[$this];
-    call $tmp14 := OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationRequest($tmp13, local_2_Ref);
-    local_3_Ref := $tmp14;
-    call $tmp15 := System.Web.UI.Page.get_Response($this);
-    call System.Web.HttpResponse.Redirect$System.String($tmp15, local_3_Ref);
+    $tmp19 := F$OpenIDExample.LogIn.RP[$this];
+    call $tmp20 := OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.AuthenticationRequest($tmp19, local_2_Ref);
+    local_6_Ref := $tmp20;
+    call $tmp21 := System.Web.UI.Page.get_Response($this);
+    call System.Web.HttpResponse.Redirect$System.String($tmp21, local_6_Ref);
 }
 
 
@@ -3063,40 +4067,40 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
 
     sender := sender$in;
     e := e$in;
-    assume {:breadcrumb 109} true;
+    assume {:breadcrumb 139} true;
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
-        assume {:breadcrumb 110} true;
+        assume {:breadcrumb 140} true;
         assume $this != null;
         $tmp0 := F$OpenIDExample.LogIn.notLoggedIn[$this];
         call System.Web.UI.Page.set_Visible$System.Boolean($tmp0, true);
     }
     else
     {
-        assume {:breadcrumb 111} true;
+        assume {:breadcrumb 141} true;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.Page)
         {
-            assume {:breadcrumb 112} true;
+            assume {:breadcrumb 142} true;
             assume $this != null;
             $tmp1 := F$OpenIDExample.LogIn.notLoggedIn[$this];
             call System.Web.UI.Page.set_Visible$System.Boolean($tmp1, true);
         }
         else
         {
-            assume {:breadcrumb 113} true;
+            assume {:breadcrumb 143} true;
             assume $this != null;
             if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.notLoggedIn[$this])) == T$System.Web.UI.TemplateControl)
             {
-                assume {:breadcrumb 114} true;
+                assume {:breadcrumb 144} true;
                 assume $this != null;
                 $tmp2 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp2, true);
             }
             else
             {
-                assume {:breadcrumb 115} true;
+                assume {:breadcrumb 145} true;
                 assume $this != null;
                 $tmp3 := F$OpenIDExample.LogIn.notLoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp3, true);
@@ -3107,36 +4111,36 @@ implementation OpenIDExample.LogIn.LogoutBtn_Click$System.Object$System.EventArg
     assume $this != null;
     if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$OpenIDExample.LogIn)
     {
-        assume {:breadcrumb 116} true;
+        assume {:breadcrumb 146} true;
         assume $this != null;
         $tmp4 := F$OpenIDExample.LogIn.LoggedIn[$this];
         call System.Web.UI.Page.set_Visible$System.Boolean($tmp4, false);
     }
     else
     {
-        assume {:breadcrumb 117} true;
+        assume {:breadcrumb 147} true;
         assume $this != null;
         if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.Page)
         {
-            assume {:breadcrumb 118} true;
+            assume {:breadcrumb 148} true;
             assume $this != null;
             $tmp5 := F$OpenIDExample.LogIn.LoggedIn[$this];
             call System.Web.UI.Page.set_Visible$System.Boolean($tmp5, false);
         }
         else
         {
-            assume {:breadcrumb 119} true;
+            assume {:breadcrumb 149} true;
             assume $this != null;
             if ($TypeConstructor($DynamicType(F$OpenIDExample.LogIn.LoggedIn[$this])) == T$System.Web.UI.TemplateControl)
             {
-                assume {:breadcrumb 120} true;
+                assume {:breadcrumb 150} true;
                 assume $this != null;
                 $tmp6 := F$OpenIDExample.LogIn.LoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp6, false);
             }
             else
             {
-                assume {:breadcrumb 121} true;
+                assume {:breadcrumb 151} true;
                 assume $this != null;
                 $tmp7 := F$OpenIDExample.LogIn.LoggedIn[$this];
                 call System.Web.UI.Control.set_Visible$System.Boolean($tmp7, false);
@@ -3151,7 +4155,7 @@ procedure OpenIDExample.LogIn.#ctor($this: Ref);
 
 
 
-const {:value "http://localhost:32928/LogIn.aspx"} unique $string_literal_http$$$localhost$32928$LogIn.aspx_19: Ref;
+const {:value "http://localhost:32928/LogIn.aspx"} unique $string_literal_http$$$localhost$32928$LogIn.aspx_22: Ref;
 
 procedure OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($this: Ref, return_uri$in: Ref, endpointUrl$in: Ref);
 
@@ -3174,9 +4178,9 @@ implementation OpenIDExample.LogIn.#ctor($this: Ref)
     F$OpenIDExample.LogIn.LoggedIn[$this] := null;
     F$OpenIDExample.LogIn.logged_id[$this] := null;
     F$OpenIDExample.LogIn.Logout[$this] := null;
-    assume {:breadcrumb 122} true;
+    assume {:breadcrumb 152} true;
     call $tmp0 := Alloc();
-    call OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($tmp0, $string_literal_http$$$localhost$32928$LogIn.aspx_19, F$OpenIDExample.LogIn.yahoo_str);
+    call OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($tmp0, $string_literal_http$$$localhost$32928$LogIn.aspx_22, F$OpenIDExample.LogIn.yahoo_str);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.Yahoo_RP();
     assume $TypeConstructor($DynamicType($tmp0)) == T$OpenID20NameSpace.Yahoo_RP;
     F$OpenIDExample.LogIn.RP[$this] := $tmp0;
@@ -3189,7 +4193,7 @@ procedure OpenIDExample.LogIn.#cctor();
 
 
 
-const {:value "https://open.login.yahooapis.com/openid/op/auth"} unique $string_literal_https$$$open.login.yahooapis.com$openid$op$auth_20: Ref;
+const {:value "https://open.login.yahooapis.com/openid/op/auth"} unique $string_literal_https$$$open.login.yahooapis.com$openid$op$auth_23: Ref;
 
 implementation OpenIDExample.LogIn.#cctor()
 {
@@ -3198,8 +4202,8 @@ implementation OpenIDExample.LogIn.#cctor()
 
     F$OpenIDExample.LogIn.yahoo_str := null;
     F$OpenIDExample.LogIn.expecting_redir := false;
-    assume {:breadcrumb 123} true;
-    F$OpenIDExample.LogIn.yahoo_str := $string_literal_https$$$open.login.yahooapis.com$openid$op$auth_20;
+    assume {:breadcrumb 153} true;
+    F$OpenIDExample.LogIn.yahoo_str := $string_literal_https$$$open.login.yahooapis.com$openid$op$auth_23;
     F$OpenIDExample.LogIn.expecting_redir := false;
 }
 
@@ -3210,7 +4214,7 @@ implementation OpenID20NameSpace.Yahoo_RP.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 124} true;
+    assume {:breadcrumb 154} true;
     call OpenID20NameSpace.RelyingParty.#ctor($this);
 }
 
@@ -3225,7 +4229,7 @@ implementation OpenID20NameSpace.Yahoo_RP.#ctor$System.String$System.String($thi
 
     return_uri := return_uri$in;
     endpointUrl := endpointUrl$in;
-    assume {:breadcrumb 125} true;
+    assume {:breadcrumb 155} true;
     call OpenID20NameSpace.RelyingParty.#ctor($this);
     call OpenID20NameSpace.RelyingParty.set_return_uri$System.String($this, return_uri);
     F$OpenID20NameSpace.RelyingParty.endpointUrl[$this] := endpointUrl;
@@ -3237,7 +4241,7 @@ procedure {:extern} System.Text.StringBuilder.#ctor$System.String($this: Ref, va
 
 
 
-const {:value "?openid.claimed_id={0}&openid.identity={1}&openid.return_to={2}?SymT={6}&openid.realm={5}&openid.mode={3}&openid.ns={4}"} unique $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_21: Ref;
+const {:value "?openid.claimed_id={0}&openid.identity={1}&openid.return_to={2}?SymT={6}&openid.realm={5}&openid.mode={3}&openid.ns={4}"} unique $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_24: Ref;
 
 procedure {:extern} System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray($this: Ref, format$in: Ref, args$in: Ref) returns ($result: Ref);
 
@@ -3256,7 +4260,7 @@ implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenti
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 126} true;
+    assume {:breadcrumb 156} true;
     call $tmp0 := Alloc();
     assume $this != null;
     call System.Text.StringBuilder.#ctor$System.String($tmp0, F$OpenID20NameSpace.RelyingParty.endpointUrl[$this]);
@@ -3265,7 +4269,7 @@ implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenti
     local_0_Ref := $tmp0;
     call $tmp1 := Alloc();
     assume $ArrayLength($tmp1) == 1 * 7;
-    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(local_0_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_21, $tmp1);
+    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(local_0_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_24, $tmp1);
     call $tmp3 := System.Object.ToString(local_0_Ref);
     local_1_Ref := $tmp3;
     goto IL_0087;
@@ -3294,7 +4298,7 @@ implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenti
   var $label: int;
 
     req := req$in;
-    assume {:breadcrumb 127} true;
+    assume {:breadcrumb 157} true;
     call $tmp0 := Alloc();
     assume $this != null;
     call System.Text.StringBuilder.#ctor$System.String($tmp0, F$OpenID20NameSpace.RelyingParty.endpointUrl[$this]);
@@ -3303,7 +4307,7 @@ implementation OpenID20NameSpace.Yahoo_RP.GenerateURL$OpenID20NameSpace.Authenti
     local_0_Ref := $tmp0;
     call $tmp1 := Alloc();
     assume $ArrayLength($tmp1) == 1 * 7;
-    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(local_0_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_21, $tmp1);
+    call $tmp2 := System.Text.StringBuilder.AppendFormat$System.String$System.Objectarray(local_0_Ref, $string_literal_?openid.claimed_id$$0$$openid.identity$$1$$openid.return_to$$2$?SymT$$6$$openid.realm$$5$$openid.mode$$3$$openid.ns$$4$_24, $tmp1);
     call $tmp3 := System.Object.ToString(local_0_Ref);
     local_1_Ref := $tmp3;
     goto IL_0087;
@@ -3338,7 +4342,7 @@ implementation CST.Debug.reached()
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 128} true;
+    assume {:breadcrumb 158} true;
     assert false;
 }
 
@@ -3353,7 +4357,7 @@ implementation CST.Debug.#ctor($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 129} true;
+    assume {:breadcrumb 159} true;
     call System.Object.#ctor($this);
 }
 
@@ -3382,9 +4386,9 @@ implementation CST.CST_Struct.#ctor($this: Ref)
 
     F$CST.CST_Struct.SymT[$this] := null;
     F$CST.CST_Struct.SignedBy[$this] := null;
-    assume {:breadcrumb 130} true;
-    F$CST.CST_Struct.SymT[$this] := $string_literal__14;
-    F$CST.CST_Struct.SignedBy[$this] := $string_literal__14;
+    assume {:breadcrumb 160} true;
+    F$CST.CST_Struct.SymT[$this] := $string_literal__16;
+    F$CST.CST_Struct.SignedBy[$this] := $string_literal__16;
     call System.Object.#ctor($this);
 }
 
@@ -3447,7 +4451,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.init($this: Ref)
   var $localExc: Ref;
   var $label: int;
 
-    assume {:breadcrumb 131} true;
+    assume {:breadcrumb 161} true;
     assume $this != null;
     call OpenID20NameSpace.OpenIDProvider.init$OpenID20NameSpace.IDAssertionRecs($this, F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this]);
     assume $this != null;
@@ -3478,7 +4482,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.#ctor($this: Ref)
   var $label: int;
 
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary[$this] := null;
-    assume {:breadcrumb 132} true;
+    assume {:breadcrumb 162} true;
     call $tmp0 := Alloc();
     call OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def();
@@ -3509,7 +4513,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.getEntr
 
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
-    assume {:breadcrumb 133} true;
+    assume {:breadcrumb 163} true;
     assume $this != null;
     $tmp0 := F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this];
     call $tmp2 := System.Collections.Generic.Dictionary`2.get_Item$`0($tmp0, IdPSessionSecret);
@@ -3545,7 +4549,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.setEntr
     IdPSessionSecret := IdPSessionSecret$in;
     client_id := client_id$in;
     Entry := Entry$in;
-    assume {:breadcrumb 134} true;
+    assume {:breadcrumb 164} true;
     call $tmp0 := Alloc();
     call OpenID20NameSpace.IDAssertionEntry.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$OpenID20NameSpace.IDAssertionEntry();
@@ -3577,7 +4581,7 @@ implementation OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.#ctor($
   var $label: int;
 
     F$OpenID20NameSpace.Yahoo_IdP.IDAssertionRecsDictionary_def.Dictionary[$this] := null;
-    assume {:breadcrumb 135} true;
+    assume {:breadcrumb 165} true;
     call $tmp0 := Alloc();
     call System.Collections.Generic.Dictionary`2.#ctor($tmp0);
     assume $DynamicType($tmp0) == T$System.Collections.Generic.Dictionary`2(T$System.String(), T$System.Collections.Generic.Dictionary`2(T$System.String(), T$OpenID20NameSpace.IDAssertionEntry()));

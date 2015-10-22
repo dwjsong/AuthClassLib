@@ -10,13 +10,15 @@ using GenericAuthNameSpace;
 using System.Net;
 using System.Text;
 using HTTP;
+using System.Diagnostics;
+using System.IO;
 
 namespace OpenIDExample
 {
     public partial class LogIn : System.Web.UI.Page
     {
         static string yahoo_str = "https://open.login.yahooapis.com/openid/op/auth";
-        Yahoo_RP RP = new Yahoo_RP("http://localhost:32928/LogIn.aspx", yahoo_str);
+        RelyingPartyImpl RP = new RelyingPartyImpl("http://localhost:32928/LogIn.aspx", yahoo_str);
         static bool expecting_redir = false;
 
         protected void Page_Load(object sender, EventArgs e)
@@ -101,7 +103,8 @@ namespace OpenIDExample
             new_resq.ns = resp.ns;
             new_resq.mode = resp.mode;
 
-            CST_Ops.recordme(new OpenID20NameSpace.Yahoo_IdP(), resp, new_resq, typeof(Yahoo_IdP).GetMethod("SignInIdP"), "yahoo.com", true, false);
+
+            CST_Ops.recordme(new OpenID20NameSpace.AuthorizationServerImpl(), resp, new_resq, typeof(AuthorizationServerImpl).GetMethod("SignInIdP"), "yahoo.com", true, false);
 
             string final_url = RP.GenerateURL(new_resq);
 

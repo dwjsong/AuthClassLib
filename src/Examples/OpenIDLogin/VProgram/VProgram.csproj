@@ -65,19 +65,25 @@
     <Reference Include="System.Data" />
     <Reference Include="System.Xml" />
     <Reference Include="CST">
-      <HintPath>C:\CST\dlls\CST.94C2D2ECA82C143025D2636FCE72F61940D8993A\CST.dll</HintPath>
+      <HintPath>C:\CST\dlls\CST.69CD5E561321B6B75807E06EC6C2F332CF9900C8\CST.dll</HintPath>
     </Reference>
     <Reference Include="GenericAuthNameSpace">
-      <HintPath>C:\CST\dlls\GenericAuthNameSpace.DC68996FECABA3CFF49A5BFAA69C9FF1F65515EF\GenericAuthNameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\GenericAuthNameSpace.2FC02336332572BC4AEB9A7F10A4E92DBD289AE0\GenericAuthNameSpace.dll</HintPath>
     </Reference>
     <Reference Include="OpenID20NameSpace">
-      <HintPath>C:\CST\dlls\OpenID20NameSpace.55E6539BC54ADAD151841ABAB27D32B330964ABB\OpenID20NameSpace.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenID20NameSpace.38351ABD98F3C224A800481C34B95B63154F19A4\OpenID20NameSpace.dll</HintPath>
     </Reference>
     <Reference Include="Yahoo_IdP">
-      <HintPath>C:\CST\dlls\Yahoo_IdP.EB52E9B8F577DF871DC1B142692E2D045FDFD040\Yahoo_IdP.dll</HintPath>
+      <HintPath>C:\CST\dlls\Yahoo_IdP.E260BE2857F81511CF69CD6E0507E31AC0B9835D\Yahoo_IdP.dll</HintPath>
     </Reference>
     <Reference Include="OpenIDExample">
-      <HintPath>C:\CST\dlls\OpenIDExample.F2C848E31576629ADF7A3469A6BF46CF492A32E3\OpenIDExample.dll</HintPath>
+      <HintPath>C:\CST\dlls\OpenIDExample.0A9663074E0A684369971F1FB18A737250C95876\OpenIDExample.dll</HintPath>
+    </Reference>
+    <Reference Include="Communication">
+      <HintPath>C:\CST\dlls\Communication.D61A3780EE2BD7C61B8F55C8CD5344C69C2A15E9\Communication.dll</HintPath>
+    </Reference>
+    <Reference Include="CST_Ops">
+      <HintPath>C:\CST\dlls\CST_Ops.E902734C88054780D00FA7DE16D87D89B7C3F1C0\CST_Ops.dll</HintPath>
     </Reference>
   </ItemGroup>
   <ItemGroup>

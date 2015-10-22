@@ -5,6 +5,8 @@
     using CST;
     using System.Web;
     using System.Collections.Generic;
+    using System.Diagnostics;
+    using System.IO;
 
     /***********************************************************/
     /*               Messages between parties                  */
@@ -275,7 +277,6 @@
         public abstract ID_Claim Process_SignInIdP_req(SignInIdP_Req req);
         public abstract SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim);
 
-//        public abstract ValidateTicket_Resp_ValidateTicket_Req ValidateTicket(ValidateTicket_Req req);
     }
 
     public abstract class RP
@@ -289,7 +290,28 @@
         }
         public virtual bool AuthenticationDone(AuthenticationConclusion conclusion)
         {
-            bool CST_verified = CST_Ops.Certify(conclusion);
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
+
+            bool CST_verified = CST_Ops.CertifyLocally(conclusion);
+            stopWatch.Stop();
+            string path = @"C:\Users\Daniel Song\Desktop\Certify.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+
+            }
+
             if (CurrentSession["UserID"] != null)
                 CurrentSession["UserID"] = CST_verified?conclusion.SessionUID:"";
             else
@@ -297,7 +319,6 @@
             return CST_verified;
         }
 
-//        public abstract ReqResourceRS_Resp_ReqResourceRS_Req RequestResource(AuthTicketAS_Resp_ReqResourceRS_Req req);
     }
 
     /***********************************************************/
@@ -309,8 +330,6 @@
         public RSResourceRecords_Base RSResourceRecs;
         public string Domain, Realm;
 
-//        public abstract ReqResourceRS_Resp_ReqResourceRS_Req RequestResource(ReqResourceRS_Req req);
-
         public class AuthorizationConclusion : CST_Struct
         {
             public Ticket ticket;
@@ -321,8 +340,27 @@
 
         public virtual bool RequestResourceDone(AuthorizationConclusion conclusion)
         {
-            bool CST_verified = CST_Ops.Certify(conclusion);
+            Stopwatch stopWatch = new Stopwatch();
+            stopWatch.Start();
 
+            bool CST_verified = CST_Ops.CertifyLocally(conclusion);
+            stopWatch.Stop();
+            string path = @"C:\Users\Daniel Song\Desktop\Certify.txt";
+            if (!File.Exists(path))
+            {
+                using (StreamWriter sw = File.CreateText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+            }
+            else
+            {
+                using (StreamWriter sw = File.AppendText(path))
+                {
+                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
+                }
+
+            }
             return CST_verified;
         }
     }

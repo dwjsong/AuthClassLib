@@ -7,9 +7,9 @@ using OAuth20NameSpace;
 using GenericAuthNameSpace;
 using System.Diagnostics.Contracts;
 
-namespace FBNameSpace
+namespace OAuth20NameSpace
 {
-    public class Facebook_AP : AuthorizationServer
+    public class AuthorizationServerImpl : AuthorizationServer
     {
         public void init()
         {

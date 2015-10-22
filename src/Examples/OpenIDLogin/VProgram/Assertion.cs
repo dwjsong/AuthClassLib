@@ -1,10 +1,10 @@
-﻿namespace LiveIDNameSpace
+namespace OpenID20NameSpace
 {
     using GenericAuthNameSpace;
     using OpenID20NameSpace;
     using System.Diagnostics.Contracts;
 
-    public class Yahoo_RP_For_vProgram : Yahoo_RP
+    public class For_vProgram : RelyingPartyImpl
     {
         public override bool AuthenticationDone(AuthenticationConclusion conclusion)
         {

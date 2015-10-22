@@ -38,6 +38,8 @@ namespace CST
         public static string CSTFolder = @"C:\CST\";
         public static string dllsFolder = @"C:\CST\dlls\";
         public static string projectFile = "";
+        public static string Program_cs;
+        public static string Assertion_cs;
 
         static VProgramGenerator()
         {
@@ -150,19 +152,27 @@ namespace CST
         public static void generateVProgram(List<MethodRecord> methodList)
         {
             string program = generateVP(methodList);
-
-            System.IO.StreamWriter file = new System.IO.StreamWriter(vProPath + @"\" + vSynFile);
-
+            
+            System.IO.StreamWriter file = new System.IO.StreamWriter(Path.Combine(vProPath, vSynFile));
             file.Write(program);
-
             file.Close();
+
+            System.IO.StreamWriter program_file = new System.IO.StreamWriter(Path.Combine(vProPath, "Program.cs"));
+            program_file.Write(VProgramGenerator.Program_cs);
+            program_file.Close();
+
+            System.IO.StreamWriter assertion_file = new System.IO.StreamWriter(Path.Combine(vProPath, "Assertion.cs"));
+            assertion_file.Write(VProgramGenerator.Assertion_cs);
+            assertion_file.Close();
+
+
         }
 
         public static void generateVProgram(List<MethodRecord> methodList, string newVPath)
         {
             string program = generateVP(methodList);
 
-            System.IO.StreamWriter file = new System.IO.StreamWriter(newVPath + @"\" + vSynFile);
+            System.IO.StreamWriter file = new System.IO.StreamWriter(Path.Combine(newVPath, vSynFile));
 
             file.Write(program);
 

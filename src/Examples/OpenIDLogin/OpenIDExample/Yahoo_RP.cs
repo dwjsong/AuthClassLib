@@ -9,17 +9,18 @@ using CST;
 
 namespace OpenID20NameSpace
 {
-    public class Yahoo_RP : RelyingParty
+    public class RelyingPartyImpl : RelyingParty
     {
-        public Yahoo_RP()
+        public RelyingPartyImpl()
         {
 
         }
 
-        public Yahoo_RP(string return_uri, string endpointUrl)
+        public RelyingPartyImpl(string return_uri, string endpointUrl)
         {
             this.return_uri = return_uri;
             this.endpointUrl = endpointUrl;
+            init();
         }
         
         public string GenerateURL(AuthenticationRequest req)

@@ -8,7 +8,7 @@ class GlobalObjectsForCST : GlobalObjects_base
     static public void init()
     {
         SignInIdP_Req = PoirotMain.Nondet.AuthenticationRequest();
-        IdP = new LiveID_IdP(); ((LiveID_IdP)IdP).init();
+        AS = new LiveID_IdP(); ((LiveID_IdP)AS).init();
         RP=new LiveID_RP_For_vProgram();
     }
 }
