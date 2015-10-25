@@ -94,7 +94,7 @@
         }
     }
 
-    public abstract class AuthTicketAS_Resp_ReqResourceRS_Req : CST_Struct
+    public abstract class AuthTicketAS_Resp : CST_Struct
     {
         public abstract Ticket ticket
         {
@@ -125,7 +125,7 @@
         public string UserID;
     }
 
-    public abstract class ReqResourceRS_Resp_ReqResourceRS_Req : CST_Struct
+    public abstract class ReqResourceRS_Resp : CST_Struct
     {
         public abstract Ticket ticket
         {
@@ -166,7 +166,7 @@
         }
     }
 
-    public abstract class ValidateTicket_Resp_ValidateTicket_Req : CST_Struct
+    public abstract class ValidateTicket_Resp : CST_Struct
     {
         public abstract Ticket ticket
         {

@@ -82,7 +82,7 @@
         public string refresh_token = null;
     }
 
-    public class AccessTokenResponse : AuthTicketAS_Resp_ReqResourceRS_Req
+    public class AccessTokenResponse : AuthTicketAS_Resp
     {
         public AccessToken access_token;
 
@@ -124,7 +124,7 @@
         public Permissions scope;
     }
 
-    public class ResourceResponse : ReqResourceRS_Resp_ReqResourceRS_Req
+    public class ResourceResponse : ReqResourceRS_Resp
     {
         public AccessToken access_token;
 
@@ -171,7 +171,7 @@
 
     }
 
-    public class ValidateTokenResponse : ValidateTicket_Resp_ValidateTicket_Req
+    public class ValidateTokenResponse : ValidateTicket_Resp
     {
         public AccessToken access_token;
 
