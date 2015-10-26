@@ -173,19 +173,14 @@
 
     public class ValidateTokenResponse : ValidateTicket_Resp
     {
-        public AccessToken access_token;
-
-        public override Ticket ticket
-        {
-            get { return (AccessToken)access_token; }
-            set { access_token = (AccessToken)value; }
-        }
         public override Permissions permissions
         {
             get { return scope; }
             set { scope = value; }
         }
         public Permissions scope;
+
+        public Permissions claimed_scope;
         public string client_id;
         public override string Realm
         {
@@ -364,12 +359,20 @@
         {
             AuthorizationConclusion conclusion = new AuthorizationConclusion();
             conclusion.UserID = tresq.UserID;
-            conclusion.permissions = tresq.scope;
             conclusion.Realm = tresq.Realm;
+            conclusion.permissions = tresq.claimed_scope;
 
             CST_Ops.recordme(this, tresq, conclusion, false, true);
 
+            
+            /*foreach (Permission permission in tresq.scope.permissionSet)
+            {
+                conclusion.permission = permission;
+                if (!RequestResourceDone(conclusion))
+                    return false;
+            }*/
             return RequestResourceDone(conclusion);
+            //return true;
         }
     }
 
@@ -404,17 +407,27 @@
 
             AccessTokenEntry tokenEntry = (AccessTokenEntry)AccessTokenRecs.getEntry(req.access_token, req.client_id, req.UserID);
 
-            if (req.client_id != tokenEntry.Realm && req.UserID != tokenEntry.UserID && tokenEntry.permissions.permissionSet.IsSupersetOf(req.permissions.permissionSet))
+            if (req.client_id != tokenEntry.Realm || req.UserID != tokenEntry.UserID || tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet)==false)
                 return null;
+            
+            foreach (Permission permission in req.scope.permissionSet) 
+            {
+                if (tokenEntry.permissions.permissionSet.Contains(permission) == false)
+                    return null;
+            }
+
+
 
             /* req.client is RS.Realm */
             /* Also, because of the if statement a line above,  req.client == tokenEntry.Realm == GlobalObjects_base.RS.Realm */
-            Contract.Assume(tokenEntry.Realm == GlobalObjects_base.RS.Realm);
+//            Contract.Assume(tokenEntry.Realm == GlobalObjects_base.RS.Realm);
+//            Contract.Assume(tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet));
 
             ValidateTokenResponse resp = new ValidateTokenResponse();
             resp.access_token = req.access_token;
             resp.client_id = tokenEntry.Realm;
-            resp.scope = tokenEntry.permissions;
+            resp.claimed_scope = tokenEntry.permissions;
+            resp.scope = req.scope;
             resp.UserID = tokenEntry.UserID;
             resp.Realm = tokenEntry.Realm;
 
@@ -527,5 +540,7 @@
         ResourceResponse ResourceResponse();
         Dictionary<string, Dictionary<string, Dictionary<string, AccessTokenEntry>>> AccessTokenDictionary();
         AccessTokenEntry AccessTokenEntry();
+        Permissions Permissions();
+        HashSet<Permission> HashSet();
     }
 }

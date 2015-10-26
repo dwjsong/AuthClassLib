@@ -168,11 +168,6 @@
 
     public abstract class ValidateTicket_Resp : CST_Struct
     {
-        public abstract Ticket ticket
-        {
-            get;
-            set;
-        }
         public abstract string Realm
         {
             get;
@@ -290,27 +285,7 @@
         }
         public virtual bool AuthenticationDone(AuthenticationConclusion conclusion)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
-            bool CST_verified = CST_Ops.CertifyLocally(conclusion);
-            stopWatch.Stop();
-            string path = @"C:\Users\Daniel Song\Desktop\Certify.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-
-            }
+            bool CST_verified = CST_Ops.Certify(conclusion);
 
             if (CurrentSession["UserID"] != null)
                 CurrentSession["UserID"] = CST_verified?conclusion.SessionUID:"";
@@ -340,27 +315,8 @@
 
         public virtual bool RequestResourceDone(AuthorizationConclusion conclusion)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
+            bool CST_verified = CST_Ops.Certify(conclusion);
 
-            bool CST_verified = CST_Ops.CertifyLocally(conclusion);
-            stopWatch.Stop();
-            string path = @"C:\Users\Daniel Song\Desktop\Certify.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-
-            }
             return CST_verified;
         }
     }
@@ -390,7 +346,11 @@
             Permission_Claim _Permission_Claim;
 
             _Permission_Claim = AS.ASAuthRecs.getEntry(ValidateTicket_Req.ticket, RS.Realm, ValidateTicket_Req.UserID);
-            Contract.Assert(_Permission_Claim.permissions.permissionSet == conclusion.permissions.permissionSet && 
+            /*
+            Contract.Assert(_Permission_Claim.permissions.permissionSet.IsSupersetOf(conclusion.permissions.permissionSet) && 
+                            _Permission_Claim.Realm == RS.Realm &&
+                            _Permission_Claim.UserID == conclusion.UserID);*/
+            Contract.Assert(_Permission_Claim.permissions.permissionSet == conclusion.permissions.permissionSet &&
                             _Permission_Claim.Realm == RS.Realm &&
                             _Permission_Claim.UserID == conclusion.UserID);
         }

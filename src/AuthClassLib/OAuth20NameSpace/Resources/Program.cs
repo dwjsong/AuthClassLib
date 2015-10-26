@@ -8,6 +8,8 @@ class GlobalObjectsForCST : GlobalObjects_base
     static public void init()
     {
         ValidateTicket_Req = PoirotMain.Nondet.ValidateTicket_Req();
+        ValidateTicket_Req.permissions = PoirotMain.Nondet.Permissions();
+        ValidateTicket_Req.permissions.permissionSet = PoirotMain.Nondet.HashSet();
         AS = new AuthorizationServerImpl(); ((AuthorizationServerImpl)AS).init();
         RS = new For_vProgram();
     }
