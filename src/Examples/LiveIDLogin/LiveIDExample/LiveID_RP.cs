@@ -26,7 +26,9 @@
         public RelyingPartyImpl(string client_id, string return_uri, string client_secret, string TokenEndpointUrl)
             :base(client_id, return_uri, client_secret, TokenEndpointUrl) 
         {
+            init();
         }
+
         public RelyingPartyImpl()
             : this(
                 "000000004C108D95",

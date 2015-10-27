@@ -173,6 +173,8 @@
 
     public class ValidateTokenResponse : ValidateTicket_Resp
     {
+        public AccessToken access_token;
+
         public override Permissions permissions
         {
             get { return scope; }

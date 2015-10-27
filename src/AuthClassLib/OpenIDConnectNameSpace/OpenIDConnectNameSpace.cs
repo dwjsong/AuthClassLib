@@ -158,28 +158,7 @@
             tokenReq.client_id = client_id;
             tokenReq.SymT = codeResp.SymT;
 
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
             CST_Ops.recordme(this, codeResp, tokenReq);
-            stopWatch.Stop();
-            string path = @"C:\Users\Daniel Song\Desktop\RP_constructTokenRequest.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-
-            }
-
 
             return tokenReq;
         } 
@@ -219,28 +198,7 @@
             AuthenticationConclusion conclusion = new AuthenticationConclusion();
             conclusion.SessionUID = tokenResp.id_token.Claims.UserId;
 
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
-
             CST_Ops.recordme(this, tokenResp, conclusion, false, true);
-            stopWatch.Stop();
-            string path = @"C:\Users\Daniel Song\Desktop\RP_conclude.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-
-            }
-
 
             if (AuthenticationDone(conclusion))
                 return conclusion;
