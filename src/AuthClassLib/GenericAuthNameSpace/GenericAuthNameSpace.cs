@@ -29,7 +29,7 @@
     {
     }
 
-    public abstract class Ticket : CST_Struct   //shuo:   this will become the access token in OAuth
+    public abstract class Ticket : CST_Struct 
     {
         public abstract string ticket
         {
@@ -38,7 +38,7 @@
         }
     }
 
-    public class Permission : CST_Struct       //shuo : this will become an element in the "scope" list in OAuth
+    public class Permission : CST_Struct 
     {
         public string name;
 
@@ -210,21 +210,13 @@
         bool setEntry(string IdPSessionSecret, string Realm, ID_Claim _ID_Claim);
     }
 
-    public abstract class Permission_Claim
+    public abstract class Permission_Claim : ID_Claim
     {
-        public abstract string UserID
-        {
-            get;
-        }
         public abstract Permissions permissions
         {
             get;
         }
         public abstract string Realm
-        {
-            get;
-        }
-        public abstract string Redir_dest
         {
             get;
         }
@@ -253,7 +245,7 @@
     /*         AS is both IdP and Authorizastion Server        */
     /***********************************************************/
 
-    public abstract class AS                   //shuo: let's call it "Authority Server (AS)" rather than "Authority Provider (AP)"
+    public abstract class AS                   
     {
         public IdPAuthRecords_Base IdpAuthRecs;
         public ASAuthTicketRecords_Base ASAuthRecs;
@@ -346,26 +338,11 @@
             Permission_Claim _Permission_Claim;
 
             _Permission_Claim = AS.ASAuthRecs.getEntry(ValidateTicket_Req.ticket, RS.Realm, ValidateTicket_Req.UserID);
-            /*
-            Contract.Assert(_Permission_Claim.permissions.permissionSet.IsSupersetOf(conclusion.permissions.permissionSet) && 
-                            _Permission_Claim.Realm == RS.Realm &&
-                            _Permission_Claim.UserID == conclusion.UserID);*/
             Contract.Assert(_Permission_Claim.permissions.permissionSet == conclusion.permissions.permissionSet &&
                             _Permission_Claim.Realm == RS.Realm &&
                             _Permission_Claim.UserID == conclusion.UserID);
         }
 
-
-        /*
-        //shuo:
-        I don't remember where is AuthenticationConclusion is defined. AuthorizationConclusion should be defined there too.
-        
-         * class AuthorizationConclusion {
-         *    string grant, Resource, UserID;
-         * }
-         * 
-         * The AuthorizationConclusion means that: because the request carries this "grant", the RS has decided to the release this kind of "resource" (e.g., photos) owned by this "UserID".
-         * so the ambient predicate should be: if I use the grant to retrieve the Permission_Claim, then the Permission_Claim should matches the UserID and Realm, and the Permission (e.g., PhotoAccess) in the Permission_Claim should covers this kind of resource (e.g., Photo).
 
 
 
