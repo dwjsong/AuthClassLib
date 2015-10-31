@@ -25,7 +25,7 @@ namespace OpenIDExample
         {            
             string mode = Request.Params["openid.mode"];
 
-            if (!String.IsNullOrEmpty(mode) && RP.ValidateSignature(Request))
+            if (!String.IsNullOrEmpty(mode))
             {
                 if (!expecting_redir)
                     return;
@@ -37,13 +37,14 @@ namespace OpenIDExample
                 RP.CurrentSession = sessionBase;
 
                 AuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
-
-                RP.SignInRP(resp);
-
+                                
                 notLoggedIn.Visible = false;
                 LoggedIn.Visible = true;
 
-                logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
+                if (RP.SignInRP(resp) != null)
+                    logged_id.InnerHtml = String.Format("Your ID is {0}", Request.Params["openid.identity"]);
+                else
+                    logged_id.InnerHtml = String.Format("Verification Failed");
             }
             else
             {
@@ -53,39 +54,6 @@ namespace OpenIDExample
             }
         }
 
-        /*
-         * OnLoginButtonClick
-         * {
-         *  doDiscover() {
-         *      constructDiscoverRequest() { recordMe(); } ;
-         *      Respond = sendDiscoverRequest();
-         *      
-         *      parse(m, Respond);
-         *      m2 = RP.RequestAuthentication(m) { recordMe(); };
-         *      
-         *      CST_Message.Redir(m2, Response);
-         *      
-         *  }
-         * }
-         * 
-         * SignIn(HTTPResponse)
-         * {
-         *      constructDiscoverRequest() { recordMe(); } ;
-         *      Respond = sendDiscoverRequest();
-         *      
-         *      parse(m, Respond);
-         *      m2 = RP.RequestAuthentication(m) { recordMe(); };
-         *      Response = HTTPResponse.Redir(m2, Response);
-         *      
-         * }
-         * 
-         * 
-         * AuthenticationDone()
-         * {
-         *      certify();
-         * }
-         * 
-         */
 
         protected void LoginBtn_Click(Object sender, EventArgs e)
         {

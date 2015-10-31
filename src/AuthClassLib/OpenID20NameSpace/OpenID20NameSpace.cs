@@ -55,6 +55,8 @@ namespace OpenID20NameSpace
         public string openid_claimed_id;
         public string openid_assoc_handle;
         public string openid_op_endpoint;
+        public string openid_op_email;
+
         public override string Redir_dest
         {
             get { return openid_return_to; }
@@ -111,6 +113,13 @@ namespace OpenID20NameSpace
 
             string[] keys = request.Params.AllKeys;
             bool not_first = false;
+            string signed_fields = request.Params["openid.signed"];
+
+            if (signed_fields.IndexOf("claimed_id") < 0 || signed_fields.IndexOf("return_to") < 0)
+                return false;
+
+            if (!request.Params["openid.return_to"].StartsWith(Domain))
+                return false;
 
             for (int i = 0; i < keys.Length; i++)
             {
@@ -137,15 +146,23 @@ namespace OpenID20NameSpace
         {
             AuthenticationResponse r = new AuthenticationResponse();
             HttpContext context = HttpContext.Current;
-            r.claimed_id = rawRequest.QueryString["openid.claimed_id"];
-            r.SymT = rawRequest.QueryString["SymT"];
+
+
             string return_url = rawRequest.QueryString["openid.return_to"];
 
             /* Since we have added SymT in the return_uri, we need to strip them */
             if (return_url.StartsWith(this.Domain)) {
                 string[] urls = return_url.Split('?');
-                r.return_to = urls[0];
+                return_url = urls[0];
             }
+
+            if (ValidateSignature(rawRequest))
+            {
+                r.SymT = rawRequest.QueryString["SymT"];
+                r.claimed_id = rawRequest.QueryString["openid.claimed_id"];
+                r.return_to = return_url;
+            }
+
             if (string.IsNullOrEmpty(r.claimed_id))
                 return null;
             else

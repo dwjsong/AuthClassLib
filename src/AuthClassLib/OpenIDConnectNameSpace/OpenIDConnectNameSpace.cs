@@ -264,6 +264,7 @@
                     AuthorizationCodeEntry AuthCodeEntry = (AuthorizationCodeEntry)AuthorizationCodeRecs.getEntry(IdPSessionSecret, req.client_id);
                     if (AuthCodeEntry.Redir_dest != req.redirect_uri)
                         return null;
+                     
                     IDTokenAndAccessTokenEntry = (IDTokenAndAccessTokenEntry)createAccessTokenEntry(AuthCodeEntry.redirect_uri, AuthCodeEntry.scope, AuthCodeEntry.state);
                     if (IDTokenAndAccessTokenRecs.setEntry(req.access_token,  req.client_id, req.UserID, IDTokenAndAccessTokenEntry) == false)
                         return null;
