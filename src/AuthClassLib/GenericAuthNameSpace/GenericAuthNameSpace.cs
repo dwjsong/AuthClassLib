@@ -340,7 +340,7 @@
             _Permission_Claim = AS.ASAuthRecs.getEntry(ValidateTicket_Req.ticket, RS.Realm, ValidateTicket_Req.UserID);
             Contract.Assert(_Permission_Claim.permissions.permissionSet == conclusion.permissions.permissionSet &&
                             _Permission_Claim.Realm == RS.Realm &&
-                            _Permission_Claim.UserID == conclusion.UserID);
+                            _Permission_Claim.UserID == ValidateTicket_Req.UserID);
         }
 
 

@@ -412,18 +412,6 @@
             if (req.client_id != tokenEntry.Realm || req.UserID != tokenEntry.UserID || tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet)==false)
                 return null;
             
-            foreach (Permission permission in req.scope.permissionSet) 
-            {
-                if (tokenEntry.permissions.permissionSet.Contains(permission) == false)
-                    return null;
-            }
-
-
-
-            /* req.client is RS.Realm */
-            /* Also, because of the if statement a line above,  req.client == tokenEntry.Realm == GlobalObjects_base.RS.Realm */
-//            Contract.Assume(tokenEntry.Realm == GlobalObjects_base.RS.Realm);
-//            Contract.Assume(tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet));
 
             ValidateTokenResponse resp = new ValidateTokenResponse();
             resp.access_token = req.access_token;
