@@ -11,7 +11,7 @@
     /***********************************************************/
     /*               Messages between parties                  */
     /***********************************************************/
-    public abstract class SignInIdP_Req : CST_Struct
+    public abstract class SignInIdP_Req : CST_MSG
     {
         public string IdPSessionSecret;
         public abstract string Realm
@@ -21,15 +21,15 @@
         }
     }
 
-    public class SignInIdP_Resp_SignInRP_Req : CST_Struct
+    public class SignInIdP_Resp_SignInRP_Req : CST_MSG
     {
     }
 
-    public class SignInRP_Resp : CST_Struct
+    public class SignInRP_Resp : CST_MSG
     {
     }
 
-    public abstract class Ticket : CST_Struct 
+    public abstract class Ticket : CST_MSG 
     {
         public abstract string ticket
         {
@@ -38,7 +38,7 @@
         }
     }
 
-    public class Permission : CST_Struct 
+    public class Permission : CST_MSG 
     {
         public string name;
 
@@ -65,7 +65,7 @@
         public HashSet<Permission> permissionSet;
     }
 
-    public abstract class Resource : CST_Struct
+    public abstract class Resource : CST_MSG
     {
         public string name;
         public abstract object value
@@ -80,7 +80,7 @@
         public HashSet<Resource> resourceSet;
     }
 
-    public abstract class AuthTicketAS_Req : CST_Struct  
+    public abstract class AuthTicketAS_Req : CST_MSG  
     {
         public abstract Ticket ticket
         {
@@ -94,7 +94,7 @@
         }
     }
 
-    public abstract class AuthTicketAS_Resp : CST_Struct
+    public abstract class AuthTicketAS_Resp : CST_MSG
     {
         public abstract Ticket ticket
         {
@@ -108,7 +108,7 @@
         }
     }
 
-    public abstract class ReqResourceRS_Req : CST_Struct
+    public abstract class ReqResourceRS_Req : CST_MSG
     {
         public abstract Ticket ticket
         {
@@ -125,7 +125,7 @@
         public string UserID;
     }
 
-    public abstract class ReqResourceRS_Resp : CST_Struct
+    public abstract class ReqResourceRS_Resp : CST_MSG
     {
         public abstract Ticket ticket
         {
@@ -142,7 +142,7 @@
         public string UserID;
     }
 
-    public abstract class ValidateTicket_Req : CST_Struct
+    public abstract class ValidateTicket_Req : CST_MSG
     {
         public abstract Ticket ticket
         {
@@ -166,7 +166,7 @@
         }
     }
 
-    public abstract class ValidateTicket_Resp : CST_Struct
+    public abstract class ValidateTicket_Resp : CST_MSG
     {
         public abstract string Realm
         {
@@ -271,7 +271,7 @@
         public HttpSessionStateBase CurrentSession;
         public string Domain, Realm;
         public abstract SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req);
-        public class AuthenticationConclusion: CST_Struct
+        public class AuthenticationConclusion: CST_MSG
         {
             public string SessionUID;
         }
@@ -297,7 +297,7 @@
         public RSResourceRecords_Base RSResourceRecs;
         public string Domain, Realm;
 
-        public class AuthorizationConclusion : CST_Struct
+        public class AuthorizationConclusion : CST_MSG
         {
             public Ticket ticket;
             public Permissions permissions;
@@ -324,7 +324,7 @@
         static public RP RP;
         static public RS RS;
 
-        static public void Assert_BadPersonCannotSignInAsGoodPerson(RP.AuthenticationConclusion conclusion)
+        static public void BadPersonCannotSignInAsGoodPerson(RP.AuthenticationConclusion conclusion)
         {
             ID_Claim ID_claim;
             ID_claim = AS.IdpAuthRecs.getEntry(
@@ -333,7 +333,7 @@
             Contract.Assert(ID_claim.Redir_dest == RP.Domain && ID_claim.UserID == conclusion.SessionUID);
         }
 
-        static public void Assert_BadPersonCannotAccessGoodPersonsResource(RS.AuthorizationConclusion conclusion)
+        static public void PermissionsHaveBeenGrantedByOwner(RS.AuthorizationConclusion conclusion)
         {
             Permission_Claim _Permission_Claim;
 

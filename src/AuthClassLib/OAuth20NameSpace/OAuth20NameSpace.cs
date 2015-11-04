@@ -365,16 +365,8 @@
             conclusion.permissions = tresq.claimed_scope;
 
             CST_Ops.recordme(this, tresq, conclusion, false, true);
-
-            
-            /*foreach (Permission permission in tresq.scope.permissionSet)
-            {
-                conclusion.permission = permission;
-                if (!RequestResourceDone(conclusion))
-                    return false;
-            }*/
+                        
             return RequestResourceDone(conclusion);
-            //return true;
         }
     }
 

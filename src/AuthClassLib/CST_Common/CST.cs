@@ -10,7 +10,7 @@ using System.IO;
 
 namespace CST
 {
-    public class CST_Struct
+    public class CST_MSG
     {
         public string SymT = "";
         public string SignedBy = "";

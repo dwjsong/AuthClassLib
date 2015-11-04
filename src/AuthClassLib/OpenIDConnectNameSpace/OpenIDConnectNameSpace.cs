@@ -156,7 +156,6 @@
             tokenReq.grant_type = "authorization_code";
             tokenReq.redirect_uri = return_uri; 
             tokenReq.client_id = client_id;
-            tokenReq.SymT = codeResp.SymT;
 
             CST_Ops.recordme(this, codeResp, tokenReq);
 
@@ -261,7 +260,7 @@
                         return null;
 
                     IDTokenAndAccessTokenEntry = (IDTokenAndAccessTokenEntry)createAccessTokenEntry(AuthCodeEntry.redirect_uri, AuthCodeEntry.scope, AuthCodeEntry.state);
-                    if (IDTokenAndAccessTokenRecs.setEntry(req.access_token,  req.client_id, req.UserID, IDTokenAndAccessTokenEntry) == false)
+                    if (IDTokenAndAccessTokenRecs.setEntry(req.access_token, req.client_id, AuthCodeEntry.UserID, IDTokenAndAccessTokenEntry) == false)
                         return null;
 
                     resp = new TokenResponse();  

@@ -56,7 +56,7 @@ namespace CST
         }
 
 
-        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, bool signed)
+        public static void recordme(Object o, CST_MSG in_msg, CST_MSG out_msg, bool signed)
         {
             StackTrace st = new StackTrace();
             StackFrame sf = st.GetFrame(1);
@@ -66,7 +66,7 @@ namespace CST
 
             recordme(o, in_msg, out_msg, mi, myPartyName, signed, false);
         }
-        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, bool signed, bool server_to_server)
+        public static void recordme(Object o, CST_MSG in_msg, CST_MSG out_msg, bool signed, bool server_to_server)
         {
             StackTrace st = new StackTrace();
             StackFrame sf = st.GetFrame(1);
@@ -77,7 +77,7 @@ namespace CST
             recordme(o, in_msg, out_msg, mi, myPartyName, signed, server_to_server);
         }
 
-        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg)
+        public static void recordme(Object o, CST_MSG in_msg, CST_MSG out_msg)
         {
             StackTrace st = new StackTrace();
             StackFrame sf = st.GetFrame(1);
@@ -88,7 +88,7 @@ namespace CST
             recordme(o, in_msg, out_msg, mi, myPartyName, false, false);
         }
 
-        public static void recordme(Object o, CST_Struct in_msg, CST_Struct out_msg, MethodInfo mi, string partyName, bool signed, bool server_to_server)
+        public static void recordme(Object o, CST_MSG in_msg, CST_MSG out_msg, MethodInfo mi, string partyName, bool signed, bool server_to_server)
         {
             Type objT = o.GetType();
             var t = mi.ReflectedType;
@@ -177,7 +177,7 @@ namespace CST
             return type.Name;
         }
 
-        public static bool Certify(CST_Struct msg)
+        public static bool Certify(CST_MSG msg)
         {
             RemoveUntrustedSymTPart(msg);
 
@@ -191,7 +191,7 @@ namespace CST
             return SymTResultCache[msg.SymT];
         }
 
-        public static bool CertifyLocally(CST_Struct msg)
+        public static bool CertifyLocally(CST_MSG msg)
         {
             RemoveUntrustedSymTPart(msg);
 
@@ -220,7 +220,7 @@ namespace CST
             return resultOfVerification;
         }
 
-        private static void RemoveUntrustedSymTPart(CST_Struct msg)
+        private static void RemoveUntrustedSymTPart(CST_MSG msg)
         {
             string peeledSymT = msg.SymT;
             int pos = 0, st_of_sym = 0, brk_cnt = 0;

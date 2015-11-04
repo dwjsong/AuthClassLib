@@ -173,17 +173,26 @@ namespace OpenID20NameSpace
         {
             AuthenticationResponse req = (AuthenticationResponse)req1;
             if (req == null) return null;
-            if (this.Domain != req.return_to) return null;
-            AuthenticationConclusion conclusion = new AuthenticationConclusion();
 
-            conclusion.SessionUID = req.claimed_id;
-
+            AuthenticationConclusion conclusion = Process_SignInRP_req(req);
+            if (conclusion == null)
+                return null;
             CST_Ops.recordme(this, req, conclusion, true);
 
             if (AuthenticationDone(conclusion))
                 return new SignInRP_Resp();
             else
                 return null;
+        }
+
+        public virtual AuthenticationConclusion Process_SignInRP_req(AuthenticationResponse req)
+        {
+            if (this.Domain != req.return_to) return null;
+            AuthenticationConclusion conclusion = new AuthenticationConclusion();
+
+            conclusion.SessionUID = req.claimed_id;
+
+            return conclusion;
         }
 
     }

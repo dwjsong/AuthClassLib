@@ -227,7 +227,7 @@ namespace CST
             return mr;
         }
 
-        public static List<MethodRecord> getDehashedRecords(ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA, CST_Struct msg)
+        public static List<MethodRecord> getDehashedRecords(ConcurrentDictionary<string, MethodRecord> methodSHADictKEYSHA, CST_MSG msg)
         {
             List<MethodRecord> mrList = new List<MethodRecord>();
             string[] sha_methods = msg.SymT.Split(new char[] { ' ', '(', ')' }, StringSplitOptions.RemoveEmptyEntries);

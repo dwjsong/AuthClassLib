@@ -7,7 +7,7 @@
     {
         public override bool AuthenticationDone(AuthenticationConclusion conclusion)
         {
-            GlobalObjects_base.Assert_BadPersonCannotSignInAsGoodPerson(conclusion);
+            GlobalObjects_base.BadPersonCannotSignInAsGoodPerson(conclusion);
             return true;
         }
     }

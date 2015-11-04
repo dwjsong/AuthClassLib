@@ -8,7 +8,7 @@
     {
         public override bool RequestResourceDone(AuthorizationConclusion conclusion)
         {
-            GlobalObjects_base.Assert_BadPersonCannotAccessGoodPersonsResource(conclusion);
+            GlobalObjects_base.PermissionsHaveBeenGrantedByOwner(conclusion);
             
             return true;
         }

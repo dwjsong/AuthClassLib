@@ -40,5 +40,15 @@ namespace OpenID20NameSpace
             return sb.ToString();
         }
 
+        public override AuthenticationConclusion Process_SignInRP_req(AuthenticationResponse req)
+        {
+            if (this.Domain != req.return_to) return null;
+            AuthenticationConclusion conclusion = new AuthenticationConclusion();
+
+            conclusion.SessionUID = req.claimed_id;
+
+            return conclusion;
+        }
+
     }
 }
