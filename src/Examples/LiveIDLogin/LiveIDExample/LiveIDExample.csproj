@@ -99,7 +99,6 @@
     </Content>
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="LiveID_RP.cs" />
     <Compile Include="login.aspx.cs">
       <DependentUpon>login.aspx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>
@@ -110,9 +109,9 @@
     <Folder Include="Website\" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\LiveID_IdP\LiveID_IdP.csproj">
+    <ProjectReference Include="..\LiveID_SDK\LiveID_SDK.csproj">
       <Project>{4a79fe60-2c45-49ba-9297-6c0b49275410}</Project>
-      <Name>LiveID_IdP</Name>
+      <Name>LiveID_SDK</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

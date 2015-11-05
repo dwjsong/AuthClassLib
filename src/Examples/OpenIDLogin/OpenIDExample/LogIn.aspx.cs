@@ -36,7 +36,7 @@ namespace OpenIDExample
 
                 RP.CurrentSession = sessionBase;
 
-                AuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
+                YahooAuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
                                 
                 notLoggedIn.Visible = false;
                 LoggedIn.Visible = true;
@@ -58,12 +58,12 @@ namespace OpenIDExample
         protected void LoginBtn_Click(Object sender, EventArgs e)
         {
             expecting_redir = true;
-            AuthenticationResponse req = new AuthenticationResponse();
+            YahooAuthenticationResponse req = new YahooAuthenticationResponse();
 
             var resp = RP.RequestAuthentication(req);
 
             /* HACK for Yahoo IdP */
-            AuthenticationRequest new_resq = new AuthenticationRequest();
+            YahooAuthenticationRequest new_resq = new YahooAuthenticationRequest();
             new_resq.claimed_id = resp.claimed_id;
             new_resq.identity = resp.identity;
             new_resq.return_to = resp.return_to;

@@ -194,7 +194,6 @@
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\CILController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
-    <Compile Include="Controllers\LiveID_RP.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -276,9 +275,9 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\..\LiveIDLogin\LiveID_IdP\LiveID_IdP.csproj">
+    <ProjectReference Include="..\..\LiveIDLogin\LiveID_SDK\LiveID_SDK.csproj">
       <Project>{4a79fe60-2c45-49ba-9297-6c0b49275410}</Project>
-      <Name>LiveID_IdP</Name>
+      <Name>LiveID_SDK</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

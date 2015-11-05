@@ -128,17 +128,7 @@
 
         public RelyingParty(string client_id1, string return_uri1, string client_secret1, string TokenEndpointUrl1)
             :base(client_id1, return_uri1, client_secret1, TokenEndpointUrl1){}
-        public AuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
-        {
-            AuthenticationResponse r = new AuthenticationResponse();
-            HttpContext context = HttpContext.Current;
-            r.code = rawRequest.QueryString["code"];
-            r.state = rawRequest.QueryString["state"];
-            if (string.IsNullOrEmpty(r.code))
-                return null;
-            else
-                return r;
-        }
+
         public AuthenticationConclusion AuthenticationUsingAuthorizationCodeFlow(AuthenticationResponse codeResp)
         {
             TokenRequest tokenReq = constructTokenRequest(codeResp);

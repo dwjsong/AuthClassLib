@@ -1,11 +1,17 @@
 <References>
 	<Reference>
-		C:\CST\dlls\CST.6FFC56186D114A652DB184C11133B1041ED45BC0\CST.dll
+		C:\CST\dlls\Communication.E6C42836307FFFADE509D29DF291D4F2E74B6A23\Communication.dll
 	</Reference>
 	<Reference>
-		C:\CST\dlls\GenericAuthNameSpace.1C1A2C75330109FD8ED691C3A5C1F89C354ECC69\GenericAuthNameSpace.dll
+		C:\CST\dlls\CST.B65C1E78363E5686A74CF5D0DCB240CC04E61168\CST.dll
 	</Reference>
 	<Reference>
-		C:\CST\dlls\OpenID20NameSpace.ADE7CE821FA9BCCFB47FBE64E9B7F57181F6B195\OpenID20NameSpace.dll
+		C:\CST\dlls\CST_Ops.C7863E9FFEB13A322BBF4821CEDE05CC384FC118\CST_Ops.dll
+	</Reference>
+	<Reference>
+		C:\CST\dlls\GenericAuthNameSpace.E26C43E400B29360A2A50307354DB9709DC44892\GenericAuthNameSpace.dll
+	</Reference>
+	<Reference>
+		C:\CST\dlls\OpenID20NameSpace.8AD8CEDB07DD9767F4A36285D467BAB289BD49A7\OpenID20NameSpace.dll
 	</Reference>
 </References>

@@ -37,7 +37,7 @@
         public string state = null;
     }
 
-    class AuthorizationErrorResponse : SignInIdP_Resp_SignInRP_Req
+    public class AuthorizationErrorResponse : SignInIdP_Resp_SignInRP_Req
     {
         protected string error;
         protected string error_description = null, error_uri = null;
@@ -263,9 +263,6 @@
 
     }
 
-
-
-
     /***********************************************************/
     /*                          Parties                        */
     /***********************************************************/
@@ -328,31 +325,12 @@
             return vtreq;
         }
 
-        public ResourceResponse RequestResource(ResourceRequest req)
+        public bool HasPermissionForResource(ResourceRequest req)
         {
             ValidateTokenRequest treq = createValidateTokenRequest(req);
             ValidateTokenResponse tresq = callValidateTokenEndpoint(treq);
 
-            if (conclude(tresq))
-            {
-                Resources recources = new Resources();
-                recources.resourceSet = new HashSet<Resource>();
-
-                foreach (Permission perm in req.scope.permissionSet)
-                {
-                    recources.resourceSet.Add(ResourceRecs.getEntry(tresq.UserID, perm));
-                }
-
-                ResourceResponse rr = new ResourceResponse();
-                rr.client_id = tresq.client_id;
-                rr.access_token = tresq.access_token;
-                rr.resources = recources;
-                rr.SymT = tresq.SymT;
-
-                return rr;
-            }
-
-            return null;
+            return conclude(tresq);
         }
 
         public abstract ValidateTokenResponse callValidateTokenEndpoint(ValidateTokenRequest treq);

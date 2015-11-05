@@ -27,9 +27,9 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "OpenIDExample", "OpenIDLogi
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VProgram", "OpenIDLogin\VProgram\VProgram.csproj", "{27D37963-5778-40C6-B9D0-A58260FAAD22}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveID_IdP", "LiveIDLogin\LiveID_IdP\LiveID_IdP.csproj", "{4A79FE60-2C45-49BA-9297-6C0B49275410}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "LiveID_SDK", "LiveIDLogin\LiveID_SDK\LiveID_SDK.csproj", "{4A79FE60-2C45-49BA-9297-6C0B49275410}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yahoo_IdP", "OpenIDLogin\Yahoo_IdP\Yahoo_IdP.csproj", "{B0F45F09-1334-4F74-9DA8-1A2089BF9D3F}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Yahoo_SDK", "OpenIDLogin\Yahoo_SDK\Yahoo_SDK.csproj", "{B0F45F09-1334-4F74-9DA8-1A2089BF9D3F}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "vProgram", "ABC\VProgram\vProgram.csproj", "{BB4D0FB3-5529-4C5F-96DF-D196285DC6AF}"
 EndProject
@@ -43,7 +43,7 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "FacebookGraphAuth", "Facebo
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "FacebookGraphApiExample", "FacebookGraphAuth\FacebookGraphApiExample\FacebookGraphApiExample.csproj", "{1363F9B9-3B34-42B7-9705-48BDF16FDC17}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_AP", "FacebookGraphAuth\Facebook_AP\Facebook_AP.csproj", "{B2A85B7F-1AE6-45CC-B686-83C39AE863CE}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Facebook_SDK", "FacebookGraphAuth\Facebook_SDK\Facebook_SDK.csproj", "{B2A85B7F-1AE6-45CC-B686-83C39AE863CE}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "VProgram", "FacebookGraphAuth\VProgram\VProgram.csproj", "{AC05CF7C-F419-42B9-BD01-943AD0FA52E5}"
 EndProject

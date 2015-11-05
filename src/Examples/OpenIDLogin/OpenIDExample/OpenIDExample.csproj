@@ -98,13 +98,12 @@
     <Compile Include="LogIn.aspx.designer.cs">
       <DependentUpon>LogIn.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Yahoo_RP.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Yahoo_IdP\Yahoo_IdP.csproj">
+    <ProjectReference Include="..\Yahoo_SDK\Yahoo_SDK.csproj">
       <Project>{b0f45f09-1334-4f74-9da8-1a2089bf9d3f}</Project>
-      <Name>Yahoo_IdP</Name>
+      <Name>Yahoo_SDK</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

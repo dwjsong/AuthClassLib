@@ -26,6 +26,28 @@ namespace OAuth20NameSpace
         string fbid = "1665122330392017";
         string fbemail = "johndoe.test.789@gmail.com";
 
+        public FBResourceResponse RequestResource(FBResourceRequest req)
+        {
+            if (HasPermissionForResource(req))
+            {
+                Resources recources = new Resources();
+                recources.resourceSet = new HashSet<Resource>();
+
+                foreach (Permission perm in req.scope.permissionSet)
+                {
+                    recources.resourceSet.Add(ResourceRecs.getEntry(req.UserID, perm));
+                }
+
+                FBResourceResponse rr = new FBResourceResponse();
+                rr.client_id = req.client_id;
+                rr.access_token = req.access_token;
+                rr.resources = recources;
+
+                return rr;
+            }
+            return null;
+        }
+
         class ResourceRecs_def : ResourceRecs
         {
             Dictionary<string, Dictionary<Permission, Resource>> resourceDB = new Dictionary<string, Dictionary<Permission, Resource>>();
@@ -47,9 +69,10 @@ namespace OAuth20NameSpace
 
                 return true;
             }
+
         }
 
-        public class EmailResource : Resource
+        public class FBEmailResource : Resource
         {
             public string email;
             public override object value
@@ -63,18 +86,18 @@ namespace OAuth20NameSpace
                     email = (string)value;
                 }
             }
-            public EmailResource()
+            public FBEmailResource()
             {
                 this.name = "email";
             }
 
         }
 
-        public class EmailPermission : Permission
+        public class FBEmailPermission : Permission
         {
             public string email;
 
-            public EmailPermission()
+            public FBEmailPermission()
             {
                 this.name = "email";
             }
@@ -99,8 +122,8 @@ namespace OAuth20NameSpace
             get_code_url = "https://www.facebook.com/dialog/oauth?client_id=" + _client_id + "&redirect_uri=" + redirect_uri + "&scope=email";
             TokenEndpointUrl = "https://graph.facebook.com";
             init(ResourceRecs);
-            EmailPermission perm = new EmailPermission();
-            EmailResource res = new EmailResource();
+            FBEmailPermission perm = new FBEmailPermission();
+            FBEmailResource res = new FBEmailResource();
             res.email = fbemail;
             ResourceRecs.setEntry(fbid, perm, res);
         }

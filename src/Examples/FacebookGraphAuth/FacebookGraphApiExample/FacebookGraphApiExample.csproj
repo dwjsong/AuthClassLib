@@ -91,13 +91,12 @@
     <Compile Include="Facebook_GraphAuth.aspx.designer.cs">
       <DependentUpon>Facebook_GraphAuth.aspx</DependentUpon>
     </Compile>
-    <Compile Include="Facebook_RS.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Facebook_AP\Facebook_AP.csproj">
+    <ProjectReference Include="..\Facebook_SDK\Facebook_SDK.csproj">
       <Project>{b2a85b7f-1ae6-45cc-b686-83c39ae863ce}</Project>
-      <Name>Facebook_AP</Name>
+      <Name>Facebook_SDK</Name>
     </ProjectReference>
   </ItemGroup>
   <PropertyGroup>

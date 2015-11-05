@@ -2,24 +2,10 @@
 {
     using System;
     using System.Web;
-    using System.Web.SessionState;
     using CST;
     using GenericAuthNameSpace;
     using System.Diagnostics;
     using System.IO;
-
-
-    /***********************************************************/
-    /*               Messages between parties                  */
-    /***********************************************************/
-
-    /***********************************************************/
-    /*               Data structures on parties                */
-    /***********************************************************/
-
-    /***********************************************************/
-    /*                          Parties                        */
-    /***********************************************************/
 
     public class RelyingPartyImpl: RelyingParty 
     {
@@ -41,9 +27,21 @@
 
         public override SignInRP_Resp SignInRP(SignInIdP_Resp_SignInRP_Req req)
         {
-            AuthenticationResponse codeResp = (AuthenticationResponse)req;
+            LiveIDAuthenticationResponse codeResp = (LiveIDAuthenticationResponse)req;
             AuthenticationConclusion conclusion = AuthenticationUsingAuthorizationCodeFlow(codeResp);
             return null;
+        }
+
+        public LiveIDAuthenticationResponse parseAuthenticationResponse(HttpRequest rawRequest)
+        {
+            LiveIDAuthenticationResponse r = new LiveIDAuthenticationResponse();
+            HttpContext context = HttpContext.Current;
+            r.code = rawRequest.QueryString["code"];
+            r.state = rawRequest.QueryString["state"];
+            if (string.IsNullOrEmpty(r.code))
+                return null;
+            else
+                return r;
         }
 
         public override TokenResponse callTokenEndpoint(TokenRequest req)
@@ -53,6 +51,16 @@
             CST_Ops.recordme(new OpenIDConnectNameSpace.AuthorizationServerImpl(), req, tr, typeof(OpenIDProvider).GetMethod("TokenEndpoint"), "live.com", false, false);
 
             return tr;
+        }
+
+        public string GetUserID()
+        {
+            return (string)CurrentSession["UserID"];
+        }
+
+        public bool IsVerified()
+        {
+            return true;
         }
     }
 }

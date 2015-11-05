@@ -35,10 +35,8 @@ namespace FacebookGraphApiExample
 
         }
 
-
         protected void Page_Load(object sender, EventArgs e)
         {
-            string userID;
             string access_token = Request.Params["access_token"];
             string code = Request.Params["code"];
 
@@ -54,15 +52,15 @@ namespace FacebookGraphApiExample
                 JsonDataStrcuture JsonDataStrcuture = new JsonDataStrcuture();
                 JsonDataStrcuture = serializer.ReadObject(response.GetResponseStream()) as JsonDataStrcuture;
 
-                ResourceRequest req = new ResourceRequest();
+                FBResourceRequest req = new FBResourceRequest();
                 req.access_token = new AccessToken();
                 req.access_token.token = JsonDataStrcuture.AccessToken;
                 req.UserID = user_id;
                 req.scope = new GenericAuthNameSpace.Permissions();
                 req.scope.permissionSet = new HashSet<GenericAuthNameSpace.Permission>();
-                req.scope.permissionSet.Add(new ResourceServerImpl.EmailPermission());
+                req.scope.permissionSet.Add(new ResourceServerImpl.FBEmailPermission());
 
-                ResourceResponse resp = (ResourceResponse)RS.RequestResource(req);
+                FBResourceResponse resp = RS.RequestResource(req);
                 if (resp == null)
                 {
                     email.InnerHtml = "verification failed";
