@@ -84,6 +84,7 @@ namespace OpenID20NameSpace
             set { Domain = value; }
         }
         public string assoc_handle;
+ 
         public string endpointUrl;
 
         public void init()

@@ -127,13 +127,13 @@
         }
 
         public RelyingParty(string client_id1, string return_uri1, string client_secret1, string TokenEndpointUrl1)
-            :base(client_id1, return_uri1, client_secret1, TokenEndpointUrl1){}
+            : base(client_id1, return_uri1, client_secret1, TokenEndpointUrl1) { }
 
         public AuthenticationConclusion AuthenticationUsingAuthorizationCodeFlow(AuthenticationResponse codeResp)
         {
             TokenRequest tokenReq = constructTokenRequest(codeResp);
-            TokenResponse tokenResp= callTokenEndpoint(tokenReq);
-            if (tokenResp == null) 
+            TokenResponse tokenResp = callTokenEndpoint(tokenReq);
+            if (tokenResp == null)
                 return null;
 
             return conclude(tokenResp);
@@ -144,13 +144,19 @@
             TokenRequest tokenReq = new TokenRequest();
             tokenReq.code = codeResp.code;
             tokenReq.grant_type = "authorization_code";
-            tokenReq.redirect_uri = return_uri; 
+            tokenReq.redirect_uri = return_uri;
             tokenReq.client_id = client_id;
+            tokenReq = pre_send_TokenRequest(tokenReq);
 
             CST_Ops.recordme(this, codeResp, tokenReq);
 
             return tokenReq;
-        } 
+        }
+
+        public virtual TokenRequest pre_send_TokenRequest(TokenRequest req)
+        {
+            return req;
+        }
 
         public virtual TokenResponse callTokenEndpoint(TokenRequest req)
         {
@@ -172,13 +178,13 @@
                 {
                     TokenResponse TokenResponse = new TokenResponse();
                     if (TokenResponse.parseJasonDataStructure(JsonDataStrcuture, client_secret))
-                    {                       
+                    {
                         return TokenResponse;
                     }
                     else
                         return null;
                 }
-            }          
+            }
             return null;
         }
 
@@ -189,14 +195,18 @@
 
             CST_Ops.recordme(this, tokenResp, conclusion, false, true);
 
+            conclusion = pre_AuthDone(conclusion);
             if (AuthenticationDone(conclusion))
                 return conclusion;
             else
                 return null;
         }
 
+        public virtual AuthenticationConclusion pre_AuthDone(AuthenticationConclusion req)
+        {
+            return req;
+        }
     }
-
 
     abstract public class OpenIDProvider : AuthorizationServer
     {

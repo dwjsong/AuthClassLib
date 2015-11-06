@@ -320,9 +320,16 @@
             vtreq.UserID = res_req.UserID;
             vtreq.client_id = this.Realm;
 
+            vtreq = pre_ValidateTokenRequest(vtreq);
+
             CST_Ops.recordme(this, res_req, vtreq);
 
             return vtreq;
+        }
+
+        public virtual ValidateTokenRequest pre_ValidateTokenRequest(ValidateTokenRequest req)
+        {
+            return req;
         }
 
         public bool HasPermissionForResource(ResourceRequest req)
@@ -343,8 +350,14 @@
             conclusion.permissions = tresq.claimed_scope;
 
             CST_Ops.recordme(this, tresq, conclusion, false, true);
-                        
+            conclusion = pre_AuthDone(conclusion);
+
             return RequestResourceDone(conclusion);
+        }
+
+        public virtual AuthorizationConclusion pre_AuthDone(AuthorizationConclusion req)
+        {
+            return req;
         }
     }
 
