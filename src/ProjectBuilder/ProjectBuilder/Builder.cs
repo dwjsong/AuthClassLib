@@ -13,6 +13,7 @@ using System.Diagnostics;
 
 namespace ProjectBuilder
 {
+
     class Builder
     {
         public static string CSTFolder = @"C:\CST\";
