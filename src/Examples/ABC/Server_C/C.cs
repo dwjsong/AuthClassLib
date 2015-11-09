@@ -28,27 +28,7 @@ namespace ABC
 
         public Message invoke(Message in_msg)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             CST_Ops.recordme(this, in_msg, conclusion);
-            stopWatch.Stop();
-
-            string path = @"C:\Users\Daniel Song\Desktop\Charlie.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-
-            }
 
             conclusion.value = in_msg.value;
             conclusion.largestParty = in_msg.largestParty;
@@ -77,25 +57,7 @@ namespace ABC
 
         public bool conclude(Message msg)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             bool result = CST_Ops.CertifyLocally(msg);
-            string path = @"C:\Users\Daniel Song\Desktop\ABC_Certify.txt";
-            if (!File.Exists(path))
-            {
-                using (StreamWriter sw = File.CreateText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-            }
-            else
-            {
-                using (StreamWriter sw = File.AppendText(path))
-                {
-                    sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                }
-
-            }
             return result;
         }
 

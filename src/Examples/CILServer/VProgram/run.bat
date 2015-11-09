@@ -1,7 +1,6 @@
-::@echo off 
+::@echo off
 
 SET POIROT_ROOT=C:\PoirotEnlistment
-::SET my_dir=C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\LiveConnectOAuthRP\vProgram
 SET STUB=stub
 SET file_name=bin\Debug\vProgram
 SET model_name=vProgram
@@ -10,9 +9,9 @@ SET clean_name=progClean
 ::C:
 ::cd %my_dir%
 
-if exist *.exe del *.exe  
+if exist *.exe del *.exe
 if exist *.pdb del *.pdb
-if exist *.bpl del *.bpl 
+if exist *.bpl del *.bpl
 if exist corral_out_trace.txt del corral_out_trace.txt
 
 copy %POIROT_ROOT%\poirot4.net\library\poirot_stubs.bpl

@@ -1,7 +1,6 @@
 ::@echo off
 
 SET POIROT_ROOT=C:\PoirotEnlistment
-::SET my_dir=C:\Users\shuochen\Dropbox\work\Protocol-independent-protocol\LiveConnectOAuthRP\vProgram
 SET STUB=stub
 SET file_name=bin\Debug\vProgram
 SET model_name=vProgram
