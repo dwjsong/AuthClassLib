@@ -195,6 +195,10 @@ namespace OpenID20NameSpace
             return req;
         }
 
+        public override ValidateTicket_Resp ValidateTicket(ValidateTicket_Req req)
+        {
+            return null;
+        }
     }
 
     public interface NondetOpenID20 : Nondet_Base

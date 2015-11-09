@@ -148,6 +148,7 @@
             tokenReq.client_id = client_id;
             tokenReq = pre_send_TokenRequest(tokenReq);
 
+
             CST_Ops.recordme(this, codeResp, tokenReq);
 
             return tokenReq;
@@ -198,8 +199,8 @@
             conclusion = pre_AuthDone(conclusion);
             if (AuthenticationDone(conclusion))
                 return conclusion;
-            else
-                return null;
+//            else
+            return null;
         }
 
         public virtual AuthenticationConclusion pre_AuthDone(AuthenticationConclusion req)

@@ -74,9 +74,10 @@
                 AccessToken at = (AccessToken)ticket;
                 AccessTokenEntry ate = (AccessTokenEntry)claim;
 
+                
                 if (at == null && claim == null)
                     return false;
-
+                
                 Dictionary[at] = new Dictionary<string, Dictionary<string, AccessTokenEntry>>();
                 Dictionary[at][Realm] = new Dictionary<string, AccessTokenEntry>();
                 Dictionary[at][Realm][UserID] = ate;

@@ -37,6 +37,8 @@ namespace OpenIDExample
                 RP.CurrentSession = sessionBase;
 
                 YahooAuthenticationResponse resp = RP.ParseAuthenticationResponse(Request);
+
+                if (resp == null) return;
                                 
                 notLoggedIn.Visible = false;
                 LoggedIn.Visible = true;

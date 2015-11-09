@@ -345,6 +345,7 @@
         public bool conclude(ValidateTokenResponse tresq)
         {
             AuthorizationConclusion conclusion = new AuthorizationConclusion();
+            
             conclusion.UserID = tresq.UserID;
             conclusion.Realm = tresq.Realm;
             conclusion.permissions = tresq.claimed_scope;
@@ -386,23 +387,30 @@
             AccessTokenRecs = AccessTokenRecs1;
         }
 
-        public ValidateTokenResponse ValidateTicket(ValidateTokenRequest req)
+        public override ValidateTicket_Resp ValidateTicket(ValidateTicket_Req vtr)
         {
-            Contract.Assume(req == GlobalObjects_base.ValidateTicket_Req);
+            Contract.Assume(vtr == GlobalObjects_base.ValidateTicket_Req);
+
+            ValidateTokenRequest req = (ValidateTokenRequest)vtr;
 
             AccessTokenEntry tokenEntry = (AccessTokenEntry)AccessTokenRecs.getEntry(req.access_token, req.client_id, req.UserID);
 
-            if (req.client_id != tokenEntry.Realm || req.UserID != tokenEntry.UserID || tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet)==false)
+            if (req.client_id != tokenEntry.Realm || req.UserID != tokenEntry.UserID || tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet) == false)
                 return null;
-            
 
+            return Process_ValidateTicket(req, tokenEntry);
+        }
+
+        public virtual ValidateTokenResponse Process_ValidateTicket(ValidateTokenRequest req, AccessTokenEntry tokenEntry)
+        {
             ValidateTokenResponse resp = new ValidateTokenResponse();
+
             resp.access_token = req.access_token;
             resp.client_id = tokenEntry.Realm;
             resp.claimed_scope = tokenEntry.permissions;
             resp.scope = req.scope;
             resp.UserID = tokenEntry.UserID;
-            resp.Realm = tokenEntry.Realm;
+            resp.Realm = tokenEntry.Realm;  
 
             return resp;
         }

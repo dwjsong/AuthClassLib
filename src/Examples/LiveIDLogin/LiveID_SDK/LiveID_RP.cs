@@ -53,6 +53,11 @@
             return tr;
         }
 
+        public override RP.AuthenticationConclusion pre_AuthDone(RP.AuthenticationConclusion req)
+        {
+            return req;
+        }
+
         public string GetUserID()
         {
             return (string)CurrentSession["UserID"];

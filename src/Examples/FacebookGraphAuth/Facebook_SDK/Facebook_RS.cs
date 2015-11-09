@@ -176,5 +176,11 @@ namespace OAuth20NameSpace
 
             return vtr;
         }
+
+        public override AuthorizationConclusion pre_AuthDone(AuthorizationConclusion req)
+        {
+            return req;
+        }
+
     }
 }

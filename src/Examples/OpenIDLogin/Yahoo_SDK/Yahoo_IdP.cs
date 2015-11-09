@@ -41,5 +41,21 @@ namespace OpenID20NameSpace
                 return true;
             }
         }
+
+        public override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)
+        {
+            AuthenticationRequest req = (AuthenticationRequest)req1;
+
+            switch (req.mode)
+            {
+                case "checkid_setup":
+                    IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
+                    if (req.realm == entry.Redir_dest)
+                        return entry;
+                    return null;
+            }
+
+            return null;
+        }
     }
 }

@@ -41,23 +41,6 @@
     public class Permission : CST_MSG 
     {
         public string name;
-
-        public override bool Equals(object obj)
-        {
-            if (obj == null)
-                return false;
-
-            Permission p = obj as Permission;
-            if (p == null)
-                return false;
-
-            return this.name == p.name;
-        }
-
-        public override int GetHashCode()
-        {
-            return name.GetHashCode();
-        }
     }
 
     public class Permissions
@@ -263,6 +246,7 @@
             
         public abstract ID_Claim Process_SignInIdP_req(SignInIdP_Req req);
         public abstract SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim);
+        public abstract ValidateTicket_Resp ValidateTicket(ValidateTicket_Req req);
 
     }
 
@@ -338,7 +322,7 @@
             Permission_Claim _Permission_Claim;
 
             _Permission_Claim = AS.ASAuthRecs.getEntry(ValidateTicket_Req.ticket, RS.Realm, ValidateTicket_Req.UserID);
-            Contract.Assert(_Permission_Claim.permissions.permissionSet == conclusion.permissions.permissionSet &&
+            Contract.Assert(_Permission_Claim.permissions == conclusion.permissions &&
                             _Permission_Claim.Realm == RS.Realm &&
                             _Permission_Claim.UserID == ValidateTicket_Req.UserID);
         }

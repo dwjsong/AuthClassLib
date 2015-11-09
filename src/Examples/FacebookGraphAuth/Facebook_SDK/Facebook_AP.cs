@@ -72,5 +72,17 @@ namespace OAuth20NameSpace
                 return null;
             }
         }
+
+        public override ValidateTokenResponse Process_ValidateTicket(ValidateTokenRequest req, AccessTokenEntry tokenEntry)
+        {
+            ValidateTokenResponse resp = new ValidateTokenResponse();
+            resp.access_token = req.access_token;
+            resp.client_id = tokenEntry.Realm;
+            resp.claimed_scope = tokenEntry.permissions;
+            resp.scope = req.scope;
+            resp.UserID = tokenEntry.UserID;
+            resp.Realm = tokenEntry.Realm;
+            return resp;
+        }
     }
 }
