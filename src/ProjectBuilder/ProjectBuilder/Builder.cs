@@ -436,8 +436,6 @@ namespace ProjectBuilder
 
         static void Main(string[] args)
         {
-            Stopwatch stopWatch = new Stopwatch();
-            stopWatch.Start();
             if (args.Length == 1)
             {
                 Console.WriteLine("Not enough Arguments!");
@@ -469,62 +467,13 @@ namespace ProjectBuilder
                         break;
                 }
 
-                if (args.Length == 2)
-                {
-                    stopWatch.Stop();
-
-                    String name = Path.GetFileName(args[1]);
-                    string path = @"C:\Users\Daniel Song\Desktop\" + name + "_pre.txt";
-                    if (!File.Exists(path))
-                    {
-                        using (StreamWriter sw = File.CreateText(path))
-                        {
-                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                        }
-                    }
-                    else
-                    {
-                        using (StreamWriter sw = File.AppendText(path))
-                        {
-                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                        }
-
-                    }
-                }
-
-                if (args.Length > 3)
-                {
-                    stopWatch.Stop();
-
-                    string path = @"C:\Users\Daniel Song\Desktop\" + args[3] + "_post.txt";
-                    if (!File.Exists(path))
-                    {
-                        using (StreamWriter sw = File.CreateText(path))
-                        {
-                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                        }
-                    }
-                    else
-                    {
-                        using (StreamWriter sw = File.AppendText(path))
-                        {
-                            sw.WriteLine(stopWatch.ElapsedMilliseconds);
-                        }
-
-                    }
-                }
-
             }
             else
             {
-                //"Command TO build "$(ProjectDir)..\ProjectBuilder\bin\Debug\ProjectBuilder.exe" -a "$(ProjectDir)"
-                string a = @"C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\LiveIDExample.csproj";
-                string b = @"C:\Users\Daniel\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin";
+                string a = @"C:\Users\AuthPlatelet\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\LiveIDExample.csproj";
+                string b = @"C:\Users\AuthPlatelet\Desktop\AuthClassLib\src\Examples\LiveIDLogin\LiveIDExample\bin";
                 string c = "LiveIDExample";
                 Builder.GenerateDep(a, b, c, "Debug");
-//                string dll = @"C:\CST\CILRepository.dll";
-//                string sha = Builder.GetSHAFromDLL(dll);
-//                Console.Write(sha);
                 Console.ReadKey();
 
             }
@@ -532,12 +481,3 @@ namespace ProjectBuilder
         }
     }
 }
-
-/*
- * 1669.6
- * 203.61
- * 950
- * 100
- * 34
- * 240
-*/
