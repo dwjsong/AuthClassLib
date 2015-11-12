@@ -101,6 +101,20 @@ namespace OAuth20NameSpace
             {
                 this.name = "email";
             }
+
+            public override bool Equals(object obj)
+            {
+                FBEmailPermission emailP = obj as FBEmailPermission;
+
+                if (emailP == null)
+                    return false;
+                return name.Equals(emailP.name);
+            }
+
+            public override int GetHashCode()
+            {
+                return name.GetHashCode();
+            }
         }
         static string client_id_ = "503819873126032";
         static string user_id = "1665122330392017";
