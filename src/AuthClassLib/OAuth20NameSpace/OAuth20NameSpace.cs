@@ -398,7 +398,10 @@
             if (req.client_id != tokenEntry.Realm || req.UserID != tokenEntry.UserID || tokenEntry.permissions.permissionSet.IsSupersetOf(req.scope.permissionSet) == false)
                 return null;
 
-            return Process_ValidateTicket(req, tokenEntry);
+            ValidateTokenResponse resp = (ValidateTokenResponse) Process_ValidateTicket(req, tokenEntry);
+            CST_Ops.recordme(this, req, resp, false, false);
+
+            return resp;
         }
 
         public virtual ValidateTokenResponse Process_ValidateTicket(ValidateTokenRequest req, AccessTokenEntry tokenEntry)
@@ -449,8 +452,6 @@
             {
                 case "code":
                     return createAuthorizationCodeEntry(req);                   
-                case "token":
-//                    return createAccessTokenEntry(req.redirect_uri, req.scope, req.state);
                 default:
                     return null;
             }

@@ -162,7 +162,10 @@ namespace OpenID20NameSpace
             ID_Claim _ID_Claim = Process_SignInIdP_req(req);
             if (_ID_Claim == null) return null;
 
-            return Redir(_ID_Claim.Redir_dest, _ID_Claim);
+            AuthenticationResponse resp = (AuthenticationResponse)Redir(_ID_Claim.Redir_dest, _ID_Claim);
+            CST_Ops.recordme(this, req, resp, true, false);
+
+            return resp;
         }
 
         public override ID_Claim Process_SignInIdP_req(SignInIdP_Req req1)

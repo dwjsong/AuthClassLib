@@ -199,7 +199,6 @@
             conclusion = pre_AuthDone(conclusion);
             if (AuthenticationDone(conclusion))
                 return conclusion;
-//            else
             return null;
         }
 
@@ -246,7 +245,8 @@
         public TokenResponse TokenEndpoint(TokenRequest req)
         {
             IDTokenAndAccessTokenEntry IDTokenAndAccessTokenEntry;
-            TokenResponse resp;
+            TokenResponse resp = new TokenResponse();
+            CST_Ops.recordme(this, req, resp, false, false);
             string IdPSessionSecret;
             if (req == null) return null;
             switch (req.grant_type)
@@ -264,8 +264,7 @@
                     if (IDTokenAndAccessTokenRecs.setEntry(req.access_token, req.client_id, AuthCodeEntry.UserID, IDTokenAndAccessTokenEntry) == false)
                         return null;
 
-                    resp = new TokenResponse();  
-                    resp.access_token = IDTokenAndAccessTokenEntry.access_token;
+                                        resp.access_token = IDTokenAndAccessTokenEntry.access_token;
                     resp.refresh_token = IDTokenAndAccessTokenEntry.refresh_token;
                     resp.scope = IDTokenAndAccessTokenEntry.scope;
                     resp.id_token = IDTokenAndAccessTokenEntry.id_token;
