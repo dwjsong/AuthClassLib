@@ -2,10 +2,11 @@ using System.Diagnostics.Contracts;
 using System.Text;
 using CST;
 using ABC;
+using CST_Message;
 
 public interface NondetVProgram : CST.Nondet_Base
 {
-    CST.Message Message();
+    CST_Message.Message Message();
 }
 
 

@@ -289,7 +289,7 @@
             public string UserID;
         }
 
-        public virtual bool RequestResourceDone(AuthorizationConclusion conclusion)
+        public virtual bool ResourceRequestDone(AuthorizationConclusion conclusion)
         {
             bool CST_verified = CST_Ops.Certify(conclusion);
 

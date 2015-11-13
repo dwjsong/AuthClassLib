@@ -10,7 +10,7 @@ using CST;
 
 namespace CST_Message
 {
-    public class Message : CST_Struct
+    public class Message : CST_MSG
     {
         public int value;
         public string largestParty;
@@ -18,10 +18,6 @@ namespace CST_Message
 
         public Message()
         {
-//            VProgramGenerator.Assertion_cs = Message.Properties
-//            VProgramGenerator.Assertion_cs = Properties.Resources.Assertion;
-//            Message.
-//            Prop
         }
 
         public void init()

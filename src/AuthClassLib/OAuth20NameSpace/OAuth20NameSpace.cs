@@ -353,7 +353,7 @@
             CST_Ops.recordme(this, tresq, conclusion, false, true);
             conclusion = pre_AuthDone(conclusion);
 
-            return RequestResourceDone(conclusion);
+            return ResourceRequestDone(conclusion);
         }
 
         public virtual AuthorizationConclusion pre_AuthDone(AuthorizationConclusion req)
