@@ -9,6 +9,8 @@
 
     public class RelyingPartyImpl: RelyingParty 
     {
+        public Boolean isVerified;
+
         public RelyingPartyImpl(string client_id, string return_uri, string client_secret, string TokenEndpointUrl)
             :base(client_id, return_uri, client_secret, TokenEndpointUrl) 
         {
@@ -29,6 +31,8 @@
         {
             LiveIDAuthenticationResponse codeResp = (LiveIDAuthenticationResponse)req;
             AuthenticationConclusion conclusion = AuthenticationUsingAuthorizationCodeFlow(codeResp);
+            if (conclusion != null)
+                isVerified = true;
             return null;
         }
 
@@ -65,7 +69,7 @@
 
         public bool IsVerified()
         {
-            return true;
+            return isVerified;
         }
     }
 }

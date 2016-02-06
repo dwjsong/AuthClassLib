@@ -11,6 +11,8 @@ namespace OAuth20NameSpace
 {
     public class AuthorizationServerImpl : AuthorizationServer
     {
+        static NondetOAuth20 Nondet;
+
         public void init()
         {
             base.init(AccessTokenDictionary);
@@ -18,17 +20,31 @@ namespace OAuth20NameSpace
 
         public override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim)
         {
-            throw new NotImplementedException();
+            var AuthCode = _ID_Claim as AuthorizationCodeEntry;
+            if (AuthCode == null)
+                return null;
+            AuthorizationResponse resp = new AuthorizationResponse();
+            resp.code = AuthCode.code;
+            return resp;
         }
 
         public override AccessTokenEntry createAccessTokenEntry(string redirect_uri, Permissions scope, string state)
         {
-            throw new NotImplementedException();
+            AccessTokenEntry entry = new AccessTokenEntry();
+            entry.redirect_uri = redirect_uri;
+            entry.scope = scope;
+            entry.state = state;
+
+            return entry;
         }
 
         public override AuthorizationCodeEntry createAuthorizationCodeEntry(AuthorizationRequest req)
         {
-            throw new NotImplementedException();
+            AuthorizationCodeEntry entry = Nondet.AuthorizationCodeEntry();
+            entry.redirect_uri = req.redirect_uri;
+            entry.scope = req.scope;
+            entry.state = req.state;
+            return entry;
         }
 
         AccessTokenDictionary_def AccessTokenDictionary = new AccessTokenDictionary_def();
@@ -62,14 +78,16 @@ namespace OAuth20NameSpace
                 return true;
             }
 
+            Dictionary<string, Dictionary<string, Dictionary<string, string>>> issDict = new Dictionary<string, Dictionary<string, Dictionary<string, string>>>();
+
             public string findISSByClientIDAndAccessToken(string client_id, string UserID, string access_token)
             {
-                return null;
+                return issDict[client_id][UserID][access_token];
             }
 
             public string findISSByClientIDAndRefreshToken(string client_id, string UserID, string refresh_token)
             {
-                return null;
+                return issDict[client_id][UserID][refresh_token];
             }
         }
 

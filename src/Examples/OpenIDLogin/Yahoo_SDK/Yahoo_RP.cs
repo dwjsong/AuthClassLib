@@ -95,6 +95,7 @@ namespace OpenID20NameSpace
 
             return sb.ToString();
         }
+
         public string GenerateURL(AuthenticationResponse req)
         {
             StringBuilder sb = new StringBuilder(endpointUrl);

@@ -149,8 +149,7 @@ namespace OAuth20NameSpace
 
         public void setCode(string code)
         {
-            get_token_url = "https://graph.facebook.com/v2.3/oauth/access_token?client_id=" + _client_id + "&redirect_uri=" + redirect_uri + "&client_secret=" + _client_secret + "&code="+code;
-
+            get_token_url = "https://graph.facebook.com/v2.3/oauth/access_token?client_id=" + _client_id + "&redirect_uri=" + redirect_uri + "&client_secret=" + _client_secret + "&code=" + code;
         }
 
         [DataContract]
@@ -162,7 +161,6 @@ namespace OAuth20NameSpace
             [DataMember(Name = "status")]
             public string status { get; set; }
         }
-
 
         [DataContract]
         public class FBPermssionData

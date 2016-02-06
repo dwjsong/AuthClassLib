@@ -141,7 +141,7 @@
         }
     }
 
-    public class ValidateTokenRequest : ValidateTicket_Req
+    public class ValidateTokenRequest : AuthTicket_Req
     {
         public AccessToken access_token;
 
@@ -171,7 +171,7 @@
 
     }
 
-    public class ValidateTokenResponse : ValidateTicket_Resp
+    public class ValidateTokenResponse : AuthTicket_Resp
     {
         public AccessToken access_token;
 
@@ -366,14 +366,14 @@
     {
         public AuthorizationCodeRecs AuthorizationCodeRecs
         {
-            get { return (AuthorizationCodeRecs)IdpAuthRecs;  }
-            set { IdpAuthRecs = value; }
+            get { return (AuthorizationCodeRecs)IdentityRecords;  }
+            set { IdentityRecords = value; }
         }
 
         protected AccessTokenRecs AccessTokenRecs
         {
-            get { return (AccessTokenRecs)ASAuthRecs; }
-            set { ASAuthRecs = value; }
+            get { return (AccessTokenRecs)TicketRecords; }
+            set { TicketRecords = value; }
         }
 
         public void init(AuthorizationCodeRecs AuthorizationCodeRecs1, AccessTokenRecs AccessTokenRecs1)
@@ -387,9 +387,9 @@
             AccessTokenRecs = AccessTokenRecs1;
         }
 
-        public override ValidateTicket_Resp ValidateTicket(ValidateTicket_Req vtr)
+        public override AuthTicket_Resp ValidateTicket(AuthTicket_Req vtr)
         {
-            Contract.Assume(vtr == GlobalObjects_base.ValidateTicket_Req);
+            Contract.Assume(vtr == GlobalObjects_base.AuthTicket_Req);
 
             ValidateTokenRequest req = (ValidateTokenRequest)vtr;
 
@@ -431,12 +431,12 @@
             {
                 case "code":
                     _ID_Claim = createAuthorizationCodeEntry(req1);
-                    if (IdpAuthRecs.setEntry(req1.IdPSessionSecret, req1.Realm, _ID_Claim) == false)
+                    if (IdentityRecords.setEntry(req1.IdPSessionSecret, req1.Realm, _ID_Claim) == false)
                         return null;
                     break;
                 case "token":
                     _Permission_Claim = createAccessTokenEntry(req1.redirect_uri, req1.scope, req1.state);
-                    _ID_Claim = IdpAuthRecs.getEntry(req1.IdPSessionSecret, req1.Realm);
+                    _ID_Claim = IdentityRecords.getEntry(req1.IdPSessionSecret, req1.Realm);
                     break;
                 default:
                     return null;
@@ -516,7 +516,7 @@
 
     public interface NondetOAuth20 : Nondet_Base
     {
-        ValidateTicket_Req ValidateTicket_Req();
+        AuthTicket_Req AuthTicket_Req();
         ValidateTokenRequest ValidateTokenRequest();
         ResourceRequest ResourceRequest();
         ResourceResponse ResourceResponse();
@@ -524,5 +524,6 @@
         AccessTokenEntry AccessTokenEntry();
         Permissions Permissions();
         HashSet<Permission> HashSet();
+        AuthorizationCodeEntry AuthorizationCodeEntry();
     }
 }

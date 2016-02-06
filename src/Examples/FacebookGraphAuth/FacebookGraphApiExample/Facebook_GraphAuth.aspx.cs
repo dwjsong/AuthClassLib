@@ -75,10 +75,9 @@ namespace FacebookGraphApiExample
             {
                 notLoggedIn.Visible = false;
                 LoggedIn.Visible = true;
-
             }
             else
-            {
+            { 
                 notLoggedIn.Visible = true;
                 LoggedIn.Visible = false;
             }

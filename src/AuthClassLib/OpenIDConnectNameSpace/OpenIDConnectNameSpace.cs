@@ -147,8 +147,7 @@
             tokenReq.redirect_uri = return_uri;
             tokenReq.client_id = client_id;
             tokenReq = pre_send_TokenRequest(tokenReq);
-
-
+            
             CST_Ops.recordme(this, codeResp, tokenReq);
 
             return tokenReq;
@@ -212,8 +211,8 @@
     {
         public AuthorizationCodeRecs AuthorizationCodeRecs
         {
-            get { return (AuthorizationCodeRecs)IdpAuthRecs; }
-            set { IdpAuthRecs = value; }
+            get { return (AuthorizationCodeRecs)IdentityRecords; }
+            set { IdentityRecords = value; }
         }
 
         protected IDTokenAndAccessTokenRecs IDTokenAndAccessTokenRecs
@@ -231,6 +230,7 @@
         {
             return (AuthenticationResponse)SignInIdP(req);
         }
+
         public override SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim claim)
         {
             var AuthCode = claim as AuthorizationCodeEntry;
@@ -264,7 +264,7 @@
                     if (IDTokenAndAccessTokenRecs.setEntry(req.access_token, req.client_id, AuthCodeEntry.UserID, IDTokenAndAccessTokenEntry) == false)
                         return null;
 
-                                        resp.access_token = IDTokenAndAccessTokenEntry.access_token;
+                    resp.access_token = IDTokenAndAccessTokenEntry.access_token;
                     resp.refresh_token = IDTokenAndAccessTokenEntry.refresh_token;
                     resp.scope = IDTokenAndAccessTokenEntry.scope;
                     resp.id_token = IDTokenAndAccessTokenEntry.id_token;

@@ -30,6 +30,7 @@ namespace OpenID20NameSpace
 
                 return entry;
             }
+
             public bool setEntry(string IdPSessionSecret, string client_id, ID_Claim Entry)
             {
                 IDAssertionEntry IDAssertionEntry = new IDAssertionEntry();

@@ -6,7 +6,7 @@
 
     public class For_vProgram : ResourceServerImpl
     {
-        public override bool RequestResourceDone(AuthorizationConclusion conclusion)
+        public override bool ResourceRequestDone(AuthorizationConclusion conclusion)
         {
             GlobalObjects_base.PermissionsHaveBeenGrantedByOwner(conclusion);
             

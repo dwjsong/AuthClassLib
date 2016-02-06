@@ -149,8 +149,8 @@ namespace OpenID20NameSpace
 
         protected IDAssertionRecs IDAssertionRecs
         {
-            get { return (IDAssertionRecs)IdpAuthRecs; }
-            set { IdpAuthRecs = value; }
+            get { return (IDAssertionRecs)IdentityRecords; }
+            set { IdentityRecords = value; }
         }
 
         public override SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req1)
@@ -163,6 +163,12 @@ namespace OpenID20NameSpace
             if (_ID_Claim == null) return null;
 
             AuthenticationResponse resp = (AuthenticationResponse)Redir(_ID_Claim.Redir_dest, _ID_Claim);
+
+            resp.realm = req.realm;
+            resp.identity = req.identity;
+            resp.ns = req.ns;
+            resp.mode = req.mode;
+
             CST_Ops.recordme(this, req, resp, true, false);
 
             return resp;
@@ -176,9 +182,9 @@ namespace OpenID20NameSpace
             {
                 case "checkid_setup":
                     IDAssertionEntry entry = (IDAssertionEntry)IDAssertionRecs.getEntry(req.IdPSessionSecret, req.realm);
-                    if (req.realm == entry.Redir_dest)
-                        return entry;
-                    return null;
+                    if (req.realm != entry.Redir_dest)
+                        return null;
+                    return entry;
             }
 
             return null;
@@ -198,9 +204,9 @@ namespace OpenID20NameSpace
             return req;
         }
 
-        public override ValidateTicket_Resp ValidateTicket(ValidateTicket_Req req)
+        public override AuthTicket_Resp ValidateTicket(AuthTicket_Req req)
         {
-            return null;
+            throw new NotImplementedException();
         }
     }
 

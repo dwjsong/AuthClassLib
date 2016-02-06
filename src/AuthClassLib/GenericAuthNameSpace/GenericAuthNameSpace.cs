@@ -125,7 +125,7 @@
         public string UserID;
     }
 
-    public abstract class ValidateTicket_Req : CST_MSG
+    public abstract class AuthTicket_Req : CST_MSG
     {
         public abstract Ticket ticket
         {
@@ -149,7 +149,7 @@
         }
     }
 
-    public abstract class ValidateTicket_Resp : CST_MSG
+    public abstract class AuthTicket_Resp : CST_MSG
     {
         public abstract string Realm
         {
@@ -225,13 +225,13 @@
 
     /***********************************************************/
     /*         AS stands for Authority Server                  */
-    /*         AS is both IdP and Authorizastion Server        */
+    /*         AS is both IdP and Authorization Server        */
     /***********************************************************/
 
     public abstract class AS                   
     {
-        public IdPAuthRecords_Base IdpAuthRecs;
-        public ASAuthTicketRecords_Base ASAuthRecs;
+        public IdPAuthRecords_Base IdentityRecords;
+        public ASAuthTicketRecords_Base TicketRecords;
 
         public virtual SignInIdP_Resp_SignInRP_Req SignInIdP(SignInIdP_Req req)
         {
@@ -239,14 +239,14 @@
 
             if (req == null) return null;
             ID_Claim _ID_Claim = Process_SignInIdP_req(req);
-            if (IdpAuthRecs.setEntry(req.IdPSessionSecret, req.Realm, _ID_Claim) == false)
+            if (IdentityRecords.setEntry(req.IdPSessionSecret, req.Realm, _ID_Claim) == false)
                 return null;
             return Redir(_ID_Claim.Redir_dest, _ID_Claim);
         }
             
         public abstract ID_Claim Process_SignInIdP_req(SignInIdP_Req req);
         public abstract SignInIdP_Resp_SignInRP_Req Redir(string dest, ID_Claim _ID_Claim);
-        public abstract ValidateTicket_Resp ValidateTicket(ValidateTicket_Req req);
+        public abstract AuthTicket_Resp ValidateTicket(AuthTicket_Req req);
 
     }
 
@@ -303,7 +303,7 @@
     public class GlobalObjects_base
     {
         static public SignInIdP_Req SignInIdP_Req;
-        static public ValidateTicket_Req ValidateTicket_Req;
+        static public AuthTicket_Req AuthTicket_Req;
         static public AS AS;
         static public RP RP;
         static public RS RS;
@@ -311,7 +311,7 @@
         static public void BadPersonCannotSignInAsGoodPerson(RP.AuthenticationConclusion conclusion)
         {
             ID_Claim ID_claim;
-            ID_claim = AS.IdpAuthRecs.getEntry(
+            ID_claim = AS.IdentityRecords.getEntry(
                                  SignInIdP_Req.IdPSessionSecret,
                                  RP.Realm);
             Contract.Assert(ID_claim.Redir_dest == RP.Domain && ID_claim.UserID == conclusion.SessionUID);
@@ -321,10 +321,10 @@
         {
             Permission_Claim _Permission_Claim;
 
-            _Permission_Claim = AS.ASAuthRecs.getEntry(ValidateTicket_Req.ticket, RS.Realm, ValidateTicket_Req.UserID);
+            _Permission_Claim = AS.TicketRecords.getEntry(AuthTicket_Req.ticket, RS.Realm, AuthTicket_Req.UserID);
             Contract.Assert(_Permission_Claim.permissions == conclusion.permissions &&
                             _Permission_Claim.Realm == RS.Realm &&
-                            _Permission_Claim.UserID == ValidateTicket_Req.UserID);
+                            _Permission_Claim.UserID == conclusion.UserID);
         }
 
 
